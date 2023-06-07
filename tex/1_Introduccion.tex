@@ -1,3 +1,55 @@
 \capitulo{1}{Introducción}
 
-Descripción del contenido del trabajo y del estructura de la memoria y del resto de materiales entregados.
+\section{Las redes y la teoría de grafos}
+
+Las redes, como estructuras que representan interconexiones entre entidades, son objeto de estudio de la teoría de grafos. Estas redes se componen de nodos o vértices conectados por enlaces o aristas. La teoría de grafos, por su parte, se encarga de analizar matemáticamente estas redes y proporcionar herramientas para comprender sus propiedades y comportamientos.
+
+Los grafos son modelos abstractos que representan las relaciones y conexiones entre entidades mediante nodos y aristas. Estos modelos tienen aplicaciones en diversos campos, como la informática, la física, la biología y las ciencias sociales. Se utilizan para comprender fenómenos complejos, analizar la propagación de información, estudiar interacciones sociales y examinar las redes de transporte, entre otros aspectos.
+
+En el campo de la teoría de grafos, destacan importantes autores que han contribuido significativamente a su desarrollo. Leonhard Euler es considerado el fundador de la teoría de grafos, gracias a su trabajo sobre el problema de los puentes de Königsberg en el siglo XVIII. Otros destacados autores incluyen a Paul Erdős, quien realizó contribuciones fundamentales a la teoría de grafos combinatorios, y Claude Shannon, quien aplicó la teoría de grafos en la teoría de la información. Estos investigadores han sentado las bases para el estudio y aplicación de la teoría de grafos en diversas disciplinas.
+
+\section{Los repositorios de paquetes de software}
+
+En el ámbito del desarrollo de software, los repositorios de paquetes desempeñan un papel fundamental al ofrecer un entorno centralizado donde los desarrolladores pueden acceder, compartir y distribuir bibliotecas de código predefinidas. Estos repositorios están específicamente diseñados para diferentes plataformas y lenguajes de programación, proporcionando a los desarrolladores un acceso conveniente a una amplia gama de recursos.
+
+A lo largo de los años, han surgido numerosos repositorios de paquetes de software para diversas plataformas y lenguajes. Por ejemplo, en el ámbito de la bioinformática, Bioconductor destaca como un repositorio importante que se centra en paquetes y herramientas para el análisis de datos genómicos. En el ecosistema de Python, PyPI (Python Package Index) es un repositorio central que alberga una gran cantidad de paquetes para una amplia variedad de aplicaciones y bibliotecas.
+
+En el panorama actual, los repositorios de paquetes de software siguen siendo vitales para la comunidad de desarrollo. Proporcionan a los desarrolladores un acceso rápido y sencillo a una amplia gama de funcionalidades y bibliotecas de código predefinidas, lo que les permite acelerar el desarrollo de aplicaciones y proyectos. Además, estos repositorios fomentan la colaboración y el intercambio de código entre los desarrolladores, promoviendo un ecosistema de desarrollo más dinámico y eficiente.
+
+\section{Los gestores de paquetes de software}
+
+Los gestores de paquetes de software nos proporcionan herramientas y funcionalidades para gestionar la instalación, actualización y eliminación de bibliotecas y dependencias de un proyecto. Estos gestores se encuentran diseñados específicamente para diferentes plataformas y lenguajes de programación, brindando a los desarrolladores una forma eficiente de administrar y distribuir el código.
+
+Entre los gestores de paquetes más populares, se destaca pip en el ecosistema de Python, que permite instalar y administrar fácilmente las bibliotecas necesarias para un proyecto Python. Por otro lado, mvn (Maven) es ampliamente utilizado en el mundo de Java para gestionar las dependencias y configuraciones de proyectos. Cada gestor de paquetes cuenta con su propia sintaxis y funcionalidades específicas, pero todos comparten el objetivo común de simplificar la gestión de bibliotecas y asegurar la resolución de dependencias.
+
+En el panorama actual, los gestores de paquetes de software continúan desempeñando un papel crucial en el desarrollo de software. Proporcionan a los desarrolladores una forma conveniente y eficiente de administrar las bibliotecas y dependencias necesarias para sus proyectos, lo que les permite centrarse en la implementación de funcionalidades sin preocuparse por la instalación manual y la gestión de las dependencias.
+
+Además, estos gestores mejoran la reutilización de código de la comunidad y la colaboración, ya que permiten compartir y distribuir fácilmente bibliotecas y proyectos entre desarrolladores. También facilitan la actualización y el mantenimiento de las dependencias, asegurando que los proyectos estén siempre actualizados y protegidos contra vulnerabilidades conocidas.
+
+\section{Las redes de dependencias de paquetes de software}
+
+Una red de dependencias de paquetes software es un conjunto de conexiones entre diferentes paquetes o bibliotecas utilizadas en el desarrollo de software. Cada paquete depende de otros para funcionar correctamente, formando una red interdependiente.
+
+En este contexto, cada paquete tiene requisitos específicos que deben cumplirse para que funcione correctamente. Estos requisitos son satisfechos por otros paquetes, creando conexiones que permiten que el software se comporte como se espera. Si alguna de estas conexiones se rompe o no se cumple, puede producirse un fallo en el funcionamiento del software.
+
+La red de dependencias puede ser muy compleja, ya que un solo paquete puede depender de múltiples otros paquetes, y estos, a su vez, pueden tener sus propias dependencias. Es como un tejido intrincado en el que cada hilo está conectado con otros, formando una red interconectada.
+
+\section{Los repositorios de paquetes de software desde la perspectiva de la teoría de grafos}
+
+Al estudiar las dependencias de paquetes como grafos, obtenemos una visión más clara de las complejas relaciones que existen en nuestros proyectos. Podemos identificar los paquetes esenciales que sostienen todo el sistema y comprender cómo un cambio en uno de ellos puede afectar a otros. Esto nos ayuda a tomar decisiones informadas y anticiparnos a posibles problemas.
+
+Además, la teoría de grafos nos permite detectar dependencias redundantes o ciclos indeseados en nuestra red de paquetes. Podemos evaluar la estabilidad y mantenibilidad del proyecto, analizando el impacto de agregar o eliminar un paquete en toda la red. Esta comprensión más profunda nos ayuda a optimizar y fortalecer nuestro código.
+
+Afortunadamente existen herramientas y bibliotecas que nos proporcionan esta informacion de las redes. Con ellas, y usando el enfoque de la teoria de grafos, podemos ver de una forma más clara cómo se entrelazan los paquetes entre sí y cómo se relacionan con el resto de la red.
+
+La aplicación de la teoría de grafos a las redes de dependencias de paquetes software nos permite tomar decisiones más informadas, comprender mejor las implicaciones de las dependencias y colaborar de manera más efectiva con nuestro equipo de desarrollo. Es una forma poderosa de optimizar y mejorar nuestros proyectos y mantener un ecosistema saludable en los gestores de paquetes.
+
+\section{OLIVIA: Open-source Library Indexes Vulnerability Identification and Analysis}
+
+OLIVIA, desarrollada por el alumno Daniel Setó Rey como parte de su Trabajo de Fin de Grado en la Universidad de Burgos y tutorizada por los profesores Carlos López Nozal y Jose Ignacio Santos Martín en 2021, es una herramienta de código abierto que se centra en la identificación y análisis de defectos en bibliotecas de software desde la perspectiva de la teoría de grafos. Estos defectos pueden provocar errores funcionales, problemas de rendimiento e incluso problemas de seguridad. Para los desarrolladores, comprender completamente el riesgo es complicado, ya que solo importan explícitamente una pequeña parte de las dependencias utilizadas en sus proyectos.
+
+OLIVIA utiliza un enfoque basado en la vulnerabilidad de la red de dependencias de los paquetes de software para medir la sensibilidad del repositorio a la introducción aleatoria de defectos. Su objetivo es contribuir a la comprensión de los mecanismos de propagación de defectos en el software y estudiar estrategias factibles de protección.
+
+En la actualidad, OLIVIA está en proceso de ser publicado a nivel académico. Después de su desarrollo como proyecto de fin de carrera, se están realizando los esfuerzos necesarios para compartir sus resultados y contribuciones con la comunidad científica. Esta publicación permitirá que otros investigadores y profesionales del campo accedan a esta herramienta y se beneficien de su enfoque innovador en la identificación y análisis de vulnerabilidades en las bibliotecas de software. Además, sentará las bases para futuros avances en la comprensión de los mecanismos de propagación de defectos y la implementación de estrategias efectivas de protección en el desarrollo de software.
+
+En este trabajo de fin de grado, no se profundiza en el modelo matemático subyacente de OLIVIA. Sin embargo, es importante tener conocimientos básicos de la teoría de grafos para comprender su funcionalidad. La teoría de grafos proporciona un marco conceptual para comprender las interconexiones y relaciones entre los paquetes de software, así como la propagación de posibles defectos en el ecosistema. Aunque no se abordan los aspectos matemáticos en detalle, tener una comprensión general de los grafos nos ayuda a apreciar y comprender mejor la utilidad y las implicaciones de OLIVIA en la identificación y análisis de vulnerabilidades en las bibliotecas de software.
