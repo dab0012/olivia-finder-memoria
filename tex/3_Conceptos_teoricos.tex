@@ -1,83 +1,121 @@
 \capitulo{3}{Conceptos teóricos}
 
-En aquellos proyectos que necesiten para su comprensión y desarrollo de unos conceptos teóricos de una determinada materia o de un determinado dominio de conocimiento, debe existir un apartado que sintetice dichos conceptos.
+\section{Las redes y la teoría de grafos}
 
-Algunos conceptos teóricos de \LaTeX{} \footnote{Créditos a los proyectos de Álvaro López Cantero: Configurador de Presupuestos y Roberto Izquierdo Amo: PLQuiz}.
+Las redes, como estructuras que representan interconexiones entre entidades, son objeto de estudio de la teoría de grafos. Estas redes se componen de nodos o vértices conectados por enlaces o aristas. La teoría de grafos, por su parte, se encarga de analizar matemáticamente estas redes y proporcionar herramientas para comprender sus propiedades y comportamientos.
 
-\section{Secciones}
+Los grafos son modelos abstractos que representan las relaciones y conexiones entre entidades mediante nodos y aristas. Estos modelos tienen aplicaciones en diversos campos, como la informática, la física, la biología y las ciencias sociales. Se utilizan para comprender fenómenos complejos, analizar la propagación de información, estudiar interacciones sociales y examinar las redes de transporte, entre otros aspectos.
 
-Las secciones se incluyen con el comando section.
+En el campo de la teoría de grafos, destacan importantes autores que han contribuido significativamente a su desarrollo. Leonhard Euler es considerado el fundador de la teoría de grafos, gracias a su trabajo sobre el problema de los puentes de Königsberg en el siglo XVIII. Otros destacados autores incluyen a Paul Erdős, quien realizó contribuciones fundamentales a la teoría de grafos combinatorios, y Claude Shannon, quien aplicó la teoría de grafos en la teoría de la información. Estos investigadores han sentado las bases para el estudio y aplicación de la teoría de grafos en diversas disciplinas.
 
-\subsection{Subsecciones}
+\section{Los repositorios de paquetes de software}
 
-Además de secciones tenemos subsecciones.
+En el ámbito del desarrollo de software, los repositorios de paquetes desempeñan un papel fundamental al ofrecer un entorno centralizado donde los desarrolladores pueden acceder, compartir y distribuir bibliotecas de código predefinidas. Estos repositorios están específicamente diseñados para diferentes plataformas y lenguajes de programación, proporcionando a los desarrolladores un acceso conveniente a una amplia gama de recursos.
 
-\subsubsection{Subsubsecciones}
+A lo largo de los años, han surgido numerosos repositorios de paquetes de software para diversas plataformas y lenguajes. Por ejemplo, en el ámbito de la bioinformática, Bioconductor destaca como un repositorio importante que se centra en paquetes y herramientas para el análisis de datos genómicos. En el ecosistema de Python, PyPI (Python Package Index) es un repositorio central que alberga una gran cantidad de paquetes para una amplia variedad de aplicaciones y bibliotecas.
 
-Y subsecciones. 
+En el panorama actual, los repositorios de paquetes de software siguen siendo vitales para la comunidad de desarrollo. Proporcionan a los desarrolladores un acceso rápido y sencillo a una amplia gama de funcionalidades y bibliotecas de código predefinidas, lo que les permite acelerar el desarrollo de aplicaciones y proyectos. Además, estos repositorios fomentan la colaboración y el intercambio de código entre los desarrolladores, promoviendo un ecosistema de desarrollo más dinámico y eficiente.
 
+\section{Los gestores de paquetes de software}
 
-\section{Referencias}
+Los gestores de paquetes de software nos proporcionan herramientas y funcionalidades para gestionar la instalación, actualización y eliminación de bibliotecas y dependencias de un proyecto. Estos gestores se encuentran diseñados específicamente para diferentes plataformas y lenguajes de programación, brindando a los desarrolladores una forma eficiente de administrar y distribuir el código.
 
-Las referencias se incluyen en el texto usando cite~\cite{wiki:latex}. Para citar webs, artículos o libros~\cite{koza92}, si se desean citar más de uno en el mismo lugar~\cite{bortolot2005, koza92}.
+Entre los gestores de paquetes más populares, se destaca pip en el ecosistema de Python, que permite instalar y administrar fácilmente las bibliotecas necesarias para un proyecto Python. Por otro lado, mvn (Maven) es ampliamente utilizado en el mundo de Java para gestionar las dependencias y configuraciones de proyectos. Cada gestor de paquetes cuenta con su propia sintaxis y funcionalidades específicas, pero todos comparten el objetivo común de simplificar la gestión de bibliotecas y asegurar la resolución de dependencias.
 
+En el panorama actual, los gestores de paquetes de software continúan desempeñando un papel crucial en el desarrollo de software. Proporcionan a los desarrolladores una forma conveniente y eficiente de administrar las bibliotecas y dependencias necesarias para sus proyectos, lo que les permite centrarse en la implementación de funcionalidades sin preocuparse por la instalación manual y la gestión de las dependencias.
 
-\section{Imágenes}
+Además, estos gestores mejoran la reutilización de código de la comunidad y la colaboración, ya que permiten compartir y distribuir fácilmente bibliotecas y proyectos entre desarrolladores. También facilitan la actualización y el mantenimiento de las dependencias, asegurando que los proyectos estén siempre actualizados y protegidos contra vulnerabilidades conocidas.
 
-Se pueden incluir imágenes con los comandos standard de \LaTeX, pero esta plantilla dispone de comandos propios como por ejemplo el siguiente:
+\section{Redes de dependencias de paquetes de software}
 
-\imagen{escudoInfor}{Autómata para una expresión vacía}{.5}
+Una red de dependencias de paquetes de software consiste en un grafo en el que se representan las relaciones de dependencias entre paquetes de software. En una red de dependencias, cada nodo representa un paquete de software, y cada enlace representa una relacion de dependencia entre dos paquetes. Existe una dependencia entre dos paquetes si un paquete requiere del otro para funcionar.
 
+\subsection{Importancia de las redes de dependencias de paquetes de software}
+En primer lugar, estas redes se pueden utilizar para identificar posibles problemas en proyectos de software, ya que cuando se actualiza un paquete, puede introducir cambios incompatibles que afecten a otros paquetes en la red.
 
+Desde un punto de vista de control de calidad, las redes de dependencias de paquetes de software se pueden utilizar para mejorar la calidad de los proyectos de software. Por ejemplo, al analizar las dependencias entre paquetes, los desarrolladores pueden identificar áreas potenciales de mejora. Por ejemplo, pueden identificar paquetes que ya no son necesarios o que están causando problemas.
 
-\section{Listas de items}
+Además cabe destacar que se pueden utilizar para hacer que los proyectos de software sean más seguros, ya que, al analizar las dependencias entre paquetes, se pueden identificar posibles vulnerabilidades de seguridad o que son utilizados con frecuencia con fines maliciosos.
 
-Existen tres posibilidades:
+Por último, permiten gestionar eficientemente las actualizaciones de software. Al comprender cómo los cambios en un paquete pueden afectar a otros, los equipos de desarrollo pueden evaluar el impacto potencial de las actualizaciones y tomar decisiones informadas sobre cuándo y cómo implementarlas.
 
-\begin{itemize}
-	\item primer item.
-	\item segundo item.
-\end{itemize}
+\subsection{Necesidades de las redes de dependencias de paquetes de software}
 
-\begin{enumerate}
-	\item primer item.
-	\item segundo item.
-\end{enumerate}
+\subsubsection{Recopilacion de datos}
 
-\begin{description}
-	\item[Primer item] más información sobre el primer item.
-	\item[Segundo item] más información sobre el segundo item.
-\end{description}
-	
-\begin{itemize}
-\item 
-\end{itemize}
+La recopilación de datos sobre las dependencias de los paquetes de software es un desafío complejo que puede resultar difícil de abordar. 
+Uno de los principales problemas radica en la falta de una única fuente confiable de información sobre estas dependencias. En muchos casos, no existe un repositorio centralizado o una base de datos completa que contenga todos los detalles necesarios.
 
-\section{Tablas}
+Debido a esta falta de una fuente única, recopilar datos sobre las dependencias de los paquetes de software a menudo requiere un esfuerzo manual y exhaustivo. Los desarrolladores y analistas deben investigar y rastrear las dependencias de cada paquete individualmente, lo que puede llevar una cantidad considerable de tiempo y recursos.
+Además, la información sobre las dependencias de los paquetes de software puede dispersarse en diferentes fuentes, como documentación oficial, repositorios de código, foros de desarrolladores y otras fuentes en línea. Esta dispersión puede dificultar aún más la recopilación de datos y aumentar la posibilidad de omitir o malinterpretar información relevante.
 
-Igualmente se pueden usar los comandos específicos de \LaTeX o bien usar alguno de los comandos de la plantilla.
+Otro desafío asociado con la recopilación de datos es mantener la información actualizada. Las dependencias de los paquetes de software pueden cambiar con el tiempo debido a actualizaciones, nuevas versiones o cambios en los requisitos del sistema. Por lo tanto, es crucial realizar un seguimiento constante de los cambios y actualizar la información de las dependencias de manera regular para garantizar la precisión de los datos recopilados.
+Para abordar estos desafíos, se han desarrollado herramientas y técnicas específicas. Algunas soluciones automatizadas, como analizadores de dependencias y herramientas de gestión de paquetes, pueden ayudar a simplificar el proceso de recopilación de datos al extraer automáticamente información sobre las dependencias de los paquetes de software. Sin embargo, incluso con estas herramientas, es posible que se requiera intervención manual para verificar y corregir posibles discrepancias o lagunas en los datos recopilados
 
-\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
-{ \multicolumn{1}{l}{Herramientas} & App AngularJS & API REST & BD & Memoria \\}{ 
-HTML5 & X & & &\\
-CSS3 & X & & &\\
-BOOTSTRAP & X & & &\\
-JavaScript & X & & &\\
-AngularJS & X & & &\\
-Bower & X & & &\\
-PHP & & X & &\\
-Karma + Jasmine & X & & &\\
-Slim framework & & X & &\\
-Idiorm & & X & &\\
-Composer & & X & &\\
-JSON & X & X & &\\
-PhpStorm & X & X & &\\
-MySQL & & & X &\\
-PhpMyAdmin & & & X &\\
-Git + BitBucket & X & X & X & X\\
-Mik\TeX{} & & & & X\\
-\TeX{}Maker & & & & X\\
-Astah & & & & X\\
-Balsamiq Mockups & X & & &\\
-VersionOne & X & X & X & X\\
-} 
+\subsubsection{Análisis de datos}
+
+El análisis de las redes de dependencias de paquetes de software es un proceso complejo debido a la naturaleza de estas redes, que pueden ser enormes y altamente interconectadas. Estas redes pueden contener miles o incluso millones de nodos y conexiones, lo que hace que el análisis manual sea prácticamente imposible. Por lo tanto, se requieren herramientas especializadas y experiencia en análisis de datos para abordar este desafío.
+
+Una de las principales dificultades del análisis de datos en las redes de dependencias de paquetes de software es ser capaz de poder trabajar con la masividad de estas y poder visualizar como son. Dado que las redes pueden ser muy grandes, es esencial utilizar herramientas de visualización que permitan comprender la estructura y las interconexiones de manera más sencilla. Estas herramientas ayudan a identificar patrones, clusters y dependencias importantes dentro de la red.
+
+Además, la complejidad de las redes de dependencias también implica la necesidad de algoritmos y técnicas de análisis avanzados. Estos algoritmos pueden abordar desafíos como la detección de comunidades de paquetes, la identificación de paquetes críticos o de alto impacto, la detección de ciclos o bucles de dependencia y la identificación de flujos de información crítica.
+
+Si nos enfocamos en el punto de vista de calidad y robustez de la red, es necesario medir la estabilidad de las dependencias y evaluar los posibles puntos de falla o vulnerabilidades en la red. Estas métricas nos permiten identificar posibles puntos débiles en la infraestructura de software.
+
+\subsubsection{Actualizaciones y volatilidad}
+
+Las actualizaciones del código fuente son una parte crucial y muy frecuente, ya que proporcionan mejoras, correcciones de errores y nuevas funcionalidades. Sin embargo, estas actualizaciones también pueden tener un impacto significativo en las dependencias entre paquetes de software.
+
+Cuando se realiza una actualización en un paquete de software, es posible que se modifiquen los requisitos o las dependencias del mismo. Por ejemplo, una actualización puede introducir una nueva versión de una biblioteca o un componente, lo que podría requerir que otros paquetes también se actualicen para mantener la compatibilidad. Esto puede afectar a las conexiones existentes en la red de dependencias de paquetes de software.
+
+Es fundamental que las redes de dependencias se actualicen regularmente para reflejar estos cambios. Esto implica realizar un seguimiento de las actualizaciones de cada paquete y revisar que todo funcione como se espera. Sería conveniente y una buena práctica para los mantenedores de la red, que esta esté alineada con las versiones y requisitos actualizados de los paquetes individuales.
+
+Como consecuencia de  mantener las redes actualizadas, se asegura que los desarrolladores tengan una visión más cercana a la evolución tecnológica del software lo que facilita la toma de decisiones informadas sobre futuras actualizaciones y mejoras en un determinado proyecto.
+
+\section{Analisis de redes de dependencias de paquetes de software}
+
+El análisis de redes es una disciplina que se enfoca en el estudio y comprensión de la estructura, interconexiones y propiedades de los sistemas complejos representados como redes. Estas redes pueden ser cualquier tipo de sistema compuesto por elementos interconectados (como redes sociales, carreteras, red eléctrica, o como en nuestro caso redes de dependencias de paquetes de software)
+
+En el contexto de las redes de dependencias de paquetes de software, realizamos este análisis por medio de métricas. Las métricas son medidas cuantitativas que se utilizan para evaluar y describir diferentes aspectos de la red. Estas métricas proporcionan información clave sobre la importancia, la centralidad y las características de los nodos y las conexiones en la red.
+
+Algunas de las métricas comunes en el análisis de redes de dependencias de paquetes de software incluyen el grado, que indica el número de conexiones que tiene un nodo. La centralidad de intermediación, que mide cuánto un nodo se encuentra en los caminos más cortos entre otros nodos. La centralidad de cercanía, que evalúa la distancia promedio entre un nodo y los demás nodos de la red. La centralidad de vector propio, que mide la importancia de un nodo basándose en la importancia de sus vecinos.
+
+\subsection{El grado}
+
+El grado de un nodo en una red es el número de aristas conectadas a ese nodo. 
+En una red de dependencias de paquetes de software, el grado de un nodo representa el número de paquetes que dependen de ese paquete junto con las dependencias de este.
+En redes dirigidas se hace diferencia entre grado de entrada y grado de salida.
+
+Un alto grado en la red de dependencias de paquetes de software revela el nivel de emparejamiento que posee un determinado paquete. Esta circunstancia puede tener consecuencias tanto positivas como negativas.
+Podría considerarse un indicio alentador cuando el paquete en cuestión ha sido rigurosamente probado y goza de una reputación fiable en términos de su desempeño. No obstante, también es importante reconocer que un alto grado puede encerrar ciertos riesgos, especialmente si el paquete se caracteriza por su complejidad o la presencia de errores.
+
+La presencia de un alto grado de entrada en un paquete sugiere que una gran cantidad de otros paquetes dependen de él. Esta situación puede interpretarse como un signo de popularidad y amplio uso en el entorno del software. Cuando un paquete ha demostrado ser confiable, está bien mantenido y ha sido sometido a pruebas exhaustivas, su alto grado se convierte en una señal de que ha ganado la confianza de los desarrolladores y es considerado una opción sólida para satisfacer diversas necesidades funcionales.
+
+Sin embargo, se debe considerar el riesgo potencial asociado a un alto grado de salida. Existe la posibilidad de que un alto grado de salida indique complejidad o presencia de errores en el paquete. Si un paquete es altamente complejo, es probable que su comprensión y mantenimiento sean una tarea dificil, lo que podría derivar en problemas de rendimiento, escalabilidad o incluso fallos en el sistema. Asimismo, si un paquete presenta errores o fallas, su alta dependencia implica que los problemas pueden propagarse rápidamente a otros paquetes, lo que afecta negativamente la estabilidad y confiabilidad del sistema en su conjunto.
+
+Por lo tanto, resulta crucial considerar tanto el grado de un paquete como su calidad y confiabilidad. Un alto grado por sí solo no garantiza la calidad o idoneidad de un paquete, sino que debe evaluarse en conjunto con otros factores, como la presencia de test de funcionalidades, validación y pruebas, la existencia de documentación, el mantenimiento por parte de los desarrolladores y el feedback de la comunidad de desarrollo. 
+
+\subsection{Centralidad de intermediación (Betweenness centrality)}
+
+La centralidad de intermediación mide la importancia de un nodo en una red según la frecuencia con la que se encuentra en el camino más corto entre otros dos nodos. En una red de dependencias de paquetes de software, la centralidad de intermediación se puede utilizar para identificar paquetes que son críticos para el funcionamiento general del sistema.
+
+Esto implica que paquetes con alta centralidad de intermediación son puntos clave intermedios entre los paquetes de ese sistema. Identificar estos paquetes críticos puede ayudar a los desarrolladores a entender dónde se encuentran potenciales problemas intermedios o cuellos de botella y dónde pueden surgir problemas si esos paquetes fallan o se ven afectados.
+
+Es por eso que debemos ser proactivos y estar alerta cuando se trata de este paquete con alta centralidad de intermediación. Es necesario establecer medidas de seguridad sólidas para protegerlo y garantizar su integridad. Esto implica llevar a cabo una supervisión constante, identificar posibles vulnerabilidades y aplicar actualizaciones y parches de seguridad de manera oportuna si fuese necesario para garantizar la calidad de la red.
+
+\subsection{Centralidad de cercanía (Closeness centrality)}
+
+La centralidad de cercanía mide la distancia media entre un nodo y todos los demás nodos de la red. En nuestro caso de estudio, la centralidad de cercanía se puede utilizar para identificar paquetes que son fácilmente accesibles desde otros paquetes.
+
+Los paquetes con alta centralidad de cercanía son aquellos que están cerca de muchos otros paquetes en términos de distancia. Esto significa que son habitualmente usados por otros paquetes y pueden tener un impacto significativo en la propagación de información o cambios a través de la red de dependencias. Identificar estos paquetes puede ayudar a los desarrolladores a comprender dónde se encuentran los puntos clave de nexo común entre otros paquetes y cómo se propagan las dependencias en el sistema.
+
+Como consecuencia, un paquete con alta cercanía debería de estar bien testado y documentado, ya que es fácilmente posible que sea dependencia en un proyecto software.
+
+\subsection{Centralidad de vector propio (Eigenvector centrality)}
+
+La centralidad de vector propio mide la importancia de un nodo en una red según la importancia de sus vecinos. En una red de dependencias de paquetes de software, la centralidad de vector propio se puede utilizar para identificar paquetes influyentes en la red.
+
+Los paquetes con alta centralidad de vector propio son aquellos que están conectados a otros paquetes importantes en la red. Esto significa que su importancia se deriva de su conexión con otros paquetes influyentes. Identificar estos paquetes puede ayudar a los desarrolladores a comprender qué paquetes tienen un impacto significativo en la estructura y el funcionamiento de la red y que los cambios que se produzcan en estos paquetes pueden afectar a otros paquetes en la red.
+
+Existen variaciones de esta métrica, como la métrica de Katz calcula la importancia de un nodo teniendo en cuenta tanto la cantidad como la calidad de sus conexiones. Se basa en la idea de que un nodo es importante si está conectado con otros nodos importantes. Por lo tanto, asigna puntuaciones más altas a los nodos que tienen conexiones con otros nodos de alta importancia.
+Por otro lado, el algoritmo de PageRank se utiliza para evaluar la relevancia de un nodo en función de la estructura de enlaces en la red. PageRank asigna puntuaciones a los nodos según la probabilidad de que un navegante aleatorio termine en ese nodo al seguir los enlaces de la red. En otras palabras, un nodo obtendrá una puntuación más alta si es enlazado por nodos importantes y relevantes en la red.

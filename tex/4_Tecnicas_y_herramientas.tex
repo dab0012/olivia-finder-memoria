@@ -1,6 +1,89 @@
 \capitulo{4}{Técnicas y herramientas}
 
-Esta parte de la memoria tiene como objetivo presentar las técnicas metodológicas y las herramientas de desarrollo que se han utilizado para llevar a cabo el proyecto. Si se han estudiado diferentes alternativas de metodologías, herramientas, bibliotecas se puede hacer un resumen de los aspectos más destacados de cada alternativa, incluyendo comparativas entre las distintas opciones y una justificación de las elecciones realizadas. 
-No se pretende que este apartado se convierta en un capítulo de un libro dedicado a cada una de las alternativas, sino comentar los aspectos más destacados de cada opción, con un repaso somero a los fundamentos esenciales y referencias bibliográficas para que el lector pueda ampliar su conocimiento sobre el tema.
+\section{Ánalisis de los datos disponibles}
+
+Para llevar a cabo el análisis de las redes de dependencias de paquetes de software, contamos con los valiosos datos proporcionados por libraries.io en formato CSV. 
+Libraries.io nos ofrece una amplia gama de conjuntos de datos que contienen listas de enlaces, a partir de los cuales podemos extraer la red de dependencias de los principales repositorios de paquetes de software. Estos conjuntos de datos incluyen una diversidad de repositorios populares, entre los que se encuentran:
+
+NPM con 3.88 millones de paquetes, Maven con 551 mil paquetes, Go con 458 mil paquetes, PyPI con 453 mil paquetes, etc...
+
+Sin embargo, es importante destacar que estos datos no se encuentran actualizados a la fecha actual debido a la alta volatilidad de los cambios en los proyectos de software. Por lo tanto, los análisis que realicemos con estos datos no reflejarán la situación actual y actualizada de la red de dependencias.
+
+No obstante, contamos con la ventaja de tener un conjunto de datos que abarca un gran número de repositorios y, además, incluye un histórico de las dependencias de los paquetes para sus distintas versiones. Esto nos permite realizar análisis retrospectivos y estudiar la evolución de las dependencias a lo largo del tiempo.
+
+Para aprovechar al máximo este conjunto de datos, es importante tener en cuenta la temporalidad de la información y considerar su contexto histórico al realizar análisis y conclusiones. Esto nos permitirá comprender mejor la dinámica de las redes de dependencias y sus cambios a lo largo del tiempo.
+
+Como conclusión final, es evidente la necesidad de obtener un nuevo conjunto de datos que nos permita realizar un estudio más preciso y actualizado de las relaciones de paquetes en los repositorios ya que por la rapidez con la que evoluciona el ecosistema del software y la constante introducción de nuevas versiones y cambios en los paquetes, es crucial contar con información que refleje de manera precisa el panorama actual de las dependencias entre los paquetes. 
+Obtener un nuevo conjunto de datos actualizados nos brindará una visión más completa y confiable, lo que contribuirá a un análisis más sólido y a la toma de decisiones más informadas.
 
 
+\section{Exploracion de los repositorios}
+
+La exploración de los repositorios de paquetes es un paso fundamental en el estudio que nos conlleva. Los principales puntos de interés que encontramos dentro de esta temática son los siguientes:
+
+\textbf{Diversidad de repositorios:}
+
+Existen numerosos repositorios de paquetes, cada uno especializado en un lenguaje de programación o plataforma específica. Es importante conocer la variedad de repositorios relevantes para nuestra área de interés, como npm para JavaScript, PyPI para Python o Maven para Java. Cada repositorio tiene su propia comunidad, conjunto de reglas y mejores prácticas.
+
+\textbf{Estructura y metadatos de los paquetes:}
+
+Cada paquete de software en un repositorio está acompañado de metadatos que proporcionan información importante. Esto incluye el nombre del paquete, versión, descripción, autor, licencia, dependencias y más. Estos son los datos relevantes para nuestra investigación y en lo que se centrara la extraccion
+
+\textbf{Popularidad y reputación:}
+
+Algunos repositorios proporcionan métricas de popularidad, como el número de descargas o el número de estrellas en GitHub. Además, es útil tener en cuenta la reputación de los paquetes, basada en la retroalimentación de la comunidad y las revisiones de otros usuarios.
+
+\textbf{Versionado y mantenimiento:}
+
+Los repositorios de paquetes suelen manejar diferentes versiones de un paquete, cada una con sus propias mejoras, correcciones de errores y posibles cambios en las dependencias.
+
+\textbf{Documentación y ejemplos:}
+
+La documentación oficial, tutoriales y ejemplos de uso nos ayudará a entender cómo utilizar el paquete de manera efectiva, qué funcionalidades ofrece y qué limitaciones pueden existir.
+
+\textbf{Comunidad y soporte:}
+
+Suele ser común que la comunidad que rodea a un repositorio nos sirva de ayuda para conectarnos con otros desarrolladores, obtener ayuda sobre cuestiones técnicas de los paquetes y participar en debates o discusiones relevantes. 
+
+\textbf{Seguridad y confiabilidad:}
+
+Los repositorios de paquetes también pueden ser susceptibles a problemas de seguridad. Es importante estar informado sobre las políticas de seguridad del repositorio, las prácticas de revisión de código, las actualizaciones de seguridad y la presencia de alertas o vulnerabilidades conocidas en los paquetes.
+Cabe mencionar que los puntos anteriores suelen ser comunes para casi todos los repositorios, aunque todo depende de la naturaleza del mismo, su finalidad y la comunidad de desarrolladores. En los tiempos que corren es raro no encontrar repositorios serios que no implementen estas características
+
+\section{Extracción de datos}
+
+\subsection{Datasets de libraries.io:}
+
+Los datasets proporcionados por libraries.io constituyen una importante fuente de información, ya que contienen una amplia gama de datos sobre los repositorios de paquetes. Estos conjuntos de datos pueden ser adquiridos y utilizados para extraer información relevante, como las dependencias entre los paquetes y sus metadatos asociados. Estos datasets permiten un acceso estructurado a la información y facilitan el análisis de la red de dependencias.
+
+En contra, la exploración de repositorios de paquetes puede presentar desafíos en términos de manejo y visualización de datos debido a su volumen masivo. El almacenamiento y procesamiento de conjuntos de datos grandes pueden requerir recursos computacionales significativos y capacidad de almacenamiento adecuada.
+
+Para abordar este desafío, es común aplicar técnicas de manejo de datos, como la división de archivos en conjuntos más pequeños o el filtrado de datos irrelevantes. Dividir los archivos en partes más manejables permite una mejor organización y acceso eficiente a los datos. Esto facilita la realización de análisis y visualizaciones en secciones más pequeñas del conjunto de datos completo.
+
+
+\subsection{API de libraries.io:}
+Además de los datasets, libraries.io también ofrece una API que permite acceder a los datos de forma programática. La API proporciona métodos para realizar consultas específicas y obtener información en tiempo real sobre los repositorios de paquetes. Esto brinda la posibilidad de realizar extracciones personalizadas, adaptadas a las necesidades del análisis o estudio en curso. La utilización de la API de libraries.io puede facilitar la obtención de datos, aunque no necesariamente actualizados.
+Existen ciertos inconvenientes a tener en cuenta al utilizar la API de libraries.io para la extracción de datos. Estos incluyen:
+
+\textbf{Autenticación:}
+
+Para realizar cualquier solicitud a la API, es necesario incluir la API KEY que se obtiene desde la página de tu cuenta. Lo que implica un registro en el servicio.
+Hay distintas versiones del servicio, siendo gratuita el servicio básico y las caracteristicas extra de pago
+
+\textbf{Límite de velocidad:}
+
+Todas las solicitudes están sujetas a un límite de velocidad (de 60 solicitudes por minuto en la versión gratuita) basado en tu API KEY. Si se realizan más solicitudes dentro de ese período de tiempo, se recibirá una respuesta de error 429. Este límite está diseñado para garantizar un uso equitativo de los recursos y evitar una carga excesiva en los servidores.
+Como consecuencia de esta limitación de velocidad, el uso de la API para la recopilación completa de datos para todos los paquetes del repositorio, si existen numerosos paquetes es una operación inviable temporalmente puesto que la cantidad de tiempo que se necesitaría para obtener estos datos sería considerablemente alto. Por ejemplo, un repositorio como NPM (aproximadamente 2 millones de paquetes) -> ((2000000 / 60) / 60) / 24 = 23.14 días
+
+\textbf{Paginación:}
+
+Algunas solicitudes pueden devolver múltiples resultados, y para manejar estos casos, se puede utilizar la paginación. El valor predeterminado de es 30, pero se puede ajustar hasta un máximo de 100 resultados por página. Esto podría suponer resultados truncados, cosa que no es deseable.
+
+\subsection{Web scraping de las listas de paquetes publicadas en los sitios web de los repositorios}
+
+El web scraping es una técnica ampliamente utilizada para extraer datos directamente de dichos sitios. En nuestro caso, permite recopilar información específica, como nombres de paquetes, descripciones y metadatos asociados, directamente de las páginas web públicas. 
+
+Esta técnica resulta útil cuando no se cuenta con conjuntos de datos completos o actualizados, ya que permite obtener información en tiempo real.
+
+Sin embargo, el web scraping también presenta ciertos inconvenientes, como las políticas de los sitios web que pueden bloquear el acceso repetitivo desde una misma dirección IP. Al consultar la página de datos de cada paquete alojado en el servidor web, se corre el riesgo de ser denegado el servicio. Una forma de evitar este problema es utilizando técnicas como ocultar la dirección IP detrás de un proxy. No obstante, es importante destacar que el web scraping debe realizarse de manera ética y respetando las políticas de los sitios web objetivo.
+Otro desafío a tener en cuenta es la velocidad de obtención de datos. Para acelerar esta tarea, se han empleado técnicas de concurrencia que permiten realizar múltiples solicitudes de forma simultánea y recopilar una mayor cantidad de información en un menor período de tiempo. Esto resulta especialmente beneficioso al tratar con grandes volúmenes de datos en repositorios con numerosos paquetes.
