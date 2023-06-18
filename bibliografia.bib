@@ -1,28 +1,205 @@
-@book{koza92,
-		author    = "Koza, John R.",
-		title     = "Genetic Programming: On the Programming of Computers by Means of Natural Selection",
-		publisher = "MIT Press",
-		year      = "1992"
+@book{sametinger1997software,
+  title     = {Software Engineering with Reusable Components},
+  author    = {Sametinger, J.},
+  isbn      = {9783540626954},
+  lccn      = {97011976},
+  url       = {https://books.google.es/books?id=AxPQvGRs2wUC},
+  year      = {1997},
+  publisher = {Springer Berlin Heidelberg}
+}
+
+@inproceedings{8998991,
+  author    = {Boldi, Paolo},
+  booktitle = {2019 IEEE First International Conference on Cognitive Machine Intelligence (CogMI)},
+  title     = {How Network Analysis Can Improve the Reliability of Modern Software Ecosystems},
+  year      = {2019},
+  volume    = {},
+  number    = {},
+  pages     = {168-172},
+  doi       = {10.1109/CogMI48466.2019.00032}
+}
+
+@inproceedings{10.1145/3106237.3106267,
+  author    = {Abdalkareem, Rabe and Nourry, Olivier and Wehaibi, Sultan and Mujahid, Suhaib and Shihab, Emad},
+  title     = {Why Do Developers Use Trivial Packages? An Empirical Case Study on Npm},
+  year      = {2017},
+  isbn      = {9781450351058},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/3106237.3106267},
+  doi       = {10.1145/3106237.3106267},
+  abstract  = {Code reuse is traditionally seen as good practice. Recent trends have pushed the concept of code reuse to an extreme, by using packages that implement simple and trivial tasks, which we call `trivial packages'. A recent incident where a trivial package led to the breakdown of some of the most popular web applications such as Facebook and Netflix made it imperative to question the growing use of trivial packages. Therefore, in this paper, we mine more than 230,000 npm packages and 38,000 JavaScript applications in order to study the prevalence of trivial packages. We found that trivial packages are common and are increasing in popularity, making up 16.8\% of the studied npm packages. We performed a survey with 88 Node.js developers who use trivial packages to understand the reasons and drawbacks of their use. Our survey revealed that trivial packages are used because they are perceived to be well implemented and tested pieces of code. However, developers are concerned about maintaining and the risks of breakages due to the extra dependencies trivial packages introduce. To objectively verify the survey results, we empirically validate the most cited reason and drawback and find that, contrary to developers' beliefs, only 45.2\% of trivial packages even have tests. However, trivial packages appear to be `deployment tested' and to have similar test, usage and community interest as non-trivial packages. On the other hand, we found that 11.5\% of the studied trivial packages have more than 20 dependencies. Hence, developers should be careful about which trivial packages they decide to use.},
+  booktitle = {Proceedings of the 2017 11th Joint Meeting on Foundations of Software Engineering},
+  pages     = {385–395},
+  numpages  = {11},
+  keywords  = {Empirical Studies, JavaScript, Node.js, Code Reuse},
+  location  = {Paderborn, Germany},
+  series    = {ESEC/FSE 2017}
+}
+
+@inproceedings{10.5555/2820518.2820524,
+  author    = {Abate, Pietro and Di Cosmo, Roberto and Gesbert, Louis and Le Fessant, Fabrice and Treinen, Ralf and Zacchiroli, Stefano},
+  title     = {Mining Component Repositories for Installability Issues},
+  year      = {2015},
+  isbn      = {9780769555942},
+  publisher = {IEEE Press},
+  abstract  = {Component repositories play an increasingly relevant role in software life-cycle management, from software distribution to end-user, to deployment and upgrade management. Software components shipped via such repositories are equipped with rich metadata that describe their relationship (e.g., dependencies and conflicts) with other components.In this practice paper we show how to use a tool, distcheck, that uses component metadata to identify all the components in a repository that cannot be installed (e.g., due to unsatisfiable dependencies), provides detailed information to help developers understanding the cause of the problem, and fix it in the repository.We report about detailed analyses of several repositories: the Debian distribution, the OPAM package collection, and Drupal modules. In each case, distcheck is able to efficiently identify not installable components and provide valuable explanations of the issues. Our experience provides solid ground for generalizing the use of distcheck to other component repositories.},
+  booktitle = {Proceedings of the 12th Working Conference on Mining Software Repositories},
+  pages     = {24–33},
+  numpages  = {10},
+  location  = {Florence, Italy},
+  series    = {MSR '15}
+}
+
+@inproceedings{5316017,
+  author    = {Abate, Pietro and Di Cosmo, Roberto and Boender, Jaap and Zacchiroli, Stefano},
+  booktitle = {2009 3rd International Symposium on Empirical Software Engineering and Measurement},
+  title     = {Strong dependencies between software components},
+  year      = {2009},
+  volume    = {},
+  number    = {},
+  pages     = {89-99},
+  doi       = {10.1109/ESEM.2009.5316017}
+}
+
+  @inproceedings{10.1145/3196398.3196401,
+  author    = {Decan, Alexandre and Mens, Tom and Constantinou, Eleni},
+  title     = {On the Impact of Security Vulnerabilities in the Npm Package Dependency Network},
+  year      = {2018},
+  isbn      = {9781450357166},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/3196398.3196401},
+  doi       = {10.1145/3196398.3196401},
+  abstract  = {Security vulnerabilities are among the most pressing problems in open source software package libraries. It may take a long time to discover and fix vulnerabilities in packages. In addition, vulnerabilities may propagate to dependent packages, making them vulnerable too. This paper presents an empirical study of nearly 400 security reports over a 6-year period in the npm dependency network containing over 610k JavaScript packages. Taking into account the severity of vulnerabilities, we analyse how and when these vulnerabilities are discovered and fixed, and to which extent they affect other packages in the packaging ecosystem in presence of dependency constraints. We report our findings and provide guidelines for package maintainers and tool developers to improve the process of dealing with security issues.},
+  booktitle = {Proceedings of the 15th International Conference on Mining Software Repositories},
+  pages     = {181–191},
+  numpages  = {11},
+  keywords  = {software ecosystem, semantic versioning, software repository mining, security vulnerability, dependency network},
+  location  = {Gothenburg, Sweden},
+  series    = {MSR '18}
+}
+
+@inproceedings{BogartChristopherKastner2015,
+  author = {Bogart, Christopher and Kastner, Christian and Herbsleb, James},
+  year   = {2015},
+  month  = {11},
+  pages  = {86-89},
+  title  = {When It Breaks, It Breaks: How Ecosystem Developers Reason about the Stability of Dependencies},
+  doi    = {10.1109/ASEW.2015.21}
+}
+
+@inproceedings{7962360,
+  author    = {Kikas, Riivo and Gousios, Georgios and Dumas, Marlon and Pfahl, Dietmar},
+  booktitle = {2017 IEEE/ACM 14th International Conference on Mining Software Repositories (MSR)},
+  title     = {Structure and Evolution of Package Dependency Networks},
+  year      = {2017},
+  volume    = {},
+  number    = {},
+  pages     = {102-112},
+  doi       = {10.1109/MSR.2017.55}
+}
+
+@inproceedings{10.1145/2993412.3003382,
+  author    = {Decan, Alexandre and Mens, Tom and Claes, Maelick},
+  title     = {On the Topology of Package Dependency Networks: A Comparison of Three Programming Language Ecosystems},
+  year      = {2016},
+  isbn      = {9781450347815},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/2993412.3003382},
+  doi       = {10.1145/2993412.3003382},
+  abstract  = {Package-based software ecosystems are composed of thousands of interdependent software packages. Many empirical studies have focused on software packages belonging to a single software ecosystem, and suggest to generalise the results to more ecosystems. We claim that such a generalisation is not always possible, because the technical structure of software ecosystems can be very different, even if these ecosystems belong to the same domain. We confirm this claim through a study of three big and popular package-based programming language ecosystems: R's CRAN archive network, Python's PyPI distribution, and JavaScript's NPM package manager. We study and compare the structure of their package dependency graphs and reveal some important differences that may make it difficult to generalise the findings of one ecosystem to another one.},
+  booktitle = {Proccedings of the 10th European Conference on Software Architecture Workshops},
+  articleno = {21},
+  numpages  = {4},
+  keywords  = {R, Python, JavaScript, software ecosystem, software distribution, component dependency graph},
+  location  = {Copenhagen, Denmark},
+  series    = {ECSAW '16}
+}
+
+@inproceedings{10.1109/SANER.2017.7884604,
+  author = {Mens, Tom and Decan, Alexandre and Claes, Maelick},
+  year   = {2017},
+  month  = {02},
+  pages  = {},
+  title  = {An Empirical Comparison of Dependency Issues In OSS Packaging Ecosystems},
+  doi    = {10.1109/SANER.2017.7884604}
+}
+@inproceedings{10.1109/SANER.2016.12,
+  author = {Decan, Alexandre and Mens, Tom and Claes, Maelick and Grosjean, Philippe},
+  year   = {2016},
+  month  = {03},
+  pages  = {},
+  title  = {When GitHub meets CRAN: An Analysis of Inter-Repository Package Dependency Problems},
+  doi    = {10.1109/SANER.2016.12}
+}
+
+@book{posfai2016network,
+  title     = {Network Science},
+  author    = {Posfai, Marton and Barabasi, Albert-Laszlo},
+  year      = {2016},
+  publisher = {Citeseer}
+}
+
+@inproceedings{10.1145/2901739.2901743,
+  author    = {Wittern, Erik and Suter, Philippe and Rajagopalan, Shriram},
+  title     = {A Look at the Dynamics of the JavaScript Package Ecosystem},
+  year      = {2016},
+  isbn      = {9781450341868},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/2901739.2901743},
+  doi       = {10.1145/2901739.2901743},
+  abstract  = {The node package manager (npm) serves as the frontend to a large repository of JavaScript-based software packages, which foster the development of currently huge amounts of server-side Node. js and client-side JavaScript applications. In a span of 6 years since its inception, npm has grown to become one of the largest software ecosystems, hosting more than 230, 000 packages, with hundreds of millions of package installations every week. In this paper, we examine the npm ecosystem from two complementary perspectives: 1) we look at package descriptions, the dependencies among them, and download metrics, and 2) we look at the use of npm packages in publicly available applications hosted on GitHub. In both perspectives, we consider historical data, providing us with a unique view on the evolution of the ecosystem. We present analyses that provide insights into the ecosystem's growth and activity, into conflicting measures of package popularity, and into the adoption of package versions over time. These insights help understand the evolution of npm, design better package recommendation engines, and can help developers understand how their packages are being used.},
+  booktitle = {Proceedings of the 13th International Conference on Mining Software Repositories},
+  pages     = {351–361},
+  numpages  = {11},
+  keywords  = {software ecosystem analysis, Node.js, JavaScript},
+  location  = {Austin, Texas},
+  series    = {MSR '16}
+}
+
+@article{Albert2000,
+  author  = {Réka Albert and Hawoong Jeong and Albert-László Barabási},
+  doi     = {10.1038/35019019},
+  issn    = {0028-0836},
+  issue   = {6794},
+  journal = {Nature},
+  month   = {7},
+  pages   = {378-382},
+  title   = {Error and attack tolerance of complex networks},
+  volume  = {406},
+  year    = {2000}
 }
 
 
-@misc{ wiki:latex,
-       author = "Wikipedia",
-       title = "LaTeX --- Wikipedia{,} La enciclopedia libre",
-       year = "2015",
-       howpublished = {\url{https://es.wikipedia.org/w/index.php?title=LaTeX&oldid=84209252}},
-       note = "[Internet; descargado 30-septiembre-2015]"
+@article{doi:10.1137/S003614450342480,
+  author   = {Newman, M. E. J.},
+  title    = {The Structure and Function of Complex Networks},
+  journal  = {SIAM Review},
+  volume   = {45},
+  number   = {2},
+  pages    = {167-256},
+  year     = {2003},
+  doi      = {10.1137/S003614450342480},
+  url      = { 
+              https://doi.org/10.1137/S003614450342480
+              },
+  eprint   = { 
+              https://doi.org/10.1137/S003614450342480
+              },
+  abstract = { Inspired by empirical studies of networked systems such as the Internet, social networks, and biological networks, researchers have in recent years developed a variety of techniques and models to help us understand or predict the behavior of these systems. Here we review developments in this field, including such concepts as the small-world effect, degree distributions, clustering, network correlations, random graph models, models of network growth and preferential attachment, and dynamical processes taking place on networks. }
 }
 
-
-@article{bortolot2005,
-  title={Estimating forest biomass using small footprint LiDAR data: An individual tree-based approach that incorporates training data},
-  author={Bortolot, Zachary J and Wynne, Randolph H},
-  journal={ISPRS Journal of Photogrammetry and Remote Sensing},
-  volume={59},
-  number={6},
-  pages={342--360},
-  year={2005},
-  publisher={Elsevier}
+@software{daniel_2022_7358391,
+  author       = {Daniel},
+  title        = {{dsr0018/olivia: OLIVIA - Open-source Library 
+                   Indexes Vulnerability Identification and Analysis}},
+  month        = {nov},
+  year         = {2022},
+  publisher    = {Zenodo},
+  version      = {v1.0},
+  doi          = {10.5281/zenodo.7358391},
+  url          = {https://doi.org/10.5281/zenodo.7358391}
 }
-

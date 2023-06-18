@@ -1,32 +1,158 @@
 \capitulo{1}{Introducción}
 
 
-\section{Las redes de dependencias de paquetes de software}
+Uno de los principios más importantes de la ingeniería del software es aprovechar al máximo los componentes existentes \cite{sametinger1997software}.
+El empleo de librerías externas para disminuir los tiempos de desarrollo y costes es prácticamente universal,
+en todos los lenguajes y tipos de proyecto software. En una encuesta realizada por Sonartype en 2014, más de once mil arquitectos y
+desarrolladores revelaron que el 90\% del código de una aplicación típica en la actualidad está compuesto por componentes externos.
+Además, más del 80\% de los proyectos utilizan repositorios centralizados de componentes.
+Estos repositorios están configurados por defecto en las herramientas que usamos para instalar y administrar los paquetes de cada lenguaje.
+Son como almacenes gigantes que contienen componentes los cuales aportan alguna utilidad.
+Algunos ejemplos famosos son PyPI (Python Package Index), npm (Node Package Manager) para JavaScript (Node.js),
+Packagist para PHP, CPAN (Comprehensive Perl Archive Network) y Maven Central para Java.
 
-Una red de dependencias de paquetes software es un conjunto de conexiones entre diferentes paquetes o bibliotecas utilizadas en el desarrollo de software. Cada paquete depende de otros para funcionar correctamente, formando una red interdependiente.
 
-En este contexto, cada paquete tiene requisitos específicos que deben cumplirse para que funcione correctamente. Estos requisitos son satisfechos por otros paquetes, creando conexiones que permiten que el software se comporte como se espera. Si alguna de estas conexiones se rompe o no se cumple, puede producirse un fallo en el funcionamiento del software.
+El problema reside en que hay veces que utilizar componentes externos tiene sus riesgos. Esos riesgos pueden ser difíciles de notar para los desarrolladores, ya que solo importan explícitamente una pequeña parte de las librerías que se incluyen en cada proyecto.
 
-La red de dependencias puede ser muy compleja, ya que un solo paquete puede depender de múltiples otros paquetes, y estos, a su vez, pueden tener sus propias dependencias. Es como un tejido intrincado en el que cada hilo está conectado con otros, formando una red interconectada.
 
-\section{Los repositorios de paquetes de software desde la perspectiva de la teoría de grafos}
+Ilustraremos la afirmación anterior con un suceso que hizo temblar npm.
+En marzo de 2016, un desarrollador llamado Azer Koçulu, de California, recibió un correo de unos abogados de Kik Interactive.
+Le pedían amablemente que cambiara el nombre de su librería llamada Kik, que había publicado en npm.
+Resulta que los abogados decían que la marca "Kik Messenger" les pertenecía a sus representados \cite{8998991} por derechos de propiedad intelectual.
+Koçulu no se quedó de brazos cruzados, se negó rotundamente a cambiar el nombre.
+Los abogados, entonces, se pusieron en contacto con Isaac Schuleter, el director de npm, quien accedió a transferir el nombre.
+Koçulu muy decepcionado con la decisión tomó medidas, y eliminó más de 250 paquetes del repositorio que habían sido desarrollados por él.
 
-Al estudiar las dependencias de paquetes como grafos, obtenemos una visión más clara de las complejas relaciones que existen en nuestros proyectos. Podemos identificar los paquetes esenciales que sostienen todo el sistema y comprender cómo un cambio en uno de ellos puede afectar a otros. Esto nos ayuda a tomar decisiones informadas y anticiparnos a posibles problemas.
 
-Además, la teoría de grafos nos permite detectar dependencias redundantes o ciclos indeseados en nuestra red de paquetes. Podemos evaluar la estabilidad y mantenibilidad del proyecto, analizando el impacto de agregar o eliminar un paquete en toda la red. Esta comprensión más profunda nos ayuda a optimizar y fortalecer nuestro código.
+Entre los paquetes eliminados por Koçulu había uno llamado "left-pad",
+que era un simple script para justificar cadenas de texto. Pero… Muchos de los paquetes más populares de npm dependían directa
+o indirectamente de "left-pad". Casi un millón de sitios web comenzaron a tener problemas para actualizar sus dependencias o
+lanzar nuevas versiones, e incluso gigantes como Facebook o Netflix se vieron afectados. Fue un verdadero caos.
 
-Afortunadamente existen herramientas y bibliotecas que nos proporcionan esta informacion de las redes. Con ellas, y usando el enfoque de la teoria de grafos, podemos ver de una forma más clara cómo se entrelazan los paquetes entre sí y cómo se relacionan con el resto de la red.
+\begin{verbatim}
+   module.exports = leftpad;
+   function leftpad (str, len, ch) {
+       str = String(str);
+       var i = -1;
+       if (!ch && ch !== 0) ch = ' ';
+       len = len - str.length;
+       while (++i < len) { str = ch + str; }
+       return str;
+   }
+\end{verbatim}
 
-La aplicación de la teoría de grafos a las redes de dependencias de paquetes software nos permite tomar decisiones más informadas, comprender mejor las implicaciones de las dependencias y colaborar de manera más efectiva con nuestro equipo de desarrollo. Es una forma poderosa de optimizar y mejorar nuestros proyectos y mantener un ecosistema saludable en los gestores de paquetes.
 
-\section{OLIVIA: Open-source Library Indexes Vulnerability Identification and Analysis}
+Finalmente, npm tuvo que intervenir y, aunque generó mucha polémica, decidieron restaurar el paquete "left-pad". Laurie Voss, el director de tecnología de npm, explicó que tomaron esta decisión sin precedentes debido a la gravedad y la amplia repercusión del problema. No lo hicieron a la ligera, la decisión se tomó pensando en la comunidad de usuarios de npm y en sus necesidades.
 
-OLIVIA, desarrollada por el alumno Daniel Setó Rey como parte de su Trabajo de Fin de Grado en la Universidad de Burgos y tutorizada por los profesores Carlos López Nozal y Jose Ignacio Santos Martín en 2021, es una herramienta de código abierto que se centra en la identificación y análisis de defectos en bibliotecas de software desde la perspectiva de la teoría de grafos. Estos defectos pueden provocar errores funcionales, problemas de rendimiento e incluso problemas de seguridad. Para los desarrolladores, comprender completamente el riesgo es complicado, ya que solo importan explícitamente una pequeña parte de las dependencias utilizadas en sus proyectos.
+
+Después del incidente, se hizo evidente lo frágiles que son los sistemas de paquetes en los que depende una gran parte del desarrollo
+de software en todo el mundo.
+Surgieron muchas preguntas sobre el uso indiscriminado de librerías externas \cite{10.1145/3106237.3106267} y el modelo de gestión centralizada.
+Es como darse cuenta de lo mucho que dependemos de ciertas cosas y preguntarnos si estamos siendo prudentes al hacerlo.
+La problemática no se limita solo a la retirada voluntaria de un paquete en particular, como sucedió con left-pad.
+También puede ser causada por todo tipo de defectos en el software o ataques maliciosos que se propagan a través de la estructura de dependencias.
+Según un informe llamado "The state of open source security report", las vulnerabilidades de seguridad en el software de código abierto
+prácticamente se duplican cada dos años, y aproximadamente el 80\% de estas vulnerabilidades se introducen a través de dependencias indirectas.
+Las conclusiones de este informe son preocupantes, e hicieron que el estudio de la seguridad y estabilidad de estos repositorios, que antes no había
+recibido mucha atención se pusiese en el punto de mira de la comunidad \cite{10.5555/2820518.2820524} \cite{10.1145/3196398.3196401} \cite{BogartChristopherKastner2015}.
+
+
+Es aquí donde entra la ciencia de redes a jugar un papel importante en el mundo del software.
+Dado que las dependencias entre los proyectos de software, especialmente entre los paquetes de un repositorio,
+se pueden representar como una red o un grafo dirigido y analizar desde una perspectiva estructural, la ciencia de
+las redes se ha convertido en un enfoque reciente para comprender mejor la estructura y evolución \cite{7962360} \cite{8998991} de los
+repositorios de paquetes de software. Es como mirar la forma en que todas estas piezas se conectan y se influyen mutuamente.
+La ciencia de redes es una disciplina que se dedica a estudiar las redes complejas que podemos encontrar en muchos campos como la tecnología,
+la biología y las ciencias sociales. Cuando decimos "complejas" nos referimos al tamaño de las estructuras que se investigan y a la
+falta de un patrón obvio de relaciones entre sus elementos. En los modelos de ciencia de redes, representamos estos elementos como nodos o vértices, mientras que las conexiones entre ellos se simbolizan con enlaces o aristas.
+No es de sorprender que la ciencia de redes se base fundamentalmente en la teoría matemática de grafos, pero no es la única ciencia que
+interviene en este análisis.
+Es una materia interdisciplinaria que incorpora conocimientos de estadística, teorías de control e información, algoritmos,
+minería de datos y muchas otras áreas de la informática.
+Los principales logros de la ciencia de redes se centran en la construcción de modelos que explican la síntesis y evolución de las redes reales.
+También se estudia la centralidad o importancia de los nodos, es decir, qué nodos son los más cruciales dentro de una red.
+Además, se investiga la detección de agrupaciones significativas, como clústeres y comunidades, que revelan patrones interesantes dentro de una red.
+Y por si fuera poco, se exploran fenómenos de difusión, es decir, cómo se propaga la información a través de las redes.
+
+
+Alexandre Decan junto a otros investigadores \cite{10.1145/2993412.3003382}, realizaron un estudio en el que compararon el número de dependencias
+directas y transitivas, así como el número de componentes débilmente conectados en los repositorios CRAN, PyPI y npm.
+En otros estudios posteriores \cite{10.1109/SANER.2017.7884604}, sugieren que las estrategias actuales de versionado de paquetes
+pueden causar problemas de falta de robustez en los repositorios. Esta conclusión fue demostrada experimentalmente en un análisis de
+CRAN \cite{10.1109/SANER.2016.12}, apareciendo un patrón de comportamiento que a priori se mantiene común en los repositorios de software.
+Por si eso no fuera suficiente, otro estudio \cite{10.1145/2901739.2901743} analiza la evolución del número de dependencias y la importancia
+relativa de cada componente en npm. Utiliza PageRank como métrica para evaluar la centralidad de los paquetes y tienen en cuenta cómo
+se utilizan en proyectos de GitHub.
+Otro aspecto que se estudia en la ciencia de redes es la vulnerabilidad de la red. La vulnerabilidad se refiere a la incapacidad de la
+red para funcionar correctamente cuando se eliminan algunos nodos o enlaces importantes \cite{posfai2016network}. Para medir la vulnerabilidad,
+necesitamos conocer el tipo de red en particular. Por lo general, distinguimos entre casos en los que los problemas ocurren de manera aleatoria
+o cuando son ataques intencionales \cite{Albert2000}. En el último caso, se supone que los atacantes utilizan información de la red para
+planificar estrategias que provoquen el mayor daño posible o maximicen algún objetivo que generalmente va en contra de los intereses de los
+actores de la red.
+En cuanto a los repositorios de paquetes, un estudio \cite{10.1145/2901739.2901743} revela que la eliminación de un solo paquete puede
+afectar al 30 \% de los paquetes y aplicaciones en los ecosistemas de JavaScript, Rust y Ruby.
+Otro estudio \cite{10.1145/3196398.3196401} concluye que el número de vulnerabilidades encontradas en el código fuente de los paquetes
+de npm ha estado aumentando constantemente desde 2012, propagándose a través de la red de dependencias.
+
+
+Las redes de dependencias de paquetes presentan características distintivas en comparación con las redes comúnmente estudiadas en la ciencia de redes,
+como las redes sociales, de información, tecnológicas o biológicas \cite{doi:10.1137/S003614450342480}.
+En primer lugar, los enlaces en estas redes pueden tener múltiples interpretaciones dentro de la misma red.
+Por un lado, actúan como canales de comunicación o difusión, similar a cómo ocurre en muchas redes sociales (lo cual explica, por ejemplo,
+la propagación de errores en la red). Por otro lado, representan requisitos necesarios para el funcionamiento de los nodos, pero de una manera
+diferente a otras redes tecnológicas.
+Tomemos como ejemplo una red eléctrica o de comunicaciones, donde los enlaces entrantes son necesarios para el funcionamiento de los nodos en la red.
+Sin embargo, en general, un solo enlace es suficiente para establecer una conexión entre un nodo y el conjunto de la red.
+En cambio, en las redes de dependencias, todos los enlaces son necesarios para el funcionamiento del nodo.
+Esto se debe a su naturaleza inherentemente transitiva, lo que significa que las relaciones son transitivas por definición, sin necesidad de
+que esta propiedad se exprese explícitamente en la estructura de la red. Esta característica es poco común en otros tipos de redes.
+Además, es posible considerar una red de dependencias como una red de información, donde los enlaces representan votos, en el sentido de
+que reflejan algún tipo de reconocimiento, al igual que los enlaces en Internet o las citas en las redes bibliográficas. En este sentido,
+las redes de dependencias comparten la propiedad de poder ser modeladas mediante una estructura acíclica sin introducir restricciones importantes,
+al igual que ocurre con las redes bibliográficas.
+La investigación sobre las redes de dependencias de paquetes es un campo relativamente nuevo y nuestra comprensión de estas estructuras es limitada \cite{7962360}. El conjunto de trabajos de referencia en este tema es aún reducido, y lo es aún más si nos centramos en aspectos específicos como el análisis de la vulnerabilidad, donde solo hemos encontrado publicaciones descriptivas. Hasta donde se sabe, no se ha propuesto un modelo teórico que permita avanzar en la comprensión de la vulnerabilidad de este tipo de redes, lo cual podría tener un impacto significativo en la seguridad y estabilidad del software a nivel global. Es necesario realizar más investigaciones en este campo para mejorar nuestra comprensión y desarrollar enfoques teóricos que aborden eficazmente los desafíos relacionados con la seguridad de las redes de dependencias de paquetes.
+En este trabajo, nos centraremos en los aspectos distintivos de las redes de dependencias de paquetes, como las múltiples interpretaciones de la red, las relaciones inherentemente transitivas y la posibilidad de modelarlas como redes acíclicas. Nuestro objetivo será estudiar la vulnerabilidad de estas redes frente a fallos. Definiremos la función de la red como la capacidad de proporcionar de manera ininterrumpida un conjunto de componentes de software reutilizables, de calidad y que funcionen según sus especificaciones. A través de nuestra investigación, intentaremos responder a preguntas como:
+
+\begin{itemize} \item ¿Hasta qué punto se ven afectados los proyectos software que emplean el repositorio ante la incidencia de fallos aleatorios (como por ejemplo la introducción de errores en los componentes)? \item ¿Cuál es la sensibilidad de una red determinada ante estas situaciones? \item ¿Existen estrategias óptimas para reducir el efecto perjudicial de los fallos en la red? \end{itemize}
+Por lo tanto, nuestra contribución consistirá en desarrollar un modelo teórico que permita analizar la vulnerabilidad frente a fallos en las redes de dependencias de paquetes. Este modelo se utilizará para implementar un conjunto de herramientas que ayudarán a responder las preguntas planteadas anteriormente. Estas herramientas se aplicarán a una captura de la estructura de dependencias de varios repositorios de paquetes reales. Por último, se realizará un análisis de los resultados obtenidos para obtener conclusiones relevantes.
+Los resultados de estos estudios proporcionan a la comunidad una visión muy poco conocida y novedosa desde el punto de vista de la redes de dependencias de paquetes, siendo como mínimo de interés académico para:
+Gestores centralizados de paquetes, para establecer políticas y procesos de control manuales o automáticos que mejoren la seguridad y estabilidad de los repositorios.
+Desarrolladores de software en general, para valorar los diferentes riesgos introducidos por las dependencias empleadas en sus proyectos, y a los desarrolladores de paquetes en particular para comprender mejor su responsabilidad sobre el ecosistema.
+Desarrolladores de herramientas de calidad e integración continua, para definir cuantitativamente el concepto de vulnerabilidad en función del modelado de la red de dependencias de paquetes.
+
+
+OLIVIA \cite{daniel_2022_7358391}, desarrollada por el alumno Daniel Setó Rey como parte de su Trabajo de Fin de Grado en la Universidad de Burgos y tutorizada por los profesores Carlos López Nozal y Jose Ignacio Santos Martín en 2021, es una herramienta de código abierto que se centra en la identificación y análisis de defectos en bibliotecas de software desde la perspectiva de la teoría de grafos. Estos defectos pueden provocar errores funcionales, problemas de rendimiento e incluso problemas de seguridad. Para los desarrolladores, comprender completamente el riesgo es complicado, ya que solo importan explícitamente una pequeña parte de las dependencias utilizadas en sus proyectos.
+
 
 OLIVIA utiliza un enfoque basado en la vulnerabilidad de la red de dependencias de los paquetes de software para medir la sensibilidad del repositorio a la introducción aleatoria de defectos. Su objetivo es contribuir a la comprensión de los mecanismos de propagación de defectos en el software y estudiar estrategias factibles de protección.
 
-En la actualidad, OLIVIA está en proceso de ser publicado a nivel académico. Después de su desarrollo como proyecto de fin de carrera, se están realizando los esfuerzos necesarios para compartir sus resultados y contribuciones con la comunidad científica. Esta publicación permitirá que otros investigadores y profesionales del campo accedan a esta herramienta y se beneficien de su enfoque innovador en la identificación y análisis de vulnerabilidades en las bibliotecas de software. Además, sentará las bases para futuros avances en la comprensión de los mecanismos de propagación de defectos y la implementación de estrategias efectivas de protección en el desarrollo de software.
 
-En este trabajo de fin de grado, no se profundiza en el modelo matemático subyacente de OLIVIA. Sin embargo, es importante tener conocimientos básicos de la teoría de grafos para comprender su funcionalidad. La teoría de grafos proporciona un marco conceptual para comprender las interconexiones y relaciones entre los paquetes de software, así como la propagación de posibles defectos en el ecosistema. Aunque no se abordan los aspectos matemáticos en detalle, tener una comprensión general de los grafos nos ayuda a apreciar y comprender mejor la utilidad y las implicaciones de OLIVIA en la identificación y análisis de vulnerabilidades en las bibliotecas de software.
+En la actualidad, OLIVIA está en proceso de ser publicado a nivel académico.
+Después de su desarrollo como proyecto de fin de carrera, se están realizando los esfuerzos necesarios para compartir sus resultados y
+contribuciones con la comunidad científica.
+Esta publicación permitirá que otros investigadores y profesionales del campo accedan a esta herramienta y se beneficien de su enfoque
+innovador en la identificación y análisis de vulnerabilidades en las bibliotecas de software. Además, sentará las bases para futuros avances
+en la comprensión de los mecanismos de propagación de defectos y la implementación de estrategias efectivas de protección en el desarrollo de software.
 
 
+Este TFG pretende ser una continuación de la labor realizada por su predecesor.
+Una vez que tenemos el modelo de análisis definido, lo que se necesitan son los datos a analizar mediante este.
+La obtención de un conjunto de datos actualizado y el análisis a bajo nivel de los mismos, han aportado una actualización de los resultados experimentales obtenidos.
+
+La recopilación de datos sobre las dependencias de los paquetes de software es un desafío complejo que puede resultar difícil de abordar.
+Uno de los principales problemas radica en la falta de una única fuente confiable de información sobre estas dependencias.
+En muchos casos, no existe un repositorio centralizado o una base de datos completa que contenga todos los detalles necesarios.
+Debido a esta falta de una fuente única, recopilar datos sobre las dependencias de los paquetes de software a menudo requiere un esfuerzo manual y exhaustivo.
+Los desarrolladores y analistas deben investigar y rastrear las dependencias de cada paquete individualmente, lo que puede llevar una cantidad considerable de tiempo y recursos.
+Además, la información sobre las dependencias de los paquetes de software puede dispersarse en diferentes fuentes, como documentación oficial,
+repositorios de código, foros de desarrolladores y otras fuentes en línea.
+
+
+Esta dispersión puede dificultar aún más la recopilación de datos y aumentar la posibilidad de omitir o malinterpretar información relevante.
+El análisis de las redes de dependencias de paquetes de software es un proceso complejo debido a la naturaleza de estas redes, que pueden ser enormes y altamente interconectadas. Estas redes pueden contener miles o incluso millones de nodos y conexiones, lo que hace que el análisis manual sea prácticamente imposible. Por lo tanto, se requieren herramientas especializadas y experiencia en análisis de datos para abordar este desafío.
+
+
+Otro desafío asociado con la recopilación de datos es mantener la información actualizada. Las dependencias de los paquetes de software pueden cambiar con el tiempo debido a actualizaciones, nuevas versiones o cambios en los requisitos del sistema. Por lo tanto, es crucial realizar un seguimiento constante de los cambios y actualizar la información de las dependencias de manera regular para garantizar la precisión de los datos recopilados.
+
+
+Para abordar estos desafíos, y como uno de los principales puntos fuertes de este TFG se pretende ilustrar al lector de cómo poder enfrentarse a esta tarea, identificando las distintas vías de obtención de datos, y concluyendo con el desarrollo de una herramienta que facilita el proceso de obtención de los mismos desde los repositorios oficiales de los gestores de paquetes que hemos elegido como caso de estudio.  En concreto nos referimos a la recopilación de datos de las dependencias en los paquetes de R (Bioconductor y CRAN), python (Pypi) y javascript (NPM)
