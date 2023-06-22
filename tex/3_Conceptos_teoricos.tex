@@ -1,121 +1,252 @@
 \capitulo{3}{Conceptos teóricos}
+\section{Defectos en productos software}
 
-\section{Las redes y la teoría de grafos}
+Una especificación es una descripción de cómo se supone que un producto debe de estar construido para
+que funcione. Si hablamos de software, puede ser más o menos detallada, desde especificaciones
+matemáticas hasta manuales de usuario o descripciones funcionales. Un producto de software tiene
+un defecto cuando su comportamiento no es compatible con lo que se esperaba de él.
 
-Las redes, como estructuras que representan interconexiones entre entidades, son objeto de estudio de la teoría de grafos. Estas redes se componen de nodos o vértices conectados por enlaces o aristas. La teoría de grafos, por su parte, se encarga de analizar matemáticamente estas redes y proporcionar herramientas para comprender sus propiedades y comportamientos.
+Cuando se construye un proyecto de ingeniería de software, se parte de una \textit{Especificación
+    de Requisitos de Software (SRS)}, que básicamente describe lo que se necesita del producto en general,
+tanto cosas funcionales como otros detalles complementarios, como temas legales, estándares de calidad y restricciones. Y si el diseño involucra el uso de componentes externos, la especificación de esos componentes tiene que ser compatible con la SRS del proyecto. Porque, en el contexto de ese proyecto, si algo no encaja bien, se considera como un defecto en ese componente, y eso a su vez afectaría el proyecto en sí. O sea, es como una cadena de defectos.
 
-Los grafos son modelos abstractos que representan las relaciones y conexiones entre entidades mediante nodos y aristas. Estos modelos tienen aplicaciones en diversos campos, como la informática, la física, la biología y las ciencias sociales. Se utilizan para comprender fenómenos complejos, analizar la propagación de información, estudiar interacciones sociales y examinar las redes de transporte, entre otros aspectos.
+Entonces, cuando hablamos de defectos en el software, hay que tener en cuenta todo lo que pueda disminuir
+el valor del producto para sus usuarios. Ahí viene la parte más subjetiva, porque puede haber cosas que
+algunos usuarios consideren como defectos, como una biblioteca de cálculo que arroja resultados
+incorrectos, eso es un defecto objetivo, obviamente. Pero también pueden haber cambios en la licencia,
+en la usabilidad, en el cumplimiento de ciertos estándares de calidad o seguridad, o en la estructura
+de las interfaces externas, que para un usuario en particular también sean defectos.
 
-En el campo de la teoría de grafos, destacan importantes autores que han contribuido significativamente a su desarrollo. Leonhard Euler es considerado el fundador de la teoría de grafos, gracias a su trabajo sobre el problema de los puentes de Königsberg en el siglo XVIII. Otros destacados autores incluyen a Paul Erdős, quien realizó contribuciones fundamentales a la teoría de grafos combinatorios, y Claude Shannon, quien aplicó la teoría de grafos en la teoría de la información. Estos investigadores han sentado las bases para el estudio y aplicación de la teoría de grafos en diversas disciplinas.
+Los defectos en el software pueden originarse por error o pueden ser el resultado de ataques
+informáticos que buscan sabotear o aprovecharse del software para obtener algún beneficio.
 
-\section{Los repositorios de paquetes de software}
+\section{Repositorios de paquetes software}
 
-En el ámbito del desarrollo de software, los repositorios de paquetes desempeñan un papel fundamental al ofrecer un entorno centralizado donde los desarrolladores pueden acceder, compartir y distribuir bibliotecas de código predefinidas. Estos repositorios están específicamente diseñados para diferentes plataformas y lenguajes de programación, proporcionando a los desarrolladores un acceso conveniente a una amplia gama de recursos.
+En el desarrollo de software, los \textit{repositorios de paquetes} juegan un papel crucial al
+proporcionar un entorno centralizado donde los desarrolladores pueden acceder, compartir y distribuir
+bibliotecas de código predefinidas. Estos repositorios están diseñados específicamente para diferentes
+plataformas y lenguajes de programación, brindando a los desarrolladores un acceso conveniente a una
+amplia gama de recursos.
 
-A lo largo de los años, han surgido numerosos repositorios de paquetes de software para diversas plataformas y lenguajes. Por ejemplo, en el ámbito de la bioinformática, Bioconductor destaca como un repositorio importante que se centra en paquetes y herramientas para el análisis de datos genómicos. En el ecosistema de Python, PyPI (Python Package Index) es un repositorio central que alberga una gran cantidad de paquetes para una amplia variedad de aplicaciones y bibliotecas.
+A lo largo del tiempo, han surgido numerosos repositorios de paquetes de software para diversas
+plataformas y lenguajes. Por ejemplo, en el campo de la bioinformática, destaca \textit{Bioconductor}
+como un importante repositorio que se enfoca en paquetes y herramientas para el análisis de datos
+genómicos. En el ecosistema de Python, \textit{PyPI} (Python Package Index) es un repositorio central
+que alberga una gran cantidad de paquetes para una amplia variedad de aplicaciones y bibliotecas.
 
-En el panorama actual, los repositorios de paquetes de software siguen siendo vitales para la comunidad de desarrollo. Proporcionan a los desarrolladores un acceso rápido y sencillo a una amplia gama de funcionalidades y bibliotecas de código predefinidas, lo que les permite acelerar el desarrollo de aplicaciones y proyectos. Además, estos repositorios fomentan la colaboración y el intercambio de código entre los desarrolladores, promoviendo un ecosistema de desarrollo más dinámico y eficiente.
+En el panorama actual, los repositorios de paquetes de software siguen siendo vitales para la
+comunidad de desarrollo. Brindan a los desarrolladores un acceso rápido y sencillo a una amplia
+gama de funcionalidades y bibliotecas de código predefinidas, lo que les permite acelerar el desarrollo
+de aplicaciones y proyectos. Además, estos repositorios fomentan la colaboración y el intercambio
+de código entre los desarrolladores, promoviendo un entorno de desarrollo más dinámico y eficiente.
 
-\section{Los gestores de paquetes de software}
+Un \textit{repositorio de paquetes} es básicamente un almacén de software que tiene como objetivo
+distribuir librerías de componentes reutilizables. El término "paquete" se refiere al artefacto
+adecuado para facilitar esta distribución, incluyendo la descarga, verificación e instalación de
+los componentes por parte de los usuarios del repositorio. Normalmente, un paquete está compuesto
+por código fuente y/o archivos binarios, junto con metadatos que incluyen directrices de compilación,
+listas de requisitos, parámetros de configuración, referencias a la documentación y detalles de la
+licencia, todo ello contenido en un único archivo comprimido.
 
-Los gestores de paquetes de software nos proporcionan herramientas y funcionalidades para gestionar la instalación, actualización y eliminación de bibliotecas y dependencias de un proyecto. Estos gestores se encuentran diseñados específicamente para diferentes plataformas y lenguajes de programación, brindando a los desarrolladores una forma eficiente de administrar y distribuir el código.
+Existen dos tipos principales de repositorios de paquetes: los \textit{repositorios de nivel de sistema},
+integrados en los sistemas operativos, y los \textit{repositorios de nivel de aplicación}, integrados
+en los entornos de desarrollo de diferentes lenguajes de programación. En ambos casos, suele haber un
+sistema oficial o muy popular desde donde se realizan la mayoría de las descargas, lo que se conoce
+como \textit{repositorios centralizados}.
 
-Entre los gestores de paquetes más populares, se destaca pip en el ecosistema de Python, que permite instalar y administrar fácilmente las bibliotecas necesarias para un proyecto Python. Por otro lado, mvn (Maven) es ampliamente utilizado en el mundo de Java para gestionar las dependencias y configuraciones de proyectos. Cada gestor de paquetes cuenta con su propia sintaxis y funcionalidades específicas, pero todos comparten el objetivo común de simplificar la gestión de bibliotecas y asegurar la resolución de dependencias.
+En los últimos años, los repositorios de nivel de aplicación han experimentado un crecimiento exponencial
+en términos de número de paquetes y cantidad de descargas. Por ejemplo, el repositorio oficial de
+Node.js, llamado \textit{npm}, es actualmente el más grande en cuanto al número de componentes
+publicados.
 
-En el panorama actual, los gestores de paquetes de software continúan desempeñando un papel crucial en el desarrollo de software. Proporcionan a los desarrolladores una forma conveniente y eficiente de administrar las bibliotecas y dependencias necesarias para sus proyectos, lo que les permite centrarse en la implementación de funcionalidades sin preocuparse por la instalación manual y la gestión de las dependencias.
+Para facilitar la interacción con los repositorios, existen herramientas llamadas \textit{gestores de
+    paquetes}, que permiten a los desarrolladores automatizar la descarga e instalación recursiva de
+componentes.
 
-Además, estos gestores mejoran la reutilización de código de la comunidad y la colaboración, ya que permiten compartir y distribuir fácilmente bibliotecas y proyectos entre desarrolladores. También facilitan la actualización y el mantenimiento de las dependencias, asegurando que los proyectos estén siempre actualizados y protegidos contra vulnerabilidades conocidas.
+El software utilizado para desplegar y administrar los repositorios de paquetes se conoce como
+\textit{gestor de repositorios}.
 
-\section{Redes de dependencias de paquetes de software}
+\section{Gestores de paquetes}
 
-Una red de dependencias de paquetes de software consiste en un grafo en el que se representan las relaciones de dependencias entre paquetes de software. En una red de dependencias, cada nodo representa un paquete de software, y cada enlace representa una relacion de dependencia entre dos paquetes. Existe una dependencia entre dos paquetes si un paquete requiere del otro para funcionar.
+Los \textit{gestores de paquetes de software} desempeñan un papel fundamental al proporcionarnos
+herramientas y funcionalidades para administrar la instalación, actualización y eliminación de
+bibliotecas y dependencias en nuestros proyectos. Estos gestores están diseñados específicamente
+para diferentes plataformas y lenguajes de programación, brindando a los desarrolladores una forma
+eficiente de gestionar y distribuir el código.
 
-\subsection{Importancia de las redes de dependencias de paquetes de software}
-En primer lugar, estas redes se pueden utilizar para identificar posibles problemas en proyectos de software, ya que cuando se actualiza un paquete, puede introducir cambios incompatibles que afecten a otros paquetes en la red.
+Entre los gestores de paquetes más destacados, encontramos \textit{pip} en el ecosistema de Python,
+el cual nos permite instalar y administrar de manera sencilla las bibliotecas necesarias para
+nuestros proyectos en Python. Por otro lado, \textit{mvn} (Maven) es ampliamente utilizado en el
+ámbito de Java para gestionar las dependencias y configuraciones de proyectos. Cada gestor de paquetes
+tiene su propia sintaxis y funcionalidades específicas, pero todos comparten el objetivo común de
+simplificar la gestión de bibliotecas y garantizar la resolución de dependencias.
 
-Desde un punto de vista de control de calidad, las redes de dependencias de paquetes de software se pueden utilizar para mejorar la calidad de los proyectos de software. Por ejemplo, al analizar las dependencias entre paquetes, los desarrolladores pueden identificar áreas potenciales de mejora. Por ejemplo, pueden identificar paquetes que ya no son necesarios o que están causando problemas.
+En el panorama actual, los gestores de paquetes de software continúan desempeñando un papel
+crucial en el desarrollo de software. Proporcionan a los desarrolladores una forma conveniente
+y eficiente de administrar las bibliotecas y dependencias necesarias para sus proyectos, permitiéndoles
+enfocarse en la implementación de funcionalidades sin preocuparse por la instalación manual y la
+gestión de dependencias.
 
-Además cabe destacar que se pueden utilizar para hacer que los proyectos de software sean más seguros, ya que, al analizar las dependencias entre paquetes, se pueden identificar posibles vulnerabilidades de seguridad o que son utilizados con frecuencia con fines maliciosos.
+Además, estos gestores fomentan la reutilización de código y la colaboración dentro de la comunidad de desarrolladores, al facilitar el intercambio y la distribución de bibliotecas y proyectos. También simplifican la tarea de mantener actualizadas las dependencias, garantizando que los proyectos estén siempre al día y protegidos contra vulnerabilidades conocidas.
 
-Por último, permiten gestionar eficientemente las actualizaciones de software. Al comprender cómo los cambios en un paquete pueden afectar a otros, los equipos de desarrollo pueden evaluar el impacto potencial de las actualizaciones y tomar decisiones informadas sobre cuándo y cómo implementarlas.
 
-\subsection{Necesidades de las redes de dependencias de paquetes de software}
+\section{Dependencias entre paquetes}
 
-\subsubsection{Recopilacion de datos}
+En el contexto de un proyecto de software, las \textit{dependencias externas} se refieren a las
+conexiones con productos provenientes de actividades realizadas por agentes externos al equipo
+del proyecto. Estos productos pueden ser requisitos, recursos o controles, como requisitos de clientes,
+personal, hardware, software, procesos y estructuras de gestión.
+Las dependencias externas están fuera del control directo del equipo del proyecto y, si no funcionan
+según lo esperado, pueden comprometer el éxito del proyecto.
 
-La recopilación de datos sobre las dependencias de los paquetes de software es un desafío complejo que puede resultar difícil de abordar. 
-Uno de los principales problemas radica en la falta de una única fuente confiable de información sobre estas dependencias. En muchos casos, no existe un repositorio centralizado o una base de datos completa que contenga todos los detalles necesarios.
+En el desarrollo de paquetes de software, al igual que en cualquier otro proyecto de software,
+los desarrolladores reutilizan componentes distribuidos en otros paquetes, lo que genera dependencias
+externas de software. Estas dependencias pueden ser \textit{directas}, cuando el paquete A invoca
+directamente funciones de componentes del paquete B, o \textit{transitivas}, cuando el paquete A
+invoca al paquete B, que a su vez utiliza el paquete C.
+Las dependencias transitivas pueden dar lugar a largas cadenas de requisitos encadenados, que se
+aplican a distintas fases del ciclo de desarrollo de software, como la implementación/construcción,
+la prueba y el despliegue. Los gestores de paquetes generalmente se encargan de resolver automáticamente
+todas estas dependencias según sea necesario, a través de las herramientas de los entornos de desarrollo,
+integración continua y despliegue.
 
-Debido a esta falta de una fuente única, recopilar datos sobre las dependencias de los paquetes de software a menudo requiere un esfuerzo manual y exhaustivo. Los desarrolladores y analistas deben investigar y rastrear las dependencias de cada paquete individualmente, lo que puede llevar una cantidad considerable de tiempo y recursos.
-Además, la información sobre las dependencias de los paquetes de software puede dispersarse en diferentes fuentes, como documentación oficial, repositorios de código, foros de desarrolladores y otras fuentes en línea. Esta dispersión puede dificultar aún más la recopilación de datos y aumentar la posibilidad de omitir o malinterpretar información relevante.
+Por lo tanto, un defecto en un paquete alojado en un repositorio puede propagarse a otros paquetes
+dependientes, tanto directa como transitivamente, y en última instancia, afectar a todos los proyectos
+que utilicen dicho paquete. La propagación de este defecto está vinculada a la transferencia de la
+versión dañada del paquete desde el repositorio. En otras palabras, el software que utiliza los
+componentes almacenados en los entornos de ejecución locales no se verá afectado hasta que se
+actualice la dependencia. Esto puede ocurrir en diferentes momentos, por lo que la propagación
+a cada proyecto dependiente puede tener un retraso variable:
 
-Otro desafío asociado con la recopilación de datos es mantener la información actualizada. Las dependencias de los paquetes de software pueden cambiar con el tiempo debido a actualizaciones, nuevas versiones o cambios en los requisitos del sistema. Por lo tanto, es crucial realizar un seguimiento constante de los cambios y actualizar la información de las dependencias de manera regular para garantizar la precisión de los datos recopilados.
-Para abordar estos desafíos, se han desarrollado herramientas y técnicas específicas. Algunas soluciones automatizadas, como analizadores de dependencias y herramientas de gestión de paquetes, pueden ayudar a simplificar el proceso de recopilación de datos al extraer automáticamente información sobre las dependencias de los paquetes de software. Sin embargo, incluso con estas herramientas, es posible que se requiera intervención manual para verificar y corregir posibles discrepancias o lagunas en los datos recopilados
+\begin{itemize}
+    \item En el caso de software que incluye componentes compilados, el impacto se producirá cuando
+          se realice una compilación después de descargar alguno de los paquetes comprometidos desde el
+          repositorio.
+    \item En el caso de software interpretado, con compilación JIT o con enlace dinámico de librerías,
+          el impacto se producirá después de descargar alguno de los paquetes comprometidos desde el
+          repositorio.
+\end{itemize}
 
-\subsubsection{Análisis de datos}
+Estas descargas suelen ser realizadas por el gestor de paquetes y pueden deberse a diferentes motivos,
+como la creación de un nuevo entorno de desarrollo, ejecución o pruebas (incluyendo entornos de
+integración continua), o la decisión de incluir versiones actualizadas de las dependencias en los
+requisitos del proyecto, ya sea por motivos funcionales o de seguridad.
 
-El análisis de las redes de dependencias de paquetes de software es un proceso complejo debido a la naturaleza de estas redes, que pueden ser enormes y altamente interconectadas. Estas redes pueden contener miles o incluso millones de nodos y conexiones, lo que hace que el análisis manual sea prácticamente imposible. Por lo tanto, se requieren herramientas especializadas y experiencia en análisis de datos para abordar este desafío.
+\section{Teoría de grafos}
 
-Una de las principales dificultades del análisis de datos en las redes de dependencias de paquetes de software es ser capaz de poder trabajar con la masividad de estas y poder visualizar como son. Dado que las redes pueden ser muy grandes, es esencial utilizar herramientas de visualización que permitan comprender la estructura y las interconexiones de manera más sencilla. Estas herramientas ayudan a identificar patrones, clusters y dependencias importantes dentro de la red.
+La teoría de grafos es un campo fundamental en las matemáticas discretas y la ciencia de la computación,
+que estudia las propiedades y relaciones de los grafos. Un \textit{grafo} es una estructura compuesta
+por un conjunto de \textit{nodos o vértices}, conectados entre sí por \textit{enlaces} llamados \textit{aristas}.
+Estos grafos pueden representar una amplia variedad de situaciones y fenómenos, desde redes de
+comunicación y relaciones sociales hasta sistemas de transporte y circuitos eléctricos.
 
-Además, la complejidad de las redes de dependencias también implica la necesidad de algoritmos y técnicas de análisis avanzados. Estos algoritmos pueden abordar desafíos como la detección de comunidades de paquetes, la identificación de paquetes críticos o de alto impacto, la detección de ciclos o bucles de dependencia y la identificación de flujos de información crítica.
+La teoría de grafos se enfoca en el análisis y estudio de las propiedades estructurales y combinatorias
+de los grafos, así como en el desarrollo de algoritmos eficientes para resolver problemas relacionados.
+Se exploran conceptos fundamentales como la conectividad, los ciclos, los caminos más cortos, los flujos
+y cortes mínimos, entre otros.
 
-Si nos enfocamos en el punto de vista de calidad y robustez de la red, es necesario medir la estabilidad de las dependencias y evaluar los posibles puntos de falla o vulnerabilidades en la red. Estas métricas nos permiten identificar posibles puntos débiles en la infraestructura de software.
+Los grafos encuentran aplicaciones en numerosos campos, incluyendo la optimización de rutas en
+logística, la modelización de redes sociales, la planificación de proyectos, la programación lineal
+y la criptografía, por mencionar solo algunos. La teoría de grafos proporciona herramientas conceptuales
+y metodológicas para analizar y resolver problemas complejos en estos y otros dominios.
 
-\subsubsection{Actualizaciones y volatilidad}
+\section{Grafos dirigidos y no dirigidos}
 
-Las actualizaciones del código fuente son una parte crucial y muy frecuente, ya que proporcionan mejoras, correcciones de errores y nuevas funcionalidades. Sin embargo, estas actualizaciones también pueden tener un impacto significativo en las dependencias entre paquetes de software.
+En la teoría de grafos, existen dos tipos principales de grafos: los \textit{grafos dirigidos} y
+los \textit{grafos no dirigidos}\footnote{Nota: En la teoría de grafos existen otros tipos de grafos,
+    pero nos enfocaremos en estos dos tipos principales en este contexto}. Estas diferencias se
+refieren a la forma en que se establecen las conexiones entre los vértices del grafo.
 
-Cuando se realiza una actualización en un paquete de software, es posible que se modifiquen los requisitos o las dependencias del mismo. Por ejemplo, una actualización puede introducir una nueva versión de una biblioteca o un componente, lo que podría requerir que otros paquetes también se actualicen para mantener la compatibilidad. Esto puede afectar a las conexiones existentes en la red de dependencias de paquetes de software.
+Un \textit{grafo no dirigido} es aquel en el que las aristas, que representan las conexiones
+entre los vértices, no tienen una dirección asociada. En otras palabras, la relación entre dos
+vértices es simétrica, lo que significa que si el vértice A está conectado con el vértice B,
+entonces el vértice B también está conectado con el vértice A. En este tipo de grafo, la comunicación
+o la relación entre los vértices se considera \textit{bidireccional}. Un ejemplo común de un grafo no
+dirigido es una red social, donde los vértices representan personas y las aristas representan
+amistades. La conexión entre dos personas en una red social no depende de la dirección.
 
-Es fundamental que las redes de dependencias se actualicen regularmente para reflejar estos cambios. Esto implica realizar un seguimiento de las actualizaciones de cada paquete y revisar que todo funcione como se espera. Sería conveniente y una buena práctica para los mantenedores de la red, que esta esté alineada con las versiones y requisitos actualizados de los paquetes individuales.
+Por otro lado, un \textit{grafo dirigido} es aquel en el que las aristas tienen una dirección
+asociada. Esto significa que la relación entre dos vértices puede ser asimétrica, es decir, el
+vértice A puede estar conectado con el vértice B, pero no necesariamente el vértice B está conectado
+con el vértice A. En este tipo de grafo, la comunicación o la relación entre los vértices se considera
+\textit{unidireccional}. Un ejemplo común de un grafo dirigido es una red de transporte, donde los
+vértices representan ubicaciones y las aristas representan las rutas o los caminos que van en una
+dirección específica.
 
-Como consecuencia de  mantener las redes actualizadas, se asegura que los desarrolladores tengan una visión más cercana a la evolución tecnológica del software lo que facilita la toma de decisiones informadas sobre futuras actualizaciones y mejoras en un determinado proyecto.
+\section{Métricas en la teoría de grafos}
 
-\section{Analisis de redes de dependencias de paquetes de software}
+En general, las \textit{métricas} son medidas o indicadores cuantitativos que se utilizan para evaluar
+y cuantificar diferentes aspectos de un objeto, sistema o fenómeno\footnote{Las métricas también
+    se conocen como medidas o indicadores de rendimiento}. Proporcionan una forma objetiva de medir y
+comparar características específicas, permitiendo realizar análisis, tomar decisiones y realizar
+mejoras basadas en datos concretos.
 
-El análisis de redes es una disciplina que se enfoca en el estudio y comprensión de la estructura, interconexiones y propiedades de los sistemas complejos representados como redes. Estas redes pueden ser cualquier tipo de sistema compuesto por elementos interconectados (como redes sociales, carreteras, red eléctrica, o como en nuestro caso redes de dependencias de paquetes de software)
+En el contexto de la teoría de grafos, las métricas se utilizan para analizar y caracterizar diferentes
+propiedades y aspectos de los grafos. Estas métricas ofrecen medidas cuantitativas que describen la
+estructura, la conectividad, la eficiencia y otros atributos relevantes de un grafo\footnote{
+    Las métricas en la teoría de grafos son ampliamente utilizadas en campos como la informática, las
+    redes sociales, la biología y la física, entre otros}.
 
-En el contexto de las redes de dependencias de paquetes de software, realizamos este análisis por medio de métricas. Las métricas son medidas cuantitativas que se utilizan para evaluar y describir diferentes aspectos de la red. Estas métricas proporcionan información clave sobre la importancia, la centralidad y las características de los nodos y las conexiones en la red.
+\subsection{Grado}
 
-Algunas de las métricas comunes en el análisis de redes de dependencias de paquetes de software incluyen el grado, que indica el número de conexiones que tiene un nodo. La centralidad de intermediación, que mide cuánto un nodo se encuentra en los caminos más cortos entre otros nodos. La centralidad de cercanía, que evalúa la distancia promedio entre un nodo y los demás nodos de la red. La centralidad de vector propio, que mide la importancia de un nodo basándose en la importancia de sus vecinos.
+El \textit{grado} de un vértice se refiere al número de aristas que están conectadas a ese vértice 
+en particular\footnote{Nota: El grado de un vértice también se conoce como valencia}. El grado de 
+un vértice es una métrica fundamental para comprender la conectividad y la importancia relativa de 
+los vértices dentro de un grafo. En un grafo no dirigido, el grado de un vértice se calcula contando 
+el número total de aristas incidentes a ese vértice. En un grafo dirigido, se distingue entre el grado 
+de entrada (número de aristas entrantes) y el grado de salida (número de aristas salientes) de un 
+vértice.
 
-\subsection{El grado}
+El grado de un vértice puede proporcionar información valiosa sobre la estructura y las propiedades 
+del grafo en general. Por ejemplo, los vértices con un grado alto suelen desempeñar un papel central 
+en la comunicación y la transferencia de información dentro de un grafo. También puede revelar la 
+existencia de vértices aislados (grado cero) o vértices de grado bajo, que pueden tener implicaciones 
+en la conectividad y la eficiencia de un grafo.
 
-El grado de un nodo en una red es el número de aristas conectadas a ese nodo. 
-En una red de dependencias de paquetes de software, el grado de un nodo representa el número de paquetes que dependen de ese paquete junto con las dependencias de este.
-En redes dirigidas se hace diferencia entre grado de entrada y grado de salida.
+Además, el análisis de la distribución de los grados en un grafo puede revelar patrones interesantes, 
+como la presencia de hubs o nodos altamente conectados que desempeñan un papel clave en la red. 
+Estudiar el grado de los vértices y su distribución puede ser útil para comprender la robustez, 
+la centralidad y otras propiedades estructurales de un grafo.
 
-Un alto grado en la red de dependencias de paquetes de software revela el nivel de emparejamiento que posee un determinado paquete. Esta circunstancia puede tener consecuencias tanto positivas como negativas.
-Podría considerarse un indicio alentador cuando el paquete en cuestión ha sido rigurosamente probado y goza de una reputación fiable en términos de su desempeño. No obstante, también es importante reconocer que un alto grado puede encerrar ciertos riesgos, especialmente si el paquete se caracteriza por su complejidad o la presencia de errores.
+\subsection{Centralidad}
 
-La presencia de un alto grado de entrada en un paquete sugiere que una gran cantidad de otros paquetes dependen de él. Esta situación puede interpretarse como un signo de popularidad y amplio uso en el entorno del software. Cuando un paquete ha demostrado ser confiable, está bien mantenido y ha sido sometido a pruebas exhaustivas, su alto grado se convierte en una señal de que ha ganado la confianza de los desarrolladores y es considerado una opción sólida para satisfacer diversas necesidades funcionales.
+La \textit{centralidad} es una medida utilizada en la teoría de grafos para identificar los vértices 
+más importantes o influyentes dentro de un grafo. Se basa en la idea de que algunos nodos tienen un 
+papel más destacado en la transmisión de información o la propagación de influencias en una red.
 
-Sin embargo, se debe considerar el riesgo potencial asociado a un alto grado de salida. Existe la posibilidad de que un alto grado de salida indique complejidad o presencia de errores en el paquete. Si un paquete es altamente complejo, es probable que su comprensión y mantenimiento sean una tarea dificil, lo que podría derivar en problemas de rendimiento, escalabilidad o incluso fallos en el sistema. Asimismo, si un paquete presenta errores o fallas, su alta dependencia implica que los problemas pueden propagarse rápidamente a otros paquetes, lo que afecta negativamente la estabilidad y confiabilidad del sistema en su conjunto.
+Existen diferentes métricas de centralidad que se utilizan para evaluar la importancia de los 
+nodos en función de diferentes criterios. Dos de las métricas de centralidad más comunes son la 
+centralidad de intermediación y la centralidad de cercanía.
 
-Por lo tanto, resulta crucial considerar tanto el grado de un paquete como su calidad y confiabilidad. Un alto grado por sí solo no garantiza la calidad o idoneidad de un paquete, sino que debe evaluarse en conjunto con otros factores, como la presencia de test de funcionalidades, validación y pruebas, la existencia de documentación, el mantenimiento por parte de los desarrolladores y el feedback de la comunidad de desarrollo. 
+La \textit{centralidad de intermediación} (\textit{betweenness centrality}) mide la importancia de 
+un nodo en función de la cantidad de veces que ese nodo se encuentra en el camino más corto entre 
+otros pares de nodos en el grafo. Un nodo con una alta centralidad de intermediación actúa como un 
+puente o intermediario entre otros nodos, desempeñando un papel crucial en la comunicación y el 
+flujo de información dentro de la red.
 
-\subsection{Centralidad de intermediación (Betweenness centrality)}
+Por otro lado, la \textit{centralidad de cercanía} (\textit{closeness centrality}) se refiere a la 
+proximidad de un nodo con respecto a todos los demás nodos en el grafo. Un nodo con una alta 
+centralidad de cercanía está más cerca en términos de distancia geodésica de todos los demás nodos, 
+lo que implica que puede acceder rápidamente a la información y transmitirla eficientemente a otros 
+nodos en la red.
 
-La centralidad de intermediación mide la importancia de un nodo en una red según la frecuencia con la que se encuentra en el camino más corto entre otros dos nodos. En una red de dependencias de paquetes de software, la centralidad de intermediación se puede utilizar para identificar paquetes que son críticos para el funcionamiento general del sistema.
+Hacemos una mención especial a \textit{PageRank}\footnote{Nota: Desarrollado por Larry Page y Sergey 
+Brin} por su importancia en estos últimos años. PageRank es un algoritmo utilizado como medida de 
+centralidad en la teoría de grafos. Fue desarrollado por Google, como parte de su motor de búsqueda 
+original.
 
-Esto implica que paquetes con alta centralidad de intermediación son puntos clave intermedios entre los paquetes de ese sistema. Identificar estos paquetes críticos puede ayudar a los desarrolladores a entender dónde se encuentran potenciales problemas intermedios o cuellos de botella y dónde pueden surgir problemas si esos paquetes fallan o se ven afectados.
+PageRank se basa en el concepto de que una página web es importante si es enlazada por otras 
+páginas importantes. Considera los enlaces como votos de confianza, donde los enlaces provenientes 
+de páginas con mayor autoridad tienen un peso mayor. Además, el algoritmo tiene en cuenta la 
+cantidad total de enlaces que apuntan a una página y la importancia de esas páginas de origen.
 
-Es por eso que debemos ser proactivos y estar alerta cuando se trata de este paquete con alta centralidad de intermediación. Es necesario establecer medidas de seguridad sólidas para protegerlo y garantizar su integridad. Esto implica llevar a cabo una supervisión constante, identificar posibles vulnerabilidades y aplicar actualizaciones y parches de seguridad de manera oportuna si fuese necesario para garantizar la calidad de la red.
+El nombre \textit{"PageRank"} se deriva del apellido de su inventor, pero también hace referencia 
+a la noción de \textit{ranking} o clasificación de páginas web. Page y Brin implementaron el 
+algoritmo PageRank en el motor de búsqueda de Google, que se lanzó en 1998. Fue una de 
+las innovaciones clave que distinguió a Google de otros motores de búsqueda de la época, ya que 
+permitía generar resultados más relevantes y de mayor calidad.
 
-\subsection{Centralidad de cercanía (Closeness centrality)}
+Con el tiempo, PageRank se convirtió en una medida ampliamente utilizada para evaluar la importancia 
+de los nodos en diversos tipos de redes, no solo en la web. Ha encontrado aplicaciones en áreas como 
+las redes sociales, la biología de sistemas, la epidemiología y la física de redes, entre otras.
 
-La centralidad de cercanía mide la distancia media entre un nodo y todos los demás nodos de la red. En nuestro caso de estudio, la centralidad de cercanía se puede utilizar para identificar paquetes que son fácilmente accesibles desde otros paquetes.
-
-Los paquetes con alta centralidad de cercanía son aquellos que están cerca de muchos otros paquetes en términos de distancia. Esto significa que son habitualmente usados por otros paquetes y pueden tener un impacto significativo en la propagación de información o cambios a través de la red de dependencias. Identificar estos paquetes puede ayudar a los desarrolladores a comprender dónde se encuentran los puntos clave de nexo común entre otros paquetes y cómo se propagan las dependencias en el sistema.
-
-Como consecuencia, un paquete con alta cercanía debería de estar bien testado y documentado, ya que es fácilmente posible que sea dependencia en un proyecto software.
-
-\subsection{Centralidad de vector propio (Eigenvector centrality)}
-
-La centralidad de vector propio mide la importancia de un nodo en una red según la importancia de sus vecinos. En una red de dependencias de paquetes de software, la centralidad de vector propio se puede utilizar para identificar paquetes influyentes en la red.
-
-Los paquetes con alta centralidad de vector propio son aquellos que están conectados a otros paquetes importantes en la red. Esto significa que su importancia se deriva de su conexión con otros paquetes influyentes. Identificar estos paquetes puede ayudar a los desarrolladores a comprender qué paquetes tienen un impacto significativo en la estructura y el funcionamiento de la red y que los cambios que se produzcan en estos paquetes pueden afectar a otros paquetes en la red.
-
-Existen variaciones de esta métrica, como la métrica de Katz calcula la importancia de un nodo teniendo en cuenta tanto la cantidad como la calidad de sus conexiones. Se basa en la idea de que un nodo es importante si está conectado con otros nodos importantes. Por lo tanto, asigna puntuaciones más altas a los nodos que tienen conexiones con otros nodos de alta importancia.
-Por otro lado, el algoritmo de PageRank se utiliza para evaluar la relevancia de un nodo en función de la estructura de enlaces en la red. PageRank asigna puntuaciones a los nodos según la probabilidad de que un navegante aleatorio termine en ese nodo al seguir los enlaces de la red. En otras palabras, un nodo obtendrá una puntuación más alta si es enlazado por nodos importantes y relevantes en la red.
