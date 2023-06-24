@@ -1,6 +1,118 @@
 \capitulo{4}{Técnicas y herramientas}
 
-\subsection{Entorno de desarrollo}
+
+\section{Análisis de los datos disponibles}
+
+Para llevar a cabo el análisis de las redes de dependencias de paquetes de software, contamos con 
+datos proporcionados por \textit{libraries.io}\cite{jeremy_katz_2020_3626071} en formato CSV. Estos 
+datos nos permiten extraer la red dedependencias de los principales repositorios de paquetes que 
+vamos a estudiar en este trabajo
+\textit{(CRAN, PyPI, npm)}\footnote{Algunos repositorios incluidos en los conjuntos de datos 
+son: npm, Maven, PyPI, CRAN, Rubygems, Packagist, NuGet}. Sin embargo,
+es importante destacar que estos datos no están actualizados a la fecha actual debido a la
+elevada evolucion de los cambios en los proyectos de software. Por lo tanto, los análisis que
+realicemos con estos datos no reflejarán la situación actual y actualizada de la red de dependencias.
+
+A pesar de esta limitación, contamos con un conjunto de datos que abarca un gran número de repositorios
+y un histórico de las dependencias de los paquetes para sus distintas versiones. Esto nos permite
+realizar análisis retrospectivos y estudiar la evolución de las dependencias a lo largo del
+tiempo.
+
+En conclusión, es evidente la necesidad de obtener un nuevo conjunto de datos que nos brinde
+un estudio más preciso y actualizado de las relaciones de paquetes en los repositorios. Dado
+que tanto el conjunto de datos de \textit{libraries.io} como su API tiene ciertas limitaciones, se ha considerado como una opción
+secundaria dando preferencia a otras técnicas de extracción de datos como el \textit{web scraping}.
+
+\subsection{Web Scraping}
+
+Para obtener un conjunto de datos actualizado, se plantea la posibilidad de realizar un
+\textit{web scraping} de los repositorios de paquetes de software. El \textit{web scraping}
+es una técnica que consiste en extraer información de sitios web de manera automatizada.
+Esta técnica nos permite obtener datos de los repositorios de paquetes de software y
+construir un conjunto de datos actualizado.
+
+Sin embargo, el \textit{web scraping} presenta ciertas limitaciones que dificultan su uso
+para la extracción de datos. A continuación, se presentan las principales limitaciones del
+\textit{web scraping}:
+
+\begin{itemize}
+    \item \textbf{Estructura de los sitios web}: Los sitios web no están diseñados para
+          ser analizados por máquinas, sino para ser visualizados por humanos. Por lo tanto,
+          la estructura de los sitios web puede cambiar con frecuencia, lo que dificulta
+          el proceso de extracción de datos.
+    \item \textbf{Detección de bots}: Algunos sitios web pueden detectar el uso de bots
+          y bloquear las solicitudes. Esto puede ocurrir si se realizan demasiadas solicitudes
+          en un período de tiempo corto.
+    \item \textbf{Limitaciones de velocidad}: Algunos sitios web pueden limitar la velocidad
+          de las solicitudes para evitar una carga excesiva en los servidores. Esto puede
+          provocar que el proceso de extracción de datos sea más lento y menos eficiente.
+\end{itemize}
+
+Es importante tener en cuenta estas limitaciones al utilizar el \textit{web scraping} para
+asegurar un uso adecuado y obtener los datos necesarios.
+
+El web scraping es una técnica que puede aparecer combinada con otras técnicas de extracción
+de datos, como la API de \textit{libraries.io} o las APIS propias de los gestores de paquetes. 
+
+\subsection{Exploración de los repositorios de paquetes}
+
+La exploración de los repositorios de paquetes desempeña un papel fundamental en nuestro estudio.
+A continuación, se presentan los puntos basicos a tener en cuenta en esta temática y en los que se
+centra el análisis:
+
+\begin{itemize}
+    \item \textbf{Diversidad de repositorios}: Existe una amplia gama de repositorios de paquetes,
+          cada uno especializado en un lenguaje de programación o plataforma específica. Es esencial
+          conocer la variedad de repositorios relevantes para nuestra área de interés, como npm para JavaScript,
+          PyPI para Python o Maven para Java. Cada repositorio tiene su propia comunidad, conjunto de reglas
+          y mejores prácticas.
+    \item \textbf{Estructura y metadatos de los paquetes}: Cada paquete de software en un repositorio
+          está acompañado de metadatos que proporcionan información importante. Estos metadatos incluyen el
+          nombre del paquete, la versión, la descripción, el autor, la licencia, las dependencias y más.
+          Estos son los datos relevantes para nuestra investigación y en los que nos centraremos durante
+          la extracción\footnote{Los metadatos varían entre los diferentes repositorios y pueden contener
+              información adicional específica del repositorio en cuestión.}.
+    \item \textbf{Versionado y mantenimiento}: Los repositorios de paquetes suelen gestionar diferentes
+          versiones de un paquete, cada una con sus propias mejoras, correcciones de errores y posibles cambios
+          en las dependencias. El seguimiento y análisis de los patrones de versionado y las prácticas de
+          mantenimiento son aspectos esenciales para comprender la evolución de los paquetes a lo largo del
+          tiempo\footnote{El versionado de paquetes sigue diferentes convenciones dependiendo del repositorio
+              y las prácticas adoptadas por los desarrolladores del software.}.
+\end{itemize}
+
+\subsection{API de libraries.io}
+
+\textit{Libraries.io} proporciona una API para acceder a los datos de los repositorios de paquetes
+de software. Esta API nos permite obtener información sobre los paquetes y sus dependencias,
+así como también información sobre los repositorios y sus características.
+
+La API de \textit{libraries.io} es una herramienta muy útil para obtener información sobre los
+paquetes y repositorios de software. Sin embargo, presenta algunas limitaciones que dificultan
+su uso para la extracción de datos. A continuación, se presentan las principales limitaciones
+de la API:
+
+\begin{itemize}
+    \item \textbf{Autenticación}: Para realizar cualquier solicitud a la API, es necesario
+          incluir el parámetro \textit{api\_key} que se obtiene desde la página de tu cuenta.
+          Esto implica un registro en el servicio.
+    \item \textbf{Distintas versiones del servicio}: Existen diferentes versiones del servicio,
+          siendo la versión gratuita la que ofrece características básicas, mientras que las características
+          adicionales están disponibles a través de planes de pago.
+    \item \textbf{Límite de velocidad}: Todas las solicitudes están sujetas a un límite de
+          velocidad (de 60 solicitudes por minuto en la versión gratuita) basado en tu \textit{api\_key}.
+          Si se realizan más solicitudes dentro de ese período de tiempo, se recibirá una respuesta de error 429. 
+          Este límite está diseñado para garantizar un uso equitativo de los recursos y evitar una carga 
+          excesiva en los servidores.
+    \item \textbf{Paginación}: Algunas solicitudes pueden devolver múltiples resultados, y para
+          manejar estos casos, se puede utilizar la paginación. Se pueden utilizar los parámetros de
+          consulta \textit{page} y \textit{per\_page} para controlar la cantidad de resultados
+          por página. El valor predeterminado de \textit{page} es 1 y el valor predeterminado
+          de \textit{per\_page} es 30 resultados por página. Esto podría implicar resultados truncados,
+          lo cual no es deseable.
+\end{itemize}
+
+
+\section{Entorno de desarrollo}
 
 Se ha trabajado en un sistema operativo \textit{Ubuntu} y utilizando \textit{Visual Studio Code} 
 (VSCode) como entorno de desarrollo integrado (IDE) preferido\footnote{ La elección del sistema 
@@ -10,8 +122,7 @@ específicas. Su amplia selección de extensiones me brinda herramientas adicion
 especializadas que enriquecen mi experiencia de programación.
 
 El lenguaje de programación elegido es \textit{Python}, reconocido por su facilidad de uso y amplia 
-gama de bibliotecas y frameworks disponibles\footnote{ Python se ha utilizado previamente en el 
-Trabajo Final de Grado anterior}. Sin embargo, también considero esencial el uso de \textit{Bash}, 
+gama de bibliotecas y frameworks disponibles. Sin embargo, también considero esencial el uso de \textit{Bash}, 
 un intérprete de comandos de Unix, para realizar diversas tareas y automatizaciones en el entorno 
 de desarrollo.
 
@@ -22,7 +133,7 @@ rendimiento puede variar dependiendo de los requisitos específicos del proyecto
 algunos casos ha habido incidentes debido al elevado consumo de memoria que requiere el procesamiento 
 de la masiva cantidad de datos a la que nos hemos enfrentado.
 
-A continuación se presenta una lista de los paquetes\footnote{Paquetes de Python} utilizados, destacando sus funcionalidades:
+A continuación se presenta una lista de los paquetes utilizados, destacando sus funcionalidades:
 
 \begin{itemize}
   \item \textit{Pandas}: Una biblioteca de análisis de datos de alto rendimiento que proporciona 
@@ -42,33 +153,28 @@ A continuación se presenta una lista de los paquetes\footnote{Paquetes de Pytho
   \item \textit{Matplotlib}: Una biblioteca de visualización de datos en 2D que me permite crear 
   gráficos y visualizaciones de datos de alta calidad.
   \item \textit{Pybraries}: Una biblioteca que hace de wrapper de el API de 
-  \textit{libraries.io}\footnote{Libraries.io es una plataforma en línea que proporciona información 
-  y datos sobre diferentes bibliotecas y paquetes de software de código abierto} para python.
+  \textit{libraries.io} para python.
   \item \textit{Typing\_extensions}: Una extensión del módulo typing de Python que proporciona 
   funcionalidades adicionales para anotaciones de tipos en tiempo de ejecución.
   \item \textit{pdoc}: Una biblioteca que me permite generar documentación automática a partir 
   de mis archivos de código fuente.
 \end{itemize}
 
-\subsection{Jupyter Notebooks y Computación en la nube}
+\section{Computación en la nube: \textit{Kaggle} y \textit{Deepnote}}
 
 \textit{Jupyter Notebooks} se ha convertido en una herramienta fundamental en el ámbito de la ciencia de datos y 
 la programación interactiva. Estos notebooks permiten combinar código, texto explicativo y resultados 
 visuales en un solo documento, lo que facilita la comunicación y colaboración en proyectos de análisis 
 de datos. Los notebooks se ejecutan en un entorno interactivo, lo que permite explorar y experimentar 
 con el código de manera iterativa, lo que resulta especialmente útil en tareas de análisis exploratorio 
-de datos.\footnote{El análisis exploratorio de datos implica investigar y comprender los datos a través 
-de la exploración visual, la estadística descriptiva y otras técnicas para obtener ideas y patrones 
-clave.}
+de datos.
 
 En cuanto a la computación en la nube, ha desempeñado un papel clave en el desarrollo de este TFG.
 Plataformas como \textit{Kaggle} o \textit{Deepnote} proporcionan servicios de notebooks basados en la nube, lo que 
 significa que los usuarios pueden acceder a un entorno de desarrollo completo sin tener que preocuparse 
 por configurar y mantener su propia infraestructura. Esto es especialmente beneficioso en proyectos 
 que requieren una gran cantidad de recursos computacionales, como el procesamiento de grandes volúmenes
- de datos.\footnote{El procesamiento de grandes volúmenes de datos implica trabajar con conjuntos de 
- datos masivos que pueden superar la capacidad de procesamiento de una sola máquina. La computación 
- en la nube permite distribuir y escalar el procesamiento para manejar estos volúmenes de datos.}
+ de datos.
 
 Además, la computación en la nube ha ayudado a reducir los costos asociados con la obtención y 
 procesamiento de datos. La obtención de datos puede requerir tiempo, memoria y almacenamiento 
@@ -80,7 +186,7 @@ nube se refiere a la capacidad de aumentar o disminuir la capacidad de cómputo 
 según las necesidades del proyecto, lo que permite un uso más eficiente de los recursos y un mejor 
 control de costos.}
 
-\subsection{Sistema de control de versiones}
+\section{Sistema de control de versiones}
 
 \textit{GitHub} ha desempeñado un papel fundamental como plataforma de control de versiones Git en el ámbito del 
 desarrollo de software colaborativo de código abierto. Como un estándar reconocido internacionalmente, 
@@ -90,29 +196,23 @@ herramientas integrales para el seguimiento y control de eventos relacionados co
 lo que facilita la colaboración eficiente y transparente entre los miembros del equipo. 
 Esta plataforma ha fomentado el desarrollo comunitario, impulsando la creación y mejora de proyectos 
 de software en un entorno abierto y accesible para la comunidad global de 
-desarrolladores.\footnote{El control de versiones es un sistema que registra y controla los cambios 
-realizados en un proyecto a lo largo del tiempo. Permite realizar un seguimiento de las modificaciones, 
-gestionar conflictos y recuperar versiones anteriores del código. Git es un sistema de control de 
-versiones ampliamente utilizado en el desarrollo de software.}
+desarrolladores.
 
 GitHub, como plataforma de control de versiones basada en Git, permite a los desarrolladores 
 almacenar y compartir sus repositorios de código, facilitando la colaboración y la contribución 
 de múltiples personas a un proyecto. Además, ofrece herramientas como problemas, solicitudes de 
 extracción y seguimiento de errores que permiten una comunicación efectiva entre los miembros del 
 equipo y facilitan la gestión y resolución de problemas en el proceso de desarrollo de 
-software.\footnote{Los problemas y las solicitudes de extracción son mecanismos utilizados en GitHub 
-para informar y abordar problemas, sugerir cambios y revisar y fusionar contribuciones de código.}
+software.
 
 El uso de GitHub ha fomentado el desarrollo comunitario y la creación de proyectos de software 
 de calidad en un entorno colaborativo y transparente. Los desarrolladores pueden contribuir 
 a proyectos existentes, realizar mejoras y correcciones de errores, y beneficiarse de la 
 retroalimentación y la experiencia de otros miembros de la comunidad global de desarrolladores. 
 Además, GitHub facilita la visibilidad y la accesibilidad de los proyectos, lo que permite a otros 
-descubrir, aprender y utilizar el software desarrollado por la comunidad.\footnote{La comunidad 
-global de desarrolladores se refiere a la amplia red de personas que colaboran, comparten conocimientos 
-y contribuyen al desarrollo de software en todo el mundo.}
+descubrir, aprender y utilizar el software desarrollado por la comunidad.
 
-\subsection{Integración continua y el control de calidad}
+\section{Integración continua y el control de calidad}
 
 La \textit{integración continua} y el \textit{control de calidad} desempeñan un papel crucial en el desarrollo de software. 
 Para garantizar la calidad y la consistencia del proyecto, se ha utilizado \textit{SonarCloud}\footnote{SonarCloud es una herramienta de control de calidad que proporciona 
@@ -133,7 +233,7 @@ la documentación, lo que mejora la usabilidad y la visibilidad del proyecto. Es
 utilizar GitHub Pages para la documentación garantiza que la información esté siempre actualizada 
 y disponible para todos los interesados en el proyecto.
 
-\subsection{Persistencia de datos}
+\section{Persistencia de datos}
 
 Se ha decidido seguir la metodología establecida en el Trabajo de Fin de Grado anterior, donde se 
 emplean archivos CSV para almacenar los conjuntos de datos generados. Estos archivos CSV ofrecen una 
@@ -151,7 +251,7 @@ datos.\footnote{La serialización es el proceso de convertir un objeto en una se
 bytes que puede ser almacenada o transmitida, y posteriormente restaurada para obtener el 
 objeto original. Esto facilita la persistencia de datos complejos en entornos de programación.}
 
-Sin embargo, la masividad de los datos ha planteado desafíos en cuanto a su almacenamiento. 
+Sin embargo, el gran volumen de los datos ha planteado desafíos en cuanto a su almacenamiento. 
 El volumen de los datos generados ha requerido el empleo de técnicas de compresión y división 
 en \textit{lotes} para asegurar su conservación eficiente. Mediante la compresión\footnote{La compresión 
 de datos es el proceso de reducir el tamaño de un 
@@ -162,7 +262,7 @@ almacenamiento. Por otro lado, la división
 en lotes consiste en dividir los datos en conjuntos más pequeños, lo cual facilita su manejo y 
 procesamiento en entornos con recursos limitados.
 
-\subsection{Gestión y organización del proyecto}
+\section{Gestión y organización del proyecto}
 
 Inicialmente, se establecieron reuniones presenciales quincenales para discutir los objetivos de 
 los \textit{sprints} propuestos. A medida que nos acercábamos a la etapa final del proyecto, se optó por 
@@ -176,9 +276,7 @@ proyecto ágil. Se utiliza comúnmente en la metodología Scrum para la gestión
 Se ha utilizado \textit{Microsoft Teams} como herramienta para facilitar las reuniones de forma remota, 
 lo que permitió una comunicación efectiva y una colaboración fluida entre los miembros del equipo. 
 Esta plataforma proporcionó un espacio para compartir documentos, discutir ideas y mantener un 
-seguimiento de las tareas asignadas.\footnote{Microsoft Teams es una plataforma de colaboración 
-en línea que permite la comunicación y el trabajo en equipo a través de chat, videoconferencias, 
-compartición de archivos y otras funcionalidades.}
+seguimiento de las tareas asignadas.
 
 A lo largo del proyecto, se pueden distinguir varias etapas. En primer lugar, hubo una fase de 
 toma de contacto, donde se adquirió un conocimiento inicial sobre los objetivos y el alcance del 
@@ -188,10 +286,7 @@ adquiridos en asignaturas como \textit{Nuevas Tecnologías}.\footnote{Asignatura
 Informática en la UBU que proporciona una visión general de la ciencia de redes y sus aplicaciones.}
 
 Otra etapa clave fue el estudio de estrategias para la obtención de datos. Dado que había 
-diferentes fuentes disponibles, como archivos CSV, sitios web y APIs\footnote{API (Application Programming Interface) es un 
-conjunto de reglas y protocolos que permite la comunicación y la interacción entre diferentes 
-software o componentes de software. Permite el intercambio de datos y la ejecución de funciones 
-entre sistemas diferentes.}, se exploraron y 
+diferentes fuentes disponibles, como archivos CSV, sitios web y APIs, se exploraron y 
 seleccionaron las mejores opciones para obtener los datos necesarios. Además, se desarrolló 
 una herramienta en Python que permitió la extracción de datos de estas diversas fuentes de 
 manera eficiente y automatizada.

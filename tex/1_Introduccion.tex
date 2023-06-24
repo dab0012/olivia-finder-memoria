@@ -29,18 +29,6 @@ que era un simple script para justificar cadenas de texto. Pero… Muchos de los
 o indirectamente de "left-pad". Casi un millón de sitios web comenzaron a tener problemas para actualizar sus dependencias o
 lanzar nuevas versiones, e incluso gigantes como Facebook o Netflix se vieron afectados. Fue un verdadero caos.
 
-\begin{verbatim}
-   module.exports = leftpad;
-   function leftpad (str, len, ch) {
-       str = String(str);
-       var i = -1;
-       if (!ch && ch !== 0) ch = ' ';
-       len = len - str.length;
-       while (++i < len) { str = ch + str; }
-       return str;
-   }
-\end{verbatim}
-
 
 Finalmente, npm tuvo que intervenir y, aunque generó mucha polémica, decidieron restaurar el paquete "left-pad". Laurie Voss, el director de tecnología de npm, explicó que tomaron esta decisión sin precedentes debido a la gravedad y la amplia repercusión del problema. No lo hicieron a la ligera, la decisión se tomó pensando en la comunidad de usuarios de npm y en sus necesidades.
 
@@ -95,30 +83,31 @@ Otro estudio \cite{10.1145/3196398.3196401} concluye que el número de vulnerabi
 de npm ha estado aumentando constantemente desde 2012, propagándose a través de la red de dependencias.
 
 
-Las redes de dependencias de paquetes presentan características distintivas en comparación con las redes comúnmente estudiadas en la ciencia de redes,
-como las redes sociales, de información, tecnológicas o biológicas \cite{doi:10.1137/S003614450342480}.
+Las redes de dependencias de paquetes presentan características distintivas en comparación con las redes 
+comúnmente estudiadas en la ciencia de redes,como las redes sociales, de información, tecnológicas o 
+biológicas \cite{doi:10.1137/S003614450342480}.
 En primer lugar, los enlaces en estas redes pueden tener múltiples interpretaciones dentro de la misma red.
-Por un lado, actúan como canales de comunicación o difusión, similar a cómo ocurre en muchas redes sociales (lo cual explica, por ejemplo,
-la propagación de errores en la red). Por otro lado, representan requisitos necesarios para el funcionamiento de los nodos, pero de una manera
-diferente a otras redes tecnológicas.
+Por un lado, actúan como canales de comunicación o difusión, similar a cómo ocurre en muchas redes sociales 
+(lo cual explica, por ejemplo, la propagación de errores en la red). Por otro lado, representan requisitos 
+necesarios para el funcionamiento de los nodos, pero de una manera diferente a otras redes tecnológicas.
+
 Tomemos como ejemplo una red eléctrica o de comunicaciones, donde los enlaces entrantes son necesarios para el funcionamiento de los nodos en la red.
 Sin embargo, en general, un solo enlace es suficiente para establecer una conexión entre un nodo y el conjunto de la red.
 En cambio, en las redes de dependencias, todos los enlaces son necesarios para el funcionamiento del nodo.
-Esto se debe a su naturaleza inherentemente transitiva, lo que significa que las relaciones son transitivas por definición, sin necesidad de
-que esta propiedad se exprese explícitamente en la estructura de la red. Esta característica es poco común en otros tipos de redes.
+Esto se debe a su naturaleza inherentemente transitiva, lo que significa que las relaciones son transitivas por definición, 
+sin necesidad de que esta propiedad se exprese explícitamente en la estructura de la red. 
+Esta característica es poco común en otros tipos de redes.
+
 Además, es posible considerar una red de dependencias como una red de información, donde los enlaces representan votos, en el sentido de
 que reflejan algún tipo de reconocimiento, al igual que los enlaces en Internet o las citas en las redes bibliográficas. En este sentido,
 las redes de dependencias comparten la propiedad de poder ser modeladas mediante una estructura acíclica sin introducir restricciones importantes,
 al igual que ocurre con las redes bibliográficas.
-La investigación sobre las redes de dependencias de paquetes es un campo relativamente nuevo y nuestra comprensión de estas estructuras es limitada \cite{7962360}. El conjunto de trabajos de referencia en este tema es aún reducido, y lo es aún más si nos centramos en aspectos específicos como el análisis de la vulnerabilidad, donde solo hemos encontrado publicaciones descriptivas. Hasta donde se sabe, no se ha propuesto un modelo teórico que permita avanzar en la comprensión de la vulnerabilidad de este tipo de redes, lo cual podría tener un impacto significativo en la seguridad y estabilidad del software a nivel global. Es necesario realizar más investigaciones en este campo para mejorar nuestra comprensión y desarrollar enfoques teóricos que aborden eficazmente los desafíos relacionados con la seguridad de las redes de dependencias de paquetes.
-En este trabajo, nos centraremos en los aspectos distintivos de las redes de dependencias de paquetes, como las múltiples interpretaciones de la red, las relaciones inherentemente transitivas y la posibilidad de modelarlas como redes acíclicas. Nuestro objetivo será estudiar la vulnerabilidad de estas redes frente a fallos. Definiremos la función de la red como la capacidad de proporcionar de manera ininterrumpida un conjunto de componentes de software reutilizables, de calidad y que funcionen según sus especificaciones. A través de nuestra investigación, intentaremos responder a preguntas como:
-
-\begin{itemize} \item ¿Hasta qué punto se ven afectados los proyectos software que emplean el repositorio ante la incidencia de fallos aleatorios (como por ejemplo la introducción de errores en los componentes)? \item ¿Cuál es la sensibilidad de una red determinada ante estas situaciones? \item ¿Existen estrategias óptimas para reducir el efecto perjudicial de los fallos en la red? \end{itemize}
-Por lo tanto, nuestra contribución consistirá en desarrollar un modelo teórico que permita analizar la vulnerabilidad frente a fallos en las redes de dependencias de paquetes. Este modelo se utilizará para implementar un conjunto de herramientas que ayudarán a responder las preguntas planteadas anteriormente. Estas herramientas se aplicarán a una captura de la estructura de dependencias de varios repositorios de paquetes reales. Por último, se realizará un análisis de los resultados obtenidos para obtener conclusiones relevantes.
-Los resultados de estos estudios proporcionan a la comunidad una visión muy poco conocida y novedosa desde el punto de vista de la redes de dependencias de paquetes, siendo como mínimo de interés académico para:
-Gestores centralizados de paquetes, para establecer políticas y procesos de control manuales o automáticos que mejoren la seguridad y estabilidad de los repositorios.
-Desarrolladores de software en general, para valorar los diferentes riesgos introducidos por las dependencias empleadas en sus proyectos, y a los desarrolladores de paquetes en particular para comprender mejor su responsabilidad sobre el ecosistema.
-Desarrolladores de herramientas de calidad e integración continua, para definir cuantitativamente el concepto de vulnerabilidad en función del modelado de la red de dependencias de paquetes.
+La investigación sobre las redes de dependencias de paquetes es un campo relativamente nuevo y nuestra comprensión de estas
+estructuras es limitada \cite{7962360}. El conjunto de trabajos de referencia en este tema es aún reducido, y lo es aún más
+si nos centramos en aspectos específicos como el análisis de la vulnerabilidad, donde solo hemos encontrado publicaciones 
+descriptivas. Hasta donde se sabe, no se ha propuesto un modelo teórico que permita avanzar en la comprensión de la 
+vulnerabilidad de este tipo de redes, lo cual podría tener un impacto significativo en la seguridad y estabilidad del
+ software a nivel global. 
 
 
 OLIVIA \cite{daniel_2022_7358391}, desarrollada por el alumno Daniel Setó Rey como parte de su Trabajo de Fin de Grado en la Universidad de Burgos y tutorizada por los profesores Carlos López Nozal y Jose Ignacio Santos Martín en 2021, es una herramienta de código abierto que se centra en la identificación y análisis de defectos en bibliotecas de software desde la perspectiva de la teoría de grafos. Estos defectos pueden provocar errores funcionales, problemas de rendimiento e incluso problemas de seguridad. Para los desarrolladores, comprender completamente el riesgo es complicado, ya que solo importan explícitamente una pequeña parte de las dependencias utilizadas en sus proyectos.
@@ -126,33 +115,46 @@ OLIVIA \cite{daniel_2022_7358391}, desarrollada por el alumno Daniel Setó Rey c
 
 OLIVIA utiliza un enfoque basado en la vulnerabilidad de la red de dependencias de los paquetes de software para medir la sensibilidad del repositorio a la introducción aleatoria de defectos. Su objetivo es contribuir a la comprensión de los mecanismos de propagación de defectos en el software y estudiar estrategias factibles de protección.
 
-
 En la actualidad, OLIVIA está en proceso de ser publicado a nivel académico.
-Después de su desarrollo como proyecto de fin de carrera, se están realizando los esfuerzos necesarios para compartir sus resultados y
-contribuciones con la comunidad científica.
-Esta publicación permitirá que otros investigadores y profesionales del campo accedan a esta herramienta y se beneficien de su enfoque
-innovador en la identificación y análisis de vulnerabilidades en las bibliotecas de software. Además, sentará las bases para futuros avances
-en la comprensión de los mecanismos de propagación de defectos y la implementación de estrategias efectivas de protección en el desarrollo de software.
+Después de su desarrollo como proyecto de fin de carrera, se están realizando los esfuerzos necesarios para 
+compartir sus resultados y contribuciones con la comunidad científica.
+Esta publicación permitirá que otros investigadores y profesionales del campo accedan a esta herramienta y se 
+beneficien de su enfoque innovador en la identificación y análisis de vulnerabilidades en las bibliotecas de software. 
+Además, sentará las bases para futuros avances
+en la comprensión de los mecanismos de propagación de defectos y la implementación de estrategias efectivas de 
+protección en el desarrollo de software.
 
-
-Este TFG pretende ser una continuación de la labor realizada por su predecesor.
 Una vez que tenemos el modelo de análisis definido, lo que se necesitan son los datos a analizar mediante este.
-La obtención de un conjunto de datos actualizado y el análisis a bajo nivel de los mismos, han aportado una actualización de los resultados experimentales obtenidos.
+La obtención de un conjunto de datos actualizado y el análisis a bajo nivel de los mismos, han aportado una 
+actualización de los resultados relativamente obsoletos de \textit{Libraries.io}.
 
-La recopilación de datos sobre las dependencias de los paquetes de software es un desafío complejo que puede resultar difícil de abordar.
+La recopilación de datos sobre las dependencias de los paquetes de software es un desafío complejo que puede 
+resultar difícil de abordar.
 Uno de los principales problemas radica en la falta de una única fuente confiable de información sobre estas dependencias.
 En muchos casos, no existe un repositorio centralizado o una base de datos completa que contenga todos los detalles necesarios.
-Debido a esta falta de una fuente única, recopilar datos sobre las dependencias de los paquetes de software a menudo requiere un esfuerzo manual y exhaustivo.
-Los desarrolladores y analistas deben investigar y rastrear las dependencias de cada paquete individualmente, lo que puede llevar una cantidad considerable de tiempo y recursos.
-Además, la información sobre las dependencias de los paquetes de software puede dispersarse en diferentes fuentes, como documentación oficial,
-repositorios de código, foros de desarrolladores y otras fuentes en línea.
+Debido a esta falta de una fuente única, recopilar datos sobre las dependencias de los paquetes de software a menudo 
+requiere un esfuerzo manual y exhaustivo.
+Los desarrolladores y analistas deben investigar y rastrear las dependencias de cada paquete individualmente, lo 
+que puede llevar una cantidad considerable de tiempo y recursos.
+Además, la información sobre las dependencias de los paquetes de software puede dispersarse en diferentes fuentes, 
+como documentación oficial, repositorios de código, foros de desarrolladores y otras fuentes en línea.
 
 
-Esta dispersión puede dificultar aún más la recopilación de datos y aumentar la posibilidad de omitir o malinterpretar información relevante.
-El análisis de las redes de dependencias de paquetes de software es un proceso complejo debido a la naturaleza de estas redes, que pueden ser enormes y altamente interconectadas. Estas redes pueden contener miles o incluso millones de nodos y conexiones, lo que hace que el análisis manual sea prácticamente imposible. Por lo tanto, se requieren herramientas especializadas y experiencia en análisis de datos para abordar este desafío.
+Esta dispersión puede dificultar aún más la recopilación de datos y aumentar la posibilidad de omitir o malinterpretar 
+información relevante.
+El análisis de las redes de dependencias de paquetes de software es un proceso complejo debido a la naturaleza de estas 
+redes, que pueden ser enormes y altamente interconectadas. Estas redes pueden contener miles o incluso millones de 
+nodos y conexiones, lo que hace que el análisis manual sea prácticamente imposible.
 
 
-Otro desafío asociado con la recopilación de datos es mantener la información actualizada. Las dependencias de los paquetes de software pueden cambiar con el tiempo debido a actualizaciones, nuevas versiones o cambios en los requisitos del sistema. Por lo tanto, es crucial realizar un seguimiento constante de los cambios y actualizar la información de las dependencias de manera regular para garantizar la precisión de los datos recopilados.
+Otro desafío asociado con la recopilación de datos es mantener la información actualizada. Las dependencias de los 
+paquetes de software pueden cambiar con el tiempo debido a actualizaciones, nuevas versiones o cambios en los requisitos 
+del sistema. Por lo tanto, es crucial realizar un seguimiento constante de los cambios y actualizar la información 
+de las dependencias de manera regular para garantizar la precisión de los datos recopilados.
 
 
-Para abordar estos desafíos, y como uno de los principales puntos fuertes de este TFG se pretende ilustrar al lector de cómo poder enfrentarse a esta tarea, identificando las distintas vías de obtención de datos, y concluyendo con el desarrollo de una herramienta que facilita el proceso de obtención de los mismos desde los repositorios oficiales de los gestores de paquetes que hemos elegido como caso de estudio.  En concreto nos referimos a la recopilación de datos de las dependencias en los paquetes de R (Bioconductor y CRAN), python (Pypi) y javascript (NPM)
+Para abordar estos desafíos, y como uno de los principales puntos fuertes de este TFG se pretende ilustrar al 
+lector de cómo poder enfrentarse a esta tarea, identificando las distintas vías de obtención de datos, y concluyendo 
+con el desarrollo de una herramienta que facilita el proceso de obtención de los mismos desde los repositorios
+oficiales de los gestores de paquetes que hemos elegido como caso de estudio.  En concreto nos referimos a la 
+recopilación de datos de las dependencias en los paquetes de R (\textit{CRAN} y \textit{Bioconductor}), de Python \textit{PyPI} y de Node.js \textit{npm}.

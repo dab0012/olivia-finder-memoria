@@ -136,7 +136,7 @@ requisitos del proyecto, ya sea por motivos funcionales o de seguridad.
 
 La teoría de grafos es un campo fundamental en las matemáticas discretas y la ciencia de la computación,
 que estudia las propiedades y relaciones de los grafos. Un \textit{grafo} es una estructura compuesta
-por un conjunto de \textit{nodos o vértices}, conectados entre sí por \textit{enlaces} llamados \textit{aristas}.
+por un conjunto de \textit{nodos o nodos}, conectados entre sí por \textit{enlaces} llamados \textit{enlaces}.
 Estos grafos pueden representar una amplia variedad de situaciones y fenómenos, desde redes de
 comunicación y relaciones sociales hasta sistemas de transporte y circuitos eléctricos.
 
@@ -155,98 +155,93 @@ y metodológicas para analizar y resolver problemas complejos en estos y otros d
 En la teoría de grafos, existen dos tipos principales de grafos: los \textit{grafos dirigidos} y
 los \textit{grafos no dirigidos}\footnote{Nota: En la teoría de grafos existen otros tipos de grafos,
     pero nos enfocaremos en estos dos tipos principales en este contexto}. Estas diferencias se
-refieren a la forma en que se establecen las conexiones entre los vértices del grafo.
+refieren a la forma en que se establecen las conexiones entre los nodos del grafo.
 
-Un \textit{grafo no dirigido} es aquel en el que las aristas, que representan las conexiones
-entre los vértices, no tienen una dirección asociada. En otras palabras, la relación entre dos
-vértices es simétrica, lo que significa que si el vértice A está conectado con el vértice B,
-entonces el vértice B también está conectado con el vértice A. En este tipo de grafo, la comunicación
-o la relación entre los vértices se considera \textit{bidireccional}. Un ejemplo común de un grafo no
-dirigido es una red social, donde los vértices representan personas y las aristas representan
+Un \textit{grafo no dirigido} es aquel en el que las enlaces, que representan las conexiones
+entre los nodos, no tienen una dirección asociada. En otras palabras, la relación entre dos
+nodos es simétrica, lo que significa que si el nodo A está conectado con el nodo B,
+entonces el nodo B también está conectado con el nodo A. En este tipo de grafo, la comunicación
+o la relación entre los nodos se considera \textit{bidireccional}. Un ejemplo común de un grafo no
+dirigido es una red social, donde los nodos representan personas y las enlaces representan
 amistades. La conexión entre dos personas en una red social no depende de la dirección.
 
-Por otro lado, un \textit{grafo dirigido} es aquel en el que las aristas tienen una dirección
-asociada. Esto significa que la relación entre dos vértices puede ser asimétrica, es decir, el
-vértice A puede estar conectado con el vértice B, pero no necesariamente el vértice B está conectado
-con el vértice A. En este tipo de grafo, la comunicación o la relación entre los vértices se considera
+Por otro lado, un \textit{grafo dirigido} es aquel en el que las enlaces tienen una dirección
+asociada. Esto significa que la relación entre dos nodos puede ser asimétrica, es decir, el
+nodo A puede estar conectado con el nodo B, pero no necesariamente el nodo B está conectado
+con el nodo A. En este tipo de grafo, la comunicación o la relación entre los nodos se considera
 \textit{unidireccional}. Un ejemplo común de un grafo dirigido es una red de transporte, donde los
-vértices representan ubicaciones y las aristas representan las rutas o los caminos que van en una
+nodos representan ubicaciones y las enlaces representan las rutas o los caminos que van en una
 dirección específica.
 
 \section{Métricas en la teoría de grafos}
 
 En general, las \textit{métricas} son medidas o indicadores cuantitativos que se utilizan para evaluar
-y cuantificar diferentes aspectos de un objeto, sistema o fenómeno\footnote{Las métricas también
-    se conocen como medidas o indicadores de rendimiento}. Proporcionan una forma objetiva de medir y
+y cuantificar diferentes aspectos de un objeto, sistema o fenómeno. Proporcionan una forma objetiva de medir y
 comparar características específicas, permitiendo realizar análisis, tomar decisiones y realizar
 mejoras basadas en datos concretos.
 
 En el contexto de la teoría de grafos, las métricas se utilizan para analizar y caracterizar diferentes
 propiedades y aspectos de los grafos. Estas métricas ofrecen medidas cuantitativas que describen la
-estructura, la conectividad, la eficiencia y otros atributos relevantes de un grafo\footnote{
-    Las métricas en la teoría de grafos son ampliamente utilizadas en campos como la informática, las
-    redes sociales, la biología y la física, entre otros}.
+estructura, la conectividad, la eficiencia y otros atributos relevantes de un grafo.
 
 \subsection{Grado}
 
-El \textit{grado} de un vértice se refiere al número de aristas que están conectadas a ese vértice 
-en particular\footnote{Nota: El grado de un vértice también se conoce como valencia}. El grado de 
-un vértice es una métrica fundamental para comprender la conectividad y la importancia relativa de 
-los vértices dentro de un grafo. En un grafo no dirigido, el grado de un vértice se calcula contando 
-el número total de aristas incidentes a ese vértice. En un grafo dirigido, se distingue entre el grado 
-de entrada (número de aristas entrantes) y el grado de salida (número de aristas salientes) de un 
-vértice.
+El \textit{grado} de un nodo se refiere al número de enlaces que están conectados a ese nodo
+en particular. El grado de un nodo es una métrica fundamental para comprender la conectividad 
+y la importancia relativa de los nodos dentro de un grafo. En un grafo no dirigido, el grado 
+de un nodo se calcula contando el número total de enlaces incidentes a ese nodo. En un grafo 
+dirigido, se distingue entre el grado de entrada o \textit{In degree} (número de enlaces entrantes) 
+y el grado de salida o \textit{Out degree} (número de enlaces salientes) de un nodo.
 
-El grado de un vértice puede proporcionar información valiosa sobre la estructura y las propiedades 
-del grafo en general. Por ejemplo, los vértices con un grado alto suelen desempeñar un papel central 
-en la comunicación y la transferencia de información dentro de un grafo. También puede revelar la 
-existencia de vértices aislados (grado cero) o vértices de grado bajo, que pueden tener implicaciones 
+El grado de un nodo puede proporcionar información valiosa sobre la estructura y las propiedades
+del grafo en general. Por ejemplo, los nodos con un grado alto suelen desempeñar un papel central
+en la comunicación y la transferencia de información dentro de un grafo. También puede revelar la
+existencia de nodos aislados (grado cero) o nodos de grado bajo, que pueden tener implicaciones
 en la conectividad y la eficiencia de un grafo.
 
-Además, el análisis de la distribución de los grados en un grafo puede revelar patrones interesantes, 
-como la presencia de hubs o nodos altamente conectados que desempeñan un papel clave en la red. 
-Estudiar el grado de los vértices y su distribución puede ser útil para comprender la robustez, 
+Además, el análisis de la distribución de los grados en un grafo puede revelar patrones interesantes,
+como la presencia de hubs o nodos altamente conectados que desempeñan un papel clave en la red.
+Estudiar el grado de los nodos y su distribución puede ser útil para comprender la robustez,
 la centralidad y otras propiedades estructurales de un grafo.
 
 \subsection{Centralidad}
 
-La \textit{centralidad} es una medida utilizada en la teoría de grafos para identificar los vértices 
-más importantes o influyentes dentro de un grafo. Se basa en la idea de que algunos nodos tienen un 
+La \textit{centralidad} es una medida utilizada en la teoría de grafos para identificar los nodos
+más importantes o influyentes dentro de un grafo. Se basa en la idea de que algunos nodos tienen un
 papel más destacado en la transmisión de información o la propagación de influencias en una red.
 
-Existen diferentes métricas de centralidad que se utilizan para evaluar la importancia de los 
-nodos en función de diferentes criterios. Dos de las métricas de centralidad más comunes son la 
+Existen diferentes métricas de centralidad que se utilizan para evaluar la importancia de los
+nodos en función de diferentes criterios. Dos de las métricas de centralidad más comunes son la
 centralidad de intermediación y la centralidad de cercanía.
 
-La \textit{centralidad de intermediación} (\textit{betweenness centrality}) mide la importancia de 
-un nodo en función de la cantidad de veces que ese nodo se encuentra en el camino más corto entre 
-otros pares de nodos en el grafo. Un nodo con una alta centralidad de intermediación actúa como un 
-puente o intermediario entre otros nodos, desempeñando un papel crucial en la comunicación y el 
+La \textit{centralidad de intermediación} (\textit{betweenness centrality}) mide la importancia de
+un nodo en función de la cantidad de veces que ese nodo se encuentra en el camino más corto entre
+otros pares de nodos en el grafo. Un nodo con una alta centralidad de intermediación actúa como un
+puente o intermediario entre otros nodos, desempeñando un papel crucial en la comunicación y el
 flujo de información dentro de la red.
 
-Por otro lado, la \textit{centralidad de cercanía} (\textit{closeness centrality}) se refiere a la 
-proximidad de un nodo con respecto a todos los demás nodos en el grafo. Un nodo con una alta 
-centralidad de cercanía está más cerca en términos de distancia geodésica de todos los demás nodos, 
-lo que implica que puede acceder rápidamente a la información y transmitirla eficientemente a otros 
+Por otro lado, la \textit{centralidad de cercanía} (\textit{closeness centrality}) se refiere a la
+proximidad de un nodo con respecto a todos los demás nodos en el grafo. Un nodo con una alta
+centralidad de cercanía está más cerca en términos de distancia geodésica de todos los demás nodos,
+lo que implica que puede acceder rápidamente a la información y transmitirla eficientemente a otros
 nodos en la red.
 
-Hacemos una mención especial a \textit{PageRank}\footnote{Nota: Desarrollado por Larry Page y Sergey 
-Brin} por su importancia en estos últimos años. PageRank es un algoritmo utilizado como medida de 
-centralidad en la teoría de grafos. Fue desarrollado por Google, como parte de su motor de búsqueda 
+Hacemos una mención especial a \textit{PageRank} por su importancia en estos últimos años. PageRank es un algoritmo utilizado como medida de
+centralidad en la teoría de grafos. Fue desarrollado por Google, como parte de su motor de búsqueda
 original.
 
-PageRank se basa en el concepto de que una página web es importante si es enlazada por otras 
-páginas importantes. Considera los enlaces como votos de confianza, donde los enlaces provenientes 
-de páginas con mayor autoridad tienen un peso mayor. Además, el algoritmo tiene en cuenta la 
+PageRank se basa en el concepto de que una página web es importante si es enlazada por otras
+páginas importantes. Considera los enlaces como votos de confianza, donde los enlaces provenientes
+de páginas con mayor autoridad tienen un peso mayor. Además, el algoritmo tiene en cuenta la
 cantidad total de enlaces que apuntan a una página y la importancia de esas páginas de origen.
 
-El nombre \textit{"PageRank"} se deriva del apellido de su inventor, pero también hace referencia 
-a la noción de \textit{ranking} o clasificación de páginas web. Page y Brin implementaron el 
-algoritmo PageRank en el motor de búsqueda de Google, que se lanzó en 1998. Fue una de 
-las innovaciones clave que distinguió a Google de otros motores de búsqueda de la época, ya que 
-permitía generar resultados más relevantes y de mayor calidad.
+El nombre \textit{"PageRank"} se deriva del apellido de su inventor, pero también hace referencia
+a la noción de \textit{ranking} o clasificación de páginas web. Page y Brin implementaron el
+algoritmo PageRank en el motor de búsqueda de Google, que se lanzó en 1998. Fue una de
+las innovaciones clave que distinguió a Google de otros motores de búsqueda de la época, ya que
+permitía generar resultados más relevantes y de mayor calidad\cite{Pageetal98}.
 
-Con el tiempo, PageRank se convirtió en una medida ampliamente utilizada para evaluar la importancia 
-de los nodos en diversos tipos de redes, no solo en la web. Ha encontrado aplicaciones en áreas como 
+Con el tiempo, PageRank se convirtió en una medida ampliamente utilizada para evaluar la importancia
+de los nodos en diversos tipos de redes, no solo en la web. Ha encontrado aplicaciones en áreas como
 las redes sociales, la biología de sistemas, la epidemiología y la física de redes, entre otras.
 
