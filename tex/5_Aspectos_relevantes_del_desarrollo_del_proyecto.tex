@@ -14,33 +14,29 @@ Los paquetes almacenados en CRAN ofrecen una variedad de funcionalidades especia
 incluyendo \textit{modelado estadístico}, \textit{gráficos}, \textit{manipulación de datos}
 y \textit{visualización}, lo que permite a los usuarios ampliar las capacidades base de R.
 
+\begin{table}[h!]
+    \begin{center}
+        \begin{tabular}{|l|c|}
+            \hline
+            \textbf{Descripción}                            & \textbf{Cantidad} \\
+            \hline
+            Packages in librariesio                         & 15154             \\
+            Packages in scraped                             & 18195             \\
+            Common packages                                 & 11589             \\
+            Packages in librariesio that are not in scraped & 3565              \\
+            Packages in scraped that are not in librariesio & 6606              \\
+            \hline
+        \end{tabular}
+        \caption{Comparación de paquetes en CRAN entre los datos de libraries.io y los recolectados en este trabajo.}
+        \label{tab:cran_common_packages}
+    \end{center}
+\end{table}
+
 El análisis sobre los datos recopilados \ref{tab:cran_common_packages} indica que el conjunto de datos \textit{scraped}
 ha experimentado un crecimiento notable en comparación con \textit{libraries.io}, tanto en
 términos de la cantidad total de paquetes como en la inclusión de nuevos paquetes.
-Esta ampliación evidencia una recopilación más exhaustiva y actualizada de información.
-
-Por consiguiente, se concluye que el conjunto de datos \textit{scraped} proporciona una
-visión más completa y actualizada de los paquetes disponibles. Al incluir tanto los paquetes
-en común como los paquetes adicionales respecto a \textit{libraries.io}, \textit{scraped}
-se configura como una fuente valiosa para investigaciones y análisis en el ámbito de estudio \ref{fig:cran_common_packages2}.
-
-
-\begin{table}[h!]
-    \begin{tabular}{|l|c|}
-        \hline
-        \textbf{Descripción}                            & \textbf{Cantidad} \\
-        \hline
-        Packages in librariesio                         & 15154             \\
-        Packages in scraped                             & 18195             \\
-        Common packages                                 & 11589             \\
-        Packages in librariesio that are not in scraped & 3565              \\
-        Packages in scraped that are not in librariesio & 6606              \\
-        \hline
-    \end{tabular}
-    \caption{Comparación de paquetes en CRAN entre los datos de libraries.io y los recolectados en este trabajo.}
-    \label{tab:cran_common_packages}
-\end{table}
-
+Esta ampliación evidencia una recopilación más exhaustiva y actualizada de información.\ref{fig:cran_common_packages2}
+\ref{fig:cran_common_packages3}.
 
 \begin{figure}[h!]
     \begin{center}
@@ -52,13 +48,62 @@ se configura como una fuente valiosa para investigaciones y análisis en el ámb
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=0.8\textwidth]{img/cran/bars.png}
+        \includegraphics[width=0.6\textwidth]{img/cran/bars.png}
         \caption{Comparacion del numero de paquetes.}
         \label{fig:cran_common_packages3}
     \end{center}
 \end{figure}
 
-\subsection{El grado de la red de dependencias de CRAN}
+Por consiguiente, se concluye que el conjunto de datos \textit{scraped} proporciona una
+visión más completa y actualizada de los paquetes disponibles. Al incluir tanto los paquetes
+en común como los paquetes adicionales respecto a \textit{libraries.io}, \textit{scraped}
+se configura como una fuente valiosa para investigaciones y análisis en el ámbito de estudio.
+
+
+
+
+
+
+\subsection{El tamaño}
+
+A continuacion realizaremos una comparacion de las medidas de tamaño entre los dos conjuntos de datos y como es
+el agrupamiento de los nodos en cada uno de ellos. \ref{tab:cran_size}
+
+\begin{table}[h!]
+    \begin{center}
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            \textbf{Medida}                & \textbf{libraries.io} & \textbf{scraped} \\
+            \hline
+            Number of nodes                & 15647                 & 18671            \\
+            Number of edges                & 76207                 & 113273           \\
+            Average degree                 & 9.740                 & 12.133           \\
+            Average clustering coefficient & 0.131                 & 0.152            \\
+            \hline
+        \end{tabular}
+        \caption{Comparación de medidas de tamaño entre los dos conjuntos de datos.}
+        \label{tab:cran_size}
+    \end{center}
+\end{table}
+
+La red \textit{scraped} tiene un mayor número de nodos (\textit{18671}) en comparación con la
+red \textit{libraries.io} (\textit{15647}). Esto indica que \textit{scraped} contiene más elementos o entidades
+interconectadas en su estructura de red.
+
+La red \textit{scraped} también tiene un mayor número de aristas o enlaces (\textit{113273}) en
+comparación con la red \textit{libraries.io} (\textit{76207}). Esto implica que \textit{scraped} tiene más
+conexiones entre los nodos, lo que aumenta su grado de conectividad.
+
+El grado promedio de los nodos en la red \textit{scraped} es más alto (\textit{12.133}) en
+comparación con el de la red \textit{libraries.io} (\textit{9.740}). Esto sugiere que, en promedio, cada nodo
+en \textit{scraped} tiene más conexiones con otros nodos en comparación con los nodos en \textit{libraries.io}.
+
+El coeficiente de agrupamiento promedio en la red \textit{scraped} es
+ligeramente más alto (\textit{0.152}) que en la red \textit{libraries.io} (\textit{0.131}). Esto indica que,
+en promedio, los nodos en \textit{scraped} tienen una mayor tendencia a formar grupos o comunidades más densamente
+interconectadas en comparación con los nodos en \textit{libraries.io}.
+
+\subsection{El grado}
 
 \begin{figure}[h!]
     \begin{center}
@@ -168,7 +213,6 @@ Este incremento lo podemos ver reprensentado en la siguiente figura \ref{fig:cra
     \end{center}
 \end{figure}
 
-
 \subsubsection{Grado de entrada (\textit{in degree})}
 
 
@@ -177,15 +221,9 @@ en ambos conjuntos de datos. Debido a su similitud, resulta difícil extraer con
 significativas. Sin embargo, se puede observar un ligero incremento en el nuevo conjunto de
 datos en comparación con el conjunto de datos de libraries.io. \ref{fig:cran_in_lib} \ref{fig:cran_in_scraped}
 
-Tomando como punto de referencia la frecuencia de nodos con un grado de entrada de valor 20,
-en el conjunto de datos de libraries.io se encuentran alrededor de 50 nodos, mientras que en
-el nuevo conjunto de datos se registran aproximadamente 100 nodos. Estos valores pueden sugerir
-un aumento en la cantidad de paquetes que reciben un número determinado de dependencias.
-
-
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1\textwidth]{img/cran/ind_lib.png}
+        \includegraphics[width=0.8\textwidth]{img/cran/ind_lib.png}
         \caption{Distribucion de In degree de \textit{libraries.io}.}
         \label{fig:cran_in_lib}
     \end{center}
@@ -193,11 +231,16 @@ un aumento en la cantidad de paquetes que reciben un número determinado de depe
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1\textwidth]{img/cran/ind_scr.png}
+        \includegraphics[width=0.8\textwidth]{img/cran/ind_scr.png}
         \caption{Distribucion de In degree de \textit{scraped}.}
         \label{fig:cran_in_scraped}
     \end{center}
 \end{figure}
+
+Tomando como punto de referencia la frecuencia de nodos con un grado de entrada de valor 20,
+en el conjunto de datos de libraries.io se encuentran alrededor de 50 nodos, mientras que en
+el nuevo conjunto de datos se registran aproximadamente 100 nodos. Estos valores pueden sugerir
+un aumento en la cantidad de paquetes que reciben un número determinado de dependencias.
 
 
 Si representamos el \textit{top} de \textit{in degree} de los paquetes del conjunto de datos
@@ -259,9 +302,7 @@ de aproximadamente $\pm$10. \ref{fig:cran_dependencies_increase}
     \end{center}
 \end{figure}
 
-
-
-\subsection{El \textit{PageRank} de la red de dependencias de CRAN}
+\subsection{El \textit{PageRank}}
 
 A partir del análisis de la distribución de \textit{PageRank} en la red, se observa la presencia
 de numerosos nodos con un \textit{PageRank} bajo, y a medida que se incrementa el valor del
@@ -305,9 +346,7 @@ dependencia transitiva. Esto significa que cualquier cambio o problema en estos 
 tener un impacto significativo en todo el ecosistema de la red de dependencias.
 
 Estos nodos de alto \textit{PageRank} juegan un papel crucial en el mantenimiento y la estabilidad de la
-red de dependencias. Su importancia radica en que actúan como pilares fundamentales, proporcionando
-funcionalidades esenciales y formando parte de la infraestructura base para el desarrollo de otros
-paquetes y aplicaciones. \ref{fig:cran_pr_libio_top}
+red de dependencias. Su importancia radica en su alta interconexion con otros paquetes similares. \ref{fig:cran_pr_libio_top}
 
 \begin{figure}[h!]
     \begin{center}
@@ -355,15 +394,15 @@ funcionamiento y la estabilidad de otros paquetes. \ref{fig:Top 20 PageRank nume
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1\textwidth]{img/cran/pr_trans2.png}
+        \includegraphics[width=1\textwidth]{img/cran/pr_trans2.png}dependidos
         \caption{Top 20 \textit{PageRank} numero de dependencias transitivas en scraped}
         \label{fig:Top 20 PageRank numero de dependencias transitivas en scraped}
     \end{center}
 \end{figure}
 
-Desde una perspectiva inversa, el uso del \textit{PageRank} nos permite identificar qué paquetes son
-dependientes de otros paquetes importantes en la red de dependencias. Esto proporciona una visión de
-la centralidad en términos de popularidad de un paquete. Al analizar el \textit{PageRank} inverso, es
+Desde una perspectiva inversa, el uso del \textit{PageRank} nos permite identificar qué paquetes son dependencia
+de otros paquetes importantes en la red de dependencias. Esto proporciona una visión de
+la centralidad en términos de popularidad de un paquete. Al analizar el \textit{PageRank} bajo esta perspectiva, es
 posible determinar qué paquetes son altamente requeridos por otros paquetes y, por lo tanto,
 desempeñan un papel crucial en el funcionamiento de la red. \ref{fig:Top 20 PageRank paquetes en sraped}
 
@@ -399,7 +438,7 @@ vulnerable es aquel que tiene un alto impacto en la red de dependencias.
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1\textwidth]{img/cran/impact_dist_libio.png}
+        \includegraphics[width=0.8\textwidth]{img/cran/impact_dist_libio.png}
         \caption{Distribución de \textit{Impact} en libraries.io}
         \label{fig:Distribución de Impact en libraries.io}
     \end{center}
@@ -407,7 +446,7 @@ vulnerable es aquel que tiene un alto impacto en la red de dependencias.
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1\textwidth]{img/cran/impact_dist_scraped.png}
+        \includegraphics[width=0.8\textwidth]{img/cran/impact_dist_scraped.png}
         \caption{Distribución de \textit{Impact} en scraped}
         \label{fig:Distribución de Impact en scraped}
     \end{center}
@@ -430,11 +469,6 @@ Al analizar el \textit{impacto} de estos paquetes, se observa un aumento en su v
 significativo. Esto indica que estos paquetes han demostrado ser estables en el tiempo y en su implementación,
 y que su funcionalidad es altamente útil para la red.
 
-Por otro lado, aquellos paquetes en el top que han experimentado una reducción en su \textit{impacto}
-podrían indicar la aparición de otros paquetes con funcionalidades similares o mejoradas, los cuales han
-sido elegidos como alternativas por los usuarios de la red. \ref{fig:Top impact libraries.io} \ref{fig:Top impact scraped}
-
-
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/cran/impact_top_libio.png}
@@ -451,10 +485,11 @@ sido elegidos como alternativas por los usuarios de la red. \ref{fig:Top impact 
     \end{center}
 \end{figure}
 
-En la tablas del incremento podemos ver que los paquetes que han tenido un mayor incremento y decremento
-en su impacto. \ref{tab:Top 10 paquetes con mayor incremento en Impact} \ref{tab:Top 10 paquetes con mayor decremento en Impact}
+Por otro lado, aquellos paquetes en el top que han experimentado una reducción en su \textit{impacto}
+podrían indicar la aparición de otros paquetes con funcionalidades similares o mejoradas, los cuales han
+sido elegidos como alternativas por los usuarios de la red. \ref{fig:Top impact libraries.io} \ref{fig:Top impact scraped}
 
-\begin{table}
+\begin{table}[h!]
     \begin{center}
         \begin{tabular}{|l|r|r|r|}
             \hline
@@ -477,7 +512,7 @@ en su impacto. \ref{tab:Top 10 paquetes con mayor incremento en Impact} \ref{tab
     \end{center}
 \end{table}
 
-\begin{table}
+\begin{table}[h!]
     \begin{center}
         \begin{tabular}{|l|r|r|r|}
             \hline
@@ -496,12 +531,15 @@ en su impacto. \ref{tab:Top 10 paquetes con mayor incremento en Impact} \ref{tab
             \hline
         \end{tabular}
     \end{center}
-\caption{Top 10 paquetes con mayor decremento en \textit{Impact}}
-\label{tab:Top 10 paquetes con mayor decremento en Impact}
+    \caption{Top 10 paquetes con mayor decremento en \textit{Impact}}
+    \label{tab:Top 10 paquetes con mayor decremento en Impact}
 \end{table}
 
 
-Si lo representamos graficamente se obtien una tendencia similar a las distribuciones anteriores. \ref{fig:Incremento de Impact}
+En la tablas del incremento podemos ver que los paquetes que han tenido un mayor incremento y decremento
+en su impacto. \ref{tab:Top 10 paquetes con mayor incremento en Impact} \ref{tab:Top 10 paquetes con mayor decremento en Impact}
+
+
 
 \begin{figure}[h!]
     \begin{center}
@@ -511,26 +549,18 @@ Si lo representamos graficamente se obtien una tendencia similar a las distribuc
     \end{center}
 \end{figure}
 
+Si lo representamos graficamente se obtiene una tendencia similar a las distribuciones anteriores. \ref{fig:Incremento de Impact}
 
-\subsection{Reach}
+\subsection{Alcance (\textit{Reach})}
 
-\begin{figure}[h!]
-    \begin{center}
-        \includegraphics[width=1\textwidth]{img/cran/reach_top.png}
-        \caption{Top paquetes con mayor \textit{Reach} en libraries.io}
-        \label{fig:Top reach libraries.io}
-    \end{center}
-\end{figure}
+El alcance (\textit{Reach}) de un paquete p, equivale al número de sucesores transitivos
+de p más 1 y mide el número de paquetes potencialmente afectados
+por un defecto en p.
 
-\begin{figure}[h!]
-    \begin{center}
-        \includegraphics[width=1\textwidth]{img/cran/reach_top2.png}
-        \caption{Incremento de \textit{Reach}}
-        \label{fig:Top reach scraped}
-    \end{center}
-\end{figure}
+A la vista de las siguientes tablas podemos observar que  paquetes
+son los que tienenen un mayor reach. \ref{tab:Top 10 paquetes con mayor Reach}
 
-\begin{table}
+\begin{table}[h!]
     \begin{center}
         \begin{tabular}{|c|c|}
             \hline
@@ -553,23 +583,48 @@ Si lo representamos graficamente se obtien una tendencia similar a las distribuc
     \end{center}
 \end{table}
 
+Si comparamos los resultados para ambos conjuntos de datos nos damos cuenta de que
+los representantes de este top en su gran medida coinciden, esto es explicable ya que
+el \textit{Reach} de un paquete depende de los paquetes que lo usan, y estos paquetes
+en R suelen ser los más populares. \ref{fig:Top reach libraries.io} \ref{fig:Top reach scraped}
 
-\begin{table}
+
+\begin{figure}[h!]
     \begin{center}
-        \begin{tabular}{|c|c|c|}
+        \includegraphics[width=1\textwidth]{img/cran/reach_top.png}
+        \caption{Top paquetes con mayor \textit{Reach} en libraries.io}
+        \label{fig:Top reach libraries.io}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/reach_top2.png}
+        \caption{Incremento de \textit{Reach}}
+        \label{fig:Top reach scraped}
+    \end{center}
+\end{figure}
+
+Si observamos los paquetes con mayor incremento en \textit{Reach} \ref{tab:Top 10 paquetes con mayor incremento en Reach}
+podemos ver que la mayoria estan presentes en el top, esta tabla nos da una idea de durante este periodo
+de tiempo que paquetes han ganado mas dependientes.
+
+\begin{table}[h!]
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
             \hline
-            \textbf{libraries.io} & \textbf{scraped} & \textbf{increment} \\
+            \textbf{Paquete} & \textbf{libraries.io} & \textbf{scraped} & \textbf{increment} \\
             \hline
-            lifecycle             & 1276             & 8462               \\
-            grDevices             & 7382             & 12763              \\
-            farver                & 48               & 5020               \\
-            graphics              & 7938             & 12809              \\
-            isoband               & 5                & 4726               \\
-            utils                 & 10516            & 15037              \\
-            stats                 & 9850             & 14360              \\
-            splines               & 2016             & 6466               \\
-            generics              & 457              & 4895               \\
-            methods               & 10839            & 15103              \\
+            lifecycle        & 1276                  & 8462             & 7186               \\
+            grDevices        & 7382                  & 12763            & 5381               \\
+            farver           & 48                    & 5020             & 4972               \\
+            graphics         & 7938                  & 12809            & 4871               \\
+            isoband          & 5                     & 4726             & 4721               \\
+            utils            & 10516                 & 15037            & 4521               \\
+            stats            & 9850                  & 14360            & 4510               \\
+            splines          & 2016                  & 6466             & 4450               \\
+            generics         & 457                   & 4895             & 4438               \\
+            methods          & 10839                 & 15103            & 4264               \\
             \hline
         \end{tabular}
         \caption{Top 10 paquetes con mayor incremento en \textit{Reach}}
@@ -577,12 +632,232 @@ Si lo representamos graficamente se obtien una tendencia similar a las distribuc
     \end{center}
 \end{table}
 
+Es curioso ver que el paquete \textit{isoband} haya incrementado tanto su \textit{Reach}.
+Este paquete es una implementación de la generación de bandas de confianza para curvas y mapas de contorno.
+Resulta que este paquete fue protagonista de un incidente en el pasado:
+
+El paquete \textit{isoband} estuvo en riesgo de ser archivado en \textit{CRAN}. La razón por la que este incidente causó
+revuelo es que isoband es una dependencia de \textit{ggplot2} y cuando un paquete es eliminado de \textit{CRAN}, todos los
+demás paquetes que dependen de él también son eliminados. Si isoband hubiera caído, \textit{ggplot2} estaría en
+riesgo. Y esto habría desencadenado la eliminación de aún más paquetes. En total, la eliminación de
+isoband habría llevado a la eliminación de 4747 paquetes\cite{r-bloggers_isoband_incident}.
+Afortunadamente los desarrolladores de isoband pudieron solucionar el problema y el paquete no fue eliminado.
+\cite{isoband_issue}.
+
+Luego este incremento en el \textit{Reach} puede ser debido a que los desarrolladores de paquetes que dependen de isoband
+se estan reenganchando al proyecto y actualizando sus paquetes para que sigan funcionando correctamente depues del incidente.
+
+
+
+Por ultimo mostramos la distribucion de incremento de \textit{Reach} \ref{fig:Incremento de Reach}.
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1\textwidth]{img/cran/reach_increment.png}
+        \includegraphics[width=0.8\textwidth]{img/cran/reach_increment.png}
         \caption{Incremento de \textit{Reach}}
         \label{fig:Incremento de Reach}
+    \end{center}
+\end{figure}
+
+
+\newpage
+
+
+\section{La red de dependencias de Bioconductor}
+
+El repositorio \textit{Bioconductor} para R es una plataforma científica de código abierto que ofrece
+herramientas y paquetes especializados para el análisis y la interpretación de datos genómicos.
+Surgió en 2001 para abordar desafíos específicos de la biología computacional y la genómica.
+\textit{Bioconductor} es reconocido por su calidad, diversidad y enfoque colaborativo. Proporciona
+herramientas estadísticas y bioinformáticas para el análisis de expresión génica, variantes genéticas y más.
+Su importancia radica en su contribución al avance de la investigación genómica y promoción de la
+reproducibilidad y transparencia científica en el campo de la genómica y la biología computacional.
+
+El análisis de \textit{Bioconductor} es necesario como complemento al análisis de CRAN debido a que se
+enfoca específicamente en el análisis de un subconjunto del ecosistema R. Mientras que CRAN es el
+repositorio principal de paquetes para el lenguaje de programación R, \textit{Bioconductor} se centra
+en ofrecer herramientas especializadas para el análisis de datos genómicos y biológicos.
+
+Además, es importante destacar que, en el contexto de \textit{Bioconductor}, se ha enfrentado el
+desafío de la falta de datos de referencia en \textit{libraries.io}, un repositorio de información
+sobre paquetes de software. Esto ha llevado a la necesidad de abrir nuevos caminos y proporcionar
+un conjunto de datos que no existía previamente. Al hacerlo, se está facilitando el análisis y el
+estudio de los paquetes de \textit{Bioconductor}, y se está contribuyendo a la disponibilidad de
+datos valiosos para la comunidad.
+
+\subsection{El tamaño}
+
+La red de \textit{Bioconductor} es una red relativamente pequeña\ref{tab:Medidas de la red de dependencias de Bioconductor}
+en comparacion con los valores de las otras redes que hemos analizado.
+Los valores de las métricas indican una red de dependencias de \textit{Bioconductor} de tamaño bajo,
+con alta conectividad entre los nodos.
+
+\begin{table}[h!]
+    \begin{center}
+        \begin{tabular}{|l|c|}
+            \hline
+            \textbf{Medida}                & \textbf{Valor} \\
+            \hline
+            Number of nodes                & 3509           \\
+            Number of edges                & 28320          \\
+            Average degree                 & 16.14          \\
+            Average clustering coefficient & 0.077          \\
+            \hline
+        \end{tabular}
+        \caption{Medidas de la red de dependencias de Bioconductor}
+        \label{tab:Medidas de la red de dependencias de Bioconductor}
+    \end{center}
+\end{table}
+
+El coeficiente de agrupamiento promedio de aproximadamente 0.0776 sugiere que la red tiene un nivel moderado de agrupamiento.
+Esto implica que algunos nodos están conectados en grupos o comunidades, pero no existe una fuerte tendencia hacia la formación
+de comunidades densamente interconectadas en toda la red. Esto puede indicar que existen diferentes grupos temáticos o
+funcionales dentro de la red de dependencias de \textit{Bioconductor}, pero también existen conexiones entre estos grupos.
+Este coeficiente de agrupamiento es mucho menor que el de \textit{CRAN}, que era de 0.15.
+
+Respecto al grado medio podemos decir que es un poco mayor que el de \textit{CRAN},
+para el que teniamos un valor de 12.13.
+
+\subsection{El grado}
+
+A la vista de la distribución de \emph{grado} \ref{fig:bioconductor_degree_dist}, se puede observar una distribución
+de \emph{ley de potencia}, lo cual es común en las \emph{redes de dependencias}.
+En la gráfica, se puede apreciar que a partir de un \emph{grado} de 50, el
+número de \emph{nodos} comienza a reducirse de manera exponencial, quedando
+solo unos pocos representantes. Como era de esperar, se observan \emph{hubs}
+o \emph{nodos de alto grado}, con valores cercanos a 2000. Esta presencia
+de \emph{hubs} indica la existencia de elementos altamente conectados que
+desempeñan un papel crucial en la estructura de la red de dependencias.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/bioconductor/degree_dist.png}
+        \caption{Distribucion de grado de la red de dependencias de Bioconductor}
+        \label{fig:bioconductor_degree_dist}
+        \caption{Distribucion de grado de la red de dependencias de Bioconductor}
+    \end{center}
+\end{figure}
+
+\subsubsection{El grado de salida \textit{Out degree}}
+
+La distribución del \emph{grado de salida} en la red analizada presenta similitudes con
+la distribución de la red de CRAN. En este caso, el \emph{grado de salida máximo} es
+notablemente inferior debido al menor tamaño de la red, pero la tendencia general es
+similar. Se puede apreciar que a partir de un \emph{grado de salida} de 10, la frecuencia
+de individuos en la red se reduce significativamente. La mayoría de los nodos tienen un
+\emph{grado de salida} inferior a 10, siendo estos el grupo más numeroso en la red.\ref{fig:bioconductor_out_degree_dist}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{img/bioconductor/out_degree_dist.png}
+        \caption{Distribucion de grado de salida de la red de dependencias de Bioconductor}
+        \label{fig:bioconductor_out_degree_dist}
+    \end{center}
+\end{figure}
+
+En cuanto a los paquetes que representan el \emph{mayor grado de salida}\ref{fig:bioconductor_out_degree} 
+en la red analizada, se observa que la mayoría de ellos también aparecen en el \emph{top} de la red de CRAN.
+Este hallazgo es coherente, dado que, como se mencionó anteriormente, Bioconductor es un
+subconjunto de los paquetes de R, y es esperable que estos paquetes tengan una importancia
+similar en ambos repositorios.
+Además, se observa que en este \emph{top} se encuentran los paquetes más importantes y exclusivos
+de Bioconductor, como BiocGenerics o Biobase, entre otros. Esto nos indica que la red de Bioconductor
+está especializada en el ámbito de la bioinformática, ya que estos paquetes desempeñan un papel crucial
+en el análisis y procesamiento de datos biológicos. Su presencia en el \emph{top} indica la importancia
+de la especialización de Bioconductor en este campo.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/bioconductor/top_out_degree.png}
+        \caption{Top 10 de los paquetes con mayor grado de salida en la red de dependencias de Bioconductor}
+        \label{fig:bioconductor_out_degree}
+    \end{center}
+\end{figure}
+
+
+\subsubsection{El grado de entrada \textit{In degree}}
+
+La distribución de \emph{in degree}\ref{fig:bioconductor_in_degree_dist} en la red de Bioconductor muestra algunas diferencias con respecto 
+a la red de CRAN. Se observa que hay un menor número de nodos en la red de Bioconductor en comparación 
+con CRAN. Además, la frecuencia máxima de nodos con \emph{in degree} ya no se encuentra en los valores 
+1 o 2, como ocurre en CRAN. En Bioconductor, se puede apreciar que hay más nodos con \emph{in degree} 
+en el rango de 10 a 20 en comparación con aquellos con un valor de 1.
+
+Otro aspecto a tener en cuenta es que el \emph{in degree} máximo en la red de Bioconductor tiene un 
+valor de 85, mientras que en CRAN el valor máximo es de 50. Esto indica que en Bioconductor existen 
+nodos con un mayor número de dependencias entrantes, lo que podría reflejar la complejidad y la 
+interconexión de los paquetes en Bioconductor. Estas diferencias en la distribución de \emph{in degree} 
+evidencian las particularidades y características propias de la red de Bioconductor en comparación con 
+la red de CRAN.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{img/bioconductor/in_degree_dist.png}
+        \caption{Distribucion de grado de entrada de la red de dependencias de Bioconductor}
+        \label{fig:bioconductor_in_degree_dist}
+    \end{center}
+\end{figure}
+
+Los paquetes que se encuentran en el \emph{top} de \emph{grado de entrada} \ref{fig:bioconductor_in_degree} son aquellos que presentan 
+un mayor número de dependencias en la red, sin tener en cuenta la transitividad de las conexiones. 
+Esto implica que estos paquetes son altamente dependientes de otros paquetes en la red de Bioconductor en el primer nivel de 
+profundidad del arbol de dependencias, lo que sugiere su importancia y relevancia en el ecosistema de Bioconductor. 
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/bioconductor/top_in_degree.png}
+        \caption{Top 10 de los paquetes con mayor grado de entrada en la red de dependencias de Bioconductor}
+        \label{fig:bioconductor_in_degree}
+    \end{center}
+\end{figure}
+
+\subsection{El PageRank}
+
+La distribución de \textit{PageRank} \ref{fig:bioconductor_pagerank_dist} en la red de \textit{Bioconductor} no revela patrones claros 
+y sencillos de analizar. Observando el gráfico, podemos determinar que la frecuencia máxima de nodos 
+con el mismo valor de \textit{PageRank} se sitúa aproximadamente entre \textit{0.0002} y \textit{0.0005}. 
+El rango normal de valores se encuentra entre \textit{0.0002} y \textit{0.002}, aunque en algunos casos 
+particulares se alcanzan valores de \textit{0.003} o \textit{0.004}. Estos valores representan la importancia 
+relativa de los nodos en la red, teniendo en cuenta tanto las conexiones directas como las conexiones 
+indirectas a través de otros nodos en la red. Sin embargo, debido a la complejidad y tamaño de la red 
+de \textit{Bioconductor}, es necesario realizar un análisis más detallado y específico para comprender 
+plenamente la distribución y significado de los valores de \textit{PageRank} en esta red.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/bioconductor/pagerank_dist.png}
+        \caption{Distribucion de PageRank de la red de dependencias de Bioconductor}
+        \label{fig:bioconductor_pagerank_dist}
+    \end{center}
+\end{figure}
+
+
+Respecto al top de dependencias con mayor \textit{PageRank} \ref{fig:bioconductor_top_pagerank_dependencies}, 
+estos paquetes representan una vulnerabilidad significativa debido a su alto \textit{in degree} y la interconexión entre ellos. Desde el punto de vista 
+del autor, sería recomendable evitar depender de alguno de estos paquetes, ya que se encuentran en un entorno 
+donde la probabilidad de vulnerabilidad es mayor. La dependencia de estos paquetes puede aumentar la propagación 
+de posibles problemas o errores a lo largo de la red de \textit{Bioconductor}. Por lo tanto, es esencial 
+considerar alternativas y evaluar cuidadosamente las dependencias al desarrollar o utilizar aplicaciones 
+basadas en esta red.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/bioconductor/top_pagerrank_dependencies.png}
+        \caption{Top dependencias con mayor PageRank en la red de dependencias de Bioconductor}
+        \label{fig:bioconductor_top_pagerank_dependencies}
+    \end{center}
+\end{figure}
+
+Realizando una inversionde la red de dependencias de Bioconductor, se obtiene la red de paquetes, desde este punto de vista 
+el \textit{PageRank} ahora esta ponderando la importancia de los paquetes en la red, es decir, aquellos paquetes que son dependencias
+de otros paquetes importantes, son considerados como los mas importantes en la red. En la figura \ref{fig:bioconductor_top_pagerank_packages}
+se muestran los paquetes con mayor \textit{PageRank} bajo este punto de vista de Bioconductor.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/bioconductor/top_pagerrank_packages.png}
+        \caption{Top paquetes con mayor PageRank en la red de dependencias de Bioconductor}
+        \label{fig:bioconductor_top_pagerank_packages}
     \end{center}
 \end{figure}
 
@@ -593,29 +868,7 @@ Si lo representamos graficamente se obtien una tendencia similar a las distribuc
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\newpage
 
 \section{La red de dependencias de PyPI}
 
@@ -1200,9 +1453,11 @@ por un fallo aleatorio, asumiendo que las probabilidades de fallo son independie
 una distribución uniforme.
 
 A nivel de paquete se refiere al número de paquetes que se verían afectados por un fallo en un
-paquete o alguna de sus dependencias transitivas\footnote{El alcance a nivel de paquete se
+paquete o alguna de sus dependencias transitivas, es decir el número de sucesores transitivos
+de un paquete más 1.\footnote{El alcance a nivel de paquete se
     define como el número de paquetes que se verían afectados por un fallo en un paquete o alguna
     de sus dependencias transitivas.}.
+
 
 \begin{figure}[h!]
     \begin{center}
@@ -1228,7 +1483,7 @@ que se encuentran en el \textit{top} del ranking tendría un impacto \textit{con
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1.2\textwidth]{img/pypi/top_scraped_reach_evolution.png}
+        \includegraphics[width=1\textwidth]{img/pypi/top_scraped_reach_evolution.png}
         \caption{Top Reach en scraped}
     \end{center}
 \end{figure}
