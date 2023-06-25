@@ -1,3 +1,59 @@
 \capitulo{6}{Trabajos relacionados}
 
-Este apartado sería parecido a un estado del arte de una tesis o tesina. En un trabajo final grado no parece obligada su presencia, aunque se puede dejar a juicio del tutor el incluir un pequeño resumen comentado de los trabajos y proyectos ya realizados en el campo del proyecto en curso. 
+Los gestores de paquetes de software son herramientas esenciales que facilitan la reutilización y
+la construcción eficiente de sistemas de software. Estos gestores permiten a los desarrolladores y
+profesionales de la informática acceder a bibliotecas de código previamente desarrolladas, lo que
+agiliza el proceso de desarrollo al evitar tener que crear funcionalidades desde cero.
+
+Dado que el software se distribuye a través de estos gestores de paquetes, es crucial para los
+investigadores y profesionales tener acceso a datos explícitos sobre las redes de dependencia
+de software. Estas \textit{redes de dependencia} están compuestas por las relaciones entre los
+diferentes \textit{paquetes de software} y pueden resultar opacas si no se cuenta con información precisa.
+
+Para poder analizar y razonar sobre los ecosistemas y productos de software cada vez más
+complejos, los investigadores y profesionales dependen de conjuntos de datos públicos disponibles.
+Un ejemplo de ello es el conjunto de datos publicado en \textit{libraries.io}, sin embargo,
+lamentablemente ha quedado desatendido y no se ha actualizado con regularidad.
+
+Aquí es donde entra en juego el valor de este trabajo en particular, ya que proporciona un nuevo
+conjunto de datos que se centra en los gestores de paquetes \textit{CRAN}, \textit{Bioconductor},
+\textit{PyPI} y \textit{npm}. Estos conjuntos de datos actualizados ofrecen una perspectiva más
+reciente y completa sobre la información disponible hasta la fecha. Esto es especialmente relevante
+para los autores de trabajos relacionados que han utilizado el conjunto de datos de \textit{libraries.io}
+en sus investigaciones, ya que ahora tienen la oportunidad de actualizar sus estudios utilizando
+esta nueva información más actualizada. Con esto, se puede mejorar la calidad de la investigación
+y garantizar que los resultados y conclusiones reflejen con precisión el estado actual de los
+ecosistemas de software.
+
+A continuación se presentan algunos de los trabajos relacionados que han utilizado el conjunto de
+datos de \textit{libraries.io} en sus investigaciones.
+\begin{itemize}
+    \item \textbf{On the impact of security vulnerabilities in the npm and rubygems dependency networks}\cite{zerouali2022impact}:
+          Este artículo estudia empíricamente las vulnerabilidades de seguridad que afectan a los paquetes npm y RubyGems.
+          Analiza cómo y cuándo se descubren y solucionan estas vulnerabilidades y cómo cambia su prevalencia con el tiempo.
+          También analiza cómo los paquetes vulnerables exponen a sus dependientes directos e indirectos a vulnerabilidades.
+    \item \textbf{Dependency solving is still hard, but we are getting better at it}\cite{abate2020dependency}:
+          Este artículo trata sobre la resolución de dependencias, que es un problema difícil (NP-completo) en todos los modelos
+          de componentes no triviales debido a versiones mutuamente incompatibles de los mismos paquetes o conflictos de
+          paquetes declarados explícitamente.
+    \item \textbf{On the usage of JavaScript, Python and Ruby packages in Docker Hub images}\cite{zerouali2021usage}:
+          Este artículo analiza empíricamente el uso de paquetes de terceros de JavaScript, Python y Ruby en imágenes de Docker Hub.
+          Estudia cuán prevalentes, desactualizados y vulnerables son estos paquetes en imágenes de la comunidad que se basan en
+          imágenes base de node, Python y Ruby.
+    \item \textbf{Mining single statement bugs at massive scale}\cite{richter2022tssb}:
+          Este artículo presenta un enfoque para extraer y analizar bugs de una sola declaración de código fuente de proyectos
+          de software.
+    \item \textbf{Technical lag of dependencies in major package managers}\cite{stringer2020technical}:
+          Este artículo trata sobre el retraso técnico de las dependencias en los principales gestores de paquetes.
+          Las bibliotecas de terceros utilizadas por un proyecto (dependencias) pueden quedar fácilmente desactualizadas con el
+          tiempo, un fenómeno llamado retraso técnico.
+    \item \textbf{Identifying critical projects via pagerank and truck factor}\cite{pfeiffer2021identifying}:
+          Este artículo trata sobre la identificación de proyectos críticos a través de PageRank y el factor de eje (Truck Factor).
+          Recientemente, el equipo de código abierto de Google presentó el puntaje de criticidad, una métrica para evaluar la
+          “influencia e importancia” de un proyecto en un ecosistema a partir de señales específicas del proyecto, como el número
+          de dependientes, la frecuencia de confirmación, etc.
+    \item \textbf{Identifying versions of libraries used in stack overflow code snippets}\cite{zerouali2021identifying}:
+          Este artículo trata sobre la identificación de versiones de bibliotecas utilizadas en fragmentos de código de Stack Overflow.
+    \item \textbf{Intertwining Communities: Exploring Libraries that Cross Software Ecosystems}\cite{kannee2023intertwining}:
+          Este artículo trata sobre la exploración de bibliotecas que cruzan ecosistemas de software.
+\end{itemize}

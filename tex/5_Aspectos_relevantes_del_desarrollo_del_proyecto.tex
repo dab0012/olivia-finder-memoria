@@ -1,10 +1,623 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
 
 
+\section{La red de dependencias de CRAN}
 
-\section{Análisis evolutivo de las redes de dependencias de repositorios de paquetes}
+CRAN (\textit{Comprehensive R Archive Network}) es un \textit{repositorio} en línea que alberga
+una amplia colección de paquetes de software para el \textit{lenguaje de programación} R.
+R es un \textit{entorno de programación} y un \textit{lenguaje estadístico} ampliamente
+utilizado en la comunidad científica para el análisis y la visualización de datos.
+El lenguaje R se destaca por su \textit{flexibilidad} y \textit{extensibilidad},
+lo que permite a los investigadores y científicos implementar \textit{algoritmos estadísticos}
+avanzados y realizar \textit{análisis exploratorios de datos}.
+Los paquetes almacenados en CRAN ofrecen una variedad de funcionalidades especializadas,
+incluyendo \textit{modelado estadístico}, \textit{gráficos}, \textit{manipulación de datos}
+y \textit{visualización}, lo que permite a los usuarios ampliar las capacidades base de R.
 
-\subsection{La red de dependencias de PyPI}
+El análisis sobre los datos recopilados \ref{tab:cran_common_packages} indica que el conjunto de datos \textit{scraped}
+ha experimentado un crecimiento notable en comparación con \textit{libraries.io}, tanto en
+términos de la cantidad total de paquetes como en la inclusión de nuevos paquetes.
+Esta ampliación evidencia una recopilación más exhaustiva y actualizada de información.
+
+Por consiguiente, se concluye que el conjunto de datos \textit{scraped} proporciona una
+visión más completa y actualizada de los paquetes disponibles. Al incluir tanto los paquetes
+en común como los paquetes adicionales respecto a \textit{libraries.io}, \textit{scraped}
+se configura como una fuente valiosa para investigaciones y análisis en el ámbito de estudio \ref{fig:cran_common_packages2}.
+
+
+\begin{table}[h!]
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Descripción}                            & \textbf{Cantidad} \\
+        \hline
+        Packages in librariesio                         & 15154             \\
+        Packages in scraped                             & 18195             \\
+        Common packages                                 & 11589             \\
+        Packages in librariesio that are not in scraped & 3565              \\
+        Packages in scraped that are not in librariesio & 6606              \\
+        \hline
+    \end{tabular}
+    \caption{Comparación de paquetes en CRAN entre los datos de libraries.io y los recolectados en este trabajo.}
+    \label{tab:cran_common_packages}
+\end{table}
+
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/cran/circle.png}
+        \caption{Comparacion de los paquetes comunes entre los dos conjuntos de datos.}
+        \label{fig:cran_common_packages2}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{img/cran/bars.png}
+        \caption{Comparacion del numero de paquetes.}
+        \label{fig:cran_common_packages3}
+    \end{center}
+\end{figure}
+
+\subsection{El grado de la red de dependencias de CRAN}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/distribucion_grado.png}
+        \caption{Distribucion de grado \textit{libraries.io}.}
+        \label{fig:cran_degree_distribution}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/distribucion_grado2.png}
+        \caption{Distribucion de grado \textit{scraped}.}
+        \label{fig:cran_degree_distribution_scraped}
+    \end{center}
+\end{figure}
+
+Al realizar una comparativa de las distribuciones de grado entre ambos conjuntos de datos,
+se evidencia un leve incremento en el grado promedio. El grado promedio del conjunto de datos
+\textit{libraries.io} es de 4.87, mientras que en el conjunto \textit{scraped} alcanza un valor
+de 6.06. Estos resultados indican un incremento en la conectividad y la relevancia de los
+paquetes más destacados en el conjunto de datos \textit{scraped}. Tal variación en los valores
+promedio refleja el aumento en la importancia y la interconexión de los paquetes dentro de este
+conjunto de datos, lo cual puede estar relacionado con su mayor tamaño y actualización.
+\ref{fig:cran_degree_distribution} \ref{fig:cran_degree_distribution_scraped}
+
+Además, se observa que la tendencia a disminuir el número de dependencias es ligeramente
+más pronunciada que la tendencia a aumentarlas. Esto sugiere que, en la evolución de
+la red de dependencias, los paquetes tienden a reducir su dependencia directa o a
+reorganizar sus conexiones con otros paquetes, lo que puede ser resultado de procesos
+de \textit{refactorización}, \textit{optimización} o \textit{consolidación}.
+
+
+\subsubsection{Grado de salida (\textit{out degree})}
+
+
+En el análisis de la distribución del grado de salida, no se observan diferencias significativas
+que puedan ser comparadas. Podemos inferir que ambas distribuciones siguen una tendencia
+similar, con la única distinción de que en el conjunto de datos nuevo se encuentra un mayor
+número de nodos \ref{fig:cran_out_lib} \ref{fig:cran_out_scraped}.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/out_deg.png}
+        \caption{Distribucion de Out degree de \textit{libraries.io}.}
+        \label{fig:cran_out_lib}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/out_deg2.png}
+        \caption{Distribucion de Out degree de \textit{scraped}.}
+        \label{fig:cran_out_scraped}
+    \end{center}
+\end{figure}
+
+Al examinar el conjunto de paquetes con mayor grado de salida, se observa un aumento generalizado
+en todos ellos. Estos paquetes destacados representan una centralidad de grado significativa,
+lo que implica que son las dependencias más utilizadas dentro del sistema. Es comprensible que
+estos paquetes, al ser ampliamente utilizados, hayan mantenido una presencia constante en la
+red y hayan experimentado un incremento en el número de sus dependientes debido al surgimiento
+de nuevos paquetes. \ref{fig:cran_out_libio_top}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/out_lib.png}
+        \caption{Top paquetes con mayor grado de salida en \textit{libraries.io}.}
+        \label{fig:cran_out_libio_top}
+    \end{center}
+\end{figure}
+
+Esta observación refuerza la importancia y la relevancia de estos paquetes clave en el
+ecosistema estudiado. Su estabilidad y el aumento en sus dependientes pueden atribuirse a
+su funcionalidad y a su amplia adopción por parte de los usuarios. Además, el incremento en
+la cantidad de dependientes es un indicativo del crecimiento y la evolución continua del
+sistema, donde se generan nuevas relaciones de dependencia entre los paquetes existentes
+y los recién agregados.
+
+Al realizar la comparativa utilizando el nuevo conjunto de datos, se observa que los principales
+representantes del ranking se mantienen presentes. Sin embargo, se han producido algunas variaciones
+en el orden de algunos puestos dentro del top. Además, se ha registrado la inclusión de paquetes que
+previamente se encontraban fuera del top. \ref{fig:cran_out_scraped_top}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/out_scr.png}
+        \caption{Top paquetes con mayor grado de salida en \textit{scraped}.}
+        \label{fig:cran_out_scraped_top}
+    \end{center}
+\end{figure}
+
+Esta inclusión de paquetes puede atribuirse al incremento en el número de sus dependencias,
+el cual ha superado a aquellos que han salido del top en este periodo de tiempo analizado.
+Estos nuevos paquetes han logrado adquirir una mayor relevancia y han fortalecido su posición
+dentro del conjunto de datos. Este fenómeno puede ser consecuencia de su creciente adopción y
+de la expansión de su funcionalidad, lo que ha llevado a un incremento en el número de paquetes
+que los utilizan como dependencias.
+
+Este incremento lo podemos ver reprensentado en la siguiente figura \ref{fig:cran_dependents_dist}.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/dependents_dist.png}
+        \caption{Distribucion de dependientes.}
+        \label{fig:cran_dependents_dist}
+    \end{center}
+\end{figure}
+
+
+\subsubsection{Grado de entrada (\textit{in degree})}
+
+
+En el análisis de la distribución del grado de entrada, se observa un comportamiento común
+en ambos conjuntos de datos. Debido a su similitud, resulta difícil extraer conclusiones
+significativas. Sin embargo, se puede observar un ligero incremento en el nuevo conjunto de
+datos en comparación con el conjunto de datos de libraries.io. \ref{fig:cran_in_lib} \ref{fig:cran_in_scraped}
+
+Tomando como punto de referencia la frecuencia de nodos con un grado de entrada de valor 20,
+en el conjunto de datos de libraries.io se encuentran alrededor de 50 nodos, mientras que en
+el nuevo conjunto de datos se registran aproximadamente 100 nodos. Estos valores pueden sugerir
+un aumento en la cantidad de paquetes que reciben un número determinado de dependencias.
+
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/ind_lib.png}
+        \caption{Distribucion de In degree de \textit{libraries.io}.}
+        \label{fig:cran_in_lib}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/ind_scr.png}
+        \caption{Distribucion de In degree de \textit{scraped}.}
+        \label{fig:cran_in_scraped}
+    \end{center}
+\end{figure}
+
+
+Si representamos el \textit{top} de \textit{in degree} de los paquetes del conjunto de datos
+de \textit{libraries.io}, podemos identificar aquellos paquetes que poseen un mayor número de
+dependencias. Estos paquetes podrían considerarse los más vulnerables en su primer nivel de dependencia,
+sin tener en cuenta la transitividad. Al analizar los resultados, se puede concluir que un porcentaje
+significativo de los paquetes destacados en este \textit{top} han mantenido su presencia en la red a
+lo largo del tiempo.
+
+Además, se observa una tendencia general a disminuir el número de dependencias para la mayoría de
+los casos en el \textit{top}. Esto sugiere que, a medida que evoluciona la red de dependencias,
+algunos paquetes han logrado reducir su dependencia directa o han redistribuido sus conexiones
+con otros paquetes.
+
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/top_ind_libio.png}
+        \caption{Top paquetes con mayor grado de entrada en \textit{libraries.io}.}
+        \label{fig:top_ind_libio_cran}
+    \end{center}
+\end{figure}
+
+
+Desde la perspectiva del \textit{top} de \textit{in degree}, se observa una notable variación en
+la evolución de los paquetes. Aproximadamente la mitad de los individuos que conformaban el
+\textit{top} han sido reemplazados. Estos paquetes de reemplazo se caracterizan por ser nuevos
+en la red, lo cual sugiere que están utilizando funcionalidades previamente desarrolladas para
+generar nuevas capacidades.
+
+Es común que aparezcan nuevos paquetes en este \textit{top}, dado el contexto de una red de
+carácter científico. A medida que el software madura, es habitual que estos paquetes más
+jóvenes se refactoricen con el tiempo, tendiendo a disminuir sus dependencias.
+
+Por otro lado, existen paquetes que no solo se encontraban en el \textit{top} anterior,
+sino que han incrementado sus dependencias. Este aumento puede ser indicativo de paquetes
+cuya funcionalidad aún está en desarrollo y continúa evolucionando. \ref{fig:top_ind_scraped_cran}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/top_ind_scraped.png}
+        \caption{Top paquetes con mayor grado de entrada en \textit{scraped}.}
+        \label{fig:top_ind_scraped_cran}
+    \end{center}
+\end{figure}
+
+
+Al observar la tendencia del incremento de dependencias en la red, se evidencia que, en
+general, es común que el número de dependencias de los paquetes no experimente cambios
+drásticos. La mayoría de los paquetes se sitúan en un rango de incremento de dependencias
+de aproximadamente $\pm$10. \ref{fig:cran_dependencies_increase}
+
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/dependencies_increase.png}
+        \caption{Incremento de dependencias.}
+        \label{fig:cran_dependencies_increase}
+    \end{center}
+\end{figure}
+
+
+
+\subsection{El \textit{PageRank} de la red de dependencias de CRAN}
+
+A partir del análisis de la distribución de \textit{PageRank} en la red, se observa la presencia
+de numerosos nodos con un \textit{PageRank} bajo, y a medida que se incrementa el valor del
+\textit{PageRank}, la frecuencia de nodos disminuye gradualmente. Este patrón revela la
+existencia de muchos nodos de baja importancia en la red, junto con un grupo reducido de
+paquetes que son considerados importantes debido a sus dependencias, las cuales, a su vez,
+son también dependencias relevantes en la red.
+
+Al comparar las dos distribuciones, se aprecia una diferencia notable en la red
+de \textit{libraries.io}, donde el valor máximo alcanzado por el \textit{PageRank} de
+un paquete es mayor en comparación con la nueva red. Esta diferencia puede interpretarse
+como un indicio de que, en la evolución de \textit{CRAN}, los paquetes más importantes
+se han estabilizado, mientras que han surgido otros paquetes que están adquiriendo
+relevancia. Como resultado, el \textit{PageRank} se ha distribuido de manera más equitativa
+entre los paquetes de la red. \ref{fig:cran_pr_libio} \ref{fig:cran_pr_scraped}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/pr.png}
+        \caption{Distribucion de \textit{PageRank} en \textit{libraries.io}.}
+        \label{fig:cran_pr_libio}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/pr2.png}
+        \caption{Distribucion de \textit{PageRank} en \textit{scraped}.}
+        \label{fig:cran_pr_scraped}
+    \end{center}
+\end{figure}
+
+El top de mayor \textit{PageRank} en \textit{libraries.io} nos brinda una visión de los paquetes que se
+consideran como nodos centrales en la red de dependencias. Esto implica que son elementos fundamentales
+para la funcionalidad y el rendimiento de otros paquetes, dado que poseen un mayor número de dependencias
+directas e indirectas.
+
+Estos paquetes tienden a ser dependientes de otros paquetes con alto \textit{PageRank}. Además, desde el
+punto de vista de la vulnerabilidad, son considerados críticos debido a que suelen acumular una alta
+dependencia transitiva. Esto significa que cualquier cambio o problema en estos paquetes centrales puede
+tener un impacto significativo en todo el ecosistema de la red de dependencias.
+
+Estos nodos de alto \textit{PageRank} juegan un papel crucial en el mantenimiento y la estabilidad de la
+red de dependencias. Su importancia radica en que actúan como pilares fundamentales, proporcionando
+funcionalidades esenciales y formando parte de la infraestructura base para el desarrollo de otros
+paquetes y aplicaciones. \ref{fig:cran_pr_libio_top}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/pr_top.png}
+        \caption{Top \textit{PageRank} en \textit{libraries.io}.}
+        \label{fig:cran_pr_libio_top}
+    \end{center}
+\end{figure}
+
+
+
+En base a la introducción anterior, es esperable encontrar paquetes en el top de \textit{libraries.io}
+que no estén presentes en el conjunto de datos de \textit{scraped}.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/pr_top2.png}
+        \caption{Top \textit{PageRank} en \textit{scraped}.}
+        \label{fig:cran_pr_scraped_top}
+    \end{center}
+\end{figure}
+
+A partir del nuevo conjunto de datos \ref{fig:cran_pr_scraped_top}, se observa un descenso general en los
+valores de PageRank en comparación con el conjunto de datos de \textit{libraries.io}. Además, se destaca
+que un gran número de paquetes han ingresado al top de PageRank y no estaban presentes en \textit{libraries.io}.
+Este hallazgo refuerza la teoría de que el PageRank, en el contexto de una red de dependencias, puede
+considerarse un indicador de la vulnerabilidad de un paquete. Se puede inferir que estos paquetes recién
+incorporados tienden a tener una presencia transitoria en la red y, debido a su relativa falta de madurez,
+es probable que experimenten variaciones significativas a lo largo del tiempo.
+
+Sin embargo, resulta más interesante centrar la atención en aquellos paquetes que mantienen un alto valor de
+PageRank a lo largo del tiempo. Estos paquetes indican la presencia de dependencias importantes y altamente
+transitivas en la red, lo que los hace potencialmente más vulnerables. Su capacidad para conservar su
+importancia en el contexto de la evolución de la red sugiere que desempeñan un papel fundamental en el
+funcionamiento y la estabilidad de otros paquetes. \ref{fig:Top 20 PageRank numero de dependencias transitivas en libraries.io}
+\ref{fig:Top 20 PageRank numero de dependencias transitivas en scraped}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/pr_trans.png}
+        \caption{Top 20 \textit{PageRank} numero de dependencias transitivas en libraries.io}
+        \label{fig:Top 20 PageRank numero de dependencias transitivas en libraries.io}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/pr_trans2.png}
+        \caption{Top 20 \textit{PageRank} numero de dependencias transitivas en scraped}
+        \label{fig:Top 20 PageRank numero de dependencias transitivas en scraped}
+    \end{center}
+\end{figure}
+
+Desde una perspectiva inversa, el uso del \textit{PageRank} nos permite identificar qué paquetes son
+dependientes de otros paquetes importantes en la red de dependencias. Esto proporciona una visión de
+la centralidad en términos de popularidad de un paquete. Al analizar el \textit{PageRank} inverso, es
+posible determinar qué paquetes son altamente requeridos por otros paquetes y, por lo tanto,
+desempeñan un papel crucial en el funcionamiento de la red. \ref{fig:Top 20 PageRank paquetes en sraped}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/pr_inverted.png}
+        \caption{Top 20 \textit{PageRank} paquetes en sraped}
+        \label{fig:Top 20 PageRank paquetes en sraped}
+    \end{center}
+\end{figure}
+
+Los paquetes mostrados en este top son los mas populares del ecosistema de \textit{R}.
+Estos paquetes son los mas utilizados por otros paquetes, lo que los hace fundamentales para el
+funcionamiento de la red de dependencias. No es raro que el paquete R, que implementa el \textit{core}
+del lenguaje, sea el paquete mas popular.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/transitive_pr_scr.png}
+        \caption{Top 20 \textit{PageRank} paquetes numero de dependencias transitivas en sraped}
+        \label{fig:Top 20 PageRank paquetes numero de dependencias transitivas en sraped}
+    \end{center}
+\end{figure}
+
+Estos paquetes a nivel de vulnerabilidad son los mas estables, ya que el numero de dependencias
+transitivas que tienen es relativamente bajo. \ref{fig:Top 20 PageRank paquetes numero de dependencias transitivas en sraped}
+
+\subsection{Impacto (\textit{Impact})}
+
+Desde el punto de vista de esta metrica, podemos interpretar la vulnerabilidad de un paquete como el numero
+de dependencias paquetes que se ven afectados por un cambio en el paquete. En este sentido, un paquete
+vulnerable es aquel que tiene un alto impacto en la red de dependencias.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/impact_dist_libio.png}
+        \caption{Distribución de \textit{Impact} en libraries.io}
+        \label{fig:Distribución de Impact en libraries.io}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/impact_dist_scraped.png}
+        \caption{Distribución de \textit{Impact} en scraped}
+        \label{fig:Distribución de Impact en scraped}
+    \end{center}
+\end{figure}
+
+A partir del análisis de la distribución del impacto, se observa una tendencia similar en ambos
+conjuntos de datos. Se aprecia un ligero incremento en el impacto en el nuevo conjunto de datos,
+pero en general los valores se mantienen estables. Este incremento puede atribuirse a la incorporación
+de nuevos paquetes en la red, los cuales han adoptado dependencias existentes, lo que ha aumentado el
+impacto de estas últimas. \ref{fig:Distribución de Impact en libraries.io} \ref{fig:Distribución de Impact en scraped}
+
+
+En el top de paquetes con mayor \textit{impacto} se encuentran aquellos que son considerados los más populares
+en la red, en términos de su influencia sobre otros paquetes. Es notable que los principales representantes
+de este top también aparecen en el top del \textit{PageRank} a nivel de la red de paquetes. Desde el punto
+de vista de la \textit{dependencia transitiva}, estos paquetes son aquellos que tienen la mayor cantidad de
+dependientes en toda la red.
+
+Al analizar el \textit{impacto} de estos paquetes, se observa un aumento en su valor, en algunos casos
+significativo. Esto indica que estos paquetes han demostrado ser estables en el tiempo y en su implementación,
+y que su funcionalidad es altamente útil para la red.
+
+Por otro lado, aquellos paquetes en el top que han experimentado una reducción en su \textit{impacto}
+podrían indicar la aparición de otros paquetes con funcionalidades similares o mejoradas, los cuales han
+sido elegidos como alternativas por los usuarios de la red. \ref{fig:Top impact libraries.io} \ref{fig:Top impact scraped}
+
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/impact_top_libio.png}
+        \caption{Top paquetes con mayor \textit{Impact} en libraries.io}
+        \label{fig:Top impact libraries.io}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/impact_top_scraped.png}
+        \caption{Top paquetes con mayor \textit{Impact} en scraped}
+        \label{fig:Top impact scraped}
+    \end{center}
+\end{figure}
+
+En la tablas del incremento podemos ver que los paquetes que han tenido un mayor incremento y decremento
+en su impacto. \ref{tab:Top 10 paquetes con mayor incremento en Impact} \ref{tab:Top 10 paquetes con mayor decremento en Impact}
+
+\begin{table}
+    \begin{center}
+        \begin{tabular}{|l|r|r|r|}
+            \hline
+            \textbf{Package} & \textbf{libraries.io} & \textbf{scraped} & \textbf{increment} \\
+            \hline
+            utils            & 34259                 & 63116            & 28857              \\
+            R                & 56281                 & 84501            & 28220              \\
+            methods          & 35926                 & 61571            & 25645              \\
+            lifecycle        & 1656                  & 26783            & 25127              \\
+            stats            & 27322                 & 52319            & 24997              \\
+            grDevices        & 19445                 & 43340            & 23895              \\
+            graphics         & 19117                 & 41571            & 22454              \\
+            cli              & 9144                  & 27514            & 18370              \\
+            rlang            & 12362                 & 30475            & 18113              \\
+            vctrs            & 9056                  & 24235            & 15179              \\
+            \hline
+        \end{tabular}
+        \caption{Top 10 paquetes con mayor incremento en \textit{Impact}}
+        \label{tab:Top 10 paquetes con mayor incremento en Impact}
+    \end{center}
+\end{table}
+
+\begin{table}
+    \begin{center}
+        \begin{tabular}{|l|r|r|r|}
+            \hline
+            \textbf{Package} & \textbf{libraries.io} & \textbf{scraped} & \textbf{increment} \\
+            \hline
+            zeallot          & 9070                  & 67               & -9003              \\
+            assertthat       & 9667                  & 704              & -8963              \\
+            backports        & 9876                  & 2785             & -7091              \\
+            crayon           & 10407                 & 4645             & -5762              \\
+            reshape2         & 5217                  & 1232             & -3985              \\
+            digest           & 11895                 & 8100             & -3795              \\
+            plyr             & 6265                  & 2710             & -3555              \\
+            lazyeval         & 4662                  & 1193             & -3469              \\
+            formatR          & 1450                  & 90               & -1360              \\
+            markdown         & 1511                  & 324              & -1187              \\
+            \hline
+        \end{tabular}
+    \end{center}
+\caption{Top 10 paquetes con mayor decremento en \textit{Impact}}
+\label{tab:Top 10 paquetes con mayor decremento en Impact}
+\end{table}
+
+
+Si lo representamos graficamente se obtien una tendencia similar a las distribuciones anteriores. \ref{fig:Incremento de Impact}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/impact_increase_dist.png}
+        \caption{Incremento de \textit{Impact}}
+        \label{fig:Incremento de Impact}
+    \end{center}
+\end{figure}
+
+
+\subsection{Reach}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/reach_top.png}
+        \caption{Top paquetes con mayor \textit{Reach} en libraries.io}
+        \label{fig:Top reach libraries.io}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/reach_top2.png}
+        \caption{Incremento de \textit{Reach}}
+        \label{fig:Top reach scraped}
+    \end{center}
+\end{figure}
+
+\begin{table}
+    \begin{center}
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{libraries.io} & \textbf{scraped} \\
+            \hline
+            R, 14395              & R, 17223         \\
+            methods, 10839        & methods, 15103   \\
+            utils, 10516          & utils, 15037     \\
+            stats, 9850           & stats, 14360     \\
+            graphics, 7938        & graphics, 12809  \\
+            grDevices, 7382       & grDevices, 12763 \\
+            Rcpp, 7380            & grid, 9241       \\
+            lattice, 6296         & rlang, 8993      \\
+            tools, 6127           & lattice, 8945    \\
+            grid, 5971            & magrittr, 8916   \\
+            \hline
+        \end{tabular}
+        \caption{Top 10 paquetes con mayor \textit{Reach}}
+        \label{tab:Top 10 paquetes con mayor Reach}
+    \end{center}
+\end{table}
+
+
+\begin{table}
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{libraries.io} & \textbf{scraped} & \textbf{increment} \\
+            \hline
+            lifecycle             & 1276             & 8462               \\
+            grDevices             & 7382             & 12763              \\
+            farver                & 48               & 5020               \\
+            graphics              & 7938             & 12809              \\
+            isoband               & 5                & 4726               \\
+            utils                 & 10516            & 15037              \\
+            stats                 & 9850             & 14360              \\
+            splines               & 2016             & 6466               \\
+            generics              & 457              & 4895               \\
+            methods               & 10839            & 15103              \\
+            \hline
+        \end{tabular}
+        \caption{Top 10 paquetes con mayor incremento en \textit{Reach}}
+        \label{tab:Top 10 paquetes con mayor incremento en Reach}
+    \end{center}
+\end{table}
+
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=1\textwidth]{img/cran/reach_increment.png}
+        \caption{Incremento de \textit{Reach}}
+        \label{fig:Incremento de Reach}
+    \end{center}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{La red de dependencias de PyPI}
 
 En el ámbito del lenguaje de programación \textit{Python}, nos enfocamos en el análisis de \textit{PyPI}
 (\textit{Python Package Index}). \textit{PyPI} es un repositorio ampliamente adoptado en la comunidad de
@@ -28,18 +641,29 @@ programación, el aumento en la adopción de \textit{Python} en diferentes campo
 creciente número de contribuyentes que comparten sus proyectos y soluciones a través de \textit{PyPI}.
 
 
-\begin{figure}[ht]
+\begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=0.6\textwidth]{/home/dnllns/Documentos/repositorios/olivia-finder-memoria/img/pypi/bar_common_packages.png}
+        \includegraphics[width=0.6\textwidth]{img/pypi/bar_common_packages.png}
         \caption{Comparacion de la cantidad de paquetes en PyPI entre los datos de libraries.io y los recolectados en este trabajo.}
-        \label{fig:etiqueta}
-        \includegraphics[width=0.6\textwidth]{/home/dnllns/Documentos/repositorios/olivia-finder-memoria/img/pypi/circ_common_packages.png}
+        \label{fig:pipy_common_packages_bar}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/pypi/circ_common_packages.png}
         \caption{Paquetes comunes y no comunes actualmente.}
         \label{fig:pipy_common_packages_circle}
     \end{center}
 \end{figure}
 
-\begin{table}[t!]
+El análisis de los datos revela que aproximadamente el \textit{57 \%} de los paquetes que estaban
+presentes en el conjunto de datos antiguo de PyPI se han mantenido en el nuevo conjunto de datos
+\footnote{Este porcentaje se basa en datos obtenidos experimentalmente.}. Este porcentaje
+relativamente elevado indica que la red de paquetes en PyPI ha logrado mantener una cantidad considerable
+de paquetes de manera estable a lo largo del tiempo \ref{tab:pypi_common_packages}.
+
+\begin{table}[h!]
     \begin{center}
         \begin{tabular}{|l|r|}
             \hline
@@ -53,14 +677,9 @@ creciente número de contribuyentes que comparten sus proyectos y soluciones a t
             \hline
         \end{tabular}
     \end{center}
+    \label{tab:pypi_common_packages}
+    \caption{Comparación de paquetes en PyPI entre los datos de libraries.io y los recolectados en este trabajo.}
 \end{table}
-
-
-El análisis de los datos revela que aproximadamente el \textit{57 \%} de los paquetes que estaban
-presentes en el conjunto de datos antiguo de PyPI se han mantenido en el nuevo conjunto de datos
-\footnote{Este porcentaje se basa en datos obtenidos experimentalmente.}. Este porcentaje
-relativamente elevado indica que la red de paquetes en PyPI ha logrado mantener una cantidad considerable
-de paquetes de manera estable a lo largo del tiempo.
 
 Es importante destacar que este conjunto de paquetes que se ha mantenido representa aproximadamente
 el \textit{12.15\%} del total de paquetes disponibles en PyPI en la actualidad. Esta proporción nos
@@ -69,9 +688,9 @@ paquetes ha logrado mantener su presencia en PyPI a pesar de los posibles cambio
 actualizaciones\footnote{Los datos se refieren al momento de la última actualización y pueden estar
     sujetos a cambios futuros.}.
 
-\begin{figure}[ht]
+\begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1\textwidth]{/home/dnllns/Documentos/repositorios/olivia-finder-memoria/img/pypi/pypi_popularity.png}
+        \includegraphics[width=1\textwidth]{img/pypi/pypi_popularity.png}
         \caption{Popularidad de PyPI a lo largo del tiempo.}
         \label{fig:pypi_popularity}
     \end{center}
@@ -79,7 +698,7 @@ actualizaciones\footnote{Los datos se refieren al momento de la última actualiz
 
 
 Esta tendencia en la popularidad de Python se ve reflejada en las estadísticas realizadas por la
-empresa TIOBE\footnote{\url{https://www.tiobe.com/tiobe-index/python/}}.
+empresa TIOBE \ref{fig:pypi_popularity}\footnote{\url{https://www.tiobe.com/tiobe-index/python/}}.
 
 
 \subsubsection{Grado de la red}
@@ -144,11 +763,11 @@ de las bibliotecas \textit{requests}, \textit{numpy}, \textit{pandas} y \textit{
 con otros paquetes presentes en este ranking.
 
 Estos hallazgos indican que estas bibliotecas han adquirido una mayor relevancia y utilidad en el
-desarrollo de proyectos y aplicaciones en el entorno de Python. 
+desarrollo de proyectos y aplicaciones en el entorno de Python.
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1\textwidth]{/home/dnllns/Documentos/repositorios/olivia-finder-memoria/img/pypi/libio_t20_outd_comparison.png}
+        \includegraphics[width=1\textwidth]{img/pypi/libio_t20_outd_comparison.png}
         \caption{Top de paquetes con mayor grado de salida en PyPI para libraries.io }
         \label{fig:pypi_libio_outd_comparison}
     \end{center}
@@ -156,7 +775,7 @@ desarrollo de proyectos y aplicaciones en el entorno de Python.
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1\textwidth]{/home/dnllns/Documentos/repositorios/olivia-finder-memoria/img/pypi/libio_scraped_t20_comparation.png}
+        \includegraphics[width=1\textwidth]{img/pypi/libio_scraped_t20_comparation.png}
         \caption{Top de paquetes con mayor grado de salida en PyPI para scraped.}
         \label{fig:pypi_scraped_outd_comparison}
     \end{center}
@@ -182,7 +801,7 @@ Por último, se muestra la distribución de \textit{out degree} para ambos conju
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=0.8\textwidth]{/home/dnllns/Documentos/repositorios/olivia-finder-memoria/img/pypi/outd_libio_dist.png}
+        \includegraphics[width=0.8\textwidth]{img/pypi/outd_libio_dist.png}
         \caption{Distribución de \textit{Out degree} para libraries.io}
         \label{fig:pypi_libio_outd_dist}
     \end{center}
@@ -190,7 +809,7 @@ Por último, se muestra la distribución de \textit{out degree} para ambos conju
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=0.8\textwidth]{/home/dnllns/Documentos/repositorios/olivia-finder-memoria/img/pypi/outd_scraped_dist.png}
+        \includegraphics[width=0.8\textwidth]{img/pypi/outd_scraped_dist.png}
         \caption{Distribución de \textit{Out degree} para scraped}
         \label{fig:pypi_scraped_outd_dist}
     \end{center}
@@ -212,7 +831,7 @@ a su funcionalidad ampliamente reconocida y popularidad.
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=0.8\textwidth]{/home/dnllns/Documentos/repositorios/olivia-finder-memoria/img/pypi/dependents_increase.png}
+        \includegraphics[width=0.8\textwidth]{img/pypi/dependents_increase.png}
         \caption{Incremento del \textit{Out degree} en PyPI}
         \label{fig:dependents_increase}
     \end{center}
@@ -226,7 +845,7 @@ Analizados los datos de libraries.io y representados sobre un grafico obtenemos 
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1\textwidth]{/home/dnllns/Documentos/repositorios/olivia-finder-memoria/img/pypi/libio_t20_ind_comparison.png}
+        \includegraphics[width=1\textwidth]{img/pypi/libio_t20_ind_comparison.png}
         \caption{Top paquetes con mayor \textit{In degree} en libraries.io}
         \label{fig:pypi_libio_ind_comparison}
     \end{center}
@@ -242,7 +861,7 @@ los paquetes en el repositorio.
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1\textwidth]{/home/dnllns/Documentos/repositorios/olivia-finder-memoria/img/pypi/scraped_t20_ind_comparison.png}
+        \includegraphics[width=1\textwidth]{img/pypi/scraped_t20_ind_comparison.png}
         \caption{Top paquetes con mayor \textit{In degree} en scraped}
         \label{fig:pypi_scraped_ind_comparison}
     \end{center}
@@ -274,7 +893,7 @@ al máximo este número de dependencias para mejorar su estabilidad\footnote{El 
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=0.8\textwidth]{/home/dnllns/Documentos/repositorios/olivia-finder-memoria/img/pypi/ind_libio_d.png}
+        \includegraphics[width=0.8\textwidth]{img/pypi/ind_libio_d.png}
         \caption{Distribucion del \textit{In degree} en libraries.io}
         \label{fig: Distribucion del In degree en libraries.io}
     \end{center}
@@ -282,13 +901,13 @@ al máximo este número de dependencias para mejorar su estabilidad\footnote{El 
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=0.8\textwidth]{/home/dnllns/Documentos/repositorios/olivia-finder-memoria/img/pypi/ind_scraped_dist.png}
+        \includegraphics[width=0.8\textwidth]{img/pypi/ind_scraped_dist.png}
         \caption{Distribucion del \textit{In degree} en scraped}
         \label{fig: Distribucion del In degree en scraped}
     \end{center}
 \end{figure}
 
-En el análisis de la distribución de In degree \ref{fig: Distribucion del In degree en libraries.io}, 
+En el análisis de la distribución de In degree \ref{fig: Distribucion del In degree en libraries.io},
 se ha observado una alta frecuencia de nodos con un bajo grado,
 lo que indica la presencia de numerosos paquetes que no son utilizados como dependencias. Además, se ha identificado
 una clara tendencia descendente en la frecuencia a medida que aumenta el \textit{In degree}.
@@ -328,6 +947,7 @@ aparición \ref{fig:Top 20 pagerank en libraries.io}.
         \label{fig:Top 20 pagerank en libraries.io}
     \end{center}
 \end{figure}
+
 
 En términos de vulnerabilidad, los paquetes más críticos son aquellos que, si experimentan problemas o inestabilidad,
 pueden tener un impacto significativo en toda la red de dependencias. Una dependencia crítica con múltiples enlaces
@@ -428,10 +1048,10 @@ ocurriera un defecto en ese paquete. Esta métrica podría utilizarse para evalu
 o importancia de un paquete en la red de dependencias y ayudar en la identificación de los
 paquetes que tienen un mayor impacto en el sistema en caso de fallos.
 
-\begin{table}[htbp]
+\begin{table}[h!]
     \centering
     \caption{Comparación entre paquetes obtenidos de libraries.io y scraped para la metrica impact}
-    \begin{tabular}{ccc}
+    \begin{tabular}{|c|c|c|}
         \hline
         \textbf{libraries.io} & \textbf{scraped}   \\
         \hline
@@ -512,10 +1132,10 @@ están interrelacionados y forman parte de componentes altamente conectados dent
 Esta \emph{interconexión} entre los paquetes permite un aumento grupal del impacto, amplificando
 así la magnitud de las consecuencias en caso de fallos o defectos.
 
-\begin{table}[htbp]
+\begin{table}[h!]
     \centering
     \caption{Comparación del incremento del impacto para de libraries.io, scraped}
-    \begin{tabular}{cccc}
+    \begin{tabular}{|c|c|c|c|}
         \hline
         \textbf{Paquete} & \textbf{libraries.io} & \textbf{scraped} & \textbf{incremento} \\
         \hline
@@ -541,12 +1161,12 @@ son paquetes muy usados en casi todo tipo de software.
 Si analizamos el decremento se puede ver que no es tan acentuado como el incremento, no
 podemos sacar muchas conclusiones de ello más que estos paquetes han disminuido el número de
 dependencias transitivas que poseían, simplemente quedémonos con observar la tendencia y ver qué
-paquetes han sido los más afectados.
+paquetes han sido los más afectados. \ref{tab:Disminución del impacto en libraries.io y scraped}
 
-\begin{table}[htbp]
+\begin{table}[h!]
     \centering
-    \caption{Disminución del impacto en libraries.io y scraped}
-    \begin{tabular}{cccc}
+    \label{tab:Disminución del impacto en libraries.io y scraped}
+    \begin{tabular}{|c|c|c|c|}
         \hline
         \textbf{Paquete}              & \textbf{librariesio} & \textbf{scraped} & \textbf{incremento} \\
         \hline
@@ -562,6 +1182,7 @@ paquetes han sido los más afectados.
         pyasn1-modules                & 1101                 & 0                & -1101               \\
         \hline
     \end{tabular}
+    \caption{Disminución del impacto en libraries.io y scraped}
 \end{table}
 
 
@@ -663,35 +1284,39 @@ lo fundamental es que existe una ruta dirigida desde cualquier nodo al resto de 
 
 Bajo la red de libraries.io no se identifican componentes fuertemente conexos. Esto se debe principalmente
 al tamaño de la red, que es relativamente pequeño. Sin embargo, en el nuevo conjunto de datos, se ve claramente
-la existencia de componentes fuertemente conexos.
+la existencia de componentes fuertemente conexos. \ref{table:scc}
 
+\begin{table}
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
         \hline
-        Size & Avg    & Density & Diameter & Clustering & Transitive \\
-             & degree &         &          & coefficient      & dependencies       \\
+        \textbf{Size} & \textbf{Avg}    & \textbf{Density} & \textbf{Diameter} & \textbf{Clustering}  & \textbf{Transitive}   \\
+                      & \textbf{degree} &                  &                   & \textbf{coefficient} & \textbf{dependencies} \\
         \hline
-        283  & 8.890  & 0.015   & 14       & 0.196      & 206873     \\
-        9    & 4.947  & 0.137   & 8        & 0.358      & 23807      \\
-        8    & 3.000  & 0.214   & 6        & 0.222      & 6288       \\
-        8    & 5.250  & 0.375   & 3        & 0.383      & 6784       \\
-        8    & 4.750  & 0.339   & 5        & 0.498      & 6752       \\
-        6    & 5.000  & 0.500   & 2        & 0.776      & 4536       \\
-        6    & 4.666  & 0.466   & 3        & 0.470      & 4452       \\
-        6    & 3.666  & 0.366   & 3        & 0.448      & 4440       \\
-        5    & 2.800  & 0.350   & 4        & 0.000      & 3770       \\
-        5    & 6.000  & 0.750   & 2        & 0.777      & 3855       \\
-        5    & 3.200  & 0.400   & 4        & 0.386      & 3765       \\
-        5    & 3.600  & 0.450   & 3        & 0.421      & 3755       \\
-        4    & 3.000  & 0.500   & 3        & 0.406      & 5276       \\
-        4    & 2.500  & 0.416   & 3        & 0.000      & 3016       \\
-        4    & 3.000  & 0.500   & 3        & 0.406      & 3220       \\
-        4    & 3.000  & 0.500   & 3        & 0.700      & 2988       \\
-        4    & 3.000  & 0.500   & 3        & 0.406      & 3048       \\
-        4    & 3.000  & 0.500   & 3        & 0.406      & 3064       \\
-        4    & 4.500  & 0.750   & 2        & 0.800      & 2948       \\
-        3    & 2.666  & 0.666   & 2        & 0.000      & 3780       \\
+        283           & 8.890           & 0.015            & 14                & 0.196                & 206873                \\
+        9             & 4.947           & 0.137            & 8                 & 0.358                & 23807                 \\
+        8             & 3.000           & 0.214            & 6                 & 0.222                & 6288                  \\
+        8             & 5.250           & 0.375            & 3                 & 0.383                & 6784                  \\
+        8             & 4.750           & 0.339            & 5                 & 0.498                & 6752                  \\
+        6             & 5.000           & 0.500            & 2                 & 0.776                & 4536                  \\
+        6             & 4.666           & 0.466            & 3                 & 0.470                & 4452                  \\
+        6             & 3.666           & 0.366            & 3                 & 0.448                & 4440                  \\
+        5             & 2.800           & 0.350            & 4                 & 0.000                & 3770                  \\
+        5             & 6.000           & 0.750            & 2                 & 0.777                & 3855                  \\
+        5             & 3.200           & 0.400            & 4                 & 0.386                & 3765                  \\
+        5             & 3.600           & 0.450            & 3                 & 0.421                & 3755                  \\
+        4             & 3.000           & 0.500            & 3                 & 0.406                & 5276                  \\
+        4             & 2.500           & 0.416            & 3                 & 0.000                & 3016                  \\
+        4             & 3.000           & 0.500            & 3                 & 0.406                & 3220                  \\
+        4             & 3.000           & 0.500            & 3                 & 0.700                & 2988                  \\
+        4             & 3.000           & 0.500            & 3                 & 0.406                & 3048                  \\
+        4             & 3.000           & 0.500            & 3                 & 0.406                & 3064                  \\
+        4             & 4.500           & 0.750            & 2                 & 0.800                & 2948                  \\
+        3             & 2.666           & 0.666            & 2                 & 0.000                & 3780                  \\
         \hline
     \end{tabular}
+    \caption{Componentes fuertemente conexos}
+    \label{table:scc}
+\end{table}
 
 A partir de estos datos, se pueden extraer varias conclusiones. Existen componentes fuertemente conexos de diversos
 tamaños, desde pequeños hasta muy grandes. Algunos componentes tienen una alta importancia medida por el pagerank
