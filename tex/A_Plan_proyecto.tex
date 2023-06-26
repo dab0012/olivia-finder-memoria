@@ -2,7 +2,7 @@
 
 \section{Introducción}
 
-El proyecto propuesto se centra en el desarrollo de la herramienta \textit{Olivia-Finder}, 
+El proyecto propuesto se centra en el desarrollo de la herramienta \textit{OLIVIA-Finder}, 
 la cual ha sido diseñada con el objetivo de extraer datos de paquetes y sus dependencias de 
 los repositorios de software \textit{CRAN, Bioconductor, PyPI y npm}. 
 
@@ -18,7 +18,7 @@ en profundidad de los repositorios \textit{CRAN, Bioconductor, PyPI y npm}, así
 utilizadas para la extracción de datos y análisis de redes de dependencias. Esta etapa sienta las bases teóricas 
 necesarias para comprender el contexto en el que se desarrollará la herramienta y el análisis posterior.
 
-La segunda etapa se enfoca en el diseño y desarrollo de la herramienta \textit{Olivia-Finder}. 
+La segunda etapa se enfoca en el diseño y desarrollo de la herramienta \textit{OLIVIA-Finder}. 
 Aquí, se aplican los conocimientos adquiridos durante la etapa de investigación para implementar una solución 
 eficiente y robusta que permita la extracción de datos de los repositorios mencionados. 
 Se deben tener en cuenta diversos aspectos técnicos, como el manejo de solicitudes web, el procesamiento de datos 
@@ -57,11 +57,11 @@ temporal del que se dispone.
 \subsection{Sprint 0: Kick of meeting}
 
 Este \textit{sprint} representó nuestra primera aproximación a la temática del proyecto. Desde el principio, quedó 
-claro que el modelo matemático proporcionado por Olivia en el Trabajo de Fin de Grado anterior estaba más allá de 
+claro que el modelo matemático proporcionado por OLIVIA en el Trabajo de Fin de Grado anterior estaba más allá de 
 nuestra comprensión absoluta, y nuestro enfoque se centraría principalmente en la experimentación.
 
 Por lo tanto, fue necesario realizar un esfuerzo inicial para comprender los fundamentos básicos de lo que el modelo 
-de \textit{OLIVIA} nos permitía hacer. En este sentido, los cuadernos de trabajo proporcionados en el TFG anterior fueron de 
+de \textit{OLIVIA} nos permitía hacer. En este sentido, los Jupyter Notebooks proporcionados en el TFG anterior fueron de 
 gran utilidad, ya que mostraban la funcionalidad en casos de estudio concretos y ofrecían un análisis complementario.
 
 Desde el principio, nos encontramos con problemas técnicos. En primer lugar, las dependencias de \textit{OLIVIA} requieren una 
@@ -73,7 +73,7 @@ se ha identificado que esta versión de \textit{NumPy} presenta vulnerabilidades
 Sin embargo, no es posible actualizar la biblioteca, ya que existen métodos esenciales para la funcionalidad 
 implementada en \textit{OLIVIA} que se han vuelto obsoletos en la versión actualizada. Además, en cuanto a la versión de Python, 
 el código debe ejecutarse en la versión 3.8 debido a la presencia de dependencias clave para OLIVIA, como \textit{intbitset}, 
-que no están disponibles para otras versiones de Python. Esto supuso un problema al ejecutar los cuadernos de trabajo 
+que no están disponibles para otras versiones de Python. Esto supuso un problema al ejecutar los notebooks 
 en \textit{Google Colab} debido a las dificultades para instalar la versión específica de Python que requeríamos.
 
 Además, fue necesario realizar una introducción a la temática mediante una lectura superficial de la memoria del 
@@ -108,7 +108,7 @@ Como alternativa, se propuso utilizar técnicas de \textit{web scraping} para re
 de los repositorios de software de nuestro interés, comenzando con la recolección de información de CRAN. Este esfuerzo 
 dio resultados positivos, y logramos obtener una lista actualizada de la red de CRAN. Los éxitos obtenidos en este 
 proceso nos llevaron a considerar el desarrollo de una herramienta que pudiera obtener esta información para los 
-repositorios de interés, ya que esto generaría un nuevo conjunto de datos utilizable en Olivia y en trabajos anteriores 
+repositorios de interés, ya que esto generaría un nuevo conjunto de datos utilizable en OLIVIA y en trabajos anteriores 
 que hayan utilizado datos de \textit{libraries.io}, lo que permitiría actualizar sus resultados de manera significativa.
 
 Como resultado al finalizar este \textit{sprint}, logramos obtener una red actualizada de CRAN gracias a que desarrollamos 
@@ -148,7 +148,7 @@ lado, inicialmente se esperaba que \textit{Bioconductor} fuese más sencillo deb
 comparación con los otros repositorios en los que estamos trabajando. Sin embargo, nos encontramos con un problema en 
 el servidor web de \textit{Bioconductor}, específicamente en la página que muestra el listado de paquetes disponibles, 
 ya que no era accesible mediante una simple solicitud web, como las que solemos realizar utilizando la biblioteca 
-\textit{"requests"} de Python.
+\textit{requests} de Python.
 
 En \textit{Bioconductor}, se utilizaba JavaScript para cargar dinámicamente la lista de paquetes en tiempo de ejecución 
 sobre la página. Esta situación dificulta la obtención de los datos, ya que la biblioteca \textit{requests} no es 
@@ -184,8 +184,7 @@ lista, aplicamos la metodología utilizada previamente para el resto de los repo
 gracias a su API, pudimos recopilar los metadatos necesarios para construir el conjunto de datos correspondiente.
 
 Llevar a cabo este \textit{sprint} ha supuesto una duración de 60 días, lo que aproximadamente corresponde con unas 
-3 reuniones y alrededor de 120 horas de trabajo.
-
+3 reuniones y alrededor de 150 horas de trabajo.
 
 \subsection{Sprint 3 - Library refactoring}
 
@@ -234,10 +233,123 @@ Este \textit{sprint} ha sido difícil de calcular el tiempo que ha llevado reali
 hacia \textit{sprints} anteriores cuando estamos trabajando en este. Ha sido uno de los más complejos. Se calcula un 
 periodo de 60 días, 4 reuniones y aproximadamente 150 horas de trabajo.
 
+\subsection{Sprint 4 - Análisis de datos}
+
+En la etapa final de este estudio, se utilizaron los datos recopilados para realizar un análisis con una perspectiva 
+evolutiva de las redes de dependencias presentes en los repositorios \textit{CRAN}, \textit{Bioconductor}, \textit{PyPI} 
+y \textit{npm}, utilizando la ciencia de redes como marco de referencia.
+
+En este análisis, se lleva a cabo una comparativa entre el estado de la red según los datos obtenidos de \textit{libraries.io} 
+y los datos obtenidos mediante \textit{web scraping}. Se realiza un análisis desde el punto de vista de la centralidad de 
+grado y el algoritmo \textit{PageRank}, con el objetivo de identificar y argumentar cuáles son los paquetes más vulnerables 
+y por qué. Además, se calculan algunas de las métricas proporcionadas por el modelo de red de \textit{OLIVIA} y se establecen 
+relaciones entre ellas.
+
+Este análisis ofrece una perspectiva a nivel micro al examinar los extremos de la red, como los paquetes más destacados, y 
+una visión más macro al analizar distribuciones y propiedades más generales, como el grado medio. Su objetivo principal es 
+proporcionar una comprensión más profunda de la composición de estas redes de dependencias, sin abordar un análisis exhaustivo 
+de toda la red.
+
+Este \textit{sprint} en cuanto a duración fue el más corto y de una duración de 15 días, en los que hubo 3 reuniones, y 
+aproximadamente ocupó unas 30 horas de trabajo.
+
+
 \section{Estudio de viabilidad}
+
+Considerando la dirección y metas de las actividades planificadas, procederemos a evaluar la factibilidad de las mismas, 
+teniendo en cuenta su enfoque como un proyecto de investigación, desarrollo e innovación.
 
 \subsection{Viabilidad económica}
 
+\subsubsection{Presupuesto}
+
+Para realizar una estimación precisa del presupuesto del proyecto, hemos considerado diferentes aspectos relacionados 
+con los costos involucrados. En primer lugar, hemos establecido una tarifa base de \textit{15€} por hora de trabajo 
+para el autor del proyecto, incluyendo los costos salariales, complementos y seguridad social. Cabe destacar que no 
+se han identificado gastos significativos en material o hardware, a excepción del consumo eléctrico durante la recolección 
+de datos.
+
+En cuanto al software utilizado, nos complace informar que todos los productos empleados en el desarrollo del proyecto 
+han sido de coste cero. Sin embargo, es importante mencionar que existe la posibilidad de incurrir en gastos adicionales 
+si se decide utilizar servicios de computación en la nube de pago, aunque estos no son estrictamente necesarios para el
+ proyecto.
+
+En términos de \textit{costos indirectos}, los cuales abarcan los gastos generales imputables al proyecto, los hemos 
+incluido en la partida correspondiente. Siguiendo una práctica común, hemos asignado un \textit{15\%} del presupuesto 
+de personal directo como gastos indirectos. De esta manera, hemos obtenido una aproximación al presupuesto total del 
+proyecto de $415 \text{ horas} \times 15\textit{€}/\text{hora} \times 1.15 = 7158.75\textit{€}$. Es importante señalar que esta cifra 
+no contempla posibles gastos derivados de la publicación y difusión de los resultados, los cuales podrían añadirse en 
+etapas posteriores.
+
+En cuanto al salario del profesor, quien cuenta con una mayor experiencia y conocimientos especializados, se ha 
+establecido una tarifa base de \textit{30€} por hora. Considerando que ha habido un total de 12 reuniones, cada 
+una con una duración aproximada de \textit{1.5} horas, y aplicando los mismos gastos indirectos del \textit{15\%}, 
+el costo total asociado a estas reuniones sería de $14 \text{ reuniones} \times 1.5  \text{ horas} \times 30\textit{€}/\text{hora} \times 1.15 = 724\textit{€}$.
+
+En resumen, según nuestras estimaciones, el desarrollo de este proyecto conllevaría un costo aproximado de \textit{9283.5€}. 
+Este presupuesto abarca los salarios del autor del trabajo y del profesor, los gastos indirectos correspondientes y otros 
+aspectos operativos relevantes.
+
+Por último, es importante mencionar que, debido a la naturaleza del proyecto como una iniciativa de código abierto e 
+investigación, no se permite la venta ni la comercialización del producto resultante con fines comerciales. El objetivo 
+principal es promover la colaboración y el intercambio de conocimientos en la comunidad científica.
+
+\subsubsection{Financiación}
+
+Los programas nacionales o europeos de financiación destinados a la \textit{investigación, desarrollo e innovación (I+D+i)} 
+podrían constituir una opción viable para sufragar total o parcialmente el proyecto. Por lo general, resulta necesario contar 
+con una \textit{afiliación} a un marco empresarial o académico específico que permita acceder a los 
+diversos \textit{instrumentos de financiación} disponibles.
+
+Una interesante posibilidad que merece ser estudiada, y que ha cobrado relevancia en el contexto del movimiento 
+de \textit{Ciencia Abierta}, es el \textit{crowdfunding}. Esta modalidad persigue la obtención de dinero  
+para el proyecto mediante contribuciones económicas realizadas por personas interesadas en contribuir al progreso 
+de la \textit{investigación científica transparente} y con \textit{resultados públicos, accesibles y gratuitos}. Se puede 
+hacer uso de que tradicionalmente han estado orientadas al desarrollo de \textit{productos}, como \textit{Kickstarter} o \textit{Indiegogo}.
+
+En el ámbito del \textit{crowdfunding}, reviste una \textit{importancia capital} presentar de forma atractiva 
+la idea del proyecto, destacando su \textit{relevancia e impacto} en la \textit{comunidad científica} y en 
+la sociedad en general. Asimismo, es fundamental establecer una estrategia de comunicación efectiva 
+para alcanzar a potenciales colaboradores y motivarlos a realizar sus aportaciones económicas.
+
+
 \subsection{Viabilidad legal}
+
+La viabilidad legal del proyecto software que hemos desarrollado es favorable, considerando las siguientes características:
+
+\textbf{Naturaleza \textit{opensource} y gratuita:} 
+
+Todo el proyecto ha sido diseñado bajo una filosofía de código abierto y gratuito, 
+lo que implica que el software y sus componentes están disponibles para ser utilizados, modificados y distribuidos sin 
+restricciones. Esta elección nos permite fomentar la colaboración y el acceso abierto a la tecnología desarrollada.
+
+\textbf{Recursos extraídos de la red:}
+
+Los recursos utilizados en el proyecto, como bibliotecas y herramientas, han sido obtenidos 
+de fuentes abiertas y accesibles en Internet. Al utilizar estos recursos, hemos respetado las condiciones y términos de 
+uso establecidos por los autores y las licencias correspondientes.
+
+\textbf{Biblioteca \textit{opensource} y experimental no comercial:} 
+
+La biblioteca que hemos desarrollado para el proyecto tiene 
+una naturaleza experimental y no comercial. Esto implica que su propósito es explorar nuevas ideas y soluciones tecnológicas, 
+sin intención de generar beneficios económicos directos a través de su venta o licenciamiento.
+
+\textbf{Conjunto de datos recolectado de la red:}
+
+El conjunto de datos utilizado en el proyecto ha sido recolectado de fuentes 
+accesibles en la red, donde cualquier persona puede acceder a ellos. Nos hemos esforzado en recopilar y proporcionar estos 
+datos a la comunidad, siguiendo los principios de transparencia y acceso abierto. En el caso de uso de estos datos, solo 
+exigimos la atribución a los autores del Trabajo Fin de Grado correspondiente.
+
+Aprovechamos este momento para dar atribucion al creador del conjunto de datos de \textit{libraries.io} llamado \textit{Tidelift}.
+
+\textbf{Licencia de código abierto:}
+
+Con respecto a la clasificación de la licencia adecuada para el proyecto, considerando los aspectos mencionados, una opción 
+apropiada podría ser la licencia \textit{Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)}. Esta licencia 
+permite utilizar, modificar y distribuir el software y sus componentes, siempre y cuando se atribuya adecuadamente a los 
+autores originales y se comparta bajo una licencia similar. Esta elección refuerza los principios de acceso abierto y 
+fomenta la colaboración en la comunidad de desarrolladores y usuarios del software.
 
 
