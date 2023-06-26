@@ -2,7 +2,237 @@
 
 \section{Introducción}
 
+El proyecto propuesto se centra en el desarrollo de la herramienta \textit{Olivia-Finder}, 
+la cual ha sido diseñada con el objetivo de extraer datos de paquetes y sus dependencias de 
+los repositorios de software \textit{CRAN, Bioconductor, PyPI y npm}. 
+
+Dado que la herramienta en sí misma carece de elementos visuales o atractivos más allá 
+de la presentación de los datos en forma de una lista de enlaces entre nodos de la red, 
+se ha decidido complementarla con un análisis básico de las redes generadas desde la perspectiva 
+de la ciencia de redes. Esto se realiza con el propósito de evitar que el trabajo resulte monótono 
+y brindar un enfoque más completo y enriquecedor al proyecto.
+
+En general, el proyecto se puede describir en tres etapas fundamentales. 
+La primera etapa consiste en una exhaustiva investigación y documentación, donde se realiza un estudio 
+en profundidad de los repositorios \textit{CRAN, Bioconductor, PyPI y npm}, así como de las técnicas y herramientas 
+utilizadas para la extracción de datos y análisis de redes de dependencias. Esta etapa sienta las bases teóricas 
+necesarias para comprender el contexto en el que se desarrollará la herramienta y el análisis posterior.
+
+La segunda etapa se enfoca en el diseño y desarrollo de la herramienta \textit{Olivia-Finder}. 
+Aquí, se aplican los conocimientos adquiridos durante la etapa de investigación para implementar una solución 
+eficiente y robusta que permita la extracción de datos de los repositorios mencionados. 
+Se deben tener en cuenta diversos aspectos técnicos, como el manejo de solicitudes web, el procesamiento de datos 
+y la manipulación de estructuras de red.
+
+La tercera etapa del proyecto implica el análisis experimental de las redes generadas. 
+Una vez obtenidos los datos de los paquetes y sus dependencias, se aplican técnicas de la ciencia de redes 
+para examinar características importantes, como la \textit{centralidad de grado}, el algoritmo \textit{PageRank} y 
+otras métricas relevantes. Este análisis proporciona una comprensión más profunda de la estructura 
+y las propiedades de las redes de dependencias en los repositorios estudiados, permitiendo identificar 
+paquetes críticos, vulnerabilidades potenciales y relaciones significativas entre los elementos de la red.
+
 \section{Planificación temporal}
+
+En el ámbito de los proyectos modernos de software, es común utilizar metodologías ágiles, como \textit{Scrum} 
+o \textit{Kanban}. Estas metodologías reconocen la naturaleza dinámica del proceso iterativo que implica el 
+establecimiento de requisitos, diseño, desarrollo y validación de un producto de software. Por lo tanto, 
+se enfocan en la planificación adaptativa y la mejora continua a través de entregas tempranas.
+
+Sin embargo, en nuestro caso, debemos cuestionar la aplicabilidad práctica de las metodologías ágiles 
+tal como están concebidas. Esto se debe a que el conjunto de partes interesadas, que se limita a un 
+cliente académico prototípico, y sobre todo al hecho de que el equipo de trabajo es unipersonal. Estas 
+circunstancias particulares plantean dudas sobre la eficacia de la implementación de las metodologías 
+ágiles en nuestro contexto.
+
+No obstante, podemos establecer similitudes entre nuestro proceso y el marco de trabajo \textit{Scrum}, 
+debido a la presencia de \textit{sprints}. Aunque no hemos seguido rigurosamente la estructura de los \textit{sprints} 
+debido a la falta de objetivos claramente definidos en el proyecto, los \textit{sprints} nos han permitido 
+representar la actividad realizada y las etapas en las que hemos dividido el trabajo.
+
+Por otro lado, se ha de tener en cuenta que las tareas de investigación incluidas en el proyecto son 
+difíciles de planificar. El proceso de investigación implica continuos replanteamientos y el alcance de 
+los resultados debe ser constantemente modelado o redefinido a medida que avanzamos dentro del límite 
+temporal del que se dispone.
+
+\subsection{Sprint 0: Kick of meeting}
+
+Este \textit{sprint} representó nuestra primera aproximación a la temática del proyecto. Desde el principio, quedó 
+claro que el modelo matemático proporcionado por Olivia en el Trabajo de Fin de Grado anterior estaba más allá de 
+nuestra comprensión absoluta, y nuestro enfoque se centraría principalmente en la experimentación.
+
+Por lo tanto, fue necesario realizar un esfuerzo inicial para comprender los fundamentos básicos de lo que el modelo 
+de \textit{OLIVIA} nos permitía hacer. En este sentido, los cuadernos de trabajo proporcionados en el TFG anterior fueron de 
+gran utilidad, ya que mostraban la funcionalidad en casos de estudio concretos y ofrecían un análisis complementario.
+
+Desde el principio, nos encontramos con problemas técnicos. En primer lugar, las dependencias de \textit{OLIVIA} requieren una 
+actualización, ya que se están utilizando versiones algo desactualizadas de algunos paquetes y herramientas de análisis, 
+y el \textit{Dependabot de GitHub} insiste en su actualización \textit{``Bump numpy from 1.18.5 to 1.22.0''}. En concreto, 
+se ha identificado que esta versión de \textit{NumPy} presenta vulnerabilidades de alto riesgo, como la referida al 
+\textit{NumPy NULL Pointer Dereference}.
+
+Sin embargo, no es posible actualizar la biblioteca, ya que existen métodos esenciales para la funcionalidad 
+implementada en \textit{OLIVIA} que se han vuelto obsoletos en la versión actualizada. Además, en cuanto a la versión de Python, 
+el código debe ejecutarse en la versión 3.8 debido a la presencia de dependencias clave para OLIVIA, como \textit{intbitset}, 
+que no están disponibles para otras versiones de Python. Esto supuso un problema al ejecutar los cuadernos de trabajo 
+en \textit{Google Colab} debido a las dificultades para instalar la versión específica de Python que requeríamos.
+
+Además, fue necesario realizar una introducción a la temática mediante una lectura superficial de la memoria del 
+TFG de OLIVIA. Esto también nos permitió familiarizarnos con el hecho de que estas memorias se redactan 
+utilizando \LaTeX, una tecnología que nos resultaba completamente desconocida en ese momento.
+
+En conclusión, este \textit{sprint} inicial implicó la familiarización con el modelo de OLIVIA, la comprensión de 
+sus fundamentos y la resolución de desafíos técnicos relacionados con las dependencias y las versiones de Python. 
+Además, se llevó a cabo una introducción a la temática a través del estudio de la memoria del TFG anterior, lo que 
+también nos permitió adquirir conocimientos sobre el uso de \LaTeX en la redacción de documentos científicos.
+
+La duración de este \textit{sprint} ha sido de 30 días aproximadamente, realizando 2 reuniones y 
+con unas 25 horas de trabajo.
+
+\subsection{Sprint 1 - Data collection}
+
+En esta etapa de investigación nos enfocamos en el manejo de datos. Inicialmente, utilizamos el conjunto de datos 
+de \textit{libraries.io}, el cual resultó útil desde una perspectiva histórica. Sin embargo, presentó importantes 
+limitaciones, como la falta de actualización periódica. Al enfrentarnos a los desafíos derivados de este conjunto 
+de datos, pudimos constatar que trabajar con grandes volúmenes de datos no es trivial. Fue necesario utilizar un 
+disco duro externo para almacenar el conjunto de datos, del cual solo nos interesaba la lista de enlaces entre 
+paquetes y dependencias contenida en uno de los archivos CSV. Debido a la gran cantidad de líneas y su considerable 
+tamaño, resultó difícil manipular y filtrar los datos.
+
+La falta de actualización de los datos fue un aspecto clave a mejorar, por lo cual exploramos otras fuentes de información, 
+como la API de \textit{libraries.io} y el conjunto de datos de \textit{BigQuery} proporcionado por los mismos desarrolladores. 
+El uso de la API quedó descartado debido a sus limitaciones técnicas para realizar un escaneo completo del repositorio. 
+Por otro lado, el conjunto de datos de \textit{BigQuery} también presentó problemas similares a los archivos CSV en 
+términos de falta de actualización.
+
+Como alternativa, se propuso utilizar técnicas de \textit{web scraping} para recolectar información de los sitios web 
+de los repositorios de software de nuestro interés, comenzando con la recolección de información de CRAN. Este esfuerzo 
+dio resultados positivos, y logramos obtener una lista actualizada de la red de CRAN. Los éxitos obtenidos en este 
+proceso nos llevaron a considerar el desarrollo de una herramienta que pudiera obtener esta información para los 
+repositorios de interés, ya que esto generaría un nuevo conjunto de datos utilizable en Olivia y en trabajos anteriores 
+que hayan utilizado datos de \textit{libraries.io}, lo que permitiría actualizar sus resultados de manera significativa.
+
+Como resultado al finalizar este \textit{sprint}, logramos obtener una red actualizada de CRAN gracias a que desarrollamos 
+un prototipo básico pero todavía inmaduro de un código en Python que nos permitió realizar la recolección de datos.
+
+Es importante destacar que durante este \textit{sprint} se abordó uno de los principales desafíos que hemos enfrentado. 
+Como era de esperar, los servidores web implementan medidas de seguridad para evitar comportamientos maliciosos. Debido 
+a la naturaleza del proceso de escaneo de un repositorio, que implica realizar numerosas solicitudes web a un mismo servidor 
+desde una misma dirección IP en un período de tiempo relativamente corto, esta actividad a menudo resulta en la prohibición temporal de acceso al servidor web para los equipos asociados a esa dirección IP. Para solucionar este problema, se implementó la funcionalidad de ocultar las solicitudes detrás de servidores proxy, que enmascaran la dirección IP de origen al servidor web. Por lo tanto, fue necesario desarrollar esta funcionalidad para que fuera posible llevar a cabo esta tarea.
+
+En conclusión, este \textit{sprint} fue clave para obtener un conjunto de datos actualizado y establecer los primeros 
+pasos en el desarrollo de una herramienta de recolección de datos. Además, se logró resolver el desafío de la prohibición 
+de acceso a los serv
+
+idores web mediante la implementación de rotación de proxy. Estos avances sientan las bases para continuar con el desarrollo 
+del proyecto y alcanzar los objetivos planteados.
+
+La duración de este \textit{sprint} ha sido aproximadamente de 30 días, que en nuestra metodología de trabajo equivalen 
+aproximadamente a 2 reuniones y a 60 horas de trabajo.
+
+\subsection{Sprint 2 - Library implementation and interpretation of some data}
+
+En esta etapa, nuestro enfoque se centró en el desarrollo de una herramienta genérica con el propósito de llevar a cabo 
+una extracción sencilla de la red de dependencias de los repositorios \textit{CRAN}, \textit{Bioconductor}, \textit{PyPI} 
+y \textit{npm}. Nos enfrentamos al primer desafío de obtener una lista completa de los paquetes disponibles en cada 
+repositorio, que serviría como punto de partida para nuestra recopilación de datos. Cabe destacar que esta tarea no 
+esulta sencilla en la mayoría de los casos, ya que dichas listas no siempre están disponibles.
+
+Es importante mencionar que cada repositorio de software presenta sus peculiaridades distintivas. En el caso particular 
+de \textit{CRAN} y \textit{Bioconductor}, el proceso se basó exclusivamente en técnicas de \textit{web scraping}, 
+aprovechando los datos de interés que se encuentran directamente en las listas de paquetes publicadas en sus respectivos 
+sitios web.
+
+El análisis de \textit{CRAN} resultó ser el más sencillo de todos, ya que su página web es simple, robusta y aparentemente 
+sólida a lo largo del tiempo, lo que proporciona una implementación bastante estable para este repositorio. Por otro 
+lado, inicialmente se esperaba que \textit{Bioconductor} fuese más sencillo debido a la menor cantidad de paquetes en 
+comparación con los otros repositorios en los que estamos trabajando. Sin embargo, nos encontramos con un problema en 
+el servidor web de \textit{Bioconductor}, específicamente en la página que muestra el listado de paquetes disponibles, 
+ya que no era accesible mediante una simple solicitud web, como las que solemos realizar utilizando la biblioteca 
+\textit{"requests"} de Python.
+
+En \textit{Bioconductor}, se utilizaba JavaScript para cargar dinámicamente la lista de paquetes en tiempo de ejecución 
+sobre la página. Esta situación dificulta la obtención de los datos, ya que la biblioteca \textit{requests} no es 
+compatible con la carga de JavaScript. Como alternativa, tuvimos que recurrir a la biblioteca \textit{selenium}, la 
+cual ofrece funcionalidades más avanzadas al actuar como un navegador \textit{headless} (sin interfaz gráfica) que 
+se comporta de manera similar a un navegador de escritorio convencional al que estamos acostumbrados, pero que admite 
+la automatización de tareas. Gracias a \textit{selenium}, logramos extraer la lista de paquetes de \textit{Bioconductor} 
+y, a partir de ella, procedimos de manera similar a como lo habíamos hecho anteriormente, obteniendo los datos de interés 
+mediante técnicas de \textit{web scraping}.
+
+El repositorio \textit{PyPI}, también publica una lista de paquetes. Sin embargo, es importante destacar que esta 
+lista contiene muchos paquetes obsoletos e inexistentes, lo que la convierte en un punto de partida necesario pero 
+no del todo óptimo. Utilizando esta lista de paquetes y aprovechando la API proporcionada por \textit{PyPI} para 
+obtener metadatos de los paquetes, pudimos extraer la red de dependencias correspondiente.
+
+En esta etapa, nos percatamos del tiempo considerablemente elevado requerido para llevar a cabo esta recopilación, 
+así como de la necesidad de cuidar la implementación de la herramienta para evitar el desperdicio de memoria. 
+Estos problemas surgidos debido al tamaño de los datos nos proporcionan una perspectiva clara de la importancia de 
+gestionar eficientemente los recursos cuando se trabaja con cantidades masivas de información. En cuanto al tiempo 
+necesario para la recolección, se realizó un esfuerzo por optimizar el proceso mediante técnicas de concurrencia, 
+lo cual nos permitió realizar solicitudes web de forma concurrente en lugar de secuencial, como habíamos estado haciendo 
+hasta ese momento. Estas mejoras significativas en el rendimiento de la herramienta se tradujeron en una reducción 
+significativa del tiempo requerido y el consumo de memoria.
+
+Finalmente, logramos generar el conjunto de datos para el repositorio \textit{npm}. Es importante destacar que este 
+repositorio ha sido el más desafiante de abordar. En primer lugar, no existe una forma sencilla de obtener una lista 
+completa de los paquetes existentes en \textit{npm}. Además, el repositorio oficial de paquetes no es único, ya que 
+existen repositorios espejo (\textit{mirrors}) alternativos que difieren tanto en el número de paquetes como en los 
+paquetes que contienen. Para abordar este problema, decidimos utilizar la lista de paquetes que pudimos extraer de 
+uno de estos \textit{mirrors} y complementar con los paquetes que teníamos en el conjunto de datos de \textit{libraries.io}. 
+De esta manera, obtuvimos una lista de nombres de paquetes a los cuales dirigir nuestros esfuerzos. A partir de esta 
+lista, aplicamos la metodología utilizada previamente para el resto de los repositorios. En el caso de \textit{npm}, 
+gracias a su API, pudimos recopilar los metadatos necesarios para construir el conjunto de datos correspondiente.
+
+Llevar a cabo este \textit{sprint} ha supuesto una duración de 60 días, lo que aproximadamente corresponde con unas 
+3 reuniones y alrededor de 120 horas de trabajo.
+
+
+\subsection{Sprint 3 - Library refactoring}
+
+Tras el análisis de los datos recolectados, observamos que los conjuntos de datos de \textit{libraries.io} proporcionan 
+información sobre todas las versiones existentes de un paquete. En otras palabras, consideramos como \textit{dependencias} 
+de un paquete todas las dependencias que hayan existido para cada una de sus versiones. Sin embargo, desde una perspectiva 
+de desarrollo de software, esto no es correcto, ya que sobrecargamos las dependencias de un paquete con dependencias de 
+versiones antiguas que ya no se utilizan en el ciclo de vida actual de esas bibliotecas. Por lo tanto, es importante tener 
+en cuenta esta información en los análisis posteriores que realicemos, donde será necesario aplicar un filtrado adecuado 
+si deseamos utilizar los datos de \textit{libraries.io}.
+Otro aspecto interesante es que no todas las \textit{dependencias} de un paquete se encuentran presentes en el repositorio 
+al que pertenece ese paquete, e incluso es posible que no utilicen el mismo lenguaje de programación. Tomemos como ejemplo 
+un paquete en Python que depende de un binario escrito en C. Este fenómeno es muy común en la red de \textit{Bioconductor}, 
+cuyos paquetes dependen en gran medida de paquetes existentes en \textit{CRAN}. 
+A estas dependencias las hemos bautizado como \textit{dependencias foráneas}.
+
+Con el objetivo de mejorar la funcionalidad y flexibilidad de la biblioteca, se llevó a cabo una refactorización del 
+diseño para adaptarlo y permitir el uso y la combinación de diversas fuentes de datos. Se proporciona soporte para 
+\textit{web scraping}, conjuntos de datos en formato \textit{CSV}, la API de \textit{libraries.io} y repositorios de 
+\textit{GitHub}.
+El uso combinado de diferentes fuentes de datos nos brinda la capacidad de buscar en fuentes alternativas cuando un 
+paquete solicitado no se encuentra en la fuente principal. El soporte de archivos \textit{CSV} nos permite considerar 
+los conjuntos de datos de \textit{libraries.io} como fuente de información, tanto a través de su API como de los archivos 
+en sí. La implementación para repositorios de \textit{GitHub} nos proporciona información adicional al utilizar 
+\textit{GitHub} como fuente de datos, ya que es el sistema de control de versiones por excelencia donde se encuentran 
+la mayoría de los proyectos de software de código abierto publicados. De esta manera, tenemos acceso a un repositorio 
+de un nivel inferior, ya que no pertenece a un gestor de paquetes específico de un lenguaje de programación, sino que 
+se basa su relevancia principalmente en un ámbito más cercano al desarrollo.
+Además, la biblioteca ofrece otras funcionalidades, como la obtención en tiempo de ejecución de una red de dependencias 
+transitiva para un paquete en particular. También proporciona persistencia de datos en forma de objetos serializados y 
+la capacidad de exportar datos en formato \textit{CSV} compatible con \textit{OLIVIA}.
+
+Una vez concluida esta etapa, procedimos a publicar los conjuntos de datos en \textit{Zenodo}, con el fin de hacerlos 
+accesibles para la comunidad científica. Además, dedicamos nuestros esfuerzos a mejorar la documentación del código 
+fuente y generar una documentación completa de la biblioteca. Esta documentación está diseñada para ser accesible desde
+ la web y se encuentra alojada en \textit{GitHub Pages}.
+La publicación de los conjuntos de datos en \textit{Zenodo} permite a otros investigadores y desarrolladores acceder a 
+los datos recopilados y utilizarlos en sus propios proyectos o investigaciones. De esta manera, promovemos la transparencia 
+y el intercambio de información entre la comunidad científica.
+En cuanto a la documentación de la biblioteca, nos esforzamos por ofrecer una guía clara y concisa sobre cómo utilizar 
+la biblioteca, qué funcionalidades y características ofrece, así como ejemplos de uso. La documentación se ha estructurado 
+de manera que sea fácil de navegar y buscar información relevante. Al alojarla en \textit{GitHub Pages}, proporcionamos 
+un acceso práctico y amigable para los usuarios, quienes pueden acceder a la documentación directamente desde el sitio web
+ del proyecto en \textit{GitHub}.
+Este \textit{sprint} ha sido difícil de calcular el tiempo que ha llevado realizarlo, debido a que ha habido saltos 
+hacia \textit{sprints} anteriores cuando estamos trabajando en este. Ha sido uno de los más complejos. Se calcula un 
+periodo de 60 días, 4 reuniones y aproximadamente 150 horas de trabajo.
 
 \section{Estudio de viabilidad}
 
