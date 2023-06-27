@@ -1,8 +1,67 @@
 \apendice{Documentación técnica de programación}
 
 \section{Introducción}
+Se recoge en este apartado la información más relevante para la extensión
+o adaptación del código de la biblioteca.
 
 \section{Estructura de directorios}
+El proyecto de software está disponible en el repositorio público \url{https://github.com/dab0012/olivia-finder}.
+Este repositorio incluye los objetos de persistencia, los datos extraídos en los análisis y todo el
+conjunto de scripts y demás material utilizado. Sin embargo, si lo que le interesa son los datos generados de las redes de dependencias,
+es recomendable acceder a ellos desde los siguientes mirrors en Zenodo: \texttt{xxxxxxxxxxx}.
+
+\subsection{Estructura de directorios del repositorio}
+
+El repositorio alberga una amplia gama de contenido, que incluye tanto la biblioteca Olivia-Finder que hemos
+desarrollado como la biblioteca OLIVIA realizada en el anterior Trabajo de Fin de Grado. Además, se encuentra
+disponible documentación detallada sobre ambas bibliotecas, que proporciona información exhaustiva sobre su
+funcionamiento y características.
+
+Dentro del repositorio, también se pueden encontrar una serie de notebooks que ofrecen demostraciones interactivas
+de la funcionalidad de las bibliotecas. Estos notebooks permiten a los usuarios explorar y experimentar con los
+datos generados por las redes que hemos creado, lo que facilita la comprensión y el análisis de los resultados
+obtenidos.
+
+Además del código y la documentación, el repositorio cuenta con una variedad de material auxiliar, como scripts
+y funcionalidades adicionales. Estos recursos complementarios ofrecen soporte adicional para aquellos interesados
+en ampliar o personalizar las funcionalidades de las bibliotecas.
+
+\begin{verbatim}
+    olivia_finder
+    |-- docs
+    |-- notebooks
+    |   |-- common
+    |   |-- olivia
+    |   |-- olivia_finder
+    |   |-- resources
+    |   `-- results
+    |       |-- csv_datasets
+    |       |-- network_models
+    |       |-- package_lists
+    |       `-- package_managers
+    |-- olivia
+    |   |-- docs
+    |   `-- olivia
+    `-- olivia_finder
+        |-- diagrams
+        `-- olivia_finder
+    \end{verbatim}
+    
+
+Sobre la raiz del repositorio, se encuentra el directorio \textit{docs} contiene la documentación de la biblioteca, mientras que el directorio \textit{notebooks}
+contiene los notebooks que ofrecen demostraciones interactivas de las bibliotecas.
+
+Dentro de \textit{notebooks}, el directorio \textit{common} contiene notebooks que ofrecen funcionalidades comunes
+a ambas bibliotecas, mientras que los directorios \textit{olivia} y \textit{olivia\_finder} contienen notebooks
+que ofrecen funcionalidades específicas de cada biblioteca. 
+El directorio \textit{resources} contiene los algun scripts
+y recursos adicionales de utilidad. Por último, el directorio \textit{results} contiene los datos generados por las
+redes de dependencias, que se encuentran organizados en subdirectorios según su tipo.
+
+En la raiz del repositorio, se encuentran los directorios \textit{olivia} y \textit{olivia\_finder}, que contienen
+las bibliotecas OLIVIA y Olivia-Finder, respectivamente. Dentro de cada uno de estos directorios, se encuentra 
+el directorio \textit{olivia} o \textit{olivia\_finder}, que contienen el código de las bibliotecas.
+
 
 \section{Manual del programador}
 
