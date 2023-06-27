@@ -9,49 +9,53 @@ Además, más del 80\% de los proyectos utilizan repositorios centralizados de c
 Estos repositorios están configurados por defecto en las herramientas que usamos para instalar y administrar los paquetes de cada lenguaje.
 Son como almacenes gigantes que contienen componentes los cuales aportan alguna utilidad.
 Algunos ejemplos famosos son PyPI (Python Package Index), npm (Node Package Manager) para JavaScript (Node.js),
-Packagist para PHP, CPAN (Comprehensive Perl Archive Network) y Maven Central para Java.
+CRAN y Bioconductor para R, CPAN (Comprehensive Perl Archive Network) y Maven Central para Java.
 
 
-El problema reside en que hay veces que utilizar componentes externos tiene sus riesgos. Esos riesgos pueden ser difíciles de notar para los desarrolladores, ya que solo importan explícitamente una pequeña parte de las librerías que se incluyen en cada proyecto.
+El problema reside en que hay veces que utilizar componentes externos tiene sus riesgos. Esos riesgos pueden ser difíciles de 
+notar para los desarrolladores, ya que solo importan explícitamente una pequeña parte de las librerías que se incluyen en cada proyecto.
 
 
 Ilustraremos la afirmación anterior con un suceso que hizo temblar npm.
 En marzo de 2016, un desarrollador llamado Azer Koçulu, de California, recibió un correo de unos abogados de Kik Interactive.
 Le pedían amablemente que cambiara el nombre de su librería llamada Kik, que había publicado en npm.
-Resulta que los abogados decían que la marca "Kik Messenger" les pertenecía a sus representados \cite{8998991} por derechos de propiedad intelectual.
+Resulta que los abogados decían que la marca \textit{Kik Messenger} les pertenecía a sus representados \cite{BoldiPaolo2019} por derechos 
+de propiedad intelectual.
 Koçulu no se quedó de brazos cruzados, se negó rotundamente a cambiar el nombre.
 Los abogados, entonces, se pusieron en contacto con Isaac Schuleter, el director de npm, quien accedió a transferir el nombre.
 Koçulu muy decepcionado con la decisión tomó medidas, y eliminó más de 250 paquetes del repositorio que habían sido desarrollados por él.
 
 
-Entre los paquetes eliminados por Koçulu había uno llamado "left-pad",
+Entre los paquetes eliminados por Koçulu había uno llamado \textit{left-pad},
 que era un simple script para justificar cadenas de texto. Pero… Muchos de los paquetes más populares de npm dependían directa
-o indirectamente de "left-pad". Casi un millón de sitios web comenzaron a tener problemas para actualizar sus dependencias o
+o indirectamente de \textit{left-pad}. Casi un millón de sitios web comenzaron a tener problemas para actualizar sus dependencias o
 lanzar nuevas versiones, e incluso gigantes como Facebook o Netflix se vieron afectados. Fue un verdadero caos.
 
 
-Finalmente, npm tuvo que intervenir y, aunque generó mucha polémica, decidieron restaurar el paquete "left-pad". Laurie Voss, el director de tecnología de npm, explicó que tomaron esta decisión sin precedentes debido a la gravedad y la amplia repercusión del problema. No lo hicieron a la ligera, la decisión se tomó pensando en la comunidad de usuarios de npm y en sus necesidades.
+Finalmente, npm tuvo que intervenir y, aunque generó mucha polémica, decidieron restaurar el paquete \textit{left-pad}. Laurie Voss, 
+el director de tecnología de npm, explicó que tomaron esta decisión sin precedentes debido a la gravedad y la amplia repercusión del 
+problema. No lo hicieron a la ligera, la decisión se tomó pensando en la comunidad de usuarios de npm y en sus necesidades.
 
 
 Después del incidente, se hizo evidente lo frágiles que son los sistemas de paquetes en los que depende una gran parte del desarrollo
 de software en todo el mundo.
 Surgieron muchas preguntas sobre el uso indiscriminado de librerías externas \cite{10.1145/3106237.3106267} y el modelo de gestión centralizada.
 Es como darse cuenta de lo mucho que dependemos de ciertas cosas y preguntarnos si estamos siendo prudentes al hacerlo.
-La problemática no se limita solo a la retirada voluntaria de un paquete en particular, como sucedió con left-pad.
+La problemática no se limita solo a la retirada voluntaria de un paquete en particular, como sucedió con \textit{left-pad}.
 También puede ser causada por todo tipo de defectos en el software o ataques maliciosos que se propagan a través de la estructura de dependencias.
-Según un informe llamado "The state of open source security report", las vulnerabilidades de seguridad en el software de código abierto
+Según un informe llamado \textit{The state of open source security report}, las vulnerabilidades de seguridad en el software de código abierto
 prácticamente se duplican cada dos años, y aproximadamente el 80\% de estas vulnerabilidades se introducen a través de dependencias indirectas.
 Las conclusiones de este informe son preocupantes, e hicieron que el estudio de la seguridad y estabilidad de estos repositorios, que antes no había
 recibido mucha atención se pusiese en el punto de mira de la comunidad \cite{10.5555/2820518.2820524} \cite{10.1145/3196398.3196401} \cite{BogartChristopherKastner2015}.
 
 
-Es aquí donde entra la ciencia de redes a jugar un papel importante en el mundo del software.
+Es aquí donde entra la ciencia de redes\cite{barabasi2016network} a jugar un papel importante en el mundo del software.
 Dado que las dependencias entre los proyectos de software, especialmente entre los paquetes de un repositorio,
 se pueden representar como una red o un grafo dirigido y analizar desde una perspectiva estructural, la ciencia de
-las redes se ha convertido en un enfoque reciente para comprender mejor la estructura y evolución \cite{7962360} \cite{8998991} de los
+las redes se ha convertido en un enfoque reciente para comprender mejor la estructura y evolución \cite{7962360} de los
 repositorios de paquetes de software. Es como mirar la forma en que todas estas piezas se conectan y se influyen mutuamente.
 La ciencia de redes es una disciplina que se dedica a estudiar las redes complejas que podemos encontrar en muchos campos como la tecnología,
-la biología y las ciencias sociales. Cuando decimos "complejas" nos referimos al tamaño de las estructuras que se investigan y a la
+la biología y las ciencias sociales. Cuando decimos \textit{complejas} nos referimos al tamaño de las estructuras que se investigan y a la
 falta de un patrón obvio de relaciones entre sus elementos. En los modelos de ciencia de redes, representamos estos elementos como nodos o vértices, mientras que las conexiones entre ellos se simbolizan con enlaces o aristas.
 No es de sorprender que la ciencia de redes se base fundamentalmente en la teoría matemática de grafos, pero no es la única ciencia que
 interviene en este análisis.
@@ -82,45 +86,19 @@ afectar al 30 \% de los paquetes y aplicaciones en los ecosistemas de JavaScript
 Otro estudio \cite{10.1145/3196398.3196401} concluye que el número de vulnerabilidades encontradas en el código fuente de los paquetes
 de npm ha estado aumentando constantemente desde 2012, propagándose a través de la red de dependencias.
 
-
-Las redes de dependencias de paquetes presentan características distintivas en comparación con las redes 
-comúnmente estudiadas en la ciencia de redes,como las redes sociales, de información, tecnológicas o 
-biológicas \cite{doi:10.1137/S003614450342480}.
-En primer lugar, los enlaces en estas redes pueden tener múltiples interpretaciones dentro de la misma red.
-Por un lado, actúan como canales de comunicación o difusión, similar a cómo ocurre en muchas redes sociales 
-(lo cual explica, por ejemplo, la propagación de errores en la red). Por otro lado, representan requisitos 
-necesarios para el funcionamiento de los nodos, pero de una manera diferente a otras redes tecnológicas.
-
-Tomemos como ejemplo una red eléctrica o de comunicaciones, donde los enlaces entrantes son necesarios para el funcionamiento de los nodos en la red.
-Sin embargo, en general, un solo enlace es suficiente para establecer una conexión entre un nodo y el conjunto de la red.
-En cambio, en las redes de dependencias, todos los enlaces son necesarios para el funcionamiento del nodo.
-Esto se debe a su naturaleza inherentemente transitiva, lo que significa que las relaciones son transitivas por definición, 
-sin necesidad de que esta propiedad se exprese explícitamente en la estructura de la red. 
-Esta característica es poco común en otros tipos de redes.
-
-Además, es posible considerar una red de dependencias como una red de información, donde los enlaces representan votos, en el sentido de
-que reflejan algún tipo de reconocimiento, al igual que los enlaces en Internet o las citas en las redes bibliográficas. En este sentido,
-las redes de dependencias comparten la propiedad de poder ser modeladas mediante una estructura acíclica sin introducir restricciones importantes,
-al igual que ocurre con las redes bibliográficas.
-La investigación sobre las redes de dependencias de paquetes es un campo relativamente nuevo y nuestra comprensión de estas
-estructuras es limitada \cite{7962360}. El conjunto de trabajos de referencia en este tema es aún reducido, y lo es aún más
-si nos centramos en aspectos específicos como el análisis de la vulnerabilidad, donde solo hemos encontrado publicaciones 
-descriptivas. Hasta donde se sabe, no se ha propuesto un modelo teórico que permita avanzar en la comprensión de la 
-vulnerabilidad de este tipo de redes, lo cual podría tener un impacto significativo en la seguridad y estabilidad del
- software a nivel global. 
-
-
 OLIVIA \cite{daniel_2022_7358391}, desarrollada por el alumno Daniel Setó Rey como parte de su Trabajo de Fin de Grado en la Universidad de Burgos y tutorizada por los profesores Carlos López Nozal y Jose Ignacio Santos Martín en 2021, es una herramienta de código abierto que se centra en la identificación y análisis de defectos en bibliotecas de software desde la perspectiva de la teoría de grafos. Estos defectos pueden provocar errores funcionales, problemas de rendimiento e incluso problemas de seguridad. Para los desarrolladores, comprender completamente el riesgo es complicado, ya que solo importan explícitamente una pequeña parte de las dependencias utilizadas en sus proyectos.
 
 
-OLIVIA utiliza un enfoque basado en la vulnerabilidad de la red de dependencias de los paquetes de software para medir la sensibilidad del repositorio a la introducción aleatoria de defectos. Su objetivo es contribuir a la comprensión de los mecanismos de propagación de defectos en el software y estudiar estrategias factibles de protección.
+OLIVIA utiliza un enfoque basado en la vulnerabilidad de la red de dependencias de los paquetes de software para medir la sensibilidad 
+del repositorio a la introducción aleatoria de defectos. Su objetivo es contribuir a la comprensión de los mecanismos de propagación 
+de defectos en el software y estudiar estrategias factibles de protección.
 
-En la actualidad, OLIVIA está en proceso de ser publicado a nivel académico.
+OLIVIA está en proceso de ser publicado a nivel académico\cite{Seto-Rey20231}
 Después de su desarrollo como proyecto de fin de carrera, se están realizando los esfuerzos necesarios para 
 compartir sus resultados y contribuciones con la comunidad científica.
-Esta publicación permitirá que otros investigadores y profesionales del campo accedan a esta herramienta y se 
+Esta publicación permite que otros investigadores y profesionales del campo accedan a esta herramienta y se 
 beneficien de su enfoque innovador en la identificación y análisis de vulnerabilidades en las bibliotecas de software. 
-Además, sentará las bases para futuros avances
+Además, sienta las bases para futuros avances
 en la comprensión de los mecanismos de propagación de defectos y la implementación de estrategias efectivas de 
 protección en el desarrollo de software.
 
@@ -153,7 +131,7 @@ del sistema. Por lo tanto, es crucial realizar un seguimiento constante de los c
 de las dependencias de manera regular para garantizar la precisión de los datos recopilados.
 
 
-Para abordar estos desafíos, y como uno de los principales puntos fuertes de este TFG se pretende ilustrar al 
+Para abordar estos desafíos, y como uno de los principales resultadoss de este TFG es ilustrar al 
 lector de cómo poder enfrentarse a esta tarea, identificando las distintas vías de obtención de datos, y concluyendo 
 con el desarrollo de una herramienta que facilita el proceso de obtención de los mismos desde los repositorios
 oficiales de los gestores de paquetes que hemos elegido como caso de estudio.  En concreto nos referimos a la 

@@ -1,24 +1,4 @@
 \capitulo{3}{Conceptos teóricos}
-\section{Defectos en productos software}
-
-Una especificación es una descripción de cómo se supone que un producto debe de estar construido para
-que funcione. Si hablamos de software, puede ser más o menos detallada, desde especificaciones
-matemáticas hasta manuales de usuario o descripciones funcionales. Un producto de software tiene
-un defecto cuando su comportamiento no es compatible con lo que se esperaba de él.
-
-Cuando se construye un proyecto de ingeniería de software, se parte de una \textit{Especificación
-    de Requisitos de Software (SRS)}, que básicamente describe lo que se necesita del producto en general,
-tanto cosas funcionales como otros detalles complementarios, como temas legales, estándares de calidad y restricciones. Y si el diseño involucra el uso de componentes externos, la especificación de esos componentes tiene que ser compatible con la SRS del proyecto. Porque, en el contexto de ese proyecto, si algo no encaja bien, se considera como un defecto en ese componente, y eso a su vez afectaría el proyecto en sí. O sea, es como una cadena de defectos.
-
-Entonces, cuando hablamos de defectos en el software, hay que tener en cuenta todo lo que pueda disminuir
-el valor del producto para sus usuarios. Ahí viene la parte más subjetiva, porque puede haber cosas que
-algunos usuarios consideren como defectos, como una biblioteca de cálculo que arroja resultados
-incorrectos, eso es un defecto objetivo, obviamente. Pero también pueden haber cambios en la licencia,
-en la usabilidad, en el cumplimiento de ciertos estándares de calidad o seguridad, o en la estructura
-de las interfaces externas, que para un usuario en particular también sean defectos.
-
-Los defectos en el software pueden originarse por error o pueden ser el resultado de ataques
-informáticos que buscan sabotear o aprovecharse del software para obtener algún beneficio.
 
 \section{Repositorios de paquetes software}
 
@@ -41,7 +21,7 @@ de aplicaciones y proyectos. Además, estos repositorios fomentan la colaboraci�
 de código entre los desarrolladores, promoviendo un entorno de desarrollo más dinámico y eficiente.
 
 Un \textit{repositorio de paquetes} es básicamente un almacén de software que tiene como objetivo
-distribuir librerías de componentes reutilizables. El término "paquete" se refiere al artefacto
+distribuir librerías de componentes reutilizables. El término paquete se refiere al artefacto
 adecuado para facilitar esta distribución, incluyendo la descarga, verificación e instalación de
 los componentes por parte de los usuarios del repositorio. Normalmente, un paquete está compuesto
 por código fuente y/o archivos binarios, junto con metadatos que incluyen directrices de compilación,
@@ -66,28 +46,23 @@ componentes.
 El software utilizado para desplegar y administrar los repositorios de paquetes se conoce como
 \textit{gestor de repositorios}.
 
-\section{Gestores de paquetes}
 
-Los \textit{gestores de paquetes de software} desempeñan un papel fundamental al proporcionarnos
-herramientas y funcionalidades para administrar la instalación, actualización y eliminación de
-bibliotecas y dependencias en nuestros proyectos. Estos gestores están diseñados específicamente
-para diferentes plataformas y lenguajes de programación, brindando a los desarrolladores una forma
-eficiente de gestionar y distribuir el código.
+En el ámbito del software, existen diferentes tipos de dependencias que juegan un papel diferenciado. 
+Por ejemplo, en el repositorio CRAN, utilizado para paquetes de R, encontramos distintas categorías 
+de dependencias, como \textit{depends}, \textit{imports}, \textit{enhances} y \textit{suggests}. Cada una de ellas indica el nivel 
+de interdependencia entre los paquetes, desde las dependencias necesarias para que un paquete funcione 
+correctamente (\textit{depends}), hasta las recomendadas para mejorar su funcionalidad (\textit{suggests}).
 
-Entre los gestores de paquetes más destacados, encontramos \textit{pip} en el ecosistema de Python,
-el cual nos permite instalar y administrar de manera sencilla las bibliotecas necesarias para
-nuestros proyectos en Python. Por otro lado, \textit{mvn} (Maven) es ampliamente utilizado en el
-ámbito de Java para gestionar las dependencias y configuraciones de proyectos. Cada gestor de paquetes
-tiene su propia sintaxis y funcionalidades específicas, pero todos comparten el objetivo común de
-simplificar la gestión de bibliotecas y garantizar la resolución de dependencias.
+Además, en lenguajes como Python, se distinguen las dependencias de \textit{runtime} y las dependencias de 
+\textit{desarrollo}. Las primeras se refieren a los componentes necesarios para ejecutar el programa, como 
+bibliotecas y módulos externos, mientras que las segundas son herramientas y bibliotecas utilizadas 
+durante el desarrollo del software, como entornos de prueba y sistemas de construcción.
 
-En el panorama actual, los gestores de paquetes de software continúan desempeñando un papel
-crucial en el desarrollo de software. Proporcionan a los desarrolladores una forma conveniente
-y eficiente de administrar las bibliotecas y dependencias necesarias para sus proyectos, permitiéndoles
-enfocarse en la implementación de funcionalidades sin preocuparse por la instalación manual y la
-gestión de dependencias.
-
-Además, estos gestores fomentan la reutilización de código y la colaboración dentro de la comunidad de desarrolladores, al facilitar el intercambio y la distribución de bibliotecas y proyectos. También simplifican la tarea de mantener actualizadas las dependencias, garantizando que los proyectos estén siempre al día y protegidos contra vulnerabilidades conocidas.
+También se encuentran las \textit{dependencias foráneas}, las cuales pueden no estar ubicadas en el mismo 
+repositorio que el paquete en cuestión. Estas dependencias pueden incluir componentes binarios o 
+estar escritas en otros lenguajes de programación. Su presencia implica la necesidad de gestionar 
+y resolver estas dependencias externas para garantizar el correcto funcionamiento y compatibilidad
+ del software.
 
 
 \section{Dependencias entre paquetes}
@@ -132,7 +107,31 @@ como la creación de un nuevo entorno de desarrollo, ejecución o pruebas (inclu
 integración continua), o la decisión de incluir versiones actualizadas de las dependencias en los
 requisitos del proyecto, ya sea por motivos funcionales o de seguridad.
 
-\section{Teoría de grafos}
+\section{Gestores de paquetes}
+
+Los \textit{gestores de paquetes de software} desempeñan un papel fundamental al proporcionarnos
+herramientas y funcionalidades para administrar la instalación, actualización y eliminación de
+bibliotecas y dependencias en nuestros proyectos. Estos gestores están diseñados específicamente
+para diferentes plataformas y lenguajes de programación, brindando a los desarrolladores una forma
+eficiente de gestionar y distribuir el código.
+
+Entre los gestores de paquetes más destacados, encontramos \textit{pip} en el ecosistema de Python,
+el cual nos permite instalar y administrar de manera sencilla las bibliotecas necesarias para
+nuestros proyectos en Python. Por otro lado, \textit{mvn} (Maven) es ampliamente utilizado en el
+ámbito de Java para gestionar las dependencias y configuraciones de proyectos. Cada gestor de paquetes
+tiene su propia sintaxis y funcionalidades específicas, pero todos comparten el objetivo común de
+simplificar la gestión de bibliotecas y garantizar la resolución de dependencias.
+
+En el panorama actual, los gestores de paquetes de software continúan desempeñando un papel
+crucial en el desarrollo de software. Proporcionan a los desarrolladores una forma conveniente
+y eficiente de administrar las bibliotecas y dependencias necesarias para sus proyectos, permitiéndoles
+enfocarse en la implementación de funcionalidades sin preocuparse por la instalación manual y la
+gestión de dependencias.
+
+Además, estos gestores fomentan la reutilización de código y la colaboración dentro de la comunidad de desarrolladores, al facilitar el intercambio y la distribución de bibliotecas y proyectos. También simplifican la tarea de mantener actualizadas las dependencias, garantizando que los proyectos estén siempre al día y protegidos contra vulnerabilidades conocidas.
+
+
+\section{Ciencia de redes}
 
 La teoría de grafos es un campo fundamental en las matemáticas discretas y la ciencia de la computación,
 que estudia las propiedades y relaciones de los grafos. Un \textit{grafo} es una estructura compuesta
@@ -150,11 +149,10 @@ logística, la modelización de redes sociales, la planificación de proyectos, 
 y la criptografía, por mencionar solo algunos. La teoría de grafos proporciona herramientas conceptuales
 y metodológicas para analizar y resolver problemas complejos en estos y otros dominios.
 
-\section{Grafos dirigidos y no dirigidos}
+\subsection{Grafos dirigidos y no dirigidos}
 
 En la teoría de grafos, existen dos tipos principales de grafos: los \textit{grafos dirigidos} y
-los \textit{grafos no dirigidos}\footnote{Nota: En la teoría de grafos existen otros tipos de grafos,
-    pero nos enfocaremos en estos dos tipos principales en este contexto}. Estas diferencias se
+los \textit{grafos no dirigidos}. Estas diferencias se
 refieren a la forma en que se establecen las conexiones entre los nodos del grafo.
 
 Un \textit{grafo no dirigido} es aquel en el que las enlaces, que representan las conexiones
@@ -173,7 +171,7 @@ con el nodo A. En este tipo de grafo, la comunicación o la relación entre los 
 nodos representan ubicaciones y las enlaces representan las rutas o los caminos que van en una
 dirección específica.
 
-\section{Métricas en la teoría de grafos}
+\section{Métricas en la ciencia de redes}
 
 En general, las \textit{métricas} son medidas o indicadores cuantitativos que se utilizan para evaluar
 y cuantificar diferentes aspectos de un objeto, sistema o fenómeno. Proporcionan una forma objetiva de medir y

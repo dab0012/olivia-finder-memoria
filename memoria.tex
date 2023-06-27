@@ -374,16 +374,17 @@
 
 \noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}
 
-\noindent D. \tutor, profesor del departamento de nombre departamento, área de nombre área.
+\noindent D. Carlos López Nozal, profesor del departamento de Ingeniería Informática, area de Lenguajes y Sistemas Informáticos.
 
 \noindent Expone:
 
-\noindent Que el alumno D. \nombre, con DNI 71298886J, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado título de TFG. 
+\noindent Que el alumno D. \nombre, con DNI 71298886J, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado Vulnerabilidad de redes de
+paquetes software II.
 
 \noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
 
 \begin{center} %\large
-En Burgos, {\large \today}
+  En Burgos, {\large \today}
 \end{center}
 
 \vfill\vfill\vfill
@@ -422,25 +423,86 @@ D. Carlos López Nozal
 % Abstract en castellano
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
-En este primer apartado se hace una \textbf{breve} presentación del tema que se aborda en el proyecto.
+  En prácticamente todos los proyectos software, la utilización de bibliotecas de repositorios
+  centralizados de paquetes es universal. El motivo fundamental es disminuir los tiempos de
+  desarrollo y coste. Debido a la transitividad de las dependencias entre paquetes, la aparición
+  de un único defecto en el repositorio puede tener efectos extensos y difíciles de predecir en
+  el repositorio de paquetes. Estos defectos provocan errores funcionales o problemas de rendimiento
+  o de seguridad. El riesgo es difícil de apreciar por los desarrolladores, que solo importan
+  explícitamente una pequeña parte de las dependencias.
+
+  En un trabajo previo, bajo la teoría de la ciencia de redes, se definió un modelo de dependencias
+  de paquetes software a partir de un conjunto de datos publico en libraries.io y generado entre 2020
+  y 2021. Libraries.io indexa datos de 7,352,165 paquetes de 32 gestores de paquetes. El modelo generado
+  en la primera versión del TFG permite analizar las redes de paquetes Pypi, Maven y npm desde el punto
+  de vista de la vulnerabilidad  y de la inmunización.
+  El objetivo de este proyecto es estudiar e implementar mediante técnicas de Webscraping y de acceso a
+  Web API que permitan  generar  conjuntos de datos actualizados de redes de paquetes software: Pypi,
+  npm, CRAN y Bioconductor.
+  Los resultados de este trabajo son la biblioteca olivia.finder de Phyton y notebooks de uso, los
+  conjuntos de datos  actualizados y los nuevos (Bioconductor) y el análisis de la evolución de los
+  sistemas de paquetes desde su publicación en libraries.io. Además, a modo de aplicación se proporciona
+  un análisis de las dependencias transitivas de un proyecto de Github.
+
+  A partir del análisis de evolución temporal de las redes de dependencias de Pypi observamos que la
+  red ha crecido sustancialmente. Como conclusión se recomienda que todos los trabajos basados en
+  libraries.io repliquen sus análisis con los nuevos conjunto de datos para confirmar sus resultados.
 \end{abstract}
 
 \renewcommand*\abstractname{Descriptores}
 \begin{abstract}
-Palabras separadas por comas que identifiquen el contenido del proyecto Ej: servidor web, buscador de vuelos, android \ldots
+  Ciencia de redes,
+  Vulnerabilidad de red,
+  Grafo de dependencias,
+  Repositorio de paquetes,
+  npm,
+  PyPI,
+  CRAN,
+  Bioconductor,
+  Web scraping.
 \end{abstract}
+
 
 \clearpage
 
 % Abstract en inglés
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
-A \textbf{brief} presentation of the topic addressed in the project.
+  In virtually all software projects, the use of centralized package repository libraries is universal.
+  The fundamental reason is to reduce development time and cost. Due to the transitivity of dependencies
+  between packages, the occurrence of a single defect in the repository can have extensive and unpredictable
+  effects on the package repository. These defects can lead to functional errors or performance and security
+  issues. The risk is difficult for developers to appreciate, as they only explicitly import a small portion
+  of the dependencies.
+
+  In a previous work, based on network science theory, a software package dependency model was defined using
+  publicly available data from libraries.io, generated between 2020 and 2021. Libraries.io indexes data from
+  7,352,165 packages from 32 package managers. The model generated in the initial version of the Bachelor's
+  Thesis allows for the analysis of package networks such as Pypi, Maven, and npm from the perspective of
+  vulnerability and immunization.
+
+  The objective of this project is to study and implement techniques such as web scraping and access to web APIs
+  to generate updated datasets of software package networks: Pypi, npm, CRAN, and Bioconductor. The outcomes
+  of this work include the olivia.finder library for Python and usage notebooks, the updated and new (Bioconductor)
+  datasets, and the analysis of the evolution of package systems since their publication on libraries.io.
+  Additionally, as an application, an analysis of the transitive dependencies of a GitHub project is provided.
+
+  Through the analysis of the temporal evolution of Pypi's dependency networks, we observe substantial growth
+  in the network. As a conclusion, it is recommended that all studies based on libraries.io replicate their analyses
+  with the new datasets to confirm their results.
 \end{abstract}
 
 \renewcommand*\abstractname{Keywords}
 \begin{abstract}
-keywords separated by commas.
+  Network science,
+  Network vulnerability,
+  Dependency graph,
+  Package repository,
+  npm,
+  PyPI,
+  CRAN,
+  Bioconductor,
+  Web scraping.
 \end{abstract}
 
 \clearpage

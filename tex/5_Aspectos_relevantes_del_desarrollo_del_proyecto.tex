@@ -885,7 +885,7 @@ desarrollados por la comunidad.
 En el análisis comparativo entre los datos proporcionados por \textit{libraries.io} y los recolectados en
 este trabajo, se ha revelado una sorprendente tendencia en el número de paquetes presentes en \textit{PyPI}.
 Se ha observado un aumento significativo en la cantidad de paquetes disponibles en \textit{PyPI} en
-comparación con datos anteriores (en concreto un 474 \% ).
+comparación con datos anteriores.
 
 Este hallazgo sugiere un crecimiento notable en el ecosistema de paquetes de \textit{Python} y evidencia
 el interés y participación de la comunidad en \textit{PyPI}. Este aumento en el número de paquetes puede
@@ -897,7 +897,7 @@ creciente número de contribuyentes que comparten sus proyectos y soluciones a t
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.6\textwidth]{img/pypi/bar_common_packages.png}
-        \caption{Comparacion de la cantidad de paquetes en PyPI entre los datos de libraries.io y los recolectados en este trabajo.}
+        \caption{Comparacion de la cantidad de paquetes en PyPI entre los datos de libraries.io (2020) y los recolectados en este trabajo (2023).}
         \label{fig:pipy_common_packages_bar}
     \end{center}
 \end{figure}
@@ -905,7 +905,7 @@ creciente número de contribuyentes que comparten sus proyectos y soluciones a t
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.6\textwidth]{img/pypi/circ_common_packages.png}
-        \caption{Paquetes comunes y no comunes actualmente.}
+        \caption{Paquetes comunes y no comunes entre los datos de libraries.io (2020) y los recolectados en este trabajo (2023).}
         \label{fig:pipy_common_packages_circle}
     \end{center}
 \end{figure}
@@ -931,12 +931,12 @@ de paquetes de manera estable a lo largo del tiempo \ref{tab:pypi_common_package
         \end{tabular}
     \end{center}
     \label{tab:pypi_common_packages}
-    \caption{Comparación de paquetes en PyPI entre los datos de libraries.io y los recolectados en este trabajo.}
+    \caption{Comparación de paquetes en PyPI entre los datos de libraries.io (2020) y los recolectados en este trabajo (2023).}
 \end{table}
 
 Es importante destacar que este conjunto de paquetes que se ha mantenido representa aproximadamente
-el \textit{12.15\%} del total de paquetes disponibles en PyPI en la actualidad. Esta proporción nos
-proporciona una idea de la estabilidad relativa de la red, ya que una parte significativa de los
+el \textit{12.15\%} del total de paquetes disponibles en PyPI en la actualidad. Esta proporción 
+da una idea de la estabilidad relativa de la red, ya que una parte significativa de los
 paquetes ha logrado mantener su presencia en PyPI a pesar de los posibles cambios y
 actualizaciones\footnote{Los datos se refieren al momento de la última actualización y pueden estar
     sujetos a cambios futuros.}.
@@ -979,7 +979,7 @@ con dicho grado, en los nuevos datos se han identificado aproximadamente \textit
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.8\textwidth]{img/pypi/scraped_degree_distribution.png}
-        \caption{Distribucion de grado de PyPI para los datos recolectados.}
+        \caption{Distribucion de grado de PyPI para los datos recolectados en este trabajo (2023).}
         \label{fig:pypi_scraped_degree_distribution}
     \end{center}
 \end{figure}
@@ -1003,7 +1003,7 @@ influencia de ciertos paquetes en la comunidad\footnote{Estas implicaciones pued
 
 \textbf{Grado de salida (\textit{out degree})}
 
-El \textit{out degree} es una métrica que nos proporciona información
+El \textit{out degree} es una métrica que proporciona información
 sobre el número de dependientes de un paquete dado. En el contexto de \textit{libraries.io},
 analizando los datos, podemos identificar los paquetes que tienen más dependencias, es decir,
 los que están en el \textit{Top} de las dependencias más utilizadas.
@@ -1021,7 +1021,7 @@ desarrollo de proyectos y aplicaciones en el entorno de Python.
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/libio_t20_outd_comparison.png}
-        \caption{Top de paquetes con mayor grado de salida en PyPI para libraries.io }
+        \caption{Top de paquetes con mayor grado de salida en PyPI para libraries.io (2020).}
         \label{fig:pypi_libio_outd_comparison}
     \end{center}
 \end{figure}
@@ -1029,7 +1029,7 @@ desarrollo de proyectos y aplicaciones en el entorno de Python.
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/libio_scraped_t20_comparation.png}
-        \caption{Top de paquetes con mayor grado de salida en PyPI para scraped.}
+        \caption{Top de paquetes con mayor grado de salida en PyPI para scraped (2023).}
         \label{fig:pypi_scraped_outd_comparison}
     \end{center}
 \end{figure}
@@ -1055,7 +1055,7 @@ Por último, se muestra la distribución de \textit{out degree} para ambos conju
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.8\textwidth]{img/pypi/outd_libio_dist.png}
-        \caption{Distribución de \textit{Out degree} para libraries.io}
+        \caption{Distribución de \textit{Out degree} para libraries.io (2020)}
         \label{fig:pypi_libio_outd_dist}
     \end{center}
 \end{figure}
@@ -1063,7 +1063,7 @@ Por último, se muestra la distribución de \textit{out degree} para ambos conju
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.8\textwidth]{img/pypi/outd_scraped_dist.png}
-        \caption{Distribución de \textit{Out degree} para scraped}
+        \caption{Distribución de \textit{Out degree} para scraped (2023)}
         \label{fig:pypi_scraped_outd_dist}
     \end{center}
 \end{figure}
@@ -1085,7 +1085,7 @@ a su funcionalidad ampliamente reconocida y popularidad.
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.8\textwidth]{img/pypi/dependents_increase.png}
-        \caption{Incremento del \textit{Out degree} en PyPI}
+        \caption{Incremento del \textit{Out degree} en PyPI (2010-2023)}
         \label{fig:dependents_increase}
     \end{center}
 \end{figure}
@@ -1099,7 +1099,7 @@ Analizados los datos de libraries.io y representados sobre un grafico obtenemos 
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/libio_t20_ind_comparison.png}
-        \caption{Top paquetes con mayor \textit{In degree} en libraries.io}
+        \caption{Top paquetes con mayor \textit{In degree} en libraries.io (2020)}
         \label{fig:pypi_libio_ind_comparison}
     \end{center}
 \end{figure}
@@ -1115,7 +1115,7 @@ los paquetes en el repositorio.
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/scraped_t20_ind_comparison.png}
-        \caption{Top paquetes con mayor \textit{In degree} en scraped}
+        \caption{Top paquetes con mayor \textit{In degree} en scraped (2023)}
         \label{fig:pypi_scraped_ind_comparison}
     \end{center}
 \end{figure}
@@ -1147,7 +1147,7 @@ al máximo este número de dependencias para mejorar su estabilidad\footnote{El 
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.8\textwidth]{img/pypi/ind_libio_d.png}
-        \caption{Distribucion del \textit{In degree} en libraries.io}
+        \caption{Distribucion del \textit{In degree} en libraries.io (2020)}
         \label{fig: Distribucion del In degree en libraries.io}
     \end{center}
 \end{figure}
@@ -1155,7 +1155,7 @@ al máximo este número de dependencias para mejorar su estabilidad\footnote{El 
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.8\textwidth]{img/pypi/ind_scraped_dist.png}
-        \caption{Distribucion del \textit{In degree} en scraped}
+        \caption{Distribucion del \textit{In degree} en scraped (2023)}
         \label{fig: Distribucion del In degree en scraped}
     \end{center}
 \end{figure}
@@ -1180,7 +1180,7 @@ entrada.
 \subsubsection{Pagerank}
 
 La métrica de \textit{PageRank}\footnote{PageRank es un algoritmo utilizado para establecer un ranking de importancia en la web.}
-nos permite establecer un ranking de importancia respecto a los paquetes. A la vista de la distribución obtenida de la red
+Permite establecer un ranking de importancia respecto a los paquetes. A la vista de la distribución obtenida de la red
 de \textit{libraries.io}, una conclusión que se puede extraer es que la mayoría de las dependencias no son consideradas
 importantes, ya que pertenecen al primer grupo, con una frecuencia considerablemente alta pero una baja relevancia en
 términos de \textit{PageRank}. Sin embargo, existe un grupo más reducido pero significativo que presenta una importancia
@@ -1196,7 +1196,7 @@ aparición \ref{fig:Top 20 pagerank en libraries.io}.
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/libio_t20_pr_comparison.png}
-        \caption{Top 20 \textit{PageRank} en libraries.io}
+        \caption{Top 20 \textit{PageRank} en libraries.io (2020)}
         \label{fig:Top 20 pagerank en libraries.io}
     \end{center}
 \end{figure}
@@ -1219,7 +1219,7 @@ en términos de dependencias\footnote{Un paquete con un alto \textit{PageRank} y
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/transitive libraries.png}
-        \caption{Dependencias transitivas del top 20 \textit{PageRank} en libraries.io}
+        \caption{Dependencias transitivas del top 20 \textit{PageRank} en libraries.io (2020)}
         \label{fig:Dependencias transitivas del top 20 pagerank en libraries.io}
     \end{center}
 \end{figure}
@@ -1240,7 +1240,7 @@ su vulnerabilidad.
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/t20_dep_pr_scraped.png}
-        \caption{Top \textit{PageRank} en scraped}
+        \caption{Top \textit{PageRank} en scraped (2023)}
         \label{fig:Top PageRank en scraped}
     \end{center}
 \end{figure}
@@ -1274,7 +1274,7 @@ en la red de dependencias\footnote{Los tres paquetes principales en este conjunt
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/t20_pkg_pr_scr.png}
-        \caption{Top \textit{PageRank} paquetes en scraped}
+        \caption{Top \textit{PageRank} paquetes en scraped (2023)}
         \label{fig:Top PageRank paquetes en scraped}
     \end{center}
 \end{figure}
@@ -1303,7 +1303,7 @@ paquetes que tienen un mayor impacto en el sistema en caso de fallos.
 
 \begin{table}[h!]
     \centering
-    \caption{Comparación entre paquetes obtenidos de libraries.io y scraped para la metrica impact}
+    \caption{Comparación entre paquetes obtenidos de libraries.io (2020) y scraped (2023) para la métrica \textit{Impact}}
     \begin{tabular}{|c|c|c|}
         \hline
         \textbf{libraries.io} & \textbf{scraped}   \\
@@ -1330,7 +1330,7 @@ Pagerank a nivel de paquete.
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/librariesio_impact_distribution.png}
-        \caption{Distribución del impacto en la red de libraries.io}
+        \caption{Distribución del impacto en la red de libraries.io (2020)}
         \label{fig:Distribución del impacto en la red de libraries.io}
     \end{center}
 \end{figure}
@@ -1353,7 +1353,7 @@ y tienen una influencia significativa en las dependencias.
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/scraped_impact_distribution.png}
-        \caption{Distribución del impacto en la red scraped}
+        \caption{Distribución del impacto en la red scraped (2023)}
         \label{fig:Distribución del impacto en la red scraped}
     \end{center}
 \end{figure}
@@ -1387,7 +1387,7 @@ así la magnitud de las consecuencias en caso de fallos o defectos.
 
 \begin{table}[h!]
     \centering
-    \caption{Comparación del incremento del impacto para de libraries.io, scraped}
+    \caption{Comparación del incremento del impacto para de libraries.io (2020) y scraped (2023)}
     \begin{tabular}{|c|c|c|c|}
         \hline
         \textbf{Paquete} & \textbf{libraries.io} & \textbf{scraped} & \textbf{incremento} \\
@@ -1435,7 +1435,7 @@ paquetes han sido los más afectados. \ref{tab:Disminución del impacto en libra
         pyasn1-modules                & 1101                 & 0                & -1101               \\
         \hline
     \end{tabular}
-    \caption{Disminución del impacto en libraries.io y scraped}
+    \caption{Disminución del impacto en libraries.io (2020) y scraped (2023)}
 \end{table}
 
 
@@ -1462,7 +1462,7 @@ de un paquete más 1.\footnote{El alcance a nivel de paquete se
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/top_librariesio_reach_evolution.png}
-        \caption{Top Reach en libraries.io}
+        \caption{Top Reach en libraries.io (2020)}
     \end{center}
 \end{figure}
 
@@ -1484,7 +1484,7 @@ que se encuentran en el \textit{top} del ranking tendría un impacto \textit{con
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/top_scraped_reach_evolution.png}
-        \caption{Top Reach en scraped}
+        \caption{Top Reach en scraped (2023)}
     \end{center}
 \end{figure}
 
@@ -1495,14 +1495,14 @@ tendencia similar a la distribución de \textit{grado de salida}.
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.8\textwidth]{img/pypi/librariesio_reach_distribution.png}
-        \caption{Distribución del Reach en libraries.io}
+        \caption{Distribución del Reach en libraries.io (2020)}
     \end{center}
 \end{figure}
 
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.8\textwidth]{img/pypi/scraped_reach_distribution.png}
-        \caption{Distribución del Reach en scraped}
+        \caption{Distribución del Reach en scraped (2023)}
     \end{center}
 \end{figure}
 
@@ -1519,13 +1519,13 @@ fuertemente conexos y son en los que habría que poner el foco para proteger la 
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.8\textwidth]{img/pypi/reach_increment.png}
-        \caption{Incremento del Reach}
+        \caption{Incremento del Reach (2020-2023)}
     \end{center}
 \end{figure}
 
 En relación al incremento del Reach, se pueden identificar dos tendencias distintas. En la primera
 tendencia, se observa que el Reach se mantiene relativamente estable, con fluctuaciones dentro de un
-rango aproximado de ±15,000. Por otro lado, el segundo grupo exhibe un notable aumento en el valor
+rango aproximado de \textit{±15,000}. Por otro lado, el segundo grupo exhibe un notable aumento en el valor
 del Reach. Un fallo en un paquete perteneciente a este grupo podría generar graves problemas en la red.
 Este incremento puede ser atribuido al crecimiento en el número de nodos de la red. Como resultado de
 este crecimiento, han surgido dependencias transitivas que han contribuido significativamente a este
@@ -1569,7 +1569,7 @@ la existencia de componentes fuertemente conexos. \ref{table:scc}
         3             & 2.666           & 0.666            & 2                 & 0.000                & 3780                  \\
         \hline
     \end{tabular}
-    \caption{Componentes fuertemente conexos}
+    \caption{Componentes fuertemente conexos más grandes en scraped (2023)}
     \label{table:scc}
 \end{table}
 
@@ -1581,14 +1581,14 @@ patrones de conexiones. Además, el número de dependencias transitivas varía a
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1\textwidth]{img/pypi/scc1_dist.png}
-        \caption{Distribucion de grado del mayor componente fuertemente conexo}
+        \caption{Distribucion de grado del mayor componente fuertemente conexo (283 nodos) en scraped (2023)}
     \end{center}
 \end{figure}
 
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=1.2\textwidth]{img/pypi/scc1.png}
-        \caption{Mayor componente fuertemente conexo}
+        \caption{Mayor componente fuertemente conexo (283 nodos) en scraped (2023)}
     \end{center}
 \end{figure}
 

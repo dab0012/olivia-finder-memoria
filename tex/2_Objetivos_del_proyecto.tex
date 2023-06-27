@@ -1,8 +1,34 @@
 \capitulo{2}{Objetivos del proyecto}
 
+
+\section{Objetivo general}
+
+Este estudio analiza estrategias de extracción de datos de repositorios 
+de paquetes, considerando restricciones y características específicas, y busca publicar 
+los datos obtenidos como referencia para futuras investigaciones.
+
+Podemos dividir los objetivos del proyecto en estos cuatro puntos:
+
 \begin{itemize}
-    \item Realizar un análisis de la viabilidad de las diferentes estrategias de extracción de datos de los repositorios de paquetes, teniendo en cuenta las restricciones y particularidades de cada plataforma. Consideramos aspectos como la disponibilidad de datos, las políticas de acceso y las limitaciones técnicas para determinar la mejor manera de obtener y procesar la información requerida.
+    \item Realizar un análisis de la viabilidad de las diferentes estrategias de extracción de datos de los repositorios CRAN, Bioconductor, PyPI y npm teniendo en cuenta las restricciones y particularidades de cada plataforma. Consideramos aspectos como la disponibilidad de datos, las políticas de acceso y las limitaciones técnicas para determinar la mejor manera de obtener y procesar la información requerida.
     \item Publicar los datos obtenidos con el propósito de que sirvan como referencia y recurso para futuras investigaciones en el campo, fomentando la colaboración en la comunidad científica, permitiendo a otros investigadores utilizarlos como base para nuevos análisis y descubrimientos.
     \item Realizar un análisis de las principales métricas de teoría de grafos utilizando el conjunto de datos disponible para comparar la evolución de los paquetes y evaluar el estado de los repositorios a lo largo del tiempo.
     \item Obtener las métricas propuestas por OLIVIA para el nuevo conjunto de datos y su comparación con los datos expuestos en el Trabajo de Fin de Grado anterior.
     \end{itemize}
+
+
+\section{Objetivos técnicos}
+
+Para la consecución de los objetivos generales, se han establecido los siguientes objetivos técnicos:
+
+\begin{itemize}
+  \item Aplicación de técnicas de \textit{web scraping} para la extracción de datos.
+  
+  \item Aplicación de técnicas de acceso a datos a través de una \textit{Web API}.
+  
+  \item Comprensión y aplicación de formatos de datos para almacenar persistentemente una red de dependencias.
+  
+  \item Medición y análisis de redes de dependencias mediante la aplicación de conceptos teóricos de la biblioteca \textit{networkx}.
+  
+  \item Acceso a las dependencias de un repositorio en GitHub utilizando la \textit{GitHub API}.
+\end{itemize}
