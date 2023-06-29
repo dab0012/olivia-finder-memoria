@@ -56,8 +56,6 @@ extensión \textit{.olvpm} para poder identificarlo correctamente.
 
 \section{Diseño procedimental}
 
-\section{Diseño arquitectónico}
-
 \subsection{Modulo olivia\_finder.package}
 
 \textit{Package} es uno de los módulos base de \textit{olivia-finder}, cuya funcionalidad radica en 
@@ -203,3 +201,15 @@ módulo, por ejemplo, la lista de paquetes de un repositorio no está soportada.
 un conjunto de datos más amplio al acceder directamente al conjunto de datos de \textit{libraries.io} 
 a través de su API. Para poder utilizar esta funcionalidad, es necesario disponer de una clave de API 
 de \textit{libraries.io}.
+
+\section{Diseño arquitectónico}
+
+La arquitectura de la herramienta se basa en un enfoque modular y bien estructurado que permite la 
+representación y manipulación eficiente de la red de dependencias de paquetes de un repositorio. La aplicación se 
+compone de varios módulos y paquetes que trabajan en conjunto para obtener, procesar y persistir los datos. 
+Cada módulo tiene responsabilidades específicas y se comunica con otros módulos a través de interfaces definidas. 
+El diseño de datos se centra en la representación de paquetes y dependencias utilizando estructuras de datos 
+adecuadas, como diccionarios y listas. La aplicación también implementa patrones de diseño, como el patrón singleton, 
+para garantizar la creación de instancias únicas y la reutilización de recursos. A continuación, se presentarán 
+los diagramas de clase de cada módulo o paquete para proporcionar una visión más detallada de la arquitectura de 
+la aplicación.

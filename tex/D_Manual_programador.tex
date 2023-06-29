@@ -5,15 +5,17 @@ Se recoge en este apartado la información más relevante para la extensión
 o adaptación del código de la biblioteca.
 
 \section{Estructura de directorios}
-El proyecto de software está disponible en el repositorio público \url{https://github.com/dab0012/olivia-finder}.
+El proyecto de software está disponible en el repositorio público\footnote{\url{https://github.com/dab0012/olivia-finder}}.
 Este repositorio incluye los objetos de persistencia, los datos extraídos en los análisis y todo el
 conjunto de scripts y demás material utilizado. Sin embargo, si lo que le interesa son los datos generados de las redes de dependencias,
-es recomendable acceder a ellos desde los siguientes mirrors en Zenodo: \texttt{xxxxxxxxxxx}.
+es recomendable acceder a ellos desde los siguientes mirrors en \textit{Zenodo}.\footnote{\url{https://zenodo.org/record/8095863}}.
+
+EL conjunto de datos completo usado en los experimentos esta disponble en \textit{Kaggle}.\footnote{\url{https://www.kaggle.com/datasets/danielalonsob/dependency-networks}}
 
 \subsection{Estructura de directorios del repositorio}
 
 El repositorio alberga una amplia gama de contenido, que incluye tanto la biblioteca Olivia-Finder que hemos
-desarrollado como la biblioteca OLIVIA realizada en el anterior Trabajo de Fin de Grado. Además, se encuentra
+desarrollado como la biblioteca \textit{OLIVIA} realizada en el anterior Trabajo de Fin de Grado. Además, se encuentra
 disponible documentación detallada sobre ambas bibliotecas, que proporciona información exhaustiva sobre su
 funcionamiento y características.
 
@@ -46,25 +48,186 @@ en ampliar o personalizar las funcionalidades de las bibliotecas.
         |-- diagrams
         `-- olivia_finder
     \end{verbatim}
-    
+
 
 Sobre la raiz del repositorio, se encuentra el directorio \textit{docs} contiene la documentación de la biblioteca, mientras que el directorio \textit{notebooks}
 contiene los notebooks que ofrecen demostraciones interactivas de las bibliotecas.
 
 Dentro de \textit{notebooks}, el directorio \textit{common} contiene notebooks que ofrecen funcionalidades comunes
 a ambas bibliotecas, mientras que los directorios \textit{olivia} y \textit{olivia\_finder} contienen notebooks
-que ofrecen funcionalidades específicas de cada biblioteca. 
+que ofrecen funcionalidades específicas de cada biblioteca.
 El directorio \textit{resources} contiene los algun scripts
 y recursos adicionales de utilidad. Por último, el directorio \textit{results} contiene los datos generados por las
 redes de dependencias, que se encuentran organizados en subdirectorios según su tipo.
 
 En la raiz del repositorio, se encuentran los directorios \textit{olivia} y \textit{olivia\_finder}, que contienen
-las bibliotecas OLIVIA y Olivia-Finder, respectivamente. Dentro de cada uno de estos directorios, se encuentra 
+las bibliotecas \textit{OLIVIA} y Olivia-Finder, respectivamente. Dentro de cada uno de estos directorios, se encuentra
 el directorio \textit{olivia} o \textit{olivia\_finder}, que contienen el código de las bibliotecas.
 
 
 \section{Manual del programador}
 
+\subsection{Entrorno de desarrollo}
+
+El proyecto puede descargarse directamente o clonarse desde el repositorio \footnote{\url{https://github.com/dab0012/olivia-finder}}
+con \texttt{git}. Ha sido desarrollado en \texttt{python3.11} buscando la compatibilidad con \texttt{python3.8} por
+ser la máxima versión soportada por la librería \textit{OLIVIA}.
+Las dependencias de la biblioteca se especifican en el archivo \texttt{requirements.txt}:
+
+
+\textbf{Manejo de datos:}
+\begin{itemize}
+    \item \texttt{pandas}
+    \item \texttt{networkx}
+\end{itemize}
+
+\textbf{Obtención de datos:}
+\begin{itemize}
+    \item \texttt{requests}
+    \item \texttt{BeautifulSoup4}
+    \item \texttt{selenium}
+    \item \texttt{pybraries}
+\end{itemize}
+
+\textbf{Utilidad extra:}
+\begin{itemize}
+    \item \texttt{tqdm}
+    \item \texttt{typing\_extensions}
+\end{itemize}
+
+En el caso de querer hacer un uso combinado de la biblioteca \textit{Olivia Finder} y \textit{OLIVIA}, se recomienda el uso de entornos
+virtuales de Python para facilitar el despliegue. Se debe crear un entorno de la versión de \textit{Python3.8} e instalar los
+requisitos de la biblioteca \textit{OLIVIA} en primer lugar debido a la necesidad de esta de versiones concretas de sus
+dependencias, en concreto:
+
+\begin{center}
+
+    \texttt{intbitset==2.4.0}
+
+    \texttt{numpy==1.18.5}
+
+    \texttt{networkx==2.4}
+
+\end{center}
+
+La forma más sencilla de instalar los paquetes en el entorno es mediante el gestor de paquetes \texttt{pip} usando el
+comando para cada biblioteca:
+
+\begin{center}
+    \texttt{pip install -r requirements.txt}
+\end{center}
+
+\subsection{Documentación para el programador}
+
+Se recogen a continuación los principales recursos documentales necesarios para el desarrollo o extensión de la biblioteca \textit{Olivia Finder}:
+
+\textbf{Documentación de la API de \textit{Olivia Finder}}:
+\begin{itemize}
+\item Disponible en la carpeta \textbackslash docs y accesible en línea a través de la página de Github: 
+
+\url{https://dab0012.github.io/olivia-finder}
+\end{itemize}
+
+\textbf{Documentación de los paquetes}:
+\begin{itemize}
+\item Documentación de pandas:
+
+\url{https://pandas.pydata.org/}
+\item Documentación de tqdm:
+ 
+\url{https://tqdm.github.io/}
+\item Documentación de requests:
+ 
+\url{https://docs.python-requests.org/}
+\item Documentación de BeautifulSoup4:
+ 
+\url{https://www.crummy.com/software/BeautifulSoup/bs4/doc/}
+\item Documentación de selenium: 
+ 
+\url{https://www.selenium.dev/documentation/en/}
+\item Documentación de networkx: 
+ 
+\url{https://networkx.org/documentation/stable/}
+\item Documentación de matplotlib: 
+ 
+\url{https://matplotlib.org/stable/contents.html}
+\item Documentación de pybraries: 
+ 
+\url{https://pybraries.readthedocs.io/}
+\item Documentación de typing\_extensions: 
+ 
+\url{https://typing-extensions.readthedocs.io/}
+\end{itemize}
+
+Como anexo, introducimos también la documentación de \textit{OLIVIA}:
+
+\begin{itemize}
+\item Documentación de la API: Disponible en la carpeta \textbackslash docs y accesible en línea a través de la página de Github: 
+
+\url{https://dsr0018.github.io/olivia}
+\item Documentación de NetworkX 2.4: 
+
+\url{https://networkx.org/documentation/networkx-2.4.D.3}
+\item Documentación de NumPy 1.18: 
+
+\url{https://numpy.org/doc/1.18/}
+\item Documentación de intbitset: 
+
+\url{https://intbitset.readthedocs.io/en/latest/}
+\end{itemize}
+
 \section{Compilación, instalación y ejecución del proyecto}
 
+El código de la biblioteca esta escrito en Python y debido a las caracteristicas de este lenguaje de programación
+no requiere un paso de compilación explícita. Dadas por 
+satisfechas las dependencias especificadas en \textit{requirements.txt}, los módulos pueden importarse 
+en el proyecto actual como cualquier otro módulo Python.
+
+No obstante, determinadas funcionalidades, como aquellas que requieren el uso de \textit{la API de libraries.io}, 
+dependen de la \textit{API key} proporcionada por los proveedores del servicio. Esta \textit{API key} 
+debe ser configurada en el archivo de configuración \textit{config.ini} en la raíz de la carpeta de 
+código de la biblioteca. Desde este mismo archivo, también podemos configurar el sistema de logs de 
+la herramienta.
+
 \section{Pruebas del sistema}
+
+Las pruebas del correcto funcionamiento del sistema se establecen mediante una serie de \textit{notebooks de demostración} 
+que abarcan tanto la funcionalidad como el uso de la aplicación, los cuales comentamos en la seccion de documentacion de usuario. Estos notebooks permiten verificar exhaustivamente el 
+comportamiento del sistema en diferentes escenarios y validar su conformidad con los requisitos establecidos.
+
+Dado que no existe un método de validación preciso que nos permita determinar si el conjunto de datos utilizado es fiel a 
+la realidad, se asume inicialmente que los datos son más exactos y actualizados en comparación con los proporcionados por 
+\textit{libraries.io}. Esta percepción se basa en el \textit{aumento del número de paquetes} en el período temporal que 
+separa ambos conjuntos de datos, así como en la aparente \textit{evolución de las relaciones de dependencia} de manera esperada.
+
+\section{Documentación del código fuente}
+
+La biblioteca Olivia Finder ha sido desarrollada con comentarios docstring en formato 
+\textit{numpydoc}\footnote{\url{https://numpydoc.readthedocs.io/en/latest/}}, 
+el cual sigue las convenciones de documentación de \textit{NumPy} y es compatible con \textit{Sphinx}\footnote{\url{https://www.sphinx-doc.org/}} y otros generadores 
+automáticos de documentación. Estos comentarios docstring proporcionan descripciones detalladas de 
+las clases, métodos y funciones, así como información sobre los parámetros, tipos de retorno y ejemplos 
+de uso. Esto facilita la comprensión y el uso correcto de la biblioteca por parte de los desarrolladores.
+
+Para convertir los docstrings en otros formatos, como reStructuredText o Markdown, se puede utilizar la 
+herramienta Pyment\footnote{\url{https://github.com/dadadel/pyment/blob/master/doc/sphinx/source/pyment.rst}}. \textit{Pyment} es una utilidad de línea de comandos 
+que permite extraer y convertir los comentarios docstring de un código fuente Python a diferentes formatos 
+de documentación. Su flexibilidad y capacidad de personalización lo convierten en una herramienta útil 
+para adaptar la documentación a las necesidades específicas del proyecto.
+
+Por otro lado, la documentación publicada en el repositorio de la biblioteca Olivia Finder ha sido generada 
+con \textit{pdoc}\footnote{\url{https://pdoc3.github.io/pdoc/}}. \textit{Pdoc} es una herramienta de generación de documentación 
+para proyectos Python que se enfoca en la simplicidad y la facilidad de uso. Al ejecutar el comando:
+
+\begin{center}
+    \texttt{pdoc -html -o docs olivia}
+\end{center}
+
+se genera la documentación en formato HTML y se almacena en la 
+carpeta \texttt{docs}. Esta documentación incluye descripciones de módulos, clases, métodos y funciones,
+ así como ejemplos de uso y referencias cruzadas entre elementos de la biblioteca.
+
+Es importante destacar que dentro de la carpeta \texttt{docs} se proporciona el script \texttt{build.sh}, 
+el cual automatiza el proceso de generación de la documentación. Al ejecutar este script, se realiza la 
+generación de la documentación de forma rápida y sencilla, asegurando la disponibilidad de una documentación 
+actualizada y coherente para los usuarios de la biblioteca.
