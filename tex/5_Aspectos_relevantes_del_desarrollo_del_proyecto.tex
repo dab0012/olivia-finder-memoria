@@ -1,8 +1,8 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
 
-\section {Analisis estatico de las redes: Bowtie}
+\section {Análisis estático de las redes: Bow-tie}
 
-El concepto de \textit{"bowtie"} hace referencia a una representación gráfica de una red
+El concepto de \textit{bow-tie} \cite{enwiki:1148363387} hace referencia a una representación gráfica de una red
 que exhibe una estructura en forma de corbata. Se trata de una visualización que segmenta
 la red en diversas componentes y describe la conectividad existente entre ellas.
 
@@ -29,7 +29,9 @@ la red en diversas componentes y describe la conectividad existente entre ellas.
 
 \end{itemize}
 
-Estos conceptos proporcionan una descripción detallada de la estructura de la red desde la perspectiva del enfoque \textit{bowtie}, permitiendo identificar las diferentes componentes y su nivel de interconexión.
+Las métricas de \textit{Attack} y \textit{Failure} son dos metricas de vulnerabilidad proporcionadas por el modelo de red de OLIVIA. \cite{Seto-Rey20231}
+
+Estos conceptos proporcionan una descripción detallada de la estructura de la red desde la perspectiva del enfoque \textit{bow-tie}, permitiendo identificar las diferentes componentes y su nivel de interconexión.
 
 A continuacion se presentan los resultados obtenidos para cada uno de los repositorios de paquetes analizados.
 
@@ -102,9 +104,17 @@ Se ha omitido la columna \textit{CRAN Librariesio 1} en la tabla anterior ya que
     \item \textit{Bioconductor} tiene un número mayor de \textit{nodos} en los componentes en
           forma de \textit{tendril} tanto de entrada como de salida en comparación con las fuentes
           de \textit{CRAN Librariesio 2}, \textit{CRAN Librariesio 3} y \textit{CRAN Scraped}.
-    \item La categoría de \textit{nodos desconectados} muestra que \textit{CRAN Librariesio 3} tiene un número más alto de \textit{nodos desconectados}, mientras que \textit{Bioconductor} y \textit{CRAN Scraped} tienen valores más bajos.
-    \item El análisis de \textit{ataque} (\textit{attack}) muestra que \textit{Bioconductor} tiene un valor más bajo en comparación con las fuentes de \textit{CRAN Librariesio 2}, \textit{CRAN Librariesio 3} y \textit{CRAN Scraped}. Esto indica una mayor resistencia a \textit{ataques} en \textit{Bioconductor}.
-    \item El análisis de \textit{falla} (\textit{failure}) muestra que \textit{Bioconductor} tiene un valor más bajo en comparación con \textit{CRAN Librariesio 3} y \textit{CRAN Scraped}. Sin embargo, \textit{CRAN Librariesio 2} tiene el valor más bajo de \textit{fallas}. Esto indica una mayor \textit{robustez} en \textit{Bioconductor} y \textit{CRAN Librariesio 2} en comparación con \textit{CRAN Librariesio 3} y \textit{CRAN Scraped}.
+    \item La categoría de \textit{nodos desconectados} muestra que \textit{CRAN Librariesio 3} tiene
+          un número más alto de \textit{nodos desconectados}, mientras que \textit{Bioconductor} y
+          \textit{CRAN Scraped} tienen valores más bajos.
+    \item El análisis de \textit{ataque} (\textit{attack}) muestra que \textit{Bioconductor} tiene
+          un valor más bajo en comparación con las fuentes de \textit{CRAN Librariesio 2}, \textit{CRAN Librariesio 3}
+          y \textit{CRAN Scraped}. Esto indica una mayor resistencia a \textit{ataques} en \textit{Bioconductor}.
+    \item El análisis de \textit{falla} (\textit{failure}) muestra que \textit{Bioconductor} tiene un
+          valor más bajo en comparación con \textit{CRAN Librariesio 3} y \textit{CRAN Scraped}.
+          Sin embargo, \textit{CRAN Librariesio 2} tiene el valor más bajo de \textit{fallas}. Esto indica
+          una mayor \textit{robustez} en \textit{Bioconductor} y \textit{CRAN Librariesio 2} en
+          comparación con \textit{CRAN Librariesio 3} y \textit{CRAN Scraped}.
 \end{itemize}
 
 \subsection{PyPI}
@@ -182,7 +192,7 @@ En la sigiente comparacion omitimos el conjunto de datos \textit{PyPI Libraries 
           Esto sugiere una mayor robustez en \textit{PyPI Libraries 2} en comparación con
           \textit{PyPI Scraped}.
     \item Los valores normalizados (\textit{Attack/n} y \textit{Failure/n}) indican la
-          proporción de ataques y fallas en relación al número total de nodos. En este sentido,
+          proporción de las métricas en relación al número total de nodos. En este sentido,
           \textit{PyPI Scraped} presenta valores más altos en ambas métricas en comparación con
           \textit{PyPI Libraries 2}.
 \end{itemize}
@@ -286,7 +296,7 @@ de datos relevante para el análisis.
           13,633.8779. Esto sugiere una mayor robustez en \textit{NPM Librariesio 2} en comparación
           con \textit{NPM Scraped 2}.
     \item Los valores normalizados (\textit{Attack/n} y \textit{Failure/n}) indican la
-          proporción de y fallas en relación al número total de nodos. En este sentido,
+          proporción de las métricas en relación al número total de nodos. En este sentido,
           \textit{NPM Scraped 2} presenta valores más altos en ambas métricas en comparación
           con \textit{NPM Librariesio 2}.
 \end{itemize}
