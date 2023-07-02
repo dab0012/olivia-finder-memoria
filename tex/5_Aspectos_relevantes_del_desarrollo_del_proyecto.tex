@@ -1,5 +1,295 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
 
+\section {Analisis estatico de las redes: Bowtie}
+
+El concepto de \textit{"bowtie"} hace referencia a una representación gráfica de una red
+que exhibe una estructura en forma de corbata. Se trata de una visualización que segmenta
+la red en diversas componentes y describe la conectividad existente entre ellas.
+
+\begin{itemize}
+    \item \textbf{Número de nodos (Nº nodes):} Indica la cantidad total de nodos o entidades individuales presentes en la red. Cada nodo representa un elemento o entidad específica dentro del contexto de la red.
+
+    \item \textbf{Número de aristas (Nº edges):} Representa la cantidad total de aristas o conexiones existentes entre los nodos de la red. Cada arista denota una relación o interacción entre dos nodos.
+
+    \item \textbf{Primera componente fuertemente conectada (1st SCC):} Constituye una porción de la red en la cual todos los nodos están interconectados mutuamente a través de rutas directas o indirectas. En otras palabras, se establece un camino desde cualquier nodo de esta componente hacia cualquier otro nodo presente en ella.
+
+    \item \textbf{Segunda componente fuertemente conectada (2nd SCC):} Representa otra parte de la red donde todos los nodos se encuentran interconectados de manera mutua, sin embargo, no existen conexiones directas entre los nodos de la primera componente fuertemente conectada y los nodos de esta componente.
+
+    \item \textbf{Componente de entrada (In component):} Corresponde a la sección de la red que abarca todos aquellos nodos desde los cuales se puede trazar al menos una ruta hacia la primera componente fuertemente conectada.
+
+    \item \textbf{Componente de salida (Out component):} Se refiere a la porción de la red que comprende todos los nodos hacia los cuales existe al menos una ruta partiendo desde la primera componente fuertemente conectada.
+
+    \item \textbf{Tubos (Tubes):} Son trayectorias directas que transcurren desde la componente de entrada hacia la componente de salida sin atravesar la primera componente fuertemente conectada. Estos tubos sirven como enlaces entre las componentes de entrada y salida, eludiendo la estructura de la corbata.
+
+    \item \textbf{Tendril de entrada (In tendrils):} Representan aquellos nodos que están conectados a la componente de entrada, pero no forman parte de la primera componente fuertemente conectada ni de los tubos.
+
+    \item \textbf{Tendril de salida (Out tendrils):} Hacen referencia a los nodos que se encuentran conectados a la componente de salida, sin embargo, no forman parte de la primera componente fuertemente conectada ni de los tubos.
+
+    \item \textbf{Desconectados (Disconnected):} Son los nodos que no están conectados a ninguna otra componente de la corbata y no poseen conexiones entrantes o salientes con otros nodos en la red.
+
+\end{itemize}
+
+Estos conceptos proporcionan una descripción detallada de la estructura de la red desde la perspectiva del enfoque \textit{bowtie}, permitiendo identificar las diferentes componentes y su nivel de interconexión.
+
+A continuacion se presentan los resultados obtenidos para cada uno de los repositorios de paquetes analizados.
+
+\subsection{Bioconductor y CRAN}
+
+Para el repositorio de \textit{Bioconductor}, solo tenemos un conjunto de datos obtenidos mediante \textit{Olivia Finder}.
+
+Para el repositorio de \textit{CRAN} tenemos 4 conjuntos de datos. \ref{tab:data_bc_cran}
+
+\begin{itemize}
+    \item El primero usa los datos de \textit{Libraries.io} (\textit{Depends} e \textit{Imports}) sin discriminar versiones de paquete, es decir, para un paquete dado tenemos en cuenta todas las dependencias que ha tenido en cada una de sus versiones. Cabe destacar que este punto de vista carece de sentido, pero se ha incluido para comparar los resultados del anterior \textit{TFG} donde no se tuvo en cuenta este aspecto.
+
+    \item El segundo conjunto de datos usa la última versión de cada paquete disponible e incluye las dependencias del tipo (\textit{Depends} e \textit{Imports}).
+
+    \item El tercer conjunto de datos usa la última versión de cada paquete disponible e incluye las dependencias del tipo (\textit{Depends}, \textit{Imports}, \textit{Suggest} y \textit{Enhances}).
+
+    \item El cuarto conjunto de datos es el obtenido mediante \textit{Olivia Finder} para los tipos de dependencias (\textit{Depends} e \textit{Imports}).
+\end{itemize}
+
+\begin{table}[h!]
+    \centering
+    \label{tab:data_bc_cran}
+    \tiny
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+        \hline
+        \textbf{}              & \textbf{Bioconductor} & \textbf{CRAN}          & \textbf{CRAN}          & \textbf{CRAN}          & \textbf{CRAN}    \\
+                               & \textbf{Scraped}      & \textbf{Librariesio 1} & \textbf{Librariesio 2} & \textbf{Librariesio 3} & \textbf{Scraped} \\
+        \hline
+        \textbf{Nodes (n)}     & 3509                  & 16174                  & 15647                  & 16055                  & 18671            \\
+        \textbf{Edges (m)}     & 28320                 & 117724                 & 76207                  & 107370                 & 113273           \\
+        \textbf{1st SCC}       & 1                     & 1405                   & 1                      & 923                    & 1                \\
+        \textbf{2nd SCC}       & 1                     & 6                      & 1                      & 13                     & 1                \\
+        \textbf{In Component}  & 124                   & 381                    & 79                     & 333                    & 6                \\
+        \textbf{Out Component} & 0                     & 11746                  & 0                      & 11269                  & 0                \\
+        \textbf{Tubes}         & 0                     & 444                    & 0                      & 666                    & 0                \\
+        \textbf{In tendrils}   & 2161                  & 1680                   & 14980                  & 2373                   & 17984            \\
+        \textbf{Out tendrils}  & 0                     & 481                    & 0                      & 442                    & 0                \\
+        \textbf{Disconected}   & 1223                  & 37                     & 587                    & 49                     & 680              \\
+        \textbf{Attack}        & 2109                  & 15123                  & 14395                  & 15056                  & 17223            \\
+        \textbf{Attack/n}      & 0.6010                & 0.9350                 & 0.9200                 & 0.9378                 & 0.9224           \\
+        \textbf{Failure}       & 24.8173               & 1454.5255              & 24.5910                & 957.2135               & 33.5440          \\
+        \textbf{Failure/n}     & 0.0071                & 0.0899                 & 0.0016                 & 0.0596                 & 0.0018           \\
+        \hline
+    \end{tabular}
+    \caption{Tabla de datos para Bioconductor y CRAN}
+\end{table}
+
+Se ha omitido la columna \textit{CRAN Librariesio 1} en la tabla anterior ya que no aporta información relevante.
+
+\begin{itemize}
+    \item \textit{Bioconductor} sigue siendo más pequeño en términos de \textit{nodos} (3509)
+          en comparación con las fuentes de \textit{CRAN Librariesio 2}, \textit{CRAN Librariesio 3}
+          y \textit{CRAN Scraped}.
+    \item En cuanto al número de \textit{aristas} (\textit{edges}), \textit{CRAN Librariesio 3}
+          tiene el valor más alto (107,370), seguido de \textit{CRAN Scraped} (113,273) y
+          \textit{CRAN Librariesio 2} (76,207).
+    \item La cantidad de \textit{nodos} en la \textit{componente fuertemente conectada}
+          (\textit{1st SCC}) es similar en \textit{Bioconductor}, \textit{CRAN Librariesio 2} y
+          \textit{CRAN Scraped}, mientras que \textit{CRAN Librariesio 3} tiene un número más alto
+          de \textit{nodos} en esta categoría.
+    \item \textit{Bioconductor} tiene un número menor de \textit{nodos} en la
+          \textit{segunda componente fuertemente conectada} (\textit{2nd SCC}) en comparación con
+          las fuentes de \textit{CRAN Librariesio 2}, \textit{CRAN Librariesio 3} y
+          \textit{CRAN Scraped}.
+    \item En términos de \textit{componentes débilmente conectadas},
+          \textit{CRAN Librariesio 3} tiene el número más alto de \textit{nodos}, seguido
+          de \textit{CRAN Scraped}, \textit{CRAN Librariesio 2} y \textit{Bioconductor}.
+    \item El número de \textit{tubos} (\textit{tubes}) en la red es cero en todas las fuentes
+          de información.
+    \item \textit{Bioconductor} tiene un número mayor de \textit{nodos} en los componentes en
+          forma de \textit{tendril} tanto de entrada como de salida en comparación con las fuentes
+          de \textit{CRAN Librariesio 2}, \textit{CRAN Librariesio 3} y \textit{CRAN Scraped}.
+    \item La categoría de \textit{nodos desconectados} muestra que \textit{CRAN Librariesio 3} tiene un número más alto de \textit{nodos desconectados}, mientras que \textit{Bioconductor} y \textit{CRAN Scraped} tienen valores más bajos.
+    \item El análisis de \textit{ataque} (\textit{attack}) muestra que \textit{Bioconductor} tiene un valor más bajo en comparación con las fuentes de \textit{CRAN Librariesio 2}, \textit{CRAN Librariesio 3} y \textit{CRAN Scraped}. Esto indica una mayor resistencia a \textit{ataques} en \textit{Bioconductor}.
+    \item El análisis de \textit{falla} (\textit{failure}) muestra que \textit{Bioconductor} tiene un valor más bajo en comparación con \textit{CRAN Librariesio 3} y \textit{CRAN Scraped}. Sin embargo, \textit{CRAN Librariesio 2} tiene el valor más bajo de \textit{fallas}. Esto indica una mayor \textit{robustez} en \textit{Bioconductor} y \textit{CRAN Librariesio 2} en comparación con \textit{CRAN Librariesio 3} y \textit{CRAN Scraped}.
+\end{itemize}
+
+\subsection{PyPI}
+
+En el contexto de PyPI, se dispone de tres conjuntos de datos para el análisis: \ref{tab:data_pypi}.
+
+El \textit{primer} conjunto de datos, al igual que en el caso anterior, utiliza los datos de \textit{libraries.io} y considera como dependencia de un paquete a todos los paquetes que hayan sido alguna vez dependencia de dicho paquete a lo largo de todo su histórico de versiones.
+
+El \textit{segundo} conjunto de datos realiza un filtrado de los datos de \textit{libraries.io}, considerando únicamente las dependencias asociadas a la última versión de cada paquete.
+
+El \textit{tercer} conjunto de datos abarca la red de dependencias obtenida mediante \textit{Olivia Finder}.
+
+\begin{table}[h!]
+    \centering
+    \tiny
+    \label{tab:data_pypi}
+    \begin{tabular}{|l|l|l|l|}
+        \hline
+                               & \textbf{PyPI Libraries 1} & \textbf{PyPI Libraries 2} & \textbf{PyPI Scraped} \\
+        \hline
+        \textbf{Nodes (n)}     & 50766                     & 49306                     & 214469                \\
+        \textbf{Edges (m)}     & 155369                    & 134575                    & 933955                \\
+        \textbf{1st SCC}       & 7                         & 4                         & 283                   \\
+        \textbf{2nd SCC}       & 4                         & 4                         & 19                    \\
+        \textbf{In Component}  & 39                        & 21                        & 449                   \\
+        \textbf{Out Component} & 62                        & 5                         & 138219                \\
+        \textbf{Tubes}         & 13                        & 1                         & 2446                  \\
+        \textbf{In tendrils}   & 23815                     & 27742                     & 30261                 \\
+        \textbf{Out tendrils}  & 13                        & 11                        & 14941                 \\
+        \textbf{Disconected}   & 26817                     & 21522                     & 27870                 \\
+        \textbf{Attack}        & 22315                     & 19212                     & 145000                \\
+        \textbf{Attack/n}      & 0.4396                    & 0.3896                    & 0.6761                \\
+        \textbf{Failure}       & 15.7301                   & 8.5733                    & 489.5527              \\
+        \textbf{Failure/n}     & 0.0003                    & 0.0002                    & 0.0023                \\
+        \hline
+    \end{tabular}
+    \caption{Tabla de datos para PyPI}
+\end{table}
+
+En la sigiente comparacion omitimos el conjunto de datos \textit{PyPI Libraries 1} debido a que no es comparable con los otros dos conjuntos de datos.
+
+\begin{itemize}
+    \item El conjunto de datos \textit{PyPI Libraries 2} tiene un total de 49,306 nodos,
+          mientras que el conjunto de datos \textit{PyPI Scraped} cuenta con 214,469 nodos.
+          Se aprecia una diferencia significativa en términos de tamaño de red entre ambos conjuntos.
+    \item En cuanto al número de aristas, \textit{PyPI Scraped} presenta un valor
+          considerablemente más alto con 933,955 aristas, en comparación con las 134,575
+          aristas del conjunto \textit{PyPI Libraries 2}.
+    \item En relación a las componentes fuertemente conectadas, tanto \textit{PyPI Libraries 2}
+          como \textit{PyPI Scraped} poseen 4 nodos en la segunda componente fuertemente
+          conectada (\textit{2nd SCC}), mientras que la cantidad de nodos en la primera
+          componente fuertemente conectada (\textit{1st SCC}) varía significativamente,
+          siendo 4 para \textit{PyPI Libraries 2} y 283 para \textit{PyPI Scraped}.
+    \item En términos de componentes débilmente conectadas, \textit{PyPI Scraped}
+          presenta una mayor cantidad de nodos en la componente de entrada (\textit{In Component})
+          con 449 nodos, en comparación con los 21 nodos de \textit{PyPI Libraries 2}. Por otro
+          lado, \textit{PyPI Scraped} también cuenta con una mayor cantidad de nodos en la
+          componente de salida (\textit{Out Component}) con 138,219 nodos, mientras que
+          \textit{PyPI Libraries 2} tiene solo 5 nodos en esta categoría.
+    \item El número de tubos (\textit{Tubes}) es significativamente mayor en
+          \textit{PyPI Scraped} con 2,446 tubos, en comparación con el único tubo presente
+          en \textit{PyPI Libraries 2}.
+    \item En cuanto a los componentes en forma de tendril, \textit{PyPI Libraries 2} tiene
+          27,742 nodos en los tendril de entrada (\textit{In tendrils}) y 11 nodos en los
+          tendril de salida (\textit{Out tendrils}), mientras que \textit{PyPI Scraped} tiene
+          30,261 nodos en los tendril de entrada y 14,941 nodos en los tendril de salida.
+    \item La categoría de nodos desconectados (\textit{Disconnected}) muestra que
+          \textit{PyPI Libraries 2} tiene 21,522 nodos desconectados, mientras que \textit{PyPI Scraped} tiene 27,870 nodos desconectados.
+    \item En cuanto al análisis de ataque (\textit{Attack}), \textit{PyPI Libraries 2}
+          tiene un valor de 19,212 y \textit{PyPI Scraped} presenta un valor más alto de
+          145,000, lo que indica una mayor susceptibilidad en \textit{PyPI Scraped} en
+          comparación con \textit{PyPI Libraries 2}.
+    \item En el análisis de falla (\textit{Failure}), \textit{PyPI Libraries 2} tiene un
+          valor de 8.5733, mientras que \textit{PyPI Scraped} muestra un valor más alto de 489.5527.
+          Esto sugiere una mayor robustez en \textit{PyPI Libraries 2} en comparación con
+          \textit{PyPI Scraped}.
+    \item Los valores normalizados (\textit{Attack/n} y \textit{Failure/n}) indican la
+          proporción de ataques y fallas en relación al número total de nodos. En este sentido,
+          \textit{PyPI Scraped} presenta valores más altos en ambas métricas en comparación con
+          \textit{PyPI Libraries 2}.
+\end{itemize}
+
+
+\subsection{NPM}
+
+En el contexto del repositorio \textit{npm}, se disponen de cuatro conjuntos de datos
+distintos, cada uno con sus propias características: \ref{tab:data_npm}
+
+\begin{itemize}
+    \item El primer conjunto de datos se basa en la información recopilada por
+          \textit{libraries.io}. Este conjunto considera todas las dependencias que un paquete ha
+          tenido a lo largo de su historial de versiones. Incluye tanto las dependencias de tipo
+          \textit{runtime} como las de desarrollo (\textit{dev}).
+    \item El segundo conjunto de datos realiza un filtrado del conjunto anterior, conservando
+          únicamente las dependencias asociadas a la última versión de cada paquete. Además, se
+          restringe el análisis a las dependencias de tipo \textit{runtime} y desarrollo, excluyendo
+          otras dependencias no relevantes para el contexto.
+
+    \item El tercer conjunto de datos utiliza los datos generados por \textit{Olivia Finder}
+          para las dependencias de tipo \textit{runtime}. \textit{Olivia Finder} es una herramienta
+          específica que permite identificar y analizar las dependencias en tiempo de ejecución de
+          los paquetes en el repositorio \textit{npm}.
+
+    \item Por último, el cuarto conjunto de datos se genera también mediante \textit{Olivia Finder},
+          pero incluye tanto las dependencias de tipo \textit{runtime} como las de desarrollo
+          (\textit{dev}). Esto proporciona una visión más completa de las dependencias utilizadas en
+          el entorno de desarrollo y en tiempo de ejecución de los paquetes del repositorio \textit{npm}.
+\end{itemize}
+
+\begin{table}[h!]
+    \centering
+    \tiny
+    \label{tab:data_npm}
+    \begin{tabular}{|l|l|l|l|l|}
+        \hline
+                               & \textbf{NPM Librariesio 1} & \textbf{NPM Librariesio 2} & \textbf{NPM Scraped 1} & \textbf{NPM Scraped 2} \\
+        \hline
+        \textbf{Nodes (n)}     & 1074508                    & 1064531                    & 1059758                & 1832943                \\
+        \textbf{Edges (m)}     & 13052831                   & 11405275                   & 4855094                & 22036615               \\
+        \textbf{1st SCC}       & 26486                      & 13378                      & 26                     & 19579                  \\
+        \textbf{2nd SCC}       & 175                        & 157                        & 17                     & 451                    \\
+        \textbf{In Component}  & 3849                       & 1827                       & 0                      & 3718                   \\
+        \textbf{Out Component} & 936295                     & 940266                     & 1                      & 1626207                \\
+        \textbf{Tubes}         & 3745                       & 4260                       & 0                      & 7599                   \\
+        \textbf{In tendrils}   & 17891                      & 19759                      & 0                      & 50120                  \\
+        \textbf{Out tendrils}  & 69604                      & 60947                      & 0                      & 77588                  \\
+        \textbf{Disconected}   & 16638                      & 24094                      & 1059731                & 48132                  \\
+        \textbf{Attack}        & 975555                     & 968059                     & 258821                 & 1683928                \\
+        \textbf{Attack/n}      & 0.9079                     & 0.9094                     & 0.2442                 & 0.9187                 \\
+        \textbf{Failure}       & 27193.8251                 & 13633.8779                 & 62.0866                & 20934.7775             \\
+        \textbf{Failure/n}     & 0.0253                     & 0.0128                     & 0.0001                 & 0.0114                 \\
+        \hline
+    \end{tabular}
+    \caption{Tabla de datos para NPM}
+\end{table}
+
+
+Se han omitido los datos de \textit{NPM Librariesio 1} debido a que no se considera un conjunto
+de datos relevante para el análisis.
+
+\begin{itemize}
+    \item El conjunto de datos \textit{NPM Librariesio 2} tiene un total de 1,064,531 nodos,
+          mientras que el conjunto de datos \textit{NPM Scraped 1} cuenta con 1,059,758 nodos y el
+          conjunto de datos \textit{NPM Scraped 2} tiene la mayor cantidad de nodos con 1,832,943.
+          Se puede observar una diferencia significativa en términos de tamaño de red entre los
+          conjuntos de datos.
+    \item En cuanto al número de aristas, el conjunto de datos \textit{NPM Scraped 2} presenta
+          un valor considerablemente más alto con 22,036,615 aristas, en comparación con las
+          11,405,275 aristas del conjunto \textit{NPM Librariesio 2}.
+    \item En relación a las componentes fuertemente conectadas, tanto el conjunto
+          \textit{NPM Librariesio 2} como el conjunto \textit{NPM Scraped 2} poseen 157 nodos en
+          la segunda componente fuertemente conectada (\textit{2nd SCC}), mientras que la cantidad
+          de nodos en la primera componente fuertemente conectada (\textit{1st SCC}) varía
+          significativamente, siendo 13,378 para \textit{NPM Librariesio 2} y 19,579 para
+          \textit{NPM Scraped 2}.
+    \item En términos de componentes débilmente conectadas, el conjunto \textit{NPM Scraped 2}
+          presenta una mayor cantidad de nodos en la componente de entrada (\textit{In Component})
+          con 3,718 nodos, en comparación con los 1,827 nodos del conjunto \textit{NPM Librariesio 2}.
+          Por otro lado, el conjunto \textit{NPM Scraped 2} también cuenta con una mayor cantidad de
+          nodos en la componente de salida (\textit{Out Component}) con 1,626,207 nodos, mientras
+          que \textit{NPM Librariesio 2} tiene solo 940,266 nodos en esta categoría.
+    \item El número de tubos (\textit{Tubes}) es significativamente mayor en el conjunto
+          \textit{NPM Scraped 2} con 7,599 tubos, en comparación con los 4,260 tubos presentes en
+          el conjunto \textit{NPM Librariesio 2}.
+    \item En cuanto a los componentes en forma de tendril, \textit{NPM Librariesio 2} tiene
+          19,759 nodos en los tendril de entrada (\textit{In tendrils}) y 60,947 nodos en los
+          tendril de salida (\textit{Out tendrils}), mientras que \textit{NPM Scraped 2} tiene
+          50,120 nodos en los tendril de entrada y 77,588 nodos en los tendril de salida.
+    \item La categoría de nodos desconectados (\textit{Disconnected}) muestra que
+          \textit{NPM Librariesio 2} tiene 24,094 nodos desconectados, mientras que
+          \textit{NPM Scraped 1} tiene la mayor cantidad de nodos desconectados con
+          1,059,731.
+    \item En cuanto al análisis de ataque (\textit{Attack}), \textit{NPM Scraped 2} tiene
+          un valor de 1,683,928 y \textit{NPM Librariesio 2} presenta un valor ligeramente menor
+          de 968,059, lo que indica una mayor susceptibilidad a esta métrica en \textit{NPM Scraped 2}
+          en comparación con \textit{NPM Librariesio 2}.
+    \item En el análisis de falla (\textit{Failure}), \textit{NPM Scraped 2} muestra un valor
+          más alto de 20,934.7775, mientras que \textit{NPM Librariesio 2} tiene un valor de
+          13,633.8779. Esto sugiere una mayor robustez en \textit{NPM Librariesio 2} en comparación
+          con \textit{NPM Scraped 2}.
+    \item Los valores normalizados (\textit{Attack/n} y \textit{Failure/n}) indican la
+          proporción de y fallas en relación al número total de nodos. En este sentido,
+          \textit{NPM Scraped 2} presenta valores más altos en ambas métricas en comparación
+          con \textit{NPM Librariesio 2}.
+\end{itemize}
 
 \section{La red de dependencias de CRAN}
 
@@ -35,7 +325,7 @@ y \textit{visualización}, lo que permite a los usuarios ampliar las capacidades
 El análisis sobre los datos recopilados \ref{tab:cran_common_packages} indica que el conjunto de datos \textit{scraped}
 ha experimentado un crecimiento notable en comparación con \textit{libraries.io}, tanto en
 términos de la cantidad total de paquetes como en la inclusión de nuevos paquetes.
-Esta ampliación evidencia una recopilación más exhaustiva y actualizada de información.\ref{fig:cran_common_packages2}
+Esta ampliación evidencia una recopilación más exhaustiva y actualizada de información. \ref{fig:cran_common_packages2}
 \ref{fig:cran_common_packages3}.
 
 \begin{figure}[h!]
@@ -755,7 +1045,7 @@ de individuos en la red se reduce significativamente. La mayoría de los nodos t
     \end{center}
 \end{figure}
 
-En cuanto a los paquetes que representan el \emph{mayor grado de salida}\ref{fig:bioconductor_out_degree} 
+En cuanto a los paquetes que representan el \emph{mayor grado de salida}\ref{fig:bioconductor_out_degree}
 en la red analizada, se observa que la mayoría de ellos también aparecen en el \emph{top} de la red de CRAN.
 Este hallazgo es coherente, dado que, como se mencionó anteriormente, Bioconductor es un
 subconjunto de los paquetes de R, y es esperable que estos paquetes tengan una importancia
@@ -777,17 +1067,17 @@ de la especialización de Bioconductor en este campo.
 
 \subsubsection{El grado de entrada \textit{In degree}}
 
-La distribución de \emph{in degree}\ref{fig:bioconductor_in_degree_dist} en la red de Bioconductor muestra algunas diferencias con respecto 
-a la red de CRAN. Se observa que hay un menor número de nodos en la red de Bioconductor en comparación 
-con CRAN. Además, la frecuencia máxima de nodos con \emph{in degree} ya no se encuentra en los valores 
-1 o 2, como ocurre en CRAN. En Bioconductor, se puede apreciar que hay más nodos con \emph{in degree} 
+La distribución de \emph{in degree}\ref{fig:bioconductor_in_degree_dist} en la red de Bioconductor muestra algunas diferencias con respecto
+a la red de CRAN. Se observa que hay un menor número de nodos en la red de Bioconductor en comparación
+con CRAN. Además, la frecuencia máxima de nodos con \emph{in degree} ya no se encuentra en los valores
+1 o 2, como ocurre en CRAN. En Bioconductor, se puede apreciar que hay más nodos con \emph{in degree}
 en el rango de 10 a 20 en comparación con aquellos con un valor de 1.
 
-Otro aspecto a tener en cuenta es que el \emph{in degree} máximo en la red de Bioconductor tiene un 
-valor de 85, mientras que en CRAN el valor máximo es de 50. Esto indica que en Bioconductor existen 
-nodos con un mayor número de dependencias entrantes, lo que podría reflejar la complejidad y la 
-interconexión de los paquetes en Bioconductor. Estas diferencias en la distribución de \emph{in degree} 
-evidencian las particularidades y características propias de la red de Bioconductor en comparación con 
+Otro aspecto a tener en cuenta es que el \emph{in degree} máximo en la red de Bioconductor tiene un
+valor de 85, mientras que en CRAN el valor máximo es de 50. Esto indica que en Bioconductor existen
+nodos con un mayor número de dependencias entrantes, lo que podría reflejar la complejidad y la
+interconexión de los paquetes en Bioconductor. Estas diferencias en la distribución de \emph{in degree}
+evidencian las particularidades y características propias de la red de Bioconductor en comparación con
 la red de CRAN.
 
 \begin{figure}[h!]
@@ -798,10 +1088,10 @@ la red de CRAN.
     \end{center}
 \end{figure}
 
-Los paquetes que se encuentran en el \emph{top} de \emph{grado de entrada} \ref{fig:bioconductor_in_degree} son aquellos que presentan 
-un mayor número de dependencias en la red, sin tener en cuenta la transitividad de las conexiones. 
-Esto implica que estos paquetes son altamente dependientes de otros paquetes en la red de Bioconductor en el primer nivel de 
-profundidad del arbol de dependencias, lo que sugiere su importancia y relevancia en el ecosistema de Bioconductor. 
+Los paquetes que se encuentran en el \emph{top} de \emph{grado de entrada} \ref{fig:bioconductor_in_degree} son aquellos que presentan
+un mayor número de dependencias en la red, sin tener en cuenta la transitividad de las conexiones.
+Esto implica que estos paquetes son altamente dependientes de otros paquetes en la red de Bioconductor en el primer nivel de
+profundidad del arbol de dependencias, lo que sugiere su importancia y relevancia en el ecosistema de Bioconductor.
 
 \begin{figure}[h!]
     \begin{center}
@@ -813,14 +1103,14 @@ profundidad del arbol de dependencias, lo que sugiere su importancia y relevanci
 
 \subsection{El PageRank}
 
-La distribución de \textit{PageRank} \ref{fig:bioconductor_pagerank_dist} en la red de \textit{Bioconductor} no revela patrones claros 
-y sencillos de analizar. Observando el gráfico, podemos determinar que la frecuencia máxima de nodos 
-con el mismo valor de \textit{PageRank} se sitúa aproximadamente entre \textit{0.0002} y \textit{0.0005}. 
-El rango normal de valores se encuentra entre \textit{0.0002} y \textit{0.002}, aunque en algunos casos 
-particulares se alcanzan valores de \textit{0.003} o \textit{0.004}. Estos valores representan la importancia 
-relativa de los nodos en la red, teniendo en cuenta tanto las conexiones directas como las conexiones 
-indirectas a través de otros nodos en la red. Sin embargo, debido a la complejidad y tamaño de la red 
-de \textit{Bioconductor}, es necesario realizar un análisis más detallado y específico para comprender 
+La distribución de \textit{PageRank} \ref{fig:bioconductor_pagerank_dist} en la red de \textit{Bioconductor} no revela patrones claros
+y sencillos de analizar. Observando el gráfico, podemos determinar que la frecuencia máxima de nodos
+con el mismo valor de \textit{PageRank} se sitúa aproximadamente entre \textit{0.0002} y \textit{0.0005}.
+El rango normal de valores se encuentra entre \textit{0.0002} y \textit{0.002}, aunque en algunos casos
+particulares se alcanzan valores de \textit{0.003} o \textit{0.004}. Estos valores representan la importancia
+relativa de los nodos en la red, teniendo en cuenta tanto las conexiones directas como las conexiones
+indirectas a través de otros nodos en la red. Sin embargo, debido a la complejidad y tamaño de la red
+de \textit{Bioconductor}, es necesario realizar un análisis más detallado y específico para comprender
 plenamente la distribución y significado de los valores de \textit{PageRank} en esta red.
 
 \begin{figure}[h!]
@@ -832,12 +1122,12 @@ plenamente la distribución y significado de los valores de \textit{PageRank} en
 \end{figure}
 
 
-Respecto al top de dependencias con mayor \textit{PageRank} \ref{fig:bioconductor_top_pagerank_dependencies}, 
-estos paquetes representan una vulnerabilidad significativa debido a su alto \textit{in degree} y la interconexión entre ellos. Desde el punto de vista 
-del autor, sería recomendable evitar depender de alguno de estos paquetes, ya que se encuentran en un entorno 
-donde la probabilidad de vulnerabilidad es mayor. La dependencia de estos paquetes puede aumentar la propagación 
-de posibles problemas o errores a lo largo de la red de \textit{Bioconductor}. Por lo tanto, es esencial 
-considerar alternativas y evaluar cuidadosamente las dependencias al desarrollar o utilizar aplicaciones 
+Respecto al top de dependencias con mayor \textit{PageRank} \ref{fig:bioconductor_top_pagerank_dependencies},
+estos paquetes representan una vulnerabilidad significativa debido a su alto \textit{in degree} y la interconexión entre ellos. Desde el punto de vista
+del autor, sería recomendable evitar depender de alguno de estos paquetes, ya que se encuentran en un entorno
+donde la probabilidad de vulnerabilidad es mayor. La dependencia de estos paquetes puede aumentar la propagación
+de posibles problemas o errores a lo largo de la red de \textit{Bioconductor}. Por lo tanto, es esencial
+considerar alternativas y evaluar cuidadosamente las dependencias al desarrollar o utilizar aplicaciones
 basadas en esta red.
 
 \begin{figure}[h!]
@@ -848,7 +1138,7 @@ basadas en esta red.
     \end{center}
 \end{figure}
 
-Realizando una inversionde la red de dependencias de Bioconductor, se obtiene la red de paquetes, desde este punto de vista 
+Realizando una inversionde la red de dependencias de Bioconductor, se obtiene la red de paquetes, desde este punto de vista
 el \textit{PageRank} ahora esta ponderando la importancia de los paquetes en la red, es decir, aquellos paquetes que son dependencias
 de otros paquetes importantes, son considerados como los mas importantes en la red. En la figura \ref{fig:bioconductor_top_pagerank_packages}
 se muestran los paquetes con mayor \textit{PageRank} bajo este punto de vista de Bioconductor.
@@ -935,7 +1225,7 @@ de paquetes de manera estable a lo largo del tiempo \ref{tab:pypi_common_package
 \end{table}
 
 Es importante destacar que este conjunto de paquetes que se ha mantenido representa aproximadamente
-el \textit{12.15\%} del total de paquetes disponibles en PyPI en la actualidad. Esta proporción 
+el \textit{12.15\%} del total de paquetes disponibles en PyPI en la actualidad. Esta proporción
 da una idea de la estabilidad relativa de la red, ya que una parte significativa de los
 paquetes ha logrado mantener su presencia en PyPI a pesar de los posibles cambios y
 actualizaciones\footnote{Los datos se refieren al momento de la última actualización y pueden estar
