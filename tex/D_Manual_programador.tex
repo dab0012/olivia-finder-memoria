@@ -15,14 +15,14 @@ EL conjunto de datos completo usado en los experimentos esta disponble en \texti
 \subsection{Estructura de directorios del repositorio}
 
 El repositorio alberga una amplia gama de contenido, que incluye tanto la biblioteca Olivia-Finder que hemos
-desarrollado como la biblioteca \textit{OLIVIA} realizada en el anterior Trabajo de Fin de Grado. Además, se encuentra
-disponible documentación detallada sobre ambas bibliotecas, que proporciona información exhaustiva sobre su
+desarrollado como la biblioteca \textit{OLIVIA} realizada en el anterior Trabajo de Fin de Grado\cite{Seto-Rey20231}. Además, se encuentra
+disponible documentación detallada sobre ambas bibliotecas, que proporciona información sobre su
 funcionamiento y características.
 
-Dentro del repositorio, también se pueden encontrar una serie de notebooks que ofrecen demostraciones interactivas
-de la funcionalidad de las bibliotecas. Estos notebooks permiten a los usuarios explorar y experimentar con los
-datos generados por las redes que hemos creado, lo que facilita la comprensión y el análisis de los resultados
-obtenidos.
+Dentro del repositorio, también se pueden encontrar una serie de notebooks\footnote{\url{https://github.com/dab0012/olivia-finder/tree/master/notebooks/olivia\_finder}} 
+que ofrecen demostraciones interactivas de la funcionalidad de las bibliotecas \textit{Olivia Finder} y \textit{OLIVIA}. 
+Estos notebooks permiten a los usuarios explorar y experimentar con los datos generados por las redes que 
+hemos creado, lo que facilita la comprensión y el análisis de los resultados obtenidos.
 
 Además del código y la documentación, el repositorio cuenta con una variedad de material auxiliar, como scripts
 y funcionalidades adicionales. Estos recursos complementarios ofrecen soporte adicional para aquellos interesados
@@ -58,10 +58,12 @@ a ambas bibliotecas, mientras que los directorios \textit{olivia} y \textit{oliv
 que ofrecen funcionalidades específicas de cada biblioteca.
 El directorio \textit{resources} contiene los algun scripts
 y recursos adicionales de utilidad. Por último, el directorio \textit{results} contiene los datos generados por las
-redes de dependencias, que se encuentran organizados en subdirectorios según su tipo.
+redes de dependencias, que se encuentran organizados en subdirectorios según su contenido o formato de exportación. \textit{(Debido a su tamaño, y para que el repositorio de 
+GitHub no sufra reindexando todos los datos cada vez que ha habido un cambio, los datos no se encuentran en el repositorio, pero se pueden descargar desde 
+los enlaces proporcionados en la seccion README.md de esa carpeta.)}
 
 En la raiz del repositorio, se encuentran los directorios \textit{olivia} y \textit{olivia\_finder}, que contienen
-las bibliotecas \textit{OLIVIA} y Olivia-Finder, respectivamente. Dentro de cada uno de estos directorios, se encuentra
+las bibliotecas \textit{OLIVIA} y \textit{Olivia Finder}, respectivamente. Dentro de cada uno de estos directorios, se encuentra
 el directorio \textit{olivia} o \textit{olivia\_finder}, que contienen el código de las bibliotecas.
 
 
@@ -69,7 +71,7 @@ el directorio \textit{olivia} o \textit{olivia\_finder}, que contienen el códig
 
 \subsection{Entrorno de desarrollo}
 
-El proyecto puede descargarse directamente o clonarse desde el repositorio \footnote{\url{https://github.com/dab0012/olivia-finder}}
+El proyecto puede descargarse directamente o clonarse desde el repositorio\footnote{\url{https://github.com/dab0012/olivia-finder}}
 con \texttt{git}. Ha sido desarrollado en \texttt{python3.11} buscando la compatibilidad con \texttt{python3.8} por
 ser la máxima versión soportada por la librería \textit{OLIVIA}.
 Las dependencias de la biblioteca se especifican en el archivo \texttt{requirements.txt}:
@@ -210,7 +212,8 @@ las clases, métodos y funciones, así como información sobre los parámetros, 
 de uso. Esto facilita la comprensión y el uso correcto de la biblioteca por parte de los desarrolladores.
 
 Para convertir los docstrings en otros formatos, como reStructuredText o Markdown, se puede utilizar la 
-herramienta Pyment\footnote{\url{https://github.com/dadadel/pyment/blob/master/doc/sphinx/source/pyment.rst}}. \textit{Pyment} es una utilidad de línea de comandos 
+herramienta Pyment\footnote{\url{https://github.com/dadadel/pyment/blob/master/doc/sphinx/source/pyment.rst}}. 
+\textit{Pyment} es una utilidad de línea de comandos 
 que permite extraer y convertir los comentarios docstring de un código fuente Python a diferentes formatos 
 de documentación. Su flexibilidad y capacidad de personalización lo convierten en una herramienta útil 
 para adaptar la documentación a las necesidades específicas del proyecto.
@@ -231,3 +234,10 @@ Es importante destacar que dentro de la carpeta \texttt{docs} se proporciona el 
 el cual automatiza el proceso de generación de la documentación. Al ejecutar este script, se realiza la 
 generación de la documentación de forma rápida y sencilla, asegurando la disponibilidad de una documentación 
 actualizada y coherente para los usuarios de la biblioteca.
+
+
+\section{Detalles de la implementación}
+
+Si se desea profundizar en aspectos mas técnicos sobre la implementación de la biblioteca, se puede consultar 
+el notebook \texttt{Olivia Finder - Implementation.ipynb}\footnote{\url{https://github.com/dab0012/olivia-finder/blob/master/notebooks/olivia_finder/Olivia\%20Finder\%20-\%20Implementation.ipynb}}
+ en la carpeta \texttt{notebooks} del repositorio.

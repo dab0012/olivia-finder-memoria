@@ -54,11 +54,13 @@ difíciles de planificar. El proceso de investigación implica continuos replant
 los resultados debe ser constantemente modelado o redefinido a medida que avanzamos dentro del límite 
 temporal del que se dispone.
 
-\subsection{Sprint 0: Kick of meeting}
+\subsection{Sprint 0: Reunión inicial}
 
 Este \textit{sprint} representó nuestra primera aproximación a la temática del proyecto. Desde el principio, quedó 
-claro que el modelo matemático proporcionado por OLIVIA en el Trabajo de Fin de Grado anterior estaba más allá de 
-nuestra comprensión absoluta, y nuestro enfoque se centraría principalmente en la experimentación.
+claro que el modelo matemático proporcionado por OLIVIA en el Trabajo de Fin de Grado anterior\footnote{\url{https://github.com/dsr0018/olivia}}  estaba más allá de 
+nuestra comprensión absoluta\cite{Seto-Rey20231}, y nuestro enfoque se centraría principalmente en la extracción de datos 
+de dependencias de paquetes software de distintos repositorios \textit{(PyPI, Bioconductor, CRAN, npm)} y el análisis comparativo de 
+la evolución temporal del nuevo conjunto de datos de dependencias entre paquetes generado.
 
 Por lo tanto, fue necesario realizar un esfuerzo inicial para comprender los fundamentos básicos de lo que el modelo 
 de \textit{OLIVIA} nos permitía hacer. En este sentido, los Jupyter Notebooks proporcionados en el TFG anterior fueron de 
@@ -88,10 +90,10 @@ también nos permitió adquirir conocimientos sobre el uso de \LaTeX en la redac
 La duración de este \textit{sprint} ha sido de 30 días aproximadamente, realizando 2 reuniones y 
 con unas 25 horas de trabajo.
 
-\subsection{Sprint 1 - Data collection}
+\subsection{Sprint 1 - Recolección de datos}
 
 En esta etapa de investigación nos enfocamos en el manejo de datos. Inicialmente, utilizamos el conjunto de datos 
-de \textit{libraries.io}, el cual resultó útil desde una perspectiva histórica. Sin embargo, presentó importantes 
+de \textit{libraries.io}\cite{jeremy_katz_2020_3626071}, el cual resultó útil desde una perspectiva histórica. Sin embargo, presentó importantes 
 limitaciones, como la falta de actualización periódica. Al enfrentarnos a los desafíos derivados de este conjunto 
 de datos, pudimos constatar que trabajar con grandes volúmenes de datos no es trivial. Fue necesario utilizar un 
 disco duro externo para almacenar el conjunto de datos, del cual solo nos interesaba la lista de enlaces entre 
@@ -121,15 +123,13 @@ desde una misma dirección IP en un período de tiempo relativamente corto, esta
 
 En conclusión, este \textit{sprint} fue clave para obtener un conjunto de datos actualizado y establecer los primeros 
 pasos en el desarrollo de una herramienta de recolección de datos. Además, se logró resolver el desafío de la prohibición 
-de acceso a los serv
-
-idores web mediante la implementación de rotación de proxy. Estos avances sientan las bases para continuar con el desarrollo 
+de acceso a los servidores web mediante la implementación de rotación de proxy. Estos avances sientan las bases para continuar con el desarrollo 
 del proyecto y alcanzar los objetivos planteados.
 
 La duración de este \textit{sprint} ha sido aproximadamente de 30 días, que en nuestra metodología de trabajo equivalen 
 aproximadamente a 2 reuniones y a 60 horas de trabajo.
 
-\subsection{Sprint 2 - Library implementation and interpretation of some data}
+\subsection{Sprint 2 - Implementación de la biblioteca de extracción de datos}
 
 En esta etapa, nuestro enfoque se centró en el desarrollo de una herramienta genérica con el propósito de llevar a cabo 
 una extracción sencilla de la red de dependencias de los repositorios \textit{CRAN}, \textit{Bioconductor}, \textit{PyPI} 
@@ -186,7 +186,7 @@ gracias a su API, pudimos recopilar los metadatos necesarios para construir el c
 Llevar a cabo este \textit{sprint} ha supuesto una duración de 60 días, lo que aproximadamente corresponde con unas 
 3 reuniones y alrededor de 150 horas de trabajo.
 
-\subsection{Sprint 3 - Library refactoring}
+\subsection{Sprint 3 - Refactorización de la biblioteca}
 
 Tras el análisis de los datos recolectados, observamos que los conjuntos de datos de \textit{libraries.io} proporcionan 
 información sobre todas las versiones existentes de un paquete. En otras palabras, consideramos como \textit{dependencias} 
@@ -217,10 +217,10 @@ Además, la biblioteca ofrece otras funcionalidades, como la obtención en tiemp
 transitiva para un paquete en particular. También proporciona persistencia de datos en forma de objetos serializados y 
 la capacidad de exportar datos en formato \textit{CSV} compatible con \textit{OLIVIA}.
 
-Una vez concluida esta etapa, procedimos a publicar los conjuntos de datos en \textit{Zenodo}, con el fin de hacerlos 
+Una vez concluida esta etapa, procedimos a publicar los conjuntos de datos en \textit{Zenodo}\cite{daniel_alonso_bascones_2023_8095863}, con el fin de hacerlos 
 accesibles para la comunidad científica. Además, dedicamos nuestros esfuerzos a mejorar la documentación del código 
 fuente y generar una documentación completa de la biblioteca. Esta documentación está diseñada para ser accesible desde
- la web y se encuentra alojada en \textit{GitHub Pages}.
+ la web y se encuentra alojada en \textit{GitHub Pages}\cite{olivia_finder_docpages}.
 La publicación de los conjuntos de datos en \textit{Zenodo} permite a otros investigadores y desarrolladores acceder a 
 los datos recopilados y utilizarlos en sus propios proyectos o investigaciones. De esta manera, promovemos la transparencia 
 y el intercambio de información entre la comunidad científica.
@@ -305,7 +305,7 @@ Una interesante posibilidad que merece ser estudiada, y que ha cobrado relevanci
 de \textit{Ciencia Abierta}, es el \textit{crowdfunding}. Esta modalidad persigue la obtención de dinero  
 para el proyecto mediante contribuciones económicas realizadas por personas interesadas en contribuir al progreso 
 de la \textit{investigación científica transparente} y con \textit{resultados públicos, accesibles y gratuitos}. Algunos ejemplos son
-\textit{Kickstarter} o \textit{Indiegogo}.
+\textit{Kickstarter}\cite{kickstarter} o \textit{Indiegogo}\cite{indiegogo}.
 
 En el ámbito del \textit{crowdfunding}, es de una \textit{importancia capital} presentar de forma atractiva 
 la idea del proyecto, destacando su \textit{relevancia e impacto} en la \textit{comunidad científica} y en 
@@ -336,16 +336,36 @@ uso establecidos por los autores y las licencias correspondientes.
 El conjunto de datos utilizado en el proyecto ha sido recolectado de fuentes 
 accesibles en la red, donde cualquier persona puede acceder a ellos. Nos hemos esforzado en recopilar y proporcionar estos 
 datos a la comunidad, siguiendo los principios de transparencia y acceso abierto. En el caso de uso de estos datos, solo 
-exigimos la atribución a los autores del Trabajo Fin de Grado correspondiente.
+exigimos la atribución a los autores del Trabajo Fin de Grado\footnote{Daniel Alonso Báscones y Carlos López Nozal}.
 
-Aprovechamos este momento para dar atribucion al creador del conjunto de datos de \textit{libraries.io} llamado \textit{Tidelift}.
+Aprovechamos este momento para dar atribucion al autor del conjunto de datos de \textit{libraries.io} (\textit{Tidelift}\footnote{\url{https://tidelift.com/}}).
 
 \textbf{Licencia de código abierto:}
 
 Con respecto a la clasificación de la licencia adecuada para el proyecto, considerando los aspectos mencionados, una opción 
-apropiada podría ser la licencia \textit{Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)}. Esta licencia 
+apropiada podría ser la licencia \textit{Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)}\cite{enwiki:1161291260}. Esta licencia 
 permite utilizar, modificar y distribuir el software y sus componentes, siempre y cuando se atribuya adecuadamente a los 
 autores originales y se comparta bajo una licencia similar. Esta elección refuerza los principios de acceso abierto y 
 fomenta la colaboración en la comunidad de desarrolladores y usuarios del software.
+
+Otra licencia que se adapta bien a nuestro caso es la licencia \textit{MIT}\cite{enwiki:1152945138}, también reconocida como 
+\textit{Licencia Expat MIT}, se destaca como una licencia de software de código abierto ampliamente aceptada y 
+prevalente en el ámbito tecnológico. Esta licencia fue concebida por el \textit{Instituto Tecnológico de Massachusetts
+(MIT)} y se cataloga como una licencia permisiva.
+
+\textit{La licencia MIT} concede a los desarrolladores de software la capacidad de utilizar, modificar, distribuir 
+y sublicenciar el software sin restricciones significativas. Su enfoque adopta una postura de \textit{haz lo que desees}, 
+brindando a los usuarios una libertad amplia para emplear el software tanto para propósitos comerciales como no comerciales.
+
+La característica sobresaliente de \textit{la licencia MIT} radica en su concisión y simplicidad. El texto de la 
+licencia establece claramente que se otorga permiso para utilizar el software \textit{tal como está}, sin otorgar 
+garantías de ningún tipo. Además, se exige la inclusión del aviso de copyright y la exención de 
+responsabilidad en todas las copias del software.
+
+Es relevante destacar que la licencia MIT se ajusta de manera óptima a nuestro caso de investigación, dado 
+que su naturaleza permisiva y su enfoque en la libertad del usuario se alinean con los objetivos y requisitos de 
+nuestro proyecto. 
+
+En base a estas dos licencias y las características de cada una, \texttt{hemos decidido utilizar la licencia MIT}, confiando en su idoneidad para respaldar nuestras actividades de codigo abierto.
 
 

@@ -2,6 +2,22 @@
 
 \section{Introducción}
 
+Las \textit{especificaciones de diseño} juegan un papel crucial en el desarrollo de cualquier proyecto, 
+ya que proporcionan una descripción precisa de los \textit{requisitos} y \textit{características} que 
+deben cumplir el producto a desarrollar. Estas 
+especificaciones son el resultado de un análisis que abarca 
+las \textit{necesidades del usuario}, las \textit{limitaciones tecnológicas} y las consideraciones 
+de \textit{rendimiento}, \textit{seguridad} y \textit{usabilidad}. Su función es establecer 
+los fundamentos para la implementación y permitir que los diseñadores
+y desarrolladores trabajen en conjunto en la creación de \textit{soluciones apropiadas}. 
+En este sentido, las especificaciones de diseño actúan como una guía esencial para asegurar 
+la \textit{calidad} y el \textit{éxito} del proyecto. 
+
+A continuación, se presentan 
+las \textit{especificaciones detalladas} que abordan aspectos clave del diseño, tales 
+como la arquitectura, las estructuras de datos, el diseño y y otros 
+elementos críticos necesarios para una \textit{implementación correcta} del sistema.
+
 \section{Diseño de datos}
 
 \subsection{Estructuras de datos}
@@ -62,7 +78,7 @@ extensión \textit{.olvpm} para poder identificarlo correctamente.
 constituir una estructura de datos que contiene la representación del paquete. Está compuesto por
 atributos en formato \textit{string} y una lista de dependencias (\textit{lista de objetos paquete}).
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.4\textwidth]{img/anexos/package.png}
     \caption{Clase Package \textit{package}}
@@ -80,7 +96,7 @@ El módulo \textit{Package Manager} \ref{fig:package_manager} es un wrapper de l
 un repositorio y de la funcionalidad del objeto \textit{DataSource}, que representa la fuente de
 datos de un repositorio. Aporta funcionalidades para la carga, obtención y persistencia de los datos.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\textwidth]{img/anexos/package_manager.png}
     \caption{Clase \textit{PackageManager}}
@@ -121,7 +137,7 @@ más descriptivo sobre la actuación de la herramienta.
 El paquete \textit{utilities} \ref{fig:utilities_classes} contiene un conjunto de módulos que implementan funcionalidades de
 utilidad para la aplicación, aunque no forman parte central de ella. Está compuesto por los siguientes módulos:
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\textwidth]{img/anexos/utilities_classes.png}
     \caption{Diagrama de clases del paquete \textit{utilities}}
@@ -152,7 +168,7 @@ Este paquete \ref{fig:myrequest_classes} implementa la funcionalidad de realizar
 y mediante rotación de \textit{proxies} y \textit{user agents} para ocultar la identidad del realizador
 de la petición.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=1\textwidth]{img/anexos/myrequests_classes.png}
     \caption{Diagrama de clases del paquete \textit{myrequest}}
@@ -203,7 +219,7 @@ agents rotativos.
 
 Este paquete \ref{fig:data_source_classes} implementa la funcionalidad de obtención de datos desde distintas fuentes.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=1.2\textwidth]{img/anexos/data_source_classes.png}
     \caption{Diagrama de clases del paquete \textit{data\_source}}
@@ -257,7 +273,7 @@ la aplicación.
 
 \subsection{Paquete myrequests} \ref{fig:myrequests}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.6\textwidth]{img/anexos/myrequest.png}
     \caption{Paquete \textit{myrequest}}
@@ -266,7 +282,7 @@ la aplicación.
 
 \subsection{Paquete data\_source} \ref{fig:data_source}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\textwidth]{img/anexos/data_source.png}
     \caption{Paquete \textit{data\_source}}
@@ -275,7 +291,7 @@ la aplicación.
 
 \subsection{Paquete utilities} \ref{fig:utilities_package}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.6\textwidth]{img/anexos/utilities.png}
     \caption{Paquete \textit{utilities}}

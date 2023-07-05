@@ -2,15 +2,106 @@
 
 \section{Introducción}
 
-Se detallan a continuación las referencias necesarias para la instalación y
-utilización de la biblioteca.
+Se detallan a continuación las referencias necesarias para la instalación y utilización de la biblioteca.
 
 \section{Requisitos de usuarios}
 
+Para el correcto funcionamiento del sistema, se establecen una serie de requisitos indispensables.
+En primer lugar, se requiere disponer de una \textit{conexión a internet} estable, lo cual permitirá el
+acceso y uso de las funcionalidades ofrecidas.
 
+Se necesita instalar las \textit{dependencias} necesarias de la biblioteca a partir del archivo \textit{requirements.txt},
+mediante la utilización de un gestor de paquetes como \textit{pip}.
+
+Adicionalmente, para garantizar el funcionamiento, se requiere disponer de \textit{Python} en su versión
+3.8 o superior, lo cual asegurará una compatibilidad adecuada con el sistema y sus funcionalidades.
+
+Cabe destacar que en caso de desechar la ejecución de los \textit{notebooks}, es posible que se deban
+satisfacer ciertas dependencias adicionales a la biblioteca principal. Estas dependencias, aunque opcionales,
+deberán ser satisfechas individualmente por cada usuario, según sus necesidades y preferencias específicas.
 
 \section{Instalación}
 
+El repositorio presenta una estructura bien definida que establece las ubicaciones de los recursos utilizados por los cuadernos,
+scripts y otros elementos. Se recomienda encarecidamente respetar esta estructura durante el uso del repositorio, ya que esto
+asegurará un funcionamiento óptimo y coherente.
+
+Sin embargo, es importante destacar que existe la posibilidad de personalizar la ubicación de la carpeta de código de la
+biblioteca (\textit{olivia\_finder/olivia\_finder}) si se configura correctamente la variable de entorno \texttt{PYTHONPATH}
+para que apunte a la biblioteca. Esto permite una mayor flexibilidad en el desarrollo y la organización del proyecto.
+
+A continuación se muestra una propuesta de estructura de directorios que podría ser utilizada en un entorno de desarrollo:
+
+\begin{verbatim}
+    .
+    |-- olivia_finder               # Biblioteca
+    |   |-- config.ini
+    |   |-- data_source
+    |   |-- __init__.py
+    |   |-- myrequests
+    |   |-- package_manager.py
+    |   |-- package.py
+    |   `-- utilities
+    |-- requirements.txt            # Dependencias
+    `-- test_package_manager.py     # Script de demostración
+    
+\end{verbatim}
+
+En esta estructura, el directorio principal del proyecto contiene la carpeta \textit{olivia\_finder}, que incluye
+los archivos y módulos relevantes para la biblioteca. Además, se encuentra el archivo \textit{config.ini} para la configuración.
+
+Además, se incluyen los archivos \textit{requirements.txt} y \textit{test\_package\_manager.py}, que son de utilidad
+para gestionar las dependencias y realizar una demostración básica de funcionamiento de la biblioteca, respectivamente.
+
 \section{Manual del usuario}
+
+Con el fin de adquirir una comprensión más profunda sobre las capacidades y aplicaciones de la biblioteca,
+se sugiere acceder a los notebooks de demostración de funcionalidad que han sido preparados:
+
+
+\begin{itemize}
+    \item \textbf{Olivia Finder - Data manipulation.ipynb}\footnote{\url{https://github.com/dab0012/olivia-finder/blob/master/notebooks/olivia_finder/Olivia\%20Finder\%20-\%20Data\%20manipulation.ipynb}}:
+          Este cuaderno de demostración aborda la manipulación de datos y presenta diversas funcionalidades ofrecidas por la biblioteca.
+    \item \textbf{Olivia Finder - Github repository example.ipynb}\footnote{\url{https://github.com/dab0012/olivia-finder/blob/master/notebooks/olivia_finder/Olivia\%20Finder\%20-\%20Github\%20repository\%20example.ipynb}}:
+          En este cuaderno, se proporciona un ejemplo práctico de cómo utilizar la biblioteca Olivia Finder para interactuar con repositorios de GitHub y extraer información relevante.
+    \item \textbf{Olivia Finder - Usage.ipynb}\footnote{\url{https://github.com/dab0012/olivia-finder/blob/master/notebooks/olivia_finder/Olivia\%20Finder\%20-\%20Usage.ipynb}}:
+          Este cuaderno de uso brinda una visión general de las funcionalidades de la biblioteca.
+\end{itemize}
+
+\newpage
+
+A continuación, se expone un fragmento de código en lenguaje Python que ejemplifica un procedimiento
+para la adquisición de datos provenientes del repositorio de paquetes \textit{CRAN}.
+
+\begin{small}
+    \begin{verbatim}
+    # Add the environment variable OLIVIA_FINDER_CONFIG_FILE_PATH
+    import os
+    os.environ['OLIVIA_FINDER_CONFIG_FILE_PATH'] = "olivia_finder/config.ini"
+    
+    import tqdm
+    from olivia_finder.package_manager import PackageManager
+    from olivia_finder.data_source.repository_scrapers.cran import CranScraper
+    
+    # Test cran package manager
+    cran_pm_scraper = PackageManager(data_sources=[CranScraper()])
+    
+    # Test fetch package names
+    test_packages = cran_pm_scraper.fetch_package_names()[300:350]
+    
+    # Test fetch packages
+    progress_bar = tqdm.tqdm(total=len(test_packages))
+    cran_pm_scraper.fetch_packages(
+        test_packages, progress_bar=progress_bar, extend=True
+    )
+    
+    # Export to csv
+    df = cran_pm_scraper.export_dataframe(full_data=True)
+    df.to_csv("test.csv", index=False)
+    
+    print(df.head(50))
+    \end{verbatim}
+\end{small}
+
 
 
