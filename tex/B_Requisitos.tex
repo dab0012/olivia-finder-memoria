@@ -7,10 +7,10 @@ una gestión eficiente de paquetes y dependencias de diferentes repositorios, co
 hemos identificado una serie de requisitos funcionales que guiarán el diseño y la
 implementación del sistema.
 
-El primer requisito funcional, \texttt{RF-1}, se centra en el almacenamiento eficiente
-y el acceso rápido a la información de paquetes y dependencias. Es fundamental que el
+El primer requisito funcional, \texttt{RF-1}, se centra en el almacenamiento 
+y el acceso a la información de paquetes y dependencias. Es fundamental que el
 sistema pueda almacenar esta información de manera eficiente para evitar demoras
-significativas en la recuperación de datos. Además, el acceso rápido a la información
+significativas en la recuperación de datos. Además, el acceso a la información previamente obtenida
 permitirá un rendimiento óptimo del sistema.
 
 La extensibilidad y flexibilidad de la estructura de datos es abordada por el
@@ -59,10 +59,12 @@ que puedan surgir durante su ejecución. Esto incluye la generación de mensajes
 claros y la posibilidad de gestionar los errores de manera adecuada para minimizar su
 impacto en la funcionalidad general del sistema.
 
+Las tablas de los requisitos funcionales y no funcionales se pueden encontrar al final de la sección.
+
 \section{Catálogo de requisitos funcionales}
 
 \begin{itemize}
-	\item \textbf{RF-1: Almacenamiento eficiente y acceso rápido a la información de paquetes y dependencias}.
+	\item \textbf{RF-1: Almacenamiento y acceso a la información de paquetes y dependencias}.
 
 	      El sistema debe ser capaz de almacenar la información de manera eficiente y permitir un acceso rápido a los paquetes y sus dependencias, evitando demoras significativas.
 
@@ -70,7 +72,7 @@ impacto en la funcionalidad general del sistema.
 
 	      La estructura de datos utilizada para representar los paquetes y dependencias debe ser flexible y adaptable, de modo que pueda ser modificada o ampliada en el futuro sin dificultades.
 
-	\item \textbf{RF-3: Representación específica de paquetes mediante una estructura de datos adecuada}.
+	\item \textbf{RF-3: Representación específica de paquetes mediante una estructura de datos}.
 
 	      Cada paquete debe tener una representación clara y precisa mediante una estructura de datos que contenga los atributos relevantes para dicho paquete.
 
@@ -86,11 +88,11 @@ impacto en la funcionalidad general del sistema.
 
 	      Se requiere la capacidad de almacenar información adicional sobre la relación de dependencia entre los paquetes, como la versión concreta utilizada, para capturar detalles específicos y permitir un análisis más completo.
 
-	\item \textbf{RF-7: Obtención eficiente de datos desde múltiples fuentes}.
+	\item \textbf{RF-7: Obtención de datos desde múltiples fuentes}.
 
 	      El sistema debe ser capaz de obtener datos de manera eficiente desde diversas fuentes, como archivos CSV, APIs de terceros o mediante web scraping, permitiendo una amplia variedad de opciones para obtener la información necesaria.
 
-	\item \textbf{RF-8: Obtención de dependencias transitivas dinámicamente en tiempo de ejecución}.
+	\item \textbf{RF-8: Obtención de dependencias transitivas dinámicamente}.
 
 	      Se debe permitir la obtención de dependencias transitivas de un paquete de forma dinámica durante la ejecución del sistema, lo que implica obtener las dependencias directas e indirectas de un paquete en tiempo real.
 
@@ -307,9 +309,7 @@ otras herramientas o análisis. Al exportar la red, se garantiza la preservació
 dependencias, lo que facilita su intercambio y colaboración con otros sistemas o investigadores interesados
 en el análisis de paquetes y sus interconexiones.
 
-\newpage
-
-\subsection{Casos de uso de un cliente de la biblioteca \textit{Olivia Finder}}
+\subsection{Casos de uso de utilidad de la biblioteca \textit{Olivia Finder}}
 
 \begin{figure}[ht!]
 	\centering
@@ -318,16 +318,16 @@ en el análisis de paquetes y sus interconexiones.
 	\label{fig:casos_de_uso_notebooks}
 \end{figure}
 
-Los casos de uso de los clientes de la biblioteca se muestran en la figura \ref{fig:casos_de_uso_notebooks}.
+Los casos de uso de utilidad de la biblioteca se muestran en la figura \ref{fig:casos_de_uso_notebooks}.
 
 
-\textbf{CU-2.1: Análisis estático de Bow-tie.}
+\textbf{CU-2.1: Análisis estático de redes.}
 
 \begin{table}[p]
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
-		\textbf{CU-2.1}               & \textbf{Análisis estático de Bow-tie}                                         \\
+		\textbf{CU-2.1}               & \textbf{Análisis estático de métricas de la red}                                         \\
 		\toprule
 		\textbf{Versión}              & 1.0                                                                           \\
 		\textbf{Autor}                & Daniel Alonso                                                                 \\
@@ -363,7 +363,6 @@ El \textit{Notebook} \textit{Bow-tie static analysis}\footnote{Idea sacada del a
 	set, which is usually represented in the form of a bow-tie diagram~\cite{Broder2000309}} lleva a cabo un análisis comparativo de las
 métricas obtenidas para conjuntos de datos utilizando una estructura de Bow-tie\cite{enwiki:1148363387} y
 las métricas de vulnerabilidad definidas en \textit{OLIVIA}. \ref{tab:cu2.1}
-
 
 
 \textbf{CU-2.2: Manipulación de datos.}
@@ -432,87 +431,88 @@ utilizarlo para realizar un análisis estático. \ref{tab:cu2.3}
 		\textbf{Importancia}          & Alta                                                                                                       \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-2.3 Uso.}
+	\caption{CU-2.3 Selección de estrategias de extracción de datos}
 	\label{tab:cu2.3}
 \end{table}
 
-\textbf{CU-2.4: Dependencias transitivas de un repositorio de GitHub.}
+% \textbf{CU-2.4: Dependencias transitivas de un repositorio de GitHub.}
 
-El caso de uso de \textit{Dependencias transitivas de un repositorio de GitHub} está diseñado para obtener las dependencias transitivas de un repositorio
-en \textit{GitHub}. Se basa en una exploración exhaustiva de las dependencias de un paquete,
-alcanzando la profundidad deseada en el árbol de dependencias. \ref{tab:cu2.4}
+% El caso de uso de \textit{Dependencias transitivas de un repositorio de GitHub} está diseñado para obtener las dependencias transitivas de un repositorio
+% en \textit{GitHub}. Se basa en una exploración exhaustiva de las dependencias de un paquete,
+% alcanzando la profundidad deseada en el árbol de dependencias. \ref{tab:cu2.4}
 
-\begin{table}[p]
-	\centering
-	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
-		\toprule
-		\textbf{CU-2.4}               & \textbf{Dependencias transitivas de un repositorio de GitHub}                                                                                                              \\
-		\toprule
-		\textbf{Versión}              & 1.0                                                                                                                                                                        \\
-		\textbf{Autor}                & Daniel Alonso                                                                                                                                                              \\
-		\textbf{Requisitos asociados} & RF-1, RF-2, RF-3, RF-4, RF-5, RF-7, RF-9, RNF-1, RNF-2, RNF-4                                                                                                              \\
-		\textbf{Descripción}          & Obtener las dependencias transitivas de un repositorio en GitHub mediante una exploración exhaustiva de las dependencias de un paquete, alcanzando la profundidad deseada. \\
-		\textbf{Precondición}         & Se ha especificado el repositorio objetivo y se ha definido la profundidad deseada para la exploración de dependencias.                                                    \\
-		\textbf{Acciones}             & \begin{enumerate}
-			                                \item Identificar el repositorio objetivo en GitHub.
-			                                \item Realizar una exploración exhaustiva de las dependencias del paquete, alcanzando la profundidad deseada en el árbol de dependencias.
-			                                \item Registrar las dependencias transitivas obtenidas.
-		                                \end{enumerate}                                   \\
-		\textbf{Postcondición}        & Se obtienen las dependencias transitivas del repositorio objetivo, registradas y listas para su análisis posterior.                                                        \\
-		\textbf{Excepciones}          & No se puede acceder al repositorio en GitHub o no se encuentran las dependencias del paquete en el repositorio.                                                            \\
-		\textbf{Importancia}          & Alta                                                                                                                                                                       \\
-		\bottomrule
-	\end{tabularx}
-	\caption{CU-2.4 Dependencias transitivas de GitHub.}
-	\label{tab:cu2.4}
-\end{table}
+% \begin{table}[p]
+% 	\centering
+% 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+% 		\toprule
+% 		\textbf{CU-2.4}               & \textbf{Dependencias transitivas de un repositorio de GitHub}                                                                                                              \\
+% 		\toprule
+% 		\textbf{Versión}              & 1.0                                                                                                                                                                        \\
+% 		\textbf{Autor}                & Daniel Alonso                                                                                                                                                              \\
+% 		\textbf{Requisitos asociados} & RF-1, RF-2, RF-3, RF-4, RF-5, RF-7, RF-9, RNF-1, RNF-2, RNF-4                                                                                                              \\
+% 		\textbf{Descripción}          & Obtener las dependencias transitivas de un repositorio en GitHub mediante una exploración exhaustiva de las dependencias de un paquete, alcanzando la profundidad deseada. \\
+% 		\textbf{Precondición}         & Se ha especificado el repositorio objetivo y se ha definido la profundidad deseada para la exploración de dependencias.                                                    \\
+% 		\textbf{Acciones}             & \begin{enumerate}
+% 			                                \item Identificar el repositorio objetivo en GitHub.
+% 			                                \item Realizar una exploración exhaustiva de las dependencias del paquete, alcanzando la profundidad deseada en el árbol de dependencias.
+% 			                                \item Registrar las dependencias transitivas obtenidas.
+% 		                                \end{enumerate}                                   \\
+% 		\textbf{Postcondición}        & Se obtienen las dependencias transitivas del repositorio objetivo, registradas y listas para su análisis posterior.                                                        \\
+% 		\textbf{Excepciones}          & No se puede acceder al repositorio en GitHub o no se encuentran las dependencias del paquete en el repositorio.                                                            \\
+% 		\textbf{Importancia}          & Alta                                                                                                                                                                       \\
+% 		\bottomrule
+% 	\end{tabularx}
+% 	\caption{CU-2.4 Dependencias transitivas de GitHub.}
+% 	\label{tab:cu2.4}
+% \end{table}
 
 
-\textbf{CU-2.5: Detalles de implementación (Para programadores).}
+% \textbf{CU-2.5: Detalles de implementación (Para programadores).}
 
-Este caso de uso, pese a ser muy genérico proporciona una guía detallada para desarrolladores sobre la implementación
-de la herramienta, mostrando las funcionalidades de los distintos módulos. Ofrece una visión en
-profundidad de la biblioteca y sus componentes. Está pensado introducir de una forma descriptiva el funcionamiento de la biblioteca
-a un nivel más bajo y ser de ayuda para el programador que decida hacer reimplementaciones de la biblioteca. \ref{tab:cu2.5}
+% Este caso de uso, pese a ser muy genérico proporciona una guía detallada para desarrolladores sobre la implementación
+% de la herramienta, mostrando las funcionalidades de los distintos módulos. Ofrece una visión en
+% profundidad de la biblioteca y sus componentes. Está pensado introducir de una forma descriptiva el funcionamiento de la biblioteca
+% a un nivel más bajo y ser de ayuda para el programador que decida hacer reimplementaciones de la biblioteca. \ref{tab:cu2.5}
 
-\begin{table}[p]
-	\centering
-	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
-		\toprule
-		\textbf{CU-2.5}               & \textbf{Implementación}                                                                                                                              \\
-		\toprule
-		\textbf{Versión}              & 1.0                                                                                                                                                  \\
-		\textbf{Autor}                & Daniel Alonso                                                                                                                                        \\
-		\textbf{Requisitos asociados} & RF-1, RF-2, RF-3, RF-4, RF-5, RF-6, RF-7, RF-8, RF-9, RNF-1, RNF-2, RNF-3, RNF-4, RNF-5                                                              \\
-		\textbf{Descripción}          & Proporcionar una guía detallada para el desarrollador sobre la implementación de la herramienta, mostrando las funcionalidades de los módulos.       \\
-		\textbf{Precondición}         & Se ha realizado la implementación de la herramienta y se dispone de los módulos correspondientes.                                                    \\
-		\textbf{Acciones}             & \begin{enumerate}
-			                                \item Describir las funcionalidades de los módulos de la herramienta.
-			                                \item Explicar el uso adecuado de cada módulo y sus componentes.
-			                                \item Proporcionar ejemplos de código para ilustrar la implementación.
-		                                \end{enumerate}                                                                                \\
-		\textbf{Postcondición}        & El desarrollador obtiene una visión en profundidad de la biblioteca y sus componentes, lo que facilita la implementación y el uso de la herramienta. \\
-		\textbf{Excepciones}          & Problemas en la herramienta o faltan los módulos correspondientes.                                                                                   \\
-		\textbf{Importancia}          & Alta                                                                                                                                                 \\
-		\bottomrule
-	\end{tabularx}
-	\caption{CU-2.5 Implementación.}
-	\label{tab:cu2.5}
-\end{table}
+% \begin{table}[p]
+% 	\centering
+% 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+% 		\toprule
+% 		\textbf{CU-2.5}               & \textbf{Implementación}                                                                                                                              \\
+% 		\toprule
+% 		\textbf{Versión}              & 1.0                                                                                                                                                  \\
+% 		\textbf{Autor}                & Daniel Alonso                                                                                                                                        \\
+% 		\textbf{Requisitos asociados} & RF-1, RF-2, RF-3, RF-4, RF-5, RF-6, RF-7, RF-8, RF-9, RNF-1, RNF-2, RNF-3, RNF-4, RNF-5                                                              \\
+% 		\textbf{Descripción}          & Proporcionar una guía detallada para el desarrollador sobre la implementación de la herramienta, mostrando las funcionalidades de los módulos.       \\
+% 		\textbf{Precondición}         & Se ha realizado la implementación de la herramienta y se dispone de los módulos correspondientes.                                                    \\
+% 		\textbf{Acciones}             & \begin{enumerate}
+% 			                                \item Describir las funcionalidades de los módulos de la herramienta.
+% 			                                \item Explicar el uso adecuado de cada módulo y sus componentes.
+% 			                                \item Proporcionar ejemplos de código para ilustrar la implementación.
+% 		                                \end{enumerate}                                                                                \\
+% 		\textbf{Postcondición}        & El desarrollador obtiene una visión en profundidad de la biblioteca y sus componentes, lo que facilita la implementación y el uso de la herramienta. \\
+% 		\textbf{Excepciones}          & Problemas en la herramienta o faltan los módulos correspondientes.                                                                                   \\
+% 		\textbf{Importancia}          & Alta                                                                                                                                                 \\
+% 		\bottomrule
+% 	\end{tabularx}
+% 	\caption{CU-2.5 Implementación.}
+% 	\label{tab:cu2.5}
+% \end{table}
 
-\textbf{CU-2.6: Evolución de la red.}
+\textbf{CU-2.4: Análisis evolutivo de la red.}
 
-El caso de uso de \textit{Evolución de la red} presentan un análisis evolutivo de los repositorios
-desde una perspectiva experimental. Se realiza un análisis gráfico
+El caso de uso de \textit{análisis evolutivo de la red} presentan un análisis de los repositorios
+desde una perspectiva temporal. Se realiza un análisis gráfico
 básico de cómo ha variado el repositorio a lo largo del tiempo, utilizando los datos
 de \textit{Libraries.io}\cite{jeremy_katz_2020_3626071} del año 2020 y los datos obtenidos mediante \textit{Olivia Finder} en el 2023. \ref{tab:cu2.6}
+Se usan las métricas de centralidad de \textit{grado} y \textit{PageRank} para analizar la evolución de la red.
 
 
 \begin{table}[p]
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
-		\textbf{CU-2.6}               & \textbf{Evolución de la red}                                                                                                                                                              \\
+		\textbf{CU-2.4}               & \textbf{Evolución de la red}                                                                                                                                                              \\
 		\toprule
 		\textbf{Versión}              & 1.0                                                                                                                                                                                       \\
 		\textbf{Autor}                & Daniel Alonso                                                                                                                                                                             \\

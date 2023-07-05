@@ -2,20 +2,20 @@
 
 \section{Introducción}
 
-Las \textit{especificaciones de diseño} juegan un papel crucial en el desarrollo de cualquier proyecto, 
-ya que proporcionan una descripción precisa de los \textit{requisitos} y \textit{características} que 
-deben cumplir el producto a desarrollar. Estas 
-especificaciones son el resultado de un análisis que abarca 
-las \textit{necesidades del usuario}, las \textit{limitaciones tecnológicas} y las consideraciones 
-de \textit{rendimiento}, \textit{seguridad} y \textit{usabilidad}. Su función es establecer 
+Las \textit{especificaciones de diseño} juegan un papel crucial en el desarrollo de cualquier proyecto,
+ya que proporcionan una descripción precisa de los \textit{requisitos} y \textit{características} que
+deben cumplir el producto a desarrollar. Estas
+especificaciones son el resultado de un análisis que abarca
+las \textit{necesidades del usuario}, las \textit{limitaciones tecnológicas} y las consideraciones
+de \textit{rendimiento}, \textit{seguridad} y \textit{usabilidad}. Su función es establecer
 los fundamentos para la implementación y permitir que los diseñadores
-y desarrolladores trabajen en conjunto en la creación de \textit{soluciones apropiadas}. 
-En este sentido, las especificaciones de diseño actúan como una guía esencial para asegurar 
-la \textit{calidad} y el \textit{éxito} del proyecto. 
+y desarrolladores trabajen en conjunto en la creación de \textit{soluciones apropiadas}.
+En este sentido, las especificaciones de diseño actúan como una guía esencial para asegurar
+la \textit{calidad} y el \textit{éxito} del proyecto.
 
-A continuación, se presentan 
-las \textit{especificaciones detalladas} que abordan aspectos clave del diseño, tales 
-como la arquitectura, las estructuras de datos, el diseño y otros 
+A continuación, se presentan
+las \textit{especificaciones detalladas} que abordan aspectos clave del diseño, tales
+como la arquitectura, las estructuras de datos, el diseño y otros
 elementos críticos necesarios para una \textit{implementación correcta} del sistema.
 
 \section{Diseño de datos}
@@ -70,7 +70,18 @@ También podemos realizar un exportado mediante la serialización del objeto \te
 como estructura global de persistencia para un repositorio. Este tipo de archivo se le ha dado una
 extensión \textit{.olvpm} para poder identificarlo correctamente.
 
-\section{Diseño procedimental}
+\section{Diseño arquitectónico}
+
+La arquitectura de la herramienta se basa en un enfoque modular y bien estructurado que permite la
+representación y manipulación eficiente de la red de dependencias de paquetes de un repositorio.
+
+La aplicación se compone de varios módulos y paquetes que trabajan en conjunto para obtener, procesar y persistir los datos.
+Cada módulo tiene responsabilidades específicas y se comunica con otros módulos a través de interfaces definidas.
+El diseño de datos se centra en la representación de paquetes y dependencias utilizando estructuras de datos
+adecuadas, como diccionarios y listas. La aplicación también implementa patrones de diseño, como el patrón singleton,
+para garantizar la creación de instancias únicas y la reutilización de recursos. A continuación, se presentarán
+los diagramas de clase de cada paquete para proporcionar una visión más detallada de la arquitectura de
+la aplicación.
 
 \subsection{Módulo olivia\_finder.package}
 
@@ -131,10 +142,9 @@ módulo \textit{pickle} de Python, o la generación de archivos CSV de lista de 
 Se incorporan excepciones características para representar los problemas más comunes en un contexto
 más descriptivo sobre la actuación de la herramienta.
 
-
 \subsection{Paquete olivia\_finder.utilities}
 
-El paquete \textit{utilities} \ref{fig:utilities_classes} contiene un conjunto de módulos que implementan funcionalidades de
+El paquete \textit{utilities} \ref{fig:utilities_package} \ref{fig:utilities_classes} contiene un conjunto de módulos que implementan funcionalidades de
 utilidad para la aplicación, aunque no forman parte central de ella. Está compuesto por los siguientes módulos:
 
 \begin{figure}[ht!]
@@ -144,7 +154,12 @@ utilidad para la aplicación, aunque no forman parte central de ella. Está comp
     \label{fig:utilities_classes}
 \end{figure}
 
-
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{img/anexos/utilities.png}
+    \caption{Paquete \textit{utilities}}
+    \label{fig:utilities_package}
+\end{figure}
 
 El módulo \textit{config} implementa una funcionalidad para la carga de la configuración
 definida en el archivo \textit{config.ini}\footnote{Archivo de configuración de la biblioteca}, donde se especifican las configuraciones necesarias.
@@ -164,9 +179,12 @@ utilizadas en la aplicación.
 
 \subsection{Paquete olivia\_finder.myrequests}
 
-Este paquete \ref{fig:myrequest_classes} implementa la funcionalidad de realizar \textit{peticiones web} de forma concurrente
-y mediante rotación de \textit{proxies} y \textit{user agents} para ocultar la identidad del realizador
-de la petición.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{img/anexos/myrequest.png}
+    \caption{Paquete \textit{myrequest}}
+    \label{fig:myrequests}
+\end{figure}
 
 \begin{figure}[ht!]
     \centering
@@ -175,7 +193,9 @@ de la petición.
     \label{fig:myrequest_classes}
 \end{figure}
 
-
+Este paquete \ref{fig:myrequests} \ref{fig:myrequest_classes} implementa la funcionalidad de realizar \textit{peticiones web} de forma concurrente
+y mediante rotación de \textit{proxies} y \textit{user agents} para ocultar la identidad del realizador
+de la petición.
 
 Está compuesto por los siguientes módulos y paquetes:
 
@@ -230,13 +250,20 @@ En primer lugar, tenemos el módulo \textit{data\_source} que implementa una cla
 sirve como interfaz para las distintas clases de este paquete. Un \textit{data source} debe implementar
 la lógica de obtención de una lista de paquetes disponibles y la obtención de los datos de los paquetes.
 
-Tenemos 3 módulos que implementan \textit{DataSource}:
+Tenemos 3 módulos que implementan \textit{DataSource}: \ref{fig:data_source}
 
 El módulo \textit{data\_source}.\textit{scraper\_ds} implementa la obtención de datos de los paquetes
 mediante \textit{web scraping} y proporciona una interfaz para las implementaciones concretas
 de \textit{scraper} para los repositorios de software. Las funcionalidades que aporta incluyen
 la generación y lanzamiento de trabajos de petición web correspondientes a la obtención de los datos
 de los paquetes, así como la recolección de los datos de estas peticiones.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/anexos/data_source.png}
+    \caption{Paquete \textit{data\_source}}
+    \label{fig:data_source}
+\end{figure}
 
 Las implementaciones concretas del módulo \textit{repository\_scrapers}.\textit{scraper\_ds} se encuentran
 dentro del subpaquete \textit{repository\_scrapers}, el cual contiene los módulos \textit{repository\_scrapers}.\textit{bioconductor},
@@ -257,43 +284,72 @@ un conjunto de datos más amplio al acceder directamente al conjunto de datos de
 a través de su API. Para poder utilizar esta funcionalidad, es necesario disponer de una clave de API
 de \textit{Libraries.io}.
 
-\section{Diseño arquitectónico}
 
-La arquitectura de la herramienta se basa en un enfoque modular y bien estructurado que permite la
-representación y manipulación eficiente de la red de dependencias de paquetes de un repositorio. 
+\section{Diseño procedimental}
 
-La aplicación se compone de varios módulos y paquetes que trabajan en conjunto para obtener, procesar y persistir los datos.
-Cada módulo tiene responsabilidades específicas y se comunica con otros módulos a través de interfaces definidas.
-El diseño de datos se centra en la representación de paquetes y dependencias utilizando estructuras de datos
-adecuadas, como diccionarios y listas. La aplicación también implementa patrones de diseño, como el patrón singleton,
-para garantizar la creación de instancias únicas y la reutilización de recursos. A continuación, se presentarán
-los diagramas de clase de cada paquete para proporcionar una visión más detallada de la arquitectura de
-la aplicación.
+En relación al diseño procedimental de la biblioteca, se ha llevado a cabo una estructuración que permite la interacción
+del cliente con las clases \textit{DataSource} y \textit{PackageManager}. La clase \textit{DataSource} se enfoca
+principalmente en la obtención de datos, mientras que \textit{PackageManager} es una estructura que combina
+persistencia y funcionalidades adicionales. La clase \textit{RequestHandler} ha sido designada como la responsable
+de efectuar las peticiones web y suministrar los datos obtenidos al \textit{datasource} para su posterior
+procesamiento.
 
+A continuación, se presentan los \textit{diagramas de secuencia}, herramientas visuales, que
+facilitan la identificación y visualización de la interacción entre los distintos elementos del sistema. Estos
+diagramas permiten comprender de manera más precisa cómo los objetos y componentes se comunican entre sí en un
+orden temporal determinado.
 
-\subsection{Paquete myrequests} \ref{fig:myrequests}
+\subsection{Diagramas de secuencia}
+
+\textbf{Obtencion de las dependencias de un paquete}
+
+La Figura \ref{fig:secuencia_paquetes} presenta el diagrama de secuencia que describe el proceso 
+de obtención de un paquete desde el repositorio de software. Mediante este proceso, el cliente 
+logra obtener una instancia de un objeto Paquete que contiene información relevante como el nombre 
+del paquete, sus dependencias y otros metadatos asociados.
+
+El diagrama muestra cómo el cliente inicia la solicitud de obtención del paquete y se establece 
+una interacción con el repositorio de software. A través de esta interacción, se recuperan los
+ datos necesarios para crear el objeto Paquete. Esto incluye el nombre del paquete, la información 
+ de sus dependencias y cualquier otro metadato relevante.
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.6\textwidth]{img/anexos/myrequest.png}
-    \caption{Paquete \textit{myrequest}}
-    \label{fig:myrequests}
+    \includegraphics[width=1.2\textwidth]{img/anexos/secuencia_paquete.png}
+    \caption{Diagrama de secuencia para la obtención de las dependencias de un paquete}
+    \label{fig:secuencia_paquetes}
 \end{figure}
 
-\subsection{Paquete data\_source} \ref{fig:data_source}
+
+\textbf{Generación y exportación de una red de dependencias}
+
+En la Figura \ref{fig:secuencia_exportar}, se presenta el diagrama de secuencia que representa
+el proceso de generación y exportación de una red. El usuario tiene la opción de generar una red
+y almacenarla en la estructura de datos de la clase \textit{PackageManager}, o exportarla.
+
+En el caso de generar la red, se obtiene una instancia de un objeto que representa dicha red,
+incluyendo los paquetes y sus dependencias correspondientes. Por otro lado, si se elige la opción
+de exportar la red, se realiza el proceso necesario para guardar la red en un formato adecuado
+para su uso fuera del sistema.
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/anexos/data_source.png}
-    \caption{Paquete \textit{data\_source}}
-    \label{fig:data_source}
+    \includegraphics[width=1.2\textwidth]{img/anexos/secuencia_exportar.png}
+    \caption{Diagrama de secuencia para la generación y exportación de una red de dependencias}
+    \label{fig:secuencia_exportar}
 \end{figure}
 
-\subsection{Paquete utilities} \ref{fig:utilities_package}
+\textbf{Obtención de las dependencias transitivas de un paquete}
+
+La Figura \ref{fig:secuencia_transitiva} muestra el diagrama de secuencia que describe el proceso de
+obtención de las dependencias transitivas de un paquete. Iniciando con el paquete inicial, se obtienen
+sus dependencias y se repite este proceso para cada una de ellas. Utilizando una búsqueda en profundidad,
+se logra obtener las dependencias hasta el nivel deseado. Como resultado final, el cliente recibe una
+instancia de un objeto diccionario que contiene los paquetes junto con sus respectivas dependencias.
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.6\textwidth]{img/anexos/utilities.png}
-    \caption{Paquete \textit{utilities}}
-    \label{fig:utilities_package}
+    \includegraphics[width=1.2\textwidth]{img/anexos/secuencia_transitiva.png}
+    \caption{Diagrama de secuencia para la obtención de las dependencias transitivas de un paquete}
+    \label{fig:secuencia_transitiva}
 \end{figure}
