@@ -4,13 +4,13 @@
 \section{Análisis de los datos disponibles}
 
 Para llevar a cabo el análisis de las redes de dependencias de paquetes de software, contamos con 
-datos proporcionados por \textit{libraries.io}\cite{jeremy_katz_2020_3626071} en formato CSV. Estos 
-datos nos permiten extraer la red dedependencias de los principales repositorios de paquetes que 
+datos proporcionados por \textit{Libraries.io}\cite{jeremy_katz_2020_3626071} en formato CSV. Estos 
+datos nos permiten extraer la red de dependencias de los principales repositorios de paquetes que 
 vamos a estudiar en este trabajo
 \textit{(CRAN, PyPI, npm)}\footnote{Algunos repositorios incluidos en los conjuntos de datos 
 son: npm, Maven, PyPI, CRAN, Rubygems, Packagist, NuGet}. Sin embargo,
 es importante destacar que estos datos no están actualizados a la fecha actual debido a la
-elevada evolucion de los cambios en los proyectos de software. Por lo tanto, los análisis que
+elevada evolución de los cambios en los proyectos de software. Por lo tanto, los análisis que
 realicemos con estos datos no reflejarán la situación actual y actualizada de la red de dependencias.
 
 A pesar de esta limitación, contamos con un conjunto de datos que abarca un gran número de repositorios
@@ -20,7 +20,7 @@ tiempo.
 
 En conclusión, es evidente la necesidad de obtener un nuevo conjunto de datos que nos brinde
 un estudio más preciso y actualizado de las relaciones de paquetes en los repositorios. Dado
-que tanto el conjunto de datos de \textit{libraries.io} como su API tiene ciertas limitaciones, se ha considerado como una opción
+que tanto el conjunto de datos de \textit{Libraries.io} como su API tiene ciertas limitaciones, se ha considerado como una opción
 secundaria dando preferencia a otras técnicas de extracción de datos como el \textit{web scraping}.
 
 \subsection{Web Scraping}
@@ -52,12 +52,12 @@ Es importante tener en cuenta estas limitaciones al utilizar el \textit{web scra
 asegurar un uso adecuado y obtener los datos necesarios.
 
 El web scraping es una técnica que puede aparecer combinada con otras técnicas de extracción
-de datos, como la API de \textit{libraries.io} o las APIS propias de los gestores de paquetes. 
+de datos, como la API de \textit{Libraries.io} o las APIS propias de los gestores de paquetes. 
 
 \subsection{Exploración de los repositorios de paquetes}
 
 La exploración de los repositorios de paquetes desempeña un papel fundamental en nuestro estudio.
-A continuación, se presentan los puntos basicos a tener en cuenta en esta temática y en los que se
+A continuación, se presentan los puntos básicos a tener en cuenta en esta temática y en los que se
 centra el análisis:
 
 \begin{itemize}
@@ -80,13 +80,13 @@ centra el análisis:
               y las prácticas adoptadas por los desarrolladores del software.}.
 \end{itemize}
 
-\subsection{API de libraries.io}
+\subsection{API de Libraries.io}
 
 \textit{Libraries.io} proporciona una API para acceder a los datos de los repositorios de paquetes
 de software. Esta API nos permite obtener información sobre los paquetes y sus dependencias,
 así como también información sobre los repositorios y sus características.
 
-La API de \textit{libraries.io} es una herramienta muy útil para obtener información sobre los
+La API de \textit{Libraries.io} es una herramienta muy útil para obtener información sobre los
 paquetes y repositorios de software. Sin embargo, presenta algunas limitaciones que dificultan
 su uso para la extracción de datos. A continuación, se presentan las principales limitaciones
 de la API:
@@ -179,7 +179,7 @@ Networkx es una biblioteca para el análisis de redes y grafos. Proporciona herr
 Matplotlib es una biblioteca de visualización de datos en 2D que permite crear gráficos y visualizaciones de datos de alta calidad.
 
 \subsection{Pybraries}
-Pybraries es una biblioteca que actúa como un wrapper del API de libraries.io para Python.
+Pybraries es una biblioteca que actúa como un wrapper del API de Libraries.io para Python.
 
 \subsection{Typing\_extensions}
 Typing\_extensions es una extensión del módulo typing de Python que proporciona funcionalidades adicionales para anotaciones de tipos en tiempo de ejecución.
@@ -191,7 +191,7 @@ pdoc es una biblioteca que permite generar documentación automática a partir d
 
 \textit{Jupyter Notebooks} se ha convertido en una herramienta fundamental en el ámbito de la ciencia de datos y 
 la programación interactiva. Estos notebooks permiten combinar código, texto explicativo y resultados 
-visuales en un solo documento, lo que facilita la comunicación y colaboración en proyectos de análisis 
+visuales en un sólo documento, lo que facilita la comunicación y colaboración en proyectos de análisis 
 de datos. Los notebooks se ejecutan en un entorno interactivo, lo que permite explorar y experimentar 
 con el código de manera iterativa, lo que resulta especialmente útil en tareas de análisis exploratorio 
 de datos.

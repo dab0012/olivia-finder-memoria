@@ -60,7 +60,7 @@ Este \textit{sprint} representó nuestra primera aproximación a la temática de
 claro que el modelo matemático proporcionado por OLIVIA en el Trabajo de Fin de Grado anterior\footnote{\url{https://github.com/dsr0018/olivia}}  estaba más allá de 
 nuestra comprensión absoluta\cite{Seto-Rey20231}, y nuestro enfoque se centraría principalmente en la extracción de datos 
 de dependencias de paquetes software de distintos repositorios \textit{(PyPI, Bioconductor, CRAN, npm)} y el análisis comparativo de 
-la evolución temporal del nuevo conjunto de datos de dependencias entre paquetes generado.
+la evolución temporal del nuevo conjunto de datos de dependencias entre paquetes generados.
 
 Por lo tanto, fue necesario realizar un esfuerzo inicial para comprender los fundamentos básicos de lo que el modelo 
 de \textit{OLIVIA} nos permitía hacer. En este sentido, los Jupyter Notebooks proporcionados en el TFG anterior fueron de 
@@ -93,15 +93,15 @@ con unas 25 horas de trabajo.
 \subsection{Sprint 1 - Recolección de datos}
 
 En esta etapa de investigación nos enfocamos en el manejo de datos. Inicialmente, utilizamos el conjunto de datos 
-de \textit{libraries.io}\cite{jeremy_katz_2020_3626071}, el cual resultó útil desde una perspectiva histórica. Sin embargo, presentó importantes 
+de \textit{Libraries.io}\cite{jeremy_katz_2020_3626071}, el cual resultó útil desde una perspectiva histórica. Sin embargo, presentó importantes 
 limitaciones, como la falta de actualización periódica. Al enfrentarnos a los desafíos derivados de este conjunto 
 de datos, pudimos constatar que trabajar con grandes volúmenes de datos no es trivial. Fue necesario utilizar un 
-disco duro externo para almacenar el conjunto de datos, del cual solo nos interesaba la lista de enlaces entre 
+disco duro externo para almacenar el conjunto de datos, del cual sólo nos interesaba la lista de enlaces entre 
 paquetes y dependencias contenida en uno de los archivos CSV. Debido a la gran cantidad de líneas y su considerable 
 tamaño, resultó difícil manipular y filtrar los datos.
 
 La falta de actualización de los datos fue un aspecto clave a mejorar, por lo cual exploramos otras fuentes de información, 
-como la API de \textit{libraries.io} y el conjunto de datos de \textit{BigQuery} proporcionado por los mismos desarrolladores. 
+como la API de \textit{Libraries.io} y el conjunto de datos de \textit{BigQuery} proporcionado por los mismos desarrolladores. 
 El uso de la API quedó descartado debido a sus limitaciones técnicas para realizar un escaneo completo del repositorio. 
 Por otro lado, el conjunto de datos de \textit{BigQuery} también presentó problemas similares a los archivos CSV en 
 términos de falta de actualización.
@@ -111,7 +111,7 @@ de los repositorios de software de nuestro interés, comenzando con la recolecci
 dio resultados positivos, y logramos obtener una lista actualizada de la red de CRAN. Los éxitos obtenidos en este 
 proceso nos llevaron a considerar el desarrollo de una herramienta que pudiera obtener esta información para los 
 repositorios de interés, ya que esto generaría un nuevo conjunto de datos utilizable en OLIVIA y en trabajos anteriores 
-que hayan utilizado datos de \textit{libraries.io}, lo que permitiría actualizar sus resultados de manera significativa.
+que hayan utilizado datos de \textit{Libraries.io}, lo que permitiría actualizar sus resultados de manera significativa.
 
 Como resultado al finalizar este \textit{sprint}, logramos obtener una red actualizada de CRAN gracias a que desarrollamos 
 un prototipo básico pero todavía inmaduro de un código en Python que nos permitió realizar la recolección de datos.
@@ -135,7 +135,7 @@ En esta etapa, nuestro enfoque se centró en el desarrollo de una herramienta ge
 una extracción sencilla de la red de dependencias de los repositorios \textit{CRAN}, \textit{Bioconductor}, \textit{PyPI} 
 y \textit{npm}. Nos enfrentamos al primer desafío de obtener una lista completa de los paquetes disponibles en cada 
 repositorio, que serviría como punto de partida para nuestra recopilación de datos. Cabe destacar que esta tarea no 
-esulta sencilla en la mayoría de los casos, ya que dichas listas no siempre están disponibles.
+resulta sencilla en la mayoría de los casos, ya que dichas listas no siempre están disponibles.
 
 Es importante mencionar que cada repositorio de software presenta sus peculiaridades distintivas. En el caso particular 
 de \textit{CRAN} y \textit{Bioconductor}, el proceso se basó exclusivamente en técnicas de \textit{web scraping}, 
@@ -178,7 +178,7 @@ repositorio ha sido el más desafiante de abordar. En primer lugar, no existe un
 completa de los paquetes existentes en \textit{npm}. Además, el repositorio oficial de paquetes no es único, ya que 
 existen repositorios espejo (\textit{mirrors}) alternativos que difieren tanto en el número de paquetes como en los 
 paquetes que contienen. Para abordar este problema, decidimos utilizar la lista de paquetes que pudimos extraer de 
-uno de estos \textit{mirrors} y complementar con los paquetes que teníamos en el conjunto de datos de \textit{libraries.io}. 
+uno de estos \textit{mirrors} y complementar con los paquetes que teníamos en el conjunto de datos de \textit{Libraries.io}. 
 De esta manera, obtuvimos una lista de nombres de paquetes a los cuales dirigir nuestros esfuerzos. A partir de esta 
 lista, aplicamos la metodología utilizada previamente para el resto de los repositorios. En el caso de \textit{npm}, 
 gracias a su API, pudimos recopilar los metadatos necesarios para construir el conjunto de datos correspondiente.
@@ -188,13 +188,13 @@ Llevar a cabo este \textit{sprint} ha supuesto una duración de 60 días, lo que
 
 \subsection{Sprint 3 - Refactorización de la biblioteca}
 
-Tras el análisis de los datos recolectados, observamos que los conjuntos de datos de \textit{libraries.io} proporcionan 
+Tras el análisis de los datos recolectados, observamos que los conjuntos de datos de \textit{Libraries.io} proporcionan 
 información sobre todas las versiones existentes de un paquete. En otras palabras, consideramos como \textit{dependencias} 
 de un paquete todas las dependencias que hayan existido para cada una de sus versiones. Sin embargo, desde una perspectiva 
 de desarrollo de software, esto no es correcto, ya que sobrecargamos las dependencias de un paquete con dependencias de 
 versiones antiguas que ya no se utilizan en el ciclo de vida actual de esas bibliotecas. Por lo tanto, es importante tener 
 en cuenta esta información en los análisis posteriores que realicemos, donde será necesario aplicar un filtrado adecuado 
-si deseamos utilizar los datos de \textit{libraries.io}.
+si deseamos utilizar los datos de \textit{Libraries.io}.
 Otro aspecto interesante es que no todas las \textit{dependencias} de un paquete se encuentran presentes en el repositorio 
 al que pertenece ese paquete, e incluso es posible que no utilicen el mismo lenguaje de programación. Tomemos como ejemplo 
 un paquete en Python que depende de un binario escrito en C. Este fenómeno es muy común en la red de \textit{Bioconductor}, 
@@ -203,11 +203,11 @@ A estas dependencias las hemos bautizado como \textit{dependencias foráneas}.
 
 Con el objetivo de mejorar la funcionalidad y flexibilidad de la biblioteca, se llevó a cabo una refactorización del 
 diseño para adaptarlo y permitir el uso y la combinación de diversas fuentes de datos. Se proporciona soporte para 
-\textit{web scraping}, conjuntos de datos en formato \textit{CSV}, la API de \textit{libraries.io} y repositorios de 
+\textit{web scraping}, conjuntos de datos en formato \textit{CSV}, la API de \textit{Libraries.io} y repositorios de 
 \textit{GitHub}.
 El uso combinado de diferentes fuentes de datos nos brinda la capacidad de buscar en fuentes alternativas cuando un 
 paquete solicitado no se encuentra en la fuente principal. El soporte de archivos \textit{CSV} nos permite considerar 
-los conjuntos de datos de \textit{libraries.io} como fuente de información, tanto a través de su API como de los archivos 
+los conjuntos de datos de \textit{Libraries.io} como fuente de información, tanto a través de su API como de los archivos 
 en sí. La implementación para repositorios de \textit{GitHub} nos proporciona información adicional al utilizar 
 \textit{GitHub} como fuente de datos, ya que es el sistema de control de versiones por excelencia donde se encuentran 
 la mayoría de los proyectos de software de código abierto publicados. De esta manera, tenemos acceso a un repositorio 
@@ -239,7 +239,7 @@ En la etapa final de este estudio, se utilizaron los datos recopilados para real
 evolutiva de las redes de dependencias presentes en los repositorios \textit{CRAN}, \textit{Bioconductor}, \textit{PyPI} 
 y \textit{npm}, utilizando la ciencia de redes como marco de referencia.
 
-En este análisis, se lleva a cabo una comparativa entre el estado de la red según los datos obtenidos de \textit{libraries.io} 
+En este análisis, se lleva a cabo una comparativa entre el estado de la red según los datos obtenidos de \textit{Libraries.io} 
 y los datos obtenidos mediante \textit{web scraping}. Se realiza un análisis desde el punto de vista de la centralidad de 
 grado y el algoritmo \textit{PageRank}, con el objetivo de identificar y argumentar cuáles son los paquetes más vulnerables 
 y por qué. Además, se calculan algunas de las métricas proporcionadas por el modelo de red de \textit{OLIVIA} y se establecen 
@@ -335,10 +335,10 @@ uso establecidos por los autores y las licencias correspondientes.
 
 El conjunto de datos utilizado en el proyecto ha sido recolectado de fuentes 
 accesibles en la red, donde cualquier persona puede acceder a ellos. Nos hemos esforzado en recopilar y proporcionar estos 
-datos a la comunidad, siguiendo los principios de transparencia y acceso abierto. En el caso de uso de estos datos, solo 
+datos a la comunidad, siguiendo los principios de transparencia y acceso abierto. En el caso de uso de estos datos, sólo 
 exigimos la atribución a los autores del Trabajo Fin de Grado\footnote{Daniel Alonso Báscones y Carlos López Nozal}.
 
-Aprovechamos este momento para dar atribucion al autor del conjunto de datos de \textit{libraries.io} (\textit{Tidelift}\footnote{\url{https://tidelift.com/}}).
+Aprovechamos este momento para dar atribución al autor del conjunto de datos de \textit{Libraries.io} (\textit{Tidelift}\footnote{\url{https://tidelift.com/}}).
 
 \textbf{Licencia de código abierto:}
 
@@ -366,6 +366,6 @@ Es relevante destacar que la licencia MIT se ajusta de manera óptima a nuestro 
 que su naturaleza permisiva y su enfoque en la libertad del usuario se alinean con los objetivos y requisitos de 
 nuestro proyecto. 
 
-En base a estas dos licencias y las características de cada una, \texttt{hemos decidido utilizar la licencia MIT}, confiando en su idoneidad para respaldar nuestras actividades de codigo abierto.
+En base a estas dos licencias y las características de cada una, \texttt{hemos decidido utilizar la licencia MIT}, confiando en su idoneidad para respaldar nuestras actividades de código abierto.
 
 

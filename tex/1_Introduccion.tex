@@ -13,7 +13,7 @@ CRAN y Bioconductor para R, CPAN (Comprehensive Perl Archive Network) y Maven Ce
 
 
 El problema reside en que hay veces que utilizar componentes externos tiene sus riesgos. Esos riesgos pueden ser difíciles de 
-notar para los desarrolladores, ya que solo importan explícitamente una pequeña parte de las librerías que se incluyen en cada proyecto.
+notar para los desarrolladores, ya que sólo importan explícitamente una pequeña parte de las librerías que se incluyen en cada proyecto.
 
 
 Ilustraremos la afirmación anterior con un suceso que hizo temblar npm.
@@ -26,8 +26,7 @@ Los abogados, entonces, se pusieron en contacto con Isaac Schuleter, el director
 Koçulu muy decepcionado con la decisión tomó medidas, y eliminó más de 250 paquetes del repositorio que habían sido desarrollados por él.
 
 
-Entre los paquetes eliminados por Koçulu había uno llamado \textit{left-pad},
-que era un simple script para justificar cadenas de texto. Pero… Muchos de los paquetes más populares de npm dependían directa
+Entre los paquetes eliminados por Koçulu había uno llamado \textit{left-pad}, que era un simple script para justificar cadenas de texto. Muchos de los paquetes más populares de npm dependían directa
 o indirectamente de \textit{left-pad}. Casi un millón de sitios web comenzaron a tener problemas para actualizar sus dependencias o
 lanzar nuevas versiones, e incluso gigantes como Facebook o Netflix se vieron afectados. Fue un verdadero caos.
 
@@ -41,7 +40,7 @@ Después del incidente, se hizo evidente lo frágiles que son los sistemas de pa
 de software en todo el mundo.
 Surgieron muchas preguntas sobre el uso indiscriminado de librerías externas \cite{10.1145/3106237.3106267} y el modelo de gestión centralizada.
 Es como darse cuenta de lo mucho que dependemos de ciertas cosas y preguntarnos si estamos siendo prudentes al hacerlo.
-La problemática no se limita solo a la retirada voluntaria de un paquete en particular, como sucedió con \textit{left-pad}.
+La problemática no se limita sólo a la retirada voluntaria de un paquete en particular, como sucedió con \textit{left-pad}.
 También puede ser causada por todo tipo de defectos en el software o ataques maliciosos que se propagan a través de la estructura de dependencias.
 Según un informe llamado \textit{The state of open source security report}, las vulnerabilidades de seguridad en el software de código abierto
 prácticamente se duplican cada dos años, y aproximadamente el 80\% de estas vulnerabilidades se introducen a través de dependencias indirectas.
@@ -81,7 +80,7 @@ necesitamos conocer el tipo de red en particular. Por lo general, distinguimos e
 o cuando son ataques intencionales \cite{Albert2000}. En el último caso, se supone que los atacantes utilizan información de la red para
 planificar estrategias que provoquen el mayor daño posible o maximicen algún objetivo que generalmente va en contra de los intereses de los
 actores de la red.
-En cuanto a los repositorios de paquetes, un estudio \cite{10.1145/2901739.2901743} revela que la eliminación de un solo paquete puede
+En cuanto a los repositorios de paquetes, un estudio \cite{10.1145/2901739.2901743} revela que la eliminación de un sólo paquete puede
 afectar al 30 \% de los paquetes y aplicaciones en los ecosistemas de JavaScript, Rust y Ruby.
 Otro estudio \cite{10.1145/3196398.3196401} concluye que el número de vulnerabilidades encontradas en el código fuente de los paquetes
 de npm ha estado aumentando constantemente desde 2012, propagándose a través de la red de dependencias.
@@ -90,7 +89,7 @@ de npm ha estado aumentando constantemente desde 2012, propagándose a través d
 Universidad de Burgos y tutorizada por los profesores Carlos López Nozal y Jose Ignacio Santos Martín en 2021, es una herramienta de 
 código abierto que se centra en la identificación y análisis de defectos en bibliotecas de software desde la perspectiva de la ciencia 
 de redes. Estos defectos pueden provocar errores funcionales, problemas de rendimiento e incluso problemas de seguridad. Para los 
-desarrolladores, comprender completamente el riesgo es complicado, ya que solo importan explícitamente una pequeña parte de las dependencias utilizadas en sus proyectos.
+desarrolladores, comprender completamente el riesgo es complicado, ya que sólo importan explícitamente una pequeña parte de las dependencias utilizadas en sus proyectos.
 
 
 OLIVIA utiliza un enfoque basado en la \textit{vulnerabilidad de la red de dependencias} de los paquetes de software para medir la sensibilidad 
@@ -135,7 +134,7 @@ del sistema. Por lo tanto, es crucial realizar un seguimiento constante de los c
 de las dependencias de manera regular para garantizar la precisión de los datos recopilados.
 
 
-Para abordar estos desafíos, y como uno de los principales resultadoss de este TFG es ilustrar al 
+Para abordar estos desafíos, y como uno de los principales resultados de este TFG es ilustrar al 
 lector de cómo poder enfrentarse a esta tarea, identificando las distintas vías de obtención de datos, y concluyendo 
 con el desarrollo de una herramienta que facilita el proceso de obtención de los mismos desde los repositorios
 oficiales de los gestores de paquetes que hemos elegido como caso de estudio.  En concreto nos referimos a la 

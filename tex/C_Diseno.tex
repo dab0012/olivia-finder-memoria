@@ -15,7 +15,7 @@ la \textit{calidad} y el \textit{éxito} del proyecto.
 
 A continuación, se presentan 
 las \textit{especificaciones detalladas} que abordan aspectos clave del diseño, tales 
-como la arquitectura, las estructuras de datos, el diseño y y otros 
+como la arquitectura, las estructuras de datos, el diseño y otros 
 elementos críticos necesarios para una \textit{implementación correcta} del sistema.
 
 \section{Diseño de datos}
@@ -72,7 +72,7 @@ extensión \textit{.olvpm} para poder identificarlo correctamente.
 
 \section{Diseño procedimental}
 
-\subsection{Modulo olivia\_finder.package}
+\subsection{Módulo olivia\_finder.package}
 
 \textit{Package} \ref{fig:package} es uno de los módulos base de \textit{olivia-finder}, cuya funcionalidad radica en
 constituir una estructura de datos que contiene la representación del paquete. Está compuesto por
@@ -90,7 +90,7 @@ dependencias. Las principales funcionalidades que implementa son la representaci
 diccionario, la carga a partir de una estructura de tipo diccionario y la enumeración de las
 dependencias.
 
-\subsection{Modulo olivia\_finder.package\_manager}
+\subsection{Módulo olivia\_finder.package\_manager}
 
 El módulo \textit{Package Manager} \ref{fig:package_manager} es un wrapper de los datos que conforman la red de dependencias de
 un repositorio y de la funcionalidad del objeto \textit{DataSource}, que representa la fuente de
@@ -147,7 +147,7 @@ utilidad para la aplicación, aunque no forman parte central de ella. Está comp
 
 
 El módulo \textit{config} implementa una funcionalidad para la carga de la configuración
-definida en el archivo \textit{config.ini}\footnote{Archivo de configuracion de la biblioteca}, donde se especifican las configuraciones necesarias.
+definida en el archivo \textit{config.ini}\footnote{Archivo de configuración de la biblioteca}, donde se especifican las configuraciones necesarias.
 
 El módulo \textit{exception} implementa una excepción genérica para la herramienta, que
 puede ser utilizada para capturar y manejar situaciones excepcionales.
@@ -156,7 +156,7 @@ El módulo \textit{logger} implementa funcionalidades para llevar un registro de
 eventos ocurridos durante la ejecución de la aplicación.
 
 El módulo \textit{singleton\_decorator} implementa un patrón de diseño singleton basado
-en el decorador, que se puede aplicar a cualquier clase para garantizar que solo se cree una
+en el decorador, que se puede aplicar a cualquier clase para garantizar que sólo se cree una
 única instancia de dicha clase.
 
 El módulo \textit{utilities} proporciona algunas funcionalidades concretas y frecuentemente
@@ -185,7 +185,7 @@ para evitar la repetición en peticiones concurrentes. Además, obtiene nuevos p
 agotado los existentes. Implementa el patrón de diseño \textit{singleton}.
 
 El paquete \textit{proxy\_builders} implementa la funcionalidad de obtención de una lista de
-proxies de Internet. La funcionalidad está descrita en la clase abstracta \textit{ProxyBuilder} del moulo \textit{proxy\_builders},
+proxies de Internet. La funcionalidad está descrita en la clase abstracta \textit{ProxyBuilder} del módulo \textit{proxy\_builders},
 que se encarga de implementar las funcionalidades comunes y sirve como interfaz para las distintas
 clases que implementan \textit{ProxyBuilder}. Estas clases se encuentran en los
 módulos \textit{list\_builder} y \textit{ssl\_proxies}.
@@ -251,11 +251,11 @@ datos. La funcionalidad que ofrece es similar a la mencionada anteriormente, per
 para este tipo de archivo.
 
 El módulo \textit{data\_source}.\textit{librariesio\_ds} realiza la misma función que los anteriores, pero utiliza la
-API de \textit{data\_source}.\textit{libraries.io}. No todas las funcionalidades han podido ser implementadas en este
+API de \textit{data\_source}.\textit{Libraries.io}. No todas las funcionalidades han podido ser implementadas en este
 módulo, por ejemplo, la lista de paquetes de un repositorio no está soportada. Sin embargo, ofrece
-un conjunto de datos más amplio al acceder directamente al conjunto de datos de \textit{libraries.io}
+un conjunto de datos más amplio al acceder directamente al conjunto de datos de \textit{Libraries.io}
 a través de su API. Para poder utilizar esta funcionalidad, es necesario disponer de una clave de API
-de \textit{libraries.io}.
+de \textit{Libraries.io}.
 
 \section{Diseño arquitectónico}
 

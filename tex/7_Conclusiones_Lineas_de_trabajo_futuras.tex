@@ -3,22 +3,22 @@
 
 \section{Conclusiones}
 
-En esta conclusion se pretende dar una introducción al escaneo y análisis de repositorios software, destacando la dificultad asociada debido
-a la \emph{elevada cantidad de datos}\footnote{La cantidad de datos almacenados en los repositorios software puede ser enormemente extensa,
-    lo que implica desafíos en términos de procesamiento y almacenamiento.} y la necesidad de comprender la temática de los mismos. Se ha de tener en cuenta
-también el \emph{tiempo de ejecución}\footnote{El tiempo requerido para realizar un escaneo y análisis exhaustivo de un repositorio puede
-    ser considerable debido a la cantidad de operaciones y tareas involucradas.} y el \emph{gasto de recursos}\footnote{El análisis de grandes
-    volúmenes de datos puede requerir altos consumos de memoria RAM y espacio en disco, lo que puede afectar el rendimiento general del sistema.}
-asociados a esta tarea. La computacion en la nube es una solución a estos problemas, ya que permite el procesamiento de grandes volúmenes de
+En esta conclusión se pretende dar una introducción al escaneo y análisis de repositorios software, destacando la dificultad asociada debido
+a la \emph{elevada cantidad de datos} (La cantidad de datos almacenados en los repositorios software puede ser enormemente extensa,
+lo que implica desafíos en términos de procesamiento y almacenamiento) y la necesidad de comprender la temática de los mismos. 
+Se ha de tener en cuenta que el \emph{tiempo de ejecución}  requerido para realizar un escaneo  de un repositorio puede
+ser considerable debido a la gran cantidad de datos  y el \emph{gasto de recursos} asociados a esta tarea. El análisis de grandes
+volúmenes de datos puede requerir altos consumos de memoria RAM y espacio en disco, lo que puede afectar el rendimiento general del sistema.
+La computación en la nube es una solución a estos problemas, ya que permite el procesamiento de grandes volúmenes de
 datos de forma distribuida, escalable y eficiente.
 
-Respecto a la persistencia de los datos, la elección entre una base de datos y archivos CSV para almacenar los datos de las redes de dependencias 
-de paquetes depende de varios factores. Si se requiere una estructura de datos más compleja, consultas sofisticadas y escalabilidad a largo plazo, 
-una base de datos es la opción más adecuada. Sin embargo, si se trabaja con conjuntos de datos más pequeños, se valora la simplicidad y la portabilidad, 
+Respecto a la persistencia de los datos, la elección entre una base de datos y archivos CSV para almacenar los datos de las redes de dependencias
+de paquetes depende de varios factores. Si se requiere una estructura de datos más compleja, consultas sofisticadas y escalabilidad a largo plazo,
+una base de datos es la opción más adecuada. Sin embargo, si se trabaja con conjuntos de datos más pequeños, se valora la simplicidad y la portabilidad,
 y no se necesitan capacidades avanzadas de gestión de datos, los archivos CSV pueden ser una solución práctica y eficiente.
 En nuestro caso, se ha optado por el uso de archivos CSV debido a la simplicidad de la estructura de datos y ser la estructura usada por OLIVIA para
 almacenar los datos de las redes de dependencias de paquetes. No obstante, se ha de tener en cuenta que el uso de archivos CSV puede implicar
-problemas, por lo que se recomienda el uso de una base de datos para el almacenamiento de los datos por las ventajas que ofrecen en términos de 
+problemas, por lo que se recomienda el uso de una base de datos para el almacenamiento de los datos por las ventajas que ofrecen en términos de
 rendimiento y escalabilidad.
 Sobre el almacenamiento en GitHub, se ve necesario \emph{particionar los datos} ya que existe una limitación en el tamaño máximo de archivo de 100 MB.
 
@@ -26,14 +26,14 @@ En cuanto a la extracción de datos, se ha de tener en cuenta que la extracción
 a la gran cantidad de información que se puede extraer de los mismos. Por ello, se ha de tener en cuenta que la extracción de datos debe ser
 \emph{flexible y extensible}, ya que se pretende que sea capaz de adaptarse a diferentes repositorios software y a diferentes tipos de análisis.
 
-En cuanto al análisis de los datos, el análisis de los datos es una tarea compleja debido a la naturaleza amplia y compleja de la ciencia de redes. 
-Requiere el uso de técnicas y herramientas especializadas, así como un profundo conocimiento y comprensión de los principios de la ciencia de redes. 
-Sin embargo, este análisis puede brindar información valiosa sobre las interdependencias y la estructura de los paquetes mas importantes en los repositorios software,
-proponemos una vision general de los paquetes mas importantes respecto a distinta metricas de centralidad y aportamos una vision de evolucion de los paquetes
-al comparar los resultados de libraries.io con los obtenidos por en este trabajo.
+En cuanto al análisis de los datos, el análisis de los datos es una tarea compleja debido a la naturaleza amplia y compleja de la ciencia de redes \cite{barabasi2016network}.
+Requiere el uso de técnicas y herramientas especializadas, así como un profundo conocimiento y comprensión de los principios de la ciencia de redes.
+Sin embargo, este análisis puede brindar información valiosa sobre las interdependencias y la estructura de los paquetes más importantes en los repositorios software,
+proponemos una visión general de los paquetes más importantes respecto a distinta métricas de centralidad y aportamos una visión de evolución de los paquetes
+al comparar los resultados de Libraries.io con los obtenidos por en este trabajo.
 
-Por último, se propone el diseño de una herramienta capaz de llevar a cabo la recoleccion de datos, gestionando
-los posibles inconvenientes que puedan surgir durante el proceso. Se ha de tener en cuenta que el diseño de la herramienta debe ser extensible, 
+Por último, se propone el diseño de una herramienta capaz de llevar a cabo la recolección de datos, gestionando
+los posibles inconvenientes que puedan surgir durante el proceso. Se ha de tener en cuenta que el diseño de la herramienta debe ser extensible,
 ya que se pretende que sea capaz de adaptarse a diferentes repositorios software y a diferentes tipos de análisis y debido a su
 naturaleza opensource y experimental, se ha realizado un esfuerzo adicional en la documentación del código y en el control de calidad del mismo.
 
@@ -42,31 +42,31 @@ naturaleza opensource y experimental, se ha realizado un esfuerzo adicional en l
 
 \subsection{Mejoras en la herramienta}
 
-Con el objetivo de mejorar la herramienta desarrollada, se identifican diversas áreas de enfoque. 
-En primer lugar, se propone realizar mejoras en el diseño y pulir detalles técnicos para optimizar su rendimiento y eficiencia. 
-Esto implica revisar y refinar la arquitectura de la herramienta, identificar posibles cuellos de botella y aplicar técnicas de 
+Con el objetivo de mejorar la herramienta desarrollada, se identifican diversas áreas de enfoque.
+En primer lugar, se propone realizar mejoras en el diseño y pulir detalles técnicos para optimizar su rendimiento y eficiencia.
+Esto implica revisar y refinar la arquitectura de la herramienta, identificar posibles cuellos de botella y aplicar técnicas de
 optimización que permitan un procesamiento más rápido y una mayor escalabilidad.
 
-Adicionalmente, se propone añadir soporte para nuevos repositorios, con el fin de ampliar la compatibilidad de la herramienta y 
-permitir su aplicación en una variedad de entornos y plataformas. Esto implica adaptar la herramienta para interactuar con 
-diferentes sistemas de control de versiones y repositorios, asegurando la interoperabilidad y facilitando su adopción por 
+Adicionalmente, se propone añadir soporte para nuevos repositorios, con el fin de ampliar la compatibilidad de la herramienta y
+permitir su aplicación en una variedad de entornos y plataformas. Esto implica adaptar la herramienta para interactuar con
+diferentes sistemas de control de versiones y repositorios, asegurando la interoperabilidad y facilitando su adopción por
 parte de un mayor número de usuarios.
 
-Por último, es necesario replantearse la persistencia de datos. Esto implica evaluar la forma en que se almacenan y gestionan 
-los datos recolectados durante el análisis de los repositorios software. Se pueden considerar opciones como el uso de bases de 
+Por último, es necesario replantearse la persistencia de datos. Esto implica evaluar la forma en que se almacenan y gestionan
+los datos recolectados durante el análisis de los repositorios software. Se pueden considerar opciones como el uso de bases de
 datos para un almacenamiento más eficiente y la implementación de mecanismos de respaldo y recuperación de datos para garantizar
- su integridad y disponibilidad a largo plazo.
+su integridad y disponibilidad a largo plazo.
 
 \subsection{Análisis de los datos}
 
 Se propone realizar un análisis más exhaustivo a partir de los datos recolectados. Esto implica la aplicación de técnicas de análisis
 de redes complejas para identificar patrones y tendencias en las redes de dependencias de paquetes. Ahí entra la comunidad científica, que puede
-aportar una visión más amplia y profunda de los datos que aportamos en este trabajo, así como una mayor comprensión de los mismos. Esto permitirá 
+aportar una visión más amplia y profunda de los datos que aportamos en este trabajo, así como una mayor comprensión de los mismos. Esto permitirá
 obtener información con la que actualizar sus investigaciones continuar con el estudio de las redes de dependencias de paquetes.
 
 \subsection{Herramienta de visualización}
 
 Sería un punto interesante el desarrollo de una herramienta de visualización que permita representar gráficamente las redes de dependencias
-de paquetes y el calculo de metricas asociadas. Esto implica el diseño e implementación de una interfaz gráfica de usuario que permita la 
+de paquetes y el cálculo de métricas asociadas. Esto implica el diseño e implementación de una interfaz gráfica de usuario que permita la
 interacción con la herramienta y la visualización de los resultados del análisis de los repositorios software. Esto permitirá a los usuarios
 explorar y comprender mejor las redes de dependencias de paquetes, así como identificar patrones y tendencias en los datos.

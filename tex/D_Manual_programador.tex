@@ -10,7 +10,7 @@ Este repositorio incluye los objetos de persistencia, los datos extraídos en lo
 conjunto de scripts y demás material utilizado. Sin embargo, si lo que le interesa son los datos generados de las redes de dependencias,
 es recomendable acceder a ellos desde los siguientes mirrors en \textit{Zenodo}.\footnote{\url{https://zenodo.org/record/8095863}}.
 
-EL conjunto de datos completo usado en los experimentos esta disponble en \textit{Kaggle}.\footnote{\url{https://www.kaggle.com/datasets/danielalonsob/dependency-networks}}
+EL conjunto de datos completo usado en los experimentos está disponible en \textit{Kaggle}.\footnote{\url{https://www.kaggle.com/datasets/danielalonsob/dependency-networks}}
 
 \subsection{Estructura de directorios del repositorio}
 
@@ -50,7 +50,7 @@ en ampliar o personalizar las funcionalidades de las bibliotecas.
     \end{verbatim}
 
 
-Sobre la raiz del repositorio, se encuentra el directorio \textit{docs} contiene la documentación de la biblioteca, mientras que el directorio \textit{notebooks}
+Sobre la raíz del repositorio, se encuentra el directorio \textit{docs} contiene la documentación de la biblioteca, mientras que el directorio \textit{notebooks}
 contiene los notebooks que ofrecen demostraciones interactivas de las bibliotecas.
 
 Dentro de \textit{notebooks}, el directorio \textit{common} contiene notebooks que ofrecen funcionalidades comunes
@@ -60,16 +60,16 @@ El directorio \textit{resources} contiene los algun scripts
 y recursos adicionales de utilidad. Por último, el directorio \textit{results} contiene los datos generados por las
 redes de dependencias, que se encuentran organizados en subdirectorios según su contenido o formato de exportación. \textit{(Debido a su tamaño, y para que el repositorio de 
 GitHub no sufra reindexando todos los datos cada vez que ha habido un cambio, los datos no se encuentran en el repositorio, pero se pueden descargar desde 
-los enlaces proporcionados en la seccion README.md de esa carpeta.)}
+los enlaces proporcionados en la sección README.md de esa carpeta.)}
 
-En la raiz del repositorio, se encuentran los directorios \textit{olivia} y \textit{olivia\_finder}, que contienen
+En la raíz del repositorio, se encuentran los directorios \textit{olivia} y \textit{olivia\_finder}, que contienen
 las bibliotecas \textit{OLIVIA} y \textit{Olivia Finder}, respectivamente. Dentro de cada uno de estos directorios, se encuentra
 el directorio \textit{olivia} o \textit{olivia\_finder}, que contienen el código de las bibliotecas.
 
 
 \section{Manual del programador}
 
-\subsection{Entrorno de desarrollo}
+\subsection{Entorno de desarrollo}
 
 El proyecto puede descargarse directamente o clonarse desde el repositorio\footnote{\url{https://github.com/dab0012/olivia-finder}}
 con \texttt{git}. Ha sido desarrollado en \texttt{python3.11} buscando la compatibilidad con \texttt{python3.8} por
@@ -180,12 +180,12 @@ Como anexo, introducimos también la documentación de \textit{OLIVIA}:
 
 \section{Compilación, instalación y ejecución del proyecto}
 
-El código de la biblioteca esta escrito en Python y debido a las caracteristicas de este lenguaje de programación
+El código de la biblioteca está escrito en Python y debido a las características de este lenguaje de programación
 no requiere un paso de compilación explícita. Dadas por 
 satisfechas las dependencias especificadas en \textit{requirements.txt}, los módulos pueden importarse 
 en el proyecto actual como cualquier otro módulo Python.
 
-No obstante, determinadas funcionalidades, como aquellas que requieren el uso de \textit{la API de libraries.io}, 
+No obstante, determinadas funcionalidades, como aquellas que requieren el uso de \textit{la API de Libraries.io}, 
 dependen de la \textit{API key} proporcionada por los proveedores del servicio. Esta \textit{API key} 
 debe ser configurada en el archivo de configuración \textit{config.ini} en la raíz de la carpeta de 
 código de la biblioteca. Desde este mismo archivo, también podemos configurar el sistema de logs de 
@@ -194,12 +194,12 @@ la herramienta.
 \section{Pruebas del sistema}
 
 Las pruebas del correcto funcionamiento del sistema se establecen mediante una serie de \textit{notebooks de demostración} 
-que abarcan tanto la funcionalidad como el uso de la aplicación, los cuales comentamos en la seccion de documentacion de usuario. Estos notebooks permiten verificar exhaustivamente el 
+que abarcan tanto la funcionalidad como el uso de la aplicación, los cuales comentamos en la sección de documentación de usuario. Estos notebooks permiten verificar exhaustivamente el 
 comportamiento del sistema en diferentes escenarios y validar su conformidad con los requisitos establecidos.
 
 Dado que no existe un método de validación preciso que nos permita determinar si el conjunto de datos utilizado es fiel a 
 la realidad, se asume inicialmente que los datos son más exactos y actualizados en comparación con los proporcionados por 
-\textit{libraries.io}. Esta percepción se basa en el \textit{aumento del número de paquetes} en el período temporal que 
+\textit{Libraries.io}. Esta percepción se basa en el \textit{aumento del número de paquetes} en el período temporal que 
 separa ambos conjuntos de datos, así como en la aparente \textit{evolución de las relaciones de dependencia} de manera esperada.
 
 \section{Documentación del código fuente}
@@ -238,6 +238,6 @@ actualizada y coherente para los usuarios de la biblioteca.
 
 \section{Detalles de la implementación}
 
-Si se desea profundizar en aspectos mas técnicos sobre la implementación de la biblioteca, se puede consultar 
+Si se desea profundizar en aspectos más técnicos sobre la implementación de la biblioteca, se puede consultar 
 el notebook \texttt{Olivia Finder - Implementation.ipynb}\footnote{\url{https://github.com/dab0012/olivia-finder/blob/master/notebooks/olivia_finder/Olivia\%20Finder\%20-\%20Implementation.ipynb}}
  en la carpeta \texttt{notebooks} del repositorio.

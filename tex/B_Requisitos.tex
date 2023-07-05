@@ -144,7 +144,7 @@ Los casos de uso son una técnica para capturar los requisitos funcionales de un
 descripción de las acciones que realiza un usuario y las respuestas del sistema ante dichas acciones.
 Los casos de uso se representan mediante diagramas de casos de uso, que muestran las relaciones entre los distintos actores y casos de uso del sistema.
 
-A continuacion presentamos los casos de uso del sistema, que se han agrupado en dos grupos: casos de uso de la biblioteca y casos de uso de los notebooks.
+A continuación presentamos los casos de uso del sistema, que se han agrupado en dos grupos: casos de uso de la biblioteca y casos de uso de los notebooks.
 
 \subsection{Casos de uso de la biblioteca}
 
@@ -219,7 +219,7 @@ paquete, lo que resulta útil para comprender las relaciones y requisitos del so
 			\item Registrar todas las dependencias transitivas encontradas durante el recorrido.
 		\end{enumerate}              \\
 		\textbf{Postcondición}        & Se obtienen las dependencias transitivas del paquete hasta la profundidad de búsqueda especificada.    \\
-		\textbf{Excepciones}          & Si el paquete no existe en las redes de paquetes, se añade como un diccionario vacio.                  \\
+		\textbf{Excepciones}          & Si el paquete no existe en las redes de paquetes, se añade como un diccionario vacío.                  \\
 		\textbf{Importancia}          & Media                                                                                                  \\
 		\bottomrule
 	\end{tabularx}
@@ -245,7 +245,7 @@ indirectas que pueden influir en su funcionamiento.
 		\textbf{Versión}              & 1.0                                                                                                                      \\
 		\textbf{Autor}                & Daniel Alonso                                                                                                            \\
 		\textbf{Requisitos asociados} & RF-3, RF-5, RF-6, RF-7, RF-9                                                                                             \\
-		\textbf{Descripción}          & Generar la red de dependencias de paqutes para un repositorio.                                                           \\
+		\textbf{Descripción}          & Generar la red de dependencias de paquetes para un repositorio.                                                           \\
 		\textbf{Precondición}         & Los repositorios PyPI, npm, CRAN y Bioconductor están accesibles via Web o disponemos de otra fuente de datos soportada. \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
@@ -256,7 +256,7 @@ indirectas que pueden influir en su funcionamiento.
 			\item Construir la red de dependencias, donde los paquetes son los nodos y las relaciones de dependencia son los enlaces.
 		\end{enumerate}                                 \\
 		\textbf{Postcondición}        & Se genera la red de dependencias que muestra las relaciones entre los paquetes en el repositorio.                        \\
-		\textbf{Excepciones}          & Si no es posible acceder a alguno de los repositorios, se obtiene una excepcion.                                         \\
+		\textbf{Excepciones}          & Si no es posible acceder a alguno de los repositorios, se obtiene una excepción.                                         \\
 		\textbf{Importancia}          & Alta                                                                                                                     \\
 		\bottomrule
 	\end{tabularx}
@@ -368,7 +368,7 @@ las métricas de vulnerabilidad definidas en \textit{OLIVIA}. \ref{tab:cu2.1}
 
 \textbf{CU-2.2: Manipulación de datos.}
 
-El caso de uso de \textit{Manipulación de datos} muestra como realizar la obtenición de datos utilizando \textit{Olivia Finder}.
+El caso de uso de \textit{Manipulación de datos} muestra como realizar la obtención de datos utilizando \textit{Olivia Finder}.
 En concreto se muestra como se construye un objeto \texttt{PackageManager} usando las distintas fuentes de datos implementadas y cómo se pueden combinar, con el fin de obtener las dependencias
 de los paquetes y entender la forma en que se presentan estos datos. \ref{tab:cu2.2}
 
@@ -472,8 +472,8 @@ alcanzando la profundidad deseada en el árbol de dependencias. \ref{tab:cu2.4}
 
 Este caso de uso, pese a ser muy genérico proporciona una guía detallada para desarrolladores sobre la implementación
 de la herramienta, mostrando las funcionalidades de los distintos módulos. Ofrece una visión en
-profundidad de la biblioteca y sus componentes. Esta pensado introducir de una forma descriptiva el funcionamiento de la biblioteca
-a un nivel mas bajo y ser de ayuda para el programador que decida hacer reimplementaciones de la biblioteca. \ref{tab:cu2.5}
+profundidad de la biblioteca y sus componentes. Está pensado introducir de una forma descriptiva el funcionamiento de la biblioteca
+a un nivel más bajo y ser de ayuda para el programador que decida hacer reimplementaciones de la biblioteca. \ref{tab:cu2.5}
 
 \begin{table}[p]
 	\centering
@@ -505,7 +505,7 @@ a un nivel mas bajo y ser de ayuda para el programador que decida hacer reimplem
 El caso de uso de \textit{Evolución de la red} presentan un análisis evolutivo de los repositorios
 desde una perspectiva experimental. Se realiza un análisis gráfico
 básico de cómo ha variado el repositorio a lo largo del tiempo, utilizando los datos
-de \textit{libraries.io}\cite{jeremy_katz_2020_3626071} del año 2020 y los datos obtenidos mediante \textit{Olivia Finder} en el 2023. \ref{tab:cu2.6}
+de \textit{Libraries.io}\cite{jeremy_katz_2020_3626071} del año 2020 y los datos obtenidos mediante \textit{Olivia Finder} en el 2023. \ref{tab:cu2.6}
 
 
 \begin{table}[p]
@@ -518,14 +518,14 @@ de \textit{libraries.io}\cite{jeremy_katz_2020_3626071} del año 2020 y los dato
 		\textbf{Autor}                & Daniel Alonso                                                                                                                                                                             \\
 		\textbf{Requisitos asociados} & RF-1, RF-4, RF-7, RF-9, RNF-1, RNF-2, RNF-4, RNF-5                                                                                                                                        \\
 		\textbf{Descripción}          & Realizar un análisis evolutivo de los repositorios desde una perspectiva experimental, proporcionando un análisis gráfico básico de cómo ha variado el repositorio a lo largo del tiempo. \\
-		\textbf{Precondición}         & Se disponen de los datos de \textit{libraries.io} del año 2020 y de los datos obtenidos mediante \textit{Olivia Finder}.                                                                  \\
+		\textbf{Precondición}         & Se disponen de los datos de \textit{Libraries.io} del año 2020 y de los datos obtenidos mediante \textit{Olivia Finder}.                                                                  \\
 		\textbf{Acciones}             & \begin{enumerate}
-			                                \item Utilizar los datos de \textit{libraries.io} y de \textit{Olivia Finder} para analizar la evolución de los repositorios.
+			                                \item Utilizar los datos de \textit{Libraries.io} y de \textit{Olivia Finder} para analizar la evolución de los repositorios.
 			                                \item Generar gráficos que ilustren cómo ha variado el repositorio a lo largo del tiempo.
 			                                \item Realizar un análisis comparativo de los resultados obtenidos.
 		                                \end{enumerate}                                                              \\
 		\textbf{Postcondición}        & Se obtiene un análisis evolutivo de los repositorios, que proporciona una visión básica de cómo ha variado el repositorio a lo largo del tiempo.                                          \\
-		\textbf{Excepciones}          & No se disponen de los datos de \textit{libraries.io} del año 2020 o de los datos obtenidos mediante \textit{Olivia Finder}.                                                               \\
+		\textbf{Excepciones}          & No se disponen de los datos de \textit{Libraries.io} del año 2020 o de los datos obtenidos mediante \textit{Olivia Finder}.                                                               \\
 		\textbf{Importancia}          & Alta                                                                                                                                                                                      \\
 		\bottomrule
 	\end{tabularx}
