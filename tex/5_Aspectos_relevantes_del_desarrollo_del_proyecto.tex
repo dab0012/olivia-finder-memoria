@@ -1326,8 +1326,7 @@ creciente número de contribuyentes que comparten sus proyectos y soluciones a t
 \end{figure}
 
 El análisis de los datos revela que aproximadamente el \textit{57 \%} de los paquetes que estaban
-presentes en el conjunto de datos antiguo de PyPI se han mantenido en el nuevo conjunto de datos
-\footnote{Este porcentaje se basa en datos obtenidos experimentalmente.}. Este porcentaje
+presentes en el conjunto de datos antiguo de PyPI se han mantenido en el nuevo conjunto de datos. Este porcentaje
 relativamente elevado indica que la red de paquetes en PyPI ha logrado mantener una cantidad considerable
 de paquetes de manera estable a lo largo del tiempo \ref{tab:pypi_common_packages}.
 
@@ -1379,9 +1378,7 @@ Al analizar el gráfico, se evidencia que el grado máximo alcanzado por un paqu
 experimentado un incremento significativo. Tomando como punto de referencia el número de nodos con grado
 \textit{1000}, se puede apreciar una diferencia sustancial entre la red de \textit{Libraries.io} y los
 nuevos datos recolectados. Mientras que en \textit{Libraries.io} se registran menos de \textit{10} paquetes
-con dicho grado, en los nuevos datos se han identificado aproximadamente \textit{40} individuos
-\footnote{Estos datos se basan en el análisis realizado en una fecha específica y pueden estar sujetos
-    a cambios en el tiempo.}.
+con dicho grado, en los nuevos datos se han identificado aproximadamente \textit{40} individuos.
 
 \begin{figure}[ht!]
     \begin{center}
@@ -1451,8 +1448,7 @@ anterior, lo cual indica su relevancia a lo largo del tiempo. Estos
 paquetes incluyen \textit{PyYAML}, \textit{click}, \textit{numpy}, \textit{pandas}, \textit{pytest},
 \textit{pyyaml}, \textit{requests}, \textit{setuptools} y \textit{six}. Su presencia continua en el
 ranking sugiere que son dependencias fundamentales y ampliamente utilizadas en proyectos y aplicaciones
-de Python\footnote{La relevancia y utilidad de estos paquetes se basa en la percepción de la comunidad
-    de desarrolladores de Python y puede variar dependiendo del contexto y los requisitos del proyecto}.
+de Python.
 
 Por otro lado, se identifican paquetes que han ascendido en el ranking en comparación con la clasificación
 anterior. Estos paquetes incluyen \textit{black}, \textit{coverage}, \textit{flake8}, \textit{matplotlib},
@@ -1553,9 +1549,7 @@ Cabe destacar un caso particular, el paquete denominado \textit{apache-airflow}
 en el número de dependencias, pasando de 41 a 185. La explicación que se atribuye a este fenómeno es la
 incorporación de nuevas funcionalidades, dado que se trata de un paquete con cierta popularidad. No obstante,
 desde la perspectiva del autor de este Trabajo Final de Grado, se recomienda a los desarrolladores reducir
-al máximo este número de dependencias para mejorar su estabilidad\footnote{El aumento en el número de dependencias
-    puede aumentar la complejidad y la posibilidad de conflictos en el entorno de desarrollo. Se sugiere evaluar
-    cuidadosamente las dependencias necesarias y buscar alternativas más ligeras o mejor optimizadas si es posible}.
+al máximo este número de dependencias para mejorar su estabilidad.
 
 \begin{figure}[ht!]
     \begin{center}
@@ -1613,8 +1607,7 @@ En concreto, estas son las dependencias más importantes a tener en cuenta debid
 
 En términos de vulnerabilidad, los paquetes más críticos son aquellos que, si experimentan problemas o inestabilidad,
 pueden tener un impacto significativo en toda la red de dependencias. Una dependencia crítica usada por un paquete
-puede generar la propagación de errores o vulnerabilidades a través de los paquetes de la red de dependencias\footnote{Una dependencia crítica es aquella que, al presentar problemas, puede afectar negativamente a
-    otros paquetes que dependen de ella, causando errores o vulnerabilidades en cadena.}.
+puede generar la propagación de errores o vulnerabilidades a través de los paquetes de la red de dependencias.
 
 Si visualizamos el número de dependencias transitivas \ref{fig:Dependencias transitivas del top 20 pagerank en Libraries.io}
 de estos paquetes, podemos obtener conclusiones más precisas.
@@ -1634,8 +1627,7 @@ más bajas\footnote{Ya que son paquetes \textit{marginados} en la red}.
 
 Al analizar los resultados, se puede ver que los paquetes presentes en este grupo han
 experimentado una evolución considerable \ref{fig:Top PageRank en Scraped}, con una reducción significativa en
-su \textit{PageRank}\footnote{El \textit{PageRank} de estos paquetes ha disminuido
-    en comparación con mediciones anteriores.}. Esto se explica por la desaparición de algunos
+su \textit{PageRank}. Esto se explica por la desaparición de algunos
 de estos paquetes, la aparición de otros nuevos que han reemplazado su importancia y
 la evolución de los propios paquetes hacia una mayor estabilización, lo que ha disminuido
 su vulnerabilidad.
@@ -2243,3 +2235,20 @@ son nuevas incorporaciones a la red. Uno de ellos que destaca es el paquete \emp
 un notable incremento en su número de dependencias durante este período. Sin embargo, es importante destacar que \emph{bloater}
 no es más que un conjunto de dependencias similar a los anteriores
 mencionados\footnote{Paquete \emph{bloater} en \emph{npm}: \url{https://www.npmjs.com/package/bloater}}.
+
+\textbf{Nota:} 
+
+Lamentablemente, el avance en nuestro análisis se ha visto obstaculizado debido a los desafíos asociados 
+al procesamiento de grafos. La magnitud de los recursos requeridos, en términos de capacidad de memoria \textit{RAM}\footnote{Más de 40GB de \textit{RAM} para el grafo de \textit{npm} del conjunto de datos \textit{Scraped}}
+y tiempo de procesamiento, ha superado nuestras capacidades actuales. La complejidad inherente de las estructuras de 
+los grafos, así como la necesidad de interactuar con el entorno del \textit{notebook} para presentar los resultados, 
+ha dificultado en gran medida nuestra capacidad para continuar con el análisis.
+
+El procesamiento de los grafos implica manipular y analizar grandes conjuntos de datos interconectados, lo que exige 
+una capacidad de \textit{RAM} significativa para almacenar y manipular eficientemente la información. Además, debido 
+a la naturaleza compleja de los grafos y la necesidad de realizar múltiples cálculos iterativos, el tiempo de 
+procesamiento requerido se ha vuelto prohibitivamente extenso.
+
+Además, la interacción constante con el \textit{notebook} es esencial para presentar los resultados de manera efectiva. 
+Sin embargo, esta necesidad de interacción continuada agrega una capa adicional de complejidad y dificultad al análisis, 
+ya que requiere una atención constante y mucho tiempo de trabajo humano para conseguir una representación de los datos adecuada.
